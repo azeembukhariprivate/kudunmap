@@ -1,0 +1,43 @@
+KUDUNMAP - third-party notices
+==============================
+
+KUDUNMAP is free and open source software, released under the Nmap Public
+Source License (NPSL) version 0.95. See LICENSE.txt.
+
+KUDUNMAP does not include any third-party code or files. It uses the following
+software, which is NOT included and is installed separately by the user.
+
+
+1. Nmap
+-------
+Copyright (C) Nmap Software LLC. https://nmap.org
+
+KUDUNMAP is a front-end for Nmap: it runs the nmap.exe that the user has
+installed and reads the results file (XML) that Nmap writes. KUDUNMAP never
+bundles, downloads or installs Nmap, and never reads Nmap's own data files.
+Nmap is licensed under the Nmap Public Source License: https://nmap.org/npsl/
+
+KUDUNMAP is not affiliated with, sponsored or endorsed by the Nmap Project or
+Nmap Software LLC. "Nmap" is a trademark of Nmap Software LLC.
+
+
+2. Npcap
+--------
+Copyright (C) Nmap Software LLC. https://npcap.com
+
+Npcap is the packet capture driver Nmap uses on Windows. It is installed by the
+Nmap installer, not by KUDUNMAP, and is covered by its own license:
+https://npcap.com/oem/redist.html
+
+
+3. Online CVE lookup (optional)
+-------------------------------
+The "Look up known CVEs online (vulners)" switch runs Nmap's vulners script,
+which is part of Nmap. When it is switched on, the names and versions of the
+services found are sent to the vulners.com service. It is off by default.
+
+
+4. Microsoft .NET Framework 4.8
+-------------------------------
+KUDUNMAP runs on the .NET Framework 4.8, which is part of Windows 10 and 11 and
+is not redistributed with KUDUNMAP.
