@@ -48,13 +48,15 @@ namespace Kudunmap.Views
             {
                 try
                 {
+                    var before = Errors.Count;
                     action();
                     Pump();
+                    if (Errors.Count > before) throw new Exception(string.Join(" | ", Errors.Skip(before)));
                     log.AppendLine("ok    " + name);
                 }
                 catch (Exception ex)
                 {
-                    Errors.Add(name + ": " + ex);
+                    if (!Errors.Any(x => ex.Message.Contains(x))) Errors.Add(name + ": " + ex);
                     log.AppendLine("FAIL  " + name + ": " + ex.GetType().Name + ": " + ex.Message);
                 }
             }
@@ -137,6 +139,8 @@ namespace Kudunmap.Views
             Step("Results screen, every tab", () =>
             {
                 main.OpenHistory(first);
+                Pump();
+                main.OpenHistory(second); // opening results twice reuses the same screen
                 for (var i = 0; i < 4; i++)
                 {
                     main.Results.SelectTab(i);
@@ -164,9 +168,6 @@ namespace Kudunmap.Views
                 Exporter.SaveVulnerabilitiesCsv(r, Path.Combine(temp, "vulns.csv"));
             });
             Step("Close main window", () => main?.Close());
-
-            foreach (var e in Errors.Where(e => !log.ToString().Contains(e.Split(':')[0])))
-                log.AppendLine("FAIL  unhandled: " + e);
 
             log.AppendLine(Errors.Count == 0 ? "SELF-TEST PASSED" : "SELF-TEST FAILED (" + Errors.Count + ")");
             try { File.WriteAllText(Path.Combine(Path.GetDirectoryName(AppInfo.ExePath) ?? ".", "self-test.log"), log.ToString()); }

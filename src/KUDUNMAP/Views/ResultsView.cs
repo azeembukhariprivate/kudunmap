@@ -54,6 +54,7 @@ namespace Kudunmap.Views
         private readonly TextBlock _progressPercent = Ui.Text(string.Empty, 20, bold: true);
         private readonly ProgressBar _progressBar = new ProgressBar { Height = 6, Minimum = 0, Maximum = 100 };
         private readonly StackPanel _steps = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 10, 0, 0) };
+        private Border _progressCard;
         private List<(Phase Phase, string Name)> _stepList = new List<(Phase, string)>();
 
         private ScanResult _result;
@@ -221,12 +222,17 @@ namespace Kudunmap.Views
             _progressBar.IsIndeterminate = true;
             UpdateSteps(Phase.Starting);
 
-            var head = Ui.Columns(Ui.Auto, Ui.Auto, Ui.Star(), Ui.Auto, Ui.Auto);
-            head.Children.Add(_progressTitle.At(0, 0));
-            head.Children.Add(Ui.Chip("Scanning…").Margin(12, 0, 0, 0).At(0, 1));
-            head.Children.Add(_progressLeft.Margin(0, 0, 14, 0).At(0, 3));
-            head.Children.Add(_progressPercent.At(0, 4));
-            _top.Child = Ui.Card(Ui.Column(head, _progressBar.Margin(0, 10, 0, 0), _steps), 16);
+            if (_progressCard == null)
+            {
+                // Built once: these controls can only live in one place.
+                var head = Ui.Columns(Ui.Auto, Ui.Auto, Ui.Star(), Ui.Auto, Ui.Auto);
+                head.Children.Add(_progressTitle.At(0, 0));
+                head.Children.Add(Ui.Chip("Scanning…").Margin(12, 0, 0, 0).At(0, 1));
+                head.Children.Add(_progressLeft.Margin(0, 0, 14, 0).At(0, 3));
+                head.Children.Add(_progressPercent.At(0, 4));
+                _progressCard = Ui.Card(Ui.Column(head, _progressBar.Margin(0, 10, 0, 0), _steps), 16);
+            }
+            _top.Child = _progressCard;
             SelectTab(2);
         }
 
