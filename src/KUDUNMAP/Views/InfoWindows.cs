@@ -75,7 +75,11 @@ namespace Kudunmap.Views
                     .Res(Border.BorderBrushProperty, "BorderBrush"));
             }
 
-            Row("Made by", Ui.Text(AppInfo.Author, 12.5));
+            var madeBy = Ui.Text("Azeem, with Claude and ", 12.5);
+            var heart = new Run("♥");
+            heart.SetResourceReference(TextElement.ForegroundProperty, "Accent");
+            madeBy.Inlines.Add(heart);
+            Row("Made by", madeBy);
             Row("Licence", Ui.Row(Ui.Text("Nmap Public Source License (NPSL) 0.95 · free and open source  ", 12.5),
                 Ui.Link("View", (s, e) => OpenLocalFile("LICENSE.txt", AppInfo.NmapLicenseUrl))));
             Row("Source code", Ui.Link("github.com/" + AppInfo.RepoOwner + "/" + AppInfo.RepoName, (s, e) => AppInfo.OpenUrl(AppInfo.RepoUrl)));
