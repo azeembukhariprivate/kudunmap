@@ -6,6 +6,12 @@
 
 <p align="center">A visual front-end for Nmap on Windows. Scan your network without typing or remembering commands.</p>
 
+<p align="center">
+  <a href="https://github.com/azeembukhariprivate/kudunmap/releases/latest/download/KUDUNMAP-setup.exe"><img src="https://img.shields.io/badge/Download-KUDUNMAP%20for%20Windows-2ea44f?style=for-the-badge" alt="Download KUDUNMAP for Windows"></a>
+  <br>
+  <sub>The installer for Windows 10 and 11, always the latest version · <a href="https://github.com/azeembukhariprivate/kudunmap/releases/latest">portable zip and what's new</a></sub>
+</p>
+
 ---
 
 ## Features
@@ -33,7 +39,7 @@ KUDUNMAP is the window, Nmap does the scanning. **Nmap is not included.** Instal
 
 ## Download
 
-Get the latest version from the [Releases page](https://github.com/azeembukhariprivate/kudunmap/releases/latest):
+**[Download the installer](https://github.com/azeembukhariprivate/kudunmap/releases/latest/download/KUDUNMAP-setup.exe)** (`KUDUNMAP-setup.exe`, always the latest version), or get any of these from the [Releases page](https://github.com/azeembukhariprivate/kudunmap/releases/latest):
 
 - `KUDUNMAP-x.y.z-setup.exe`: installs for your user account and adds a Start menu entry.
 - `KUDUNMAP-x.y.z-portable.zip`: unzip anywhere and run `KUDUNMAP.exe`. Nothing is installed.
