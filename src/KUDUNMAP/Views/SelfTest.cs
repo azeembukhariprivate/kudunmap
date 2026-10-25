@@ -51,6 +51,7 @@ namespace Kudunmap.Views
                     var before = Errors.Count;
                     action();
                     Pump();
+                    Screenshots.All(name);
                     if (Errors.Count > before) throw new Exception(string.Join(" | ", Errors.Skip(before)));
                     log.AppendLine("ok    " + name);
                 }
@@ -152,8 +153,10 @@ namespace Kudunmap.Views
             {
                 ThemeManager.Apply(ThemeMode.Dark);
                 Pump();
+                Screenshots.All("Dark theme");
                 main.Results.SelectTab(1);
                 Pump();
+                Screenshots.All("Dark theme");
                 ThemeManager.Apply(ThemeMode.Light);
             });
 
@@ -191,6 +194,7 @@ namespace Kudunmap.Views
             OffScreen(w);
             w.Show();
             Pump();
+            Screenshots.One(w, w.Title);
             w.Close();
         }
 
