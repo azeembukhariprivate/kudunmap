@@ -100,6 +100,14 @@ out\KUDUNMAP\KUDUNMAP.exe --self-test
 
 The app is in `out/KUDUNMAP`. `--self-test` opens every window with sample results in both themes, writes `self-test.log` and exits. To build the installer, install [Inno Setup 6](https://jrsoftware.org/isinfo.php) and compile `installer/KUDUNMAP.iss`.
 
+
+### Shared code
+
+Some files (the look, dialogs, the update check, administrator helpers) are shared by the KUDU apps and come from
+[kudu-common](https://github.com/azeembukhariprivate/kudu-common); each starts with a comment saying so, and `.kudu-common`
+lists them. You don't need kudu-common to build this app, but change those files there, not here: the build checks that
+they match.
+
 ## Publishing a new version
 
 1. Change `<Version>` in `src/KUDUNMAP/KUDUNMAP.csproj` (and `MyAppVersion` in `installer/KUDUNMAP.iss`).

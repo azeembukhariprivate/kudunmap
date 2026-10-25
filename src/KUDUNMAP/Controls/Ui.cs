@@ -1,3 +1,5 @@
+// Shared KUDU code: this file comes from kudu-common (https://github.com/azeembukhariprivate/kudu-common).
+// Change it there and run its sync script; the build fails when this copy differs from kudu-common.
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,7 +13,7 @@ namespace Kudunmap.Controls
     public enum Tone { Accent, Neutral, Ok, Warn, Bad }
 
     /// <summary>Small helpers that build the app's look in code, using the theme's resource keys.</summary>
-    public static class Ui
+    public static partial class Ui
     {
         public static T Res<T>(this T element, DependencyProperty property, string key) where T : FrameworkElement
         {
@@ -154,17 +156,6 @@ namespace Kudunmap.Controls
             }.Res(Border.BackgroundProperty, bg);
             panel.Res(TextElement.ForegroundProperty, fg);
             return chip;
-        }
-
-        public static Tone ToneFor(Severity s)
-        {
-            switch (s)
-            {
-                case Severity.Critical:
-                case Severity.High: return Tone.Bad;
-                case Severity.Medium: return Tone.Warn;
-                default: return Tone.Neutral;
-            }
         }
 
         public static Ellipse Dot(string brush = "OkText", double size = 8) =>

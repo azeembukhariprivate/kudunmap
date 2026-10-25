@@ -1,4 +1,7 @@
+// Shared KUDU code: this file comes from kudu-common (https://github.com/azeembukhariprivate/kudu-common).
+// Change it there and run its sync script; the build fails when this copy differs from kudu-common.
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -13,13 +16,13 @@ namespace Kudunmap.Views
 {
     public static class Dialogs
     {
-        public static void Info(Window owner, string message, string title = "KUDUNMAP") =>
+        public static void Info(Window owner, string message, string title = AppInfo.Name) =>
             Show(owner, message, title, MessageBoxButton.OK, MessageBoxImage.Information);
 
-        public static void Error(Window owner, string message, string title = "KUDUNMAP") =>
+        public static void Error(Window owner, string message, string title = AppInfo.Name) =>
             Show(owner, message, title, MessageBoxButton.OK, MessageBoxImage.Warning);
 
-        public static bool Confirm(Window owner, string message, string title = "KUDUNMAP") =>
+        public static bool Confirm(Window owner, string message, string title = AppInfo.Name) =>
             Show(owner, message, title, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
 
         private static MessageBoxResult Show(Window owner, string message, string title, MessageBoxButton buttons, MessageBoxImage image)
@@ -33,6 +36,25 @@ namespace Kudunmap.Views
             return owner != null && owner.IsVisible
                 ? MessageBox.Show(owner, message, title, buttons, image)
                 : MessageBox.Show(message, title, buttons, image);
+        }
+
+        public static string PickFolder(Window owner, string description, string start = null)
+        {
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog
+                   {
+                       Description = description,
+                       ShowNewFolderButton = true,
+                       SelectedPath = start != null && System.IO.Directory.Exists(start) ? start : string.Empty
+                   })
+            {
+                return dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK ? dialog.SelectedPath : null;
+            }
+        }
+
+        public static List<string> PickFiles(Window owner, string title)
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog { Title = title, Filter = "All files|*.*", Multiselect = true };
+            return Show(dialog, owner) ? dialog.FileNames.ToList() : new List<string>();
         }
 
         public static string PickFile(Window owner, string title, string filter)
@@ -66,7 +88,7 @@ namespace Kudunmap.Views
                 if (_icon != null) return _icon;
                 try
                 {
-                    using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Kudunmap.Assets.KUDUNMAP.ico"))
+                    using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Kudunmap.Assets." + AppInfo.Name + ".ico"))
                     {
                         var decoder = new IconBitmapDecoder(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
                         _icon = decoder.Frames.OrderByDescending(f => f.PixelWidth).First();
@@ -81,7 +103,7 @@ namespace Kudunmap.Views
         }
 
         public static Stream AppIconStream() =>
-            Assembly.GetExecutingAssembly().GetManifestResourceStream("Kudunmap.Assets.KUDUNMAP.ico");
+            Assembly.GetExecutingAssembly().GetManifestResourceStream("Kudunmap.Assets." + AppInfo.Name + ".ico");
 
         /// <summary>Common window setup: theme colours, font, icon and title bar.</summary>
         public static void Prepare(Window window, string title, Window owner = null)
