@@ -3,7 +3,7 @@
 ; Nmap is NOT included: KUDUNMAP asks the user to install it from nmap.org.
 
 #ifndef MyAppVersion
-  #define MyAppVersion "1.0.1"
+  #define MyAppVersion "1.0.2"
 #endif
 #ifndef SourceDir
   #define SourceDir "..\out\KUDUNMAP"
