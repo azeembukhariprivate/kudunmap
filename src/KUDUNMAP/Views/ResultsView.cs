@@ -16,12 +16,12 @@ using Kudunmap.Core;
 namespace Kudunmap.Views
 {
     /// <summary>Shows a running scan (progress and live output) and finished results (hosts, ports, vulnerabilities).</summary>
-    public sealed class ResultsView : Grid
+    public sealed partial class ResultsView : Grid
     {
         private readonly MainWindow _main;
         private readonly Border _top = new Border();
         private readonly Border _content = new Border();
-        private readonly List<RadioButton> _tabs = new List<RadioButton>();
+        private readonly Dictionary<int, RadioButton> _tabs = new Dictionary<int, RadioButton>();
         private readonly Border _vulnChipHost = new Border { Margin = new Thickness(6, 0, 0, 0) };
 
         // Hosts & ports
@@ -72,10 +72,12 @@ namespace Kudunmap.Views
             Children.Add(_top.At(0));
 
             var tabBar = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(12, 0, 12, 0) };
-            AddTab(tabBar, "Hosts & ports");
-            AddTab(tabBar, Ui.Row(new TextBlock { Text = "Vulnerabilities", VerticalAlignment = VerticalAlignment.Center }, _vulnChipHost));
-            AddTab(tabBar, "Raw output");
-            AddTab(tabBar, "Scan details");
+            AddTab(tabBar, "Hosts & ports", 0);
+            AddTab(tabBar, Ui.Row(new TextBlock { Text = "Worth a look", VerticalAlignment = VerticalAlignment.Center }, _lookChipHost), LookTab);
+            AddTab(tabBar, "Map", MapTab);
+            AddTab(tabBar, Ui.Row(new TextBlock { Text = "Vulnerabilities", VerticalAlignment = VerticalAlignment.Center }, _vulnChipHost), 1);
+            AddTab(tabBar, "Raw output", 2);
+            AddTab(tabBar, "Scan details", 3);
 
             _hostsPanel = BuildHostsPanel();
             _vulnPanel = BuildVulnPanel();
@@ -93,12 +95,11 @@ namespace Kudunmap.Views
             SelectTab(0);
         }
 
-        private void AddTab(Panel bar, object header)
+        private void AddTab(Panel bar, object header, int index)
         {
-            var index = _tabs.Count;
             var tab = new RadioButton { Content = header, GroupName = "resultTabs" }.Styled("TabRadio");
             tab.Checked += (s, e) => ShowTab(index);
-            _tabs.Add(tab);
+            _tabs[index] = tab;
             bar.Children.Add(tab);
         }
 
@@ -111,6 +112,8 @@ namespace Kudunmap.Views
                 case 0: _content.Child = _hostsPanel; break;
                 case 1: _content.Child = _vulnPanel; break;
                 case 2: _content.Child = _rawPanel; break;
+                case LookTab: _content.Child = BuildLookPanel(); break;
+                case MapTab: _content.Child = BuildMapPanel(); break;
                 default: _content.Child = new ScrollViewer { Content = _details, VerticalScrollBarVisibility = ScrollBarVisibility.Auto }; break;
             }
         }
@@ -334,6 +337,10 @@ namespace Kudunmap.Views
             _severityFilter = null;
             FillVulnerabilities();
             FillDetails();
+            var look = PortNotes.WorthALook(result);
+            _lookChipHost.Child = look.Count > 0
+                ? Ui.Chip(look.Count.ToString(CultureInfo.CurrentCulture), look.Any(f => f.Note.Level == PortLevel.Risky) ? Tone.Bad : Tone.Warn)
+                : null;
             _vulnChipHost.Child = _vulns.Count > 0
                 ? Ui.Chip(_vulns.Count.ToString(CultureInfo.CurrentCulture), _vulns.Any(v => v.Severity <= Severity.High) ? Tone.Bad : Tone.Warn)
                 : null;
@@ -529,6 +536,7 @@ namespace Kudunmap.Views
                     g.Children.Add(Ui.Chip(p.State, p.IsOpen ? Tone.Ok : Tone.Neutral).At(0, 2));
                     g.Children.Add(Ui.Text(p.ServiceText, 12.5).At(0, 3));
                     var version = Ui.Column(Ui.Text(p.VersionText, 12.5, wrap: true));
+                    if (p.IsOpen) version.Children.Add(NoteLine(PortNotes.For(p)).Margin(0, 4, 0, 0));
                     foreach (var script in p.Scripts.Where(x => x.Id != "vulners"))
                         version.Children.Add(ScriptOutput(script).Margin(0, 4, 0, 0));
                     g.Children.Add(version.Margin(0, 8, 16, 8).At(0, 4));

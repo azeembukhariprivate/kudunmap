@@ -22,6 +22,20 @@ namespace Kudunmap
             Exporter.AppVersion = AppInfo.VersionText;
 
             var cmd = CommandLine.Parse(e.Args);
+            if (cmd.DataFolder != null) AppPaths.Root = cmd.DataFolder;
+            if (cmd.RemoveSchedules)
+            {
+                try { ScheduledScans.RemoveAll(); }
+                catch { /* uninstalling goes on */ }
+                Shutdown(0);
+                return;
+            }
+            if (cmd.Scheduled != null)
+            {
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                ScheduledRun.Start(this, cmd.Scheduled);
+                return;
+            }
             if (cmd.SelfTest)
             {
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;

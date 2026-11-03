@@ -160,6 +160,80 @@ namespace Kudunmap.Views
                 ThemeManager.Apply(ThemeMode.Light);
             });
 
+            Step("Port notes, Worth a look and Map tabs", () =>
+            {
+                main.OpenHistory(first);
+                Pump();
+                var r = History.Load(first);
+                var look = PortNotes.WorthALook(r);
+                if (look.Count == 0 || look[0].Port.Number != 445) throw new Exception("expected port 445 first in Worth a look, got " + string.Join(", ", look.Select(f => f.Port.Number)));
+                main.Results.SelectTab(4);
+                Pump();
+                main.Results.SelectTab(5);
+                Pump();
+                if (main.Results.MapDevices.Count != 2) throw new Exception("expected 2 devices on the map, got " + main.Results.MapDevices.Count);
+                if (main.Results.MapDevices.All(d => d.Kind != DeviceKind.Storage)) throw new Exception("the Synology NAS wasn't seen as storage");
+                var png = main.Results.SaveMap(Path.Combine(temp, "map.png"));
+                if (png == null || new FileInfo(png).Length < 2000) throw new Exception("the map picture wasn't saved");
+                ThemeManager.Apply(ThemeMode.Dark);
+                Pump();
+                Screenshots.All("Map dark");
+                main.Results.SelectTab(4);
+                Pump();
+                Screenshots.All("Worth a look dark");
+                ThemeManager.Apply(ThemeMode.Light);
+                main.Results.SelectTab(0);
+            });
+
+            Step("Scheduled scans (a real Windows task)", () =>
+            {
+                var parsed = CommandLine.Parse(new[] { "--scheduled", "0123456789abcdef0123456789abcdef", "--data", temp });
+                if (parsed.Scheduled == null || parsed.DataFolder == null) throw new Exception("--scheduled wasn't read");
+                if (CommandLine.Parse(new[] { "--scheduled", "..\\evil" }).Scheduled != null) throw new Exception("a bad --scheduled id was accepted");
+
+                var o = Presets.CreateOptions(Presets.Find("quick"));
+                o.Targets = "127.0.0.1";
+                var sc = new ScheduledScan { Name = "Self-test schedule", Options = o, Every = ScanEvery.Daily, Minutes = 3 * 60 };
+                var problem = ScheduledScans.Apply(sc, AppInfo.ExePath, Admin.IsAdmin, temp);
+                if (problem != null) throw new Exception(problem);
+                ScheduledScans.Save(sc);
+                try
+                {
+                    if (!ScheduledScans.TaskExists(sc)) throw new Exception("the Windows task wasn't made");
+                    var window = new SchedulesWindow(main);
+                    OffScreen(window);
+                    window.Show();
+                    Pump();
+                    if (window.Shown.Count != 1) throw new Exception("expected 1 scheduled scan in the window, got " + window.Shown.Count);
+                    Screenshots.One(window, window.Title);
+
+                    if (!ScheduledScans.RunNow(sc)) throw new Exception("the task didn't start");
+                    var until = DateTime.Now.AddSeconds(120);
+                    ScheduledScan after = null;
+                    while (DateTime.Now < until)
+                    {
+                        System.Threading.Thread.Sleep(500);
+                        Pump();
+                        after = ScheduledScans.Find(sc.Id);
+                        if (after != null && after.LastRun != DateTime.MinValue) break;
+                    }
+                    if (after == null || after.LastRun == DateTime.MinValue) throw new Exception("the scheduled scan didn't run by itself within 2 minutes");
+                    // CI has no Nmap: then the run says so. With Nmap, the run is kept in History under this schedule.
+                    if (!after.LastResult.Contains("Nmap") && !History.List().Any(h => h.ScheduleId == sc.Id))
+                        throw new Exception("the run isn't in History: " + after.LastResult);
+                    window.Fill(sc.Id);
+                    Pump();
+                    Screenshots.One(window, window.Title + " after a run");
+                    window.Close();
+                }
+                finally
+                {
+                    if (!ScheduledScans.Remove(sc)) Errors.Add("Scheduled scans: the Windows task wasn't removed");
+                    ScheduledScans.Delete(sc);
+                }
+                if (ScheduledScans.TaskExists(sc)) throw new Exception("the Windows task is still there");
+            });
+
             Step("History window", () => ShowAndClose(new HistoryWindow(main)));
             Step("Compare window", () => ShowAndClose(new CompareWindow(main, History.List(), null)));
             Step("Settings window", () => ShowAndClose(new SettingsWindow(main, () => null, () => { })));

@@ -69,7 +69,7 @@ jobs:
         timeout-minutes: 5
         run: |
           $p = Start-Process -FilePath out/KUDUNMAP/KUDUNMAP.exe -ArgumentList '--self-test' -PassThru
-          if (-not $p.WaitForExit(180000)) { $p.Kill(); Write-Host "Self-test timed out"; exit 1 }
+          if (-not $p.WaitForExit(300000)) { $p.Kill(); Write-Host "Self-test timed out"; exit 1 }
           Get-Content out/KUDUNMAP/self-test.log -ErrorAction SilentlyContinue
           Remove-Item out/KUDUNMAP/self-test.log -ErrorAction SilentlyContinue
           if ($p.ExitCode -ne 0) { Write-Host "Self-test failed with exit code $($p.ExitCode)"; exit 1 }

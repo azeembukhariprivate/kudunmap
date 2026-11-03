@@ -34,6 +34,15 @@ dotnet build src/KUDUNMAP/KUDUNMAP.csproj -c Release -o out/KUDUNMAP
 out\KUDUNMAP\KUDUNMAP.exe --self-test        (Windows only)
 ```
 
+## Notes
+
+- 1.1: `Core/PortNotes.cs` (a plain-words note and level, Fine / Worth a look / Risky, per open port; shown under ports, in
+  the "Worth a look" tab and the HTML report), `Core/NetworkMap.cs` (guesses each device's kind; rings around the router;
+  drawn by `Views/ResultsExtras.cs`, saved as PNG), `Core/ScheduledScans.cs` (JSON in `Schedules\`, a Task Scheduler task
+  "KUDUNMAP - name (id)" made from XML with RunLevel HighestAvailable, so Windows asks once at setup). The task runs
+  `KUDUNMAP.exe --scheduled <id>` (`Views/ScheduledRun.cs`: no window, History with `ScheduleId`, compares with the run
+  before and notifies when something changed). The uninstaller runs `--remove-schedules`.
+
 ## Shared code (kudu-common)
 
 The files listed in `.kudu-common` (the look and controls in `Controls/`, `Core/Admin.cs`, `AppInfo.cs`, `Args.cs`,

@@ -127,13 +127,21 @@ namespace Kudunmap.Core
                 }
                 else
                 {
-                    sb.Append("<table><tr><th>Port</th><th>State</th><th>Service</th><th>Version</th></tr>");
+                    sb.Append("<table><tr><th>Port</th><th>State</th><th>Service</th><th>Version</th><th>What it means</th></tr>");
                     foreach (var p in ports)
                     {
                         sb.Append("<tr><td><code>").Append(E(p.Key)).Append("</code></td><td><span class=\"chip ").Append(p.IsOpen ? "open" : "Low").Append("\">")
                           .Append(E(p.State)).Append("</span></td><td>").Append(E(p.ServiceText)).Append("</td><td>").Append(E(p.VersionText));
                         foreach (var s in p.Scripts)
                             sb.Append("<pre>").Append(E(s.Id)).Append(": ").Append(E(s.Output)).Append("</pre>");
+                        sb.Append("</td><td>");
+                        if (p.IsOpen)
+                        {
+                            var note = PortNotes.For(p);
+                            var cls = note.Level == PortLevel.Risky ? "High" : note.Level == PortLevel.WorthALook ? "Medium" : "Low";
+                            sb.Append("<span class=\"chip ").Append(cls).Append("\">").Append(E(note.LevelText)).Append("</span> <b>")
+                              .Append(E(note.What)).Append("</b>: ").Append(E(note.Text));
+                        }
                         sb.Append("</td></tr>");
                     }
                     sb.Append("</table>");

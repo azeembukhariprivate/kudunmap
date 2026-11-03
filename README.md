@@ -22,6 +22,9 @@
 - **Live progress**: progress bar, the step Nmap is on, time left, and open ports as they're found.
 - **Clear results**: hosts with their name, operating system guess and MAC vendor; ports with service and version; script output; route.
 - **Vulnerability check**: runs Nmap's `vuln` scripts and shows findings by severity with CVE links. Optionally looks up known CVEs for the detected versions (vulners, off by default).
+- **What each open port means**: every open port gets a short note in plain words (for example "Remote Desktop: lets someone control this PC from elsewhere"), marked Fine, Worth a look or Risky. The **Worth a look** tab lists the ones to check, riskiest first.
+- **Network map**: a drawing of the devices found around your router, with a guess of what each one is (PC, phone, printer, TV, camera, NAS…) and red or orange marks on devices with risky ports. Save it as a picture.
+- **Scheduled scans**: let a scan run by itself every few hours, every day or every week, even when KUDUNMAP is closed. Each run is kept in History, and a Windows notification tells you when a new device or open port appears or something goes away.
 - **History and Compare**: every scan is saved on your computer. Compare two scans to see new hosts, hosts that disappeared, ports that opened or closed, and changed versions.
 - **My presets**: save your own options and target, and repeat a scan with one click.
 - **Export**: HTML report, CSV (hosts and ports, or vulnerabilities), Nmap XML and text output.
@@ -60,6 +63,8 @@ KUDUNMAP starts as a normal user. Most scans work that way. A few need administr
 
 Those are marked with a 🛡️ shield. When you start one, KUDUNMAP offers to restart itself as administrator and carry on with the same options. As administrator, TCP scans also use Nmap's faster SYN scan instead of a connect scan.
 
+Scheduled scans run with administrator rights, so they can use every scan type. Windows asks once, when you schedule a scan, and not again each time it runs. Uninstalling KUDUNMAP removes its scheduled scans from Windows.
+
 ## About the vulnerability check
 
 The Vulnerability check runs Nmap's `vuln` scripts, which test for well-known problems such as MS17-010 ("EternalBlue") and weak TLS settings.
@@ -82,6 +87,7 @@ Aggressive script groups (brute, exploit, dos, fuzzer, intrusive and others) are
 KUDUNMAP.exe 192.168.1.0/24                     open with this target filled in
 KUDUNMAP.exe --preset quick 192.168.1.10        choose a scan type
 KUDUNMAP.exe --scan --preset ping 192.168.1.0/24  start scanning straight away
+KUDUNMAP.exe --history                          open with the History window
 ```
 
 Scan types: `quick`, `ping`, `common`, `all`, `services`, `os`, `intense`, `udp`, `vuln`.

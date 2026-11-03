@@ -134,7 +134,7 @@ namespace Kudunmap.Views
             _target.GotKeyboardFocus += (s, e) => targetBox.Res(Border.BorderBrushProperty, "Accent");
             _target.LostKeyboardFocus += (s, e) => targetBox.Res(Border.BorderBrushProperty, "InputBorder");
 
-            var grid = Ui.Columns(Ui.Star(), Ui.Auto, Ui.Auto, Ui.Auto, Ui.Auto, Ui.Auto, Ui.Auto, Ui.Auto);
+            var grid = Ui.Columns(Ui.Star(), Ui.Auto, Ui.Auto, Ui.Auto, Ui.Auto, Ui.Auto, Ui.Auto, Ui.Auto, Ui.Auto);
             grid.Margin = new Thickness(16, 12, 16, 12);
             grid.Children.Add(targetBox.At(0, 0));
             grid.Children.Add(_fromFile.Margin(8, 0, 0, 0).At(0, 1));
@@ -150,7 +150,8 @@ namespace Kudunmap.Views
             grid.Children.Add(role.Margin(0, 0, 6, 0).At(0, 4));
             grid.Children.Add(Ui.Button("History", "IconHistory", "GhostButton", (s, e) => ShowHistory()).At(0, 5));
             grid.Children.Add(Ui.Button("Compare", "IconCompare", "GhostButton", (s, e) => ShowCompare(null)).At(0, 6));
-            grid.Children.Add(Ui.Button("Settings", "IconSettings", "GhostButton", (s, e) => ShowSettings()).At(0, 7));
+            grid.Children.Add(Ui.Button("Scheduled", "IconClock", "GhostButton", (s, e) => ShowSchedules()).Tip("Scans that run by themselves and tell you when something changes").At(0, 7));
+            grid.Children.Add(Ui.Button("Settings", "IconSettings", "GhostButton", (s, e) => ShowSettings()).At(0, 8));
             return grid;
         }
 
@@ -220,6 +221,7 @@ namespace Kudunmap.Views
             FindNmap();
             if (!SelfTest.Running) CheckForUpdatesQuietly();
 
+            if (_cmd.ShowHistory) Dispatcher.BeginInvoke(new Action(ShowHistory), DispatcherPriority.ApplicationIdle);
             if (_cmd.ScanNow && Nmap != null) Dispatcher.BeginInvoke(new Action(StartScan), DispatcherPriority.ApplicationIdle);
             else _target.Focus();
         }
@@ -645,6 +647,11 @@ namespace Kudunmap.Views
         }
 
         // ================================================================== history, compare, settings
+
+        public void ShowSchedules()
+        {
+            new SchedulesWindow(this).Show();
+        }
 
         public void ShowHistory()
         {

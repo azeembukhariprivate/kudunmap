@@ -84,6 +84,8 @@ namespace Kudunmap.Core
         [DataMember] public int OpenPorts { get; set; }
         [DataMember] public int Findings { get; set; }
         [DataMember] public string NmapVersion { get; set; } = string.Empty;
+        /// <summary>The scheduled scan that made this run, or empty for a scan started by hand.</summary>
+        [DataMember] public string ScheduleId { get; set; } = string.Empty;
 
         /// <summary>The options used, so "Scan again" repeats the same scan.</summary>
         [DataMember] public ScanOptions Options { get; set; }
@@ -114,7 +116,7 @@ namespace Kudunmap.Core
     /// <summary>Every finished scan is kept in its own folder: scan.xml (Nmap's results), output.txt and info.json.</summary>
     public static class History
     {
-        public static HistoryEntry Save(ScanOptions options, ScanResult result, string xmlFile, string output)
+        public static HistoryEntry Save(ScanOptions options, ScanResult result, string xmlFile, string output, string scheduleId = null)
         {
             var started = result.Started == DateTime.MinValue ? DateTime.Now : result.Started;
             var name = started.ToString("yyyyMMdd-HHmmss") + " " + AppPaths.SafeFileName(options.Title, 30);
@@ -133,6 +135,7 @@ namespace Kudunmap.Core
                 OpenPorts = result.OpenPortCount,
                 Findings = result.Vulnerabilities.Count,
                 NmapVersion = result.NmapVersion,
+                ScheduleId = scheduleId ?? string.Empty,
                 Options = options.Clone(),
                 Folder = folder
             };

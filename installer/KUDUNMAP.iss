@@ -3,7 +3,7 @@
 ; Nmap is NOT included: KUDUNMAP asks the user to install it from nmap.org.
 
 #ifndef MyAppVersion
-  #define MyAppVersion "1.0.2"
+  #define MyAppVersion "1.1.0"
 #endif
 #ifndef SourceDir
   #define SourceDir "..\out\KUDUNMAP"
@@ -53,6 +53,10 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExe}"; Tasks: deskto
 
 [Run]
 Filename: "{app}\{#MyAppExe}"; Description: "Open KUDUNMAP now"; Flags: nowait postinstall skipifsilent
+
+[UninstallRun]
+; Remove the scheduled scans' Windows tasks.
+Filename: "{app}\{#MyAppExe}"; Parameters: "--remove-schedules"; Flags: runhidden waituntilterminated; RunOnceId: "RemoveSchedules"
 
 [Registry]
 ; Remove saved settings when uninstalling. Scan history in %LOCALAPPDATA%\KUDUNMAP is kept.

@@ -25,6 +25,9 @@ namespace Kudunmap.Tests
             Run("Escapes exports", EscapesExports);
             Run("Saves history and presets", SavesHistoryAndPresets);
             Run("Explains common Nmap errors", ExplainsErrors);
+            Run("Port notes: what each open port is and what it could risk", PortNotesInPlainWords);
+            Run("Network map: what each device is, and where it's drawn", NetworkMapGuessesAndPlaces);
+            Run("Scheduled scans: kept, made into a Windows task, and alerts in plain words", ScheduledScansWork);
 
             Console.WriteLine();
             Console.WriteLine($"{_passes} passed, {_failures} failed");
@@ -319,6 +322,129 @@ namespace Kudunmap.Tests
             Check(NmapRunner.Explain("You requested a scan type which requires root privileges.\nQUITTING!")?.Contains("administrator") == true, "root");
             Check(NmapRunner.Explain("Failed to resolve \"nosuchhost\".")?.Contains("look up") == true, "resolve");
             Equal(null, NmapRunner.Explain("Nmap done: 1 IP address (1 host up) scanned in 0.5 seconds"), "no hint");
+        }
+
+        // ---------------------------------------------------------------------------------------
+
+        private static HostInfo Host(string ip, string name = null, string vendor = null, string os = null, params (int Port, string Service)[] ports)
+        {
+            var h = new HostInfo { State = "up", Ipv4 = ip, Vendor = vendor };
+            if (name != null) h.Hostnames.Add(name);
+            if (os != null) h.OsMatches.Add(new OsMatch { Name = os, Accuracy = 95 });
+            foreach (var (port, service) in ports) h.Ports.Add(new PortInfo { Number = port, State = "open", Service = service ?? string.Empty });
+            return h;
+        }
+
+        private static void PortNotesInPlainWords()
+        {
+            PortNote Note(int port, string service = "", string tunnel = "") => PortNotes.For(new PortInfo { Number = port, State = "open", Service = service, Tunnel = tunnel });
+            Equal(PortLevel.Risky, Note(3389, "ms-wbt-server").Level, "Remote Desktop is risky");
+            Check(Note(3389).What == "Remote Desktop" && Note(3389).Text.Contains("internet"), "and says why, in plain words");
+            Equal(PortLevel.Risky, Note(23, "telnet").Level, "Telnet");
+            Equal(PortLevel.Risky, Note(5900, "vnc").Level, "VNC");
+            Equal(PortLevel.Fine, Note(443, "https").Level, "a secure web page is fine");
+            Equal(PortLevel.WorthALook, Note(445, "microsoft-ds").Level, "Windows file sharing is worth a look");
+            Equal(PortLevel.Fine, Note(53, "domain").Level, "DNS on a router is fine");
+            var moved = Note(2222, "ssh");
+            Check(moved.What.Contains("SSH") && moved.What.Contains("2222") && moved.Level == PortLevel.WorthALook, "a service on another number is known by its name: " + moved.What);
+            var rdpMoved = Note(13389, "ms-wbt-server");
+            Equal(PortLevel.Risky, rdpMoved.Level, "Remote Desktop moved elsewhere is still risky");
+            Equal(PortLevel.WorthALook, Note(8888, "http").Level, "an unknown web page is worth a look");
+            Equal(PortLevel.Fine, Note(9443, "https", "ssl").Level, "an unknown secure web page is fine");
+            Check(Note(41234, "").What == "Unknown service" && Note(41234).Level == PortLevel.WorthALook, "anything else gets a general note");
+            Equal(PortLevel.Fine, Note(49668, "msrpc").Level, "Windows' changing numbers are fine");
+
+            var r = new ScanResult();
+            r.Hosts.Add(Host("192.168.1.10", ports: new[] { (443, "https"), (3389, "ms-wbt-server"), (445, "microsoft-ds") }));
+            r.Hosts.Add(Host("192.168.1.2", ports: new[] { (23, "telnet") }));
+            var look = PortNotes.WorthALook(r);
+            Equal(3, look.Count, "the risky and worth-a-look ones, not the fine one");
+            Check(look[0].Note.Level == PortLevel.Risky && look[1].Note.Level == PortLevel.Risky && look[2].Port.Number == 445, "riskiest first");
+            Equal("192.168.1.10", look[0].Host.Address, "with their device");
+        }
+
+        private static void NetworkMapGuessesAndPlaces()
+        {
+            var own = new[] { "192.168.1.20" };
+            var gw = new[] { "192.168.1.1" };
+            DeviceKind G(HostInfo h) => NetworkMap.Guess(h, own, gw);
+            Equal(DeviceKind.Router, G(Host("192.168.1.1", ports: new[] { (53, "domain"), (80, "http") })), "the gateway is the router");
+            Equal(DeviceKind.ThisPc, G(Host("192.168.1.20")), "this PC");
+            Equal(DeviceKind.Printer, G(Host("192.168.1.30", ports: new[] { (9100, "jetdirect") })), "a printer by its printing port");
+            Equal(DeviceKind.Printer, G(Host("192.168.1.31", vendor: "Brother Industries")), "a printer by its maker");
+            Equal(DeviceKind.Camera, G(Host("192.168.1.40", vendor: "Hangzhou Hikvision Digital Technology")), "a camera");
+            Equal(DeviceKind.Phone, G(Host("192.168.1.50", name: "Galaxy-S24.lan")), "a phone by its name");
+            Equal(DeviceKind.Tv, G(Host("192.168.1.60", ports: new[] { (8009, "ajp13") })), "a Chromecast-like TV");
+            Equal(DeviceKind.Storage, G(Host("192.168.1.70", vendor: "Synology Incorporated")), "a NAS");
+            Equal(DeviceKind.Computer, G(Host("192.168.1.80", os: "Microsoft Windows 11", ports: new[] { (445, "microsoft-ds") })), "a Windows PC");
+            Equal(DeviceKind.Server, G(Host("192.168.1.90", ports: new[] { (3306, "mysql") })), "a database server");
+            Equal(DeviceKind.Unknown, G(Host("192.168.1.99")), "nothing to go on");
+
+            var r = new ScanResult();
+            r.Hosts.Add(Host("192.168.1.1", ports: new[] { (53, "domain") }));
+            r.Hosts.Add(Host("192.168.1.20"));
+            for (var i = 0; i < 18; i++) r.Hosts.Add(Host("192.168.1." + (100 + i), ports: new[] { (3389, "ms-wbt-server") }));
+            r.Hosts.Add(new HostInfo { State = "down", Ipv4 = "192.168.1.250" });
+            var map = NetworkMap.Build(r, own, gw, 1000);
+            Equal(20, map.Count, "every device that's up");
+            var router = map.Single(d => d.Kind == DeviceKind.Router);
+            Check(router.X == 500 && router.Y == 500, "the router in the middle");
+            Check(map.Where(d => d != router).All(d => Math.Sqrt((d.X - 500) * (d.X - 500) + (d.Y - 500) * (d.Y - 500)) > 50), "the rest around it");
+            Check(map.All(d => d.X >= 0 && d.X <= 1000 && d.Y >= 0 && d.Y <= 1000), "inside the drawing");
+            var spots = map.Select(d => Math.Round(d.X) + "," + Math.Round(d.Y)).ToList();
+            Equal(spots.Count, spots.Distinct().Count(), "no two devices on the same spot");
+            Equal(2, NetworkMap.Rings(19), "19 devices take two rings");
+            Check(map.First(d => d.Host.Address == "192.168.1.100").Risky == 1, "each device knows its risky ports");
+            Equal("Router", router.KindText, "named in plain words");
+        }
+
+        private static void ScheduledScansWork()
+        {
+            var saved = AppPaths.Root;
+            AppPaths.Root = Path.Combine(Path.GetTempPath(), "kudunmap-test-" + Guid.NewGuid().ToString("N").Substring(0, 8));
+            try
+            {
+                var s = new ScheduledScan { Name = "Home network", Options = new ScanOptions { Targets = "192.168.1.0/24", Title = "Quick scan" }, Every = ScanEvery.Weekly, Day = 3, Minutes = 2 * 60 + 30 };
+                Equal("Every Wednesday at 02:30", s.When, "said in plain words");
+                ScheduledScans.Save(s);
+                var back = ScheduledScans.Find(s.Id);
+                Check(back != null && back.Options.Targets == "192.168.1.0/24" && back.Every == ScanEvery.Weekly, "kept and read back");
+                Equal("Every 3 hours", new ScheduledScan { Every = ScanEvery.Hourly, Hours = 3 }.When, "hourly");
+                Equal("Every day at 02:00", new ScheduledScan().When, "daily at 2 at night to start with");
+
+                var xml = ScheduledScans.TaskXml(s, @"C:\Program Files\KUDUNMAP\KUDUNMAP.exe", @"PC\Azeem & co", new DateTime(2026, 11, 3), @"C:\data");
+                var doc = System.Xml.Linq.XDocument.Parse(xml);
+                var ns = (System.Xml.Linq.XNamespace)"http://schemas.microsoft.com/windows/2004/02/mit/task";
+                Equal("HighestAvailable", doc.Descendants(ns + "RunLevel").Single().Value, "runs with administrator rights");
+                Equal("InteractiveToken", doc.Descendants(ns + "LogonType").Single().Value, "as you, when you're signed in (so the notification shows)");
+                Equal(@"PC\Azeem & co", doc.Descendants(ns + "UserId").Single().Value, "escaped properly");
+                Equal("2026-11-03T02:30:00", doc.Descendants(ns + "StartBoundary").Single().Value, "at the time chosen");
+                Check(doc.Descendants(ns + "Wednesday").Any(), "on the day chosen");
+                Equal("--scheduled " + s.Id + @" --data C:\data", doc.Descendants(ns + "Arguments").Single().Value, "the command it runs");
+                Check(ScheduledScans.TaskName(s).StartsWith("KUDUNMAP - Home network ("), "a task name people can recognise");
+
+                var changes = new List<Change>
+                {
+                    new Change { Kind = ChangeKind.NewHost }, new Change { Kind = ChangeKind.NewHost },
+                    new Change { Kind = ChangeKind.PortOpened }, new Change { Kind = ChangeKind.Unchanged }
+                };
+                Equal("2 new devices, a port opened.", ScheduledScans.Alert(changes), "an alert in plain words");
+                Equal(null, ScheduledScans.Alert(new List<Change> { new Change { Kind = ChangeKind.Unchanged } }), "nothing changed: no alert");
+
+                var a = new HistoryEntry { ScheduleId = s.Id, Started = new DateTime(2026, 11, 1), Folder = "a" };
+                var b = new HistoryEntry { ScheduleId = "other", Started = new DateTime(2026, 11, 2), Folder = "b" };
+                var c = new HistoryEntry { ScheduleId = s.Id, Started = new DateTime(2026, 11, 3), Folder = "c" };
+                Equal("a", ScheduledScans.PreviousRun(new[] { a, b, c }, s.Id, c)?.Folder, "the same schedule's run before");
+                Equal(null, ScheduledScans.PreviousRun(new[] { a, b, c }, s.Id, a), "the first run has none");
+
+                ScheduledScans.Delete(s);
+                Equal(null, ScheduledScans.Find(s.Id), "removed");
+            }
+            finally
+            {
+                try { Directory.Delete(AppPaths.Root, true); } catch { }
+                AppPaths.Root = saved;
+            }
         }
     }
 }
