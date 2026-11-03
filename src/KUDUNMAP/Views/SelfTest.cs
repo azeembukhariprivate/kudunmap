@@ -166,7 +166,9 @@ namespace Kudunmap.Views
                 Pump();
                 var r = History.Load(first);
                 var look = PortNotes.WorthALook(r);
-                if (look.Count == 0 || look[0].Port.Number != 445) throw new Exception("expected port 445 first in Worth a look, got " + string.Join(", ", look.Select(f => f.Port.Number)));
+                // SSH (22) and file sharing (445) are worth a look; the web page on 443 (https) is fine.
+                var ports = string.Join(", ", look.Select(f => f.Port.Number).OrderBy(n => n));
+                if (ports != "22, 445") throw new Exception("expected ports 22 and 445 in Worth a look, got " + ports);
                 main.Results.SelectTab(4);
                 Pump();
                 main.Results.SelectTab(5);
