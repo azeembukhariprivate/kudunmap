@@ -1,7 +1,8 @@
 # KUDUNMAP
 
 A visual front-end for Nmap on Windows: scan a network without typing commands.
-Part of the KUDU family of free, open-source (MIT) Windows apps by Azeem Bukhari.
+Part of the KUDU family of free, open-source Windows apps by Azeem Bukhari.
+KUDUNMAP itself is released under the Nmap Public Source License (see LICENSE), not MIT like the other apps.
 
 ## Working with Azeem (the owner)
 

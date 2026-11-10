@@ -535,11 +535,19 @@ namespace Kudunmap.Views
                     g.Children.Add(Ui.Subtle(p.Protocol, 12.5, false).At(0, 1));
                     g.Children.Add(Ui.Chip(p.State, p.IsOpen ? Tone.Ok : Tone.Neutral).At(0, 2));
                     g.Children.Add(Ui.Text(p.ServiceText, 12.5).At(0, 3));
-                    var version = Ui.Column(Ui.Text(p.VersionText, 12.5, wrap: true));
-                    if (p.IsOpen) version.Children.Add(NoteLine(PortNotes.For(p)).Margin(0, 4, 0, 0));
+                    g.Children.Add(Ui.Text(p.VersionText, 12.5, wrap: true).Margin(0, 8, 16, 8).At(0, 4));
+                    // The note and script results go under the row, across its whole width: in the last column alone
+                    // they were squeezed to a word a line when the window wasn't wide.
+                    var under = new StackPanel();
+                    if (p.IsOpen) under.Children.Add(NoteLine(PortNotes.For(p)).Margin(0, 0, 0, 4));
                     foreach (var script in p.Scripts.Where(x => x.Id != "vulners"))
-                        version.Children.Add(ScriptOutput(script).Margin(0, 4, 0, 0));
-                    g.Children.Add(version.Margin(0, 8, 16, 8).At(0, 4));
+                        under.Children.Add(ScriptOutput(script).Margin(0, 0, 0, 4));
+                    if (under.Children.Count > 0)
+                    {
+                        g.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                        g.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                        g.Children.Add(under.Margin(16, 0, 16, 6).At(1, 0, columnSpan: widths.Length));
+                    }
                     _hostDetail.Children.Add(new Border { Child = g, BorderThickness = new Thickness(0, 0, 0, 1), MinHeight = 36, ContextMenu = PortMenu(h, p) }
                         .Res(Border.BorderBrushProperty, "BorderBrush"));
                 }
