@@ -25,6 +25,9 @@
     <Compile Include="..\..\src\KUDUNMAP\Core\PortNotes.cs" Link="Core\PortNotes.cs" />
     <Compile Include="..\..\src\KUDUNMAP\Core\NetworkMap.cs" Link="Core\NetworkMap.cs" />
     <Compile Include="..\..\src\KUDUNMAP\Core\ScheduledScans.cs" Link="Core\ScheduledScans.cs" />
+    <Compile Include="..\..\src\KUDUNMAP\Core\Lang.cs" Link="Core\Lang.cs" />
+    <Compile Include="..\..\src\KUDUNMAP\Core\LangCommon.cs" Link="Core\LangCommon.cs" />
+    <Compile Include="..\..\src\KUDUNMAP\Core\Args.cs" Link="Core\Args.cs" />
     <None Include="Fixtures\*.xml" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 

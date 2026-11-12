@@ -54,7 +54,7 @@ namespace Kudunmap.Views
             var look = PortNotes.WorthALook(_result);
             var risky = look.Count(f => f.Note.Level == PortLevel.Risky);
             var heading = look.Count == 0 ? "Nothing worth a look"
-                : $"{look.Count} open port{(look.Count == 1 ? "" : "s")} worth a look" + (risky > 0 ? $" ({risky} risky)" : string.Empty);
+                : Lang.T("{0} worth a look", Format.Count(look.Count, "open port")) + (risky > 0 ? Lang.T(" ({0} risky)", risky) : string.Empty);
             panel.Children.Add(Ui.Heading(heading, 16));
             panel.Children.Add(Ui.Subtle(look.Count == 0
                 ? "Every open port found is normal for its kind of device."
@@ -200,7 +200,7 @@ namespace Kudunmap.Views
             foreach (FrameworkElement c in label.Children) c.HorizontalAlignment = HorizontalAlignment.Center;
             label.Width = 170;
             var mark = new Border { Child = label, Background = Brushes.Transparent, Cursor = System.Windows.Input.Cursors.Hand };
-            mark.ToolTip = d.Host.DisplayName + " · " + d.KindText + (d.Open > 0 ? $" · {d.Open} open port{(d.Open == 1 ? "" : "s")}" : string.Empty);
+            mark.ToolTip = d.Host.DisplayName + " · " + Lang.T(d.KindText) + (d.Open > 0 ? " · " + Format.Count(d.Open, "open port") : string.Empty);
             mark.MouseLeftButtonUp += (s, e) => GoToHost(d.Host);
             Canvas.SetLeft(mark, d.X - 85);
             Canvas.SetTop(mark, d.Y - diameter / 2);

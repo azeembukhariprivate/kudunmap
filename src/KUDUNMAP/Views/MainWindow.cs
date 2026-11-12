@@ -486,15 +486,14 @@ namespace Kudunmap.Views
             var reasons = o.AdminReasons();
             if (reasons.Count > 0 && !Admin.IsAdmin)
             {
-                if (Dialogs.Confirm(this, "This scan needs administrator rights for " + string.Join(", ", reasons) + ".\n\n" +
-                                          "Restart KUDUNMAP as administrator and start the scan?"))
+                if (Dialogs.Confirm(this, Lang.T("This scan needs administrator rights for {0}.\n\nRestart KUDUNMAP as administrator and start the scan?", string.Join(", ", reasons))))
                     RestartAsAdmin(true);
                 return;
             }
 
             if (o.UsesAdvancedScripts &&
-                !Dialogs.Confirm(this, "Advanced scripts are on (" + string.Join(", ", o.Scripts.Where(s => ScanOptions.AdvancedCategories.Contains(s))) + ").\n\n" +
-                                       "They can lock accounts, crash services or be seen as an attack. " + InfoWindows.PermissionRule + "\n\nStart the scan?"))
+                !Dialogs.Confirm(this, Lang.T("Advanced scripts are on ({0}).\n\nThey can lock accounts, crash services or be seen as an attack. {1}\n\nStart the scan?",
+                                       string.Join(", ", o.Scripts.Where(s => ScanOptions.AdvancedCategories.Contains(s))), Lang.T(InfoWindows.PermissionRule))))
                 return;
 
             Settings.LastTarget = o.Targets ?? string.Empty;
@@ -553,7 +552,7 @@ namespace Kudunmap.Views
             if (sb.Length > 0) _results.AppendOutput(sb.ToString());
             if (changed) _results.UpdateProgress(_tracker);
             if (IsScanning)
-                SetStatus($"Scanning · {_tracker.Found.Count} host{(_tracker.Found.Count == 1 ? "" : "s")} found so far · started {_scanStarted:HH:mm}", "LinkText");
+                SetStatus(Lang.T("Scanning · {0} found so far · started {1}", Format.Count(_tracker.Found.Count, "host"), _scanStarted.ToString("HH:mm")), "LinkText");
         }
 
         private void OnScanExited(int code)
@@ -606,11 +605,11 @@ namespace Kudunmap.Views
 
             _results.ShowResult(result, options, entry, output);
             var vulns = result.Vulnerabilities.Count;
-            var summary = $"{result.HostsUp} host{(result.HostsUp == 1 ? "" : "s")} online · {result.OpenPortCount} open port{(result.OpenPortCount == 1 ? "" : "s")}" +
-                          (vulns > 0 ? $" · {vulns} finding{(vulns == 1 ? "" : "s")}" : string.Empty);
-            SetStatus("Done · " + summary, "OkText");
+            var summary = Format.Count(result.HostsUp, "host online", "hosts online") + " · " + Format.Count(result.OpenPortCount, "open port") +
+                          (vulns > 0 ? " · " + Format.Count(vulns, "finding") : string.Empty);
+            SetStatus(Lang.T("Done · {0}", summary), "OkText");
             SetStatusRight("Nmap " + Nmap?.Version);
-            Notifier.Show(this, options.Title + " finished", summary);
+            Notifier.Show(this, Lang.T("{0} finished", Lang.T(options.Title)), summary);
         }
 
         private void RestoreToolbar()

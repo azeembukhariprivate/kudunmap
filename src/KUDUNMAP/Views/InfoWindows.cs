@@ -181,6 +181,9 @@ namespace Kudunmap.Views
             }
             root.Children.Add(themes);
 
+            root.Children.Add(Ui.Heading("Language", 14).Margin(0, 16, 0, 6));
+            root.Children.Add(LangUi.Picker());
+
             // Nmap
             root.Children.Add(Ui.Heading("Nmap", 14).Margin(0, 12, 0, 6));
             root.Children.Add(_nmapText);

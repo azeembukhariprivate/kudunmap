@@ -507,7 +507,7 @@ namespace Kudunmap.Views
                 h.OsGuess,
                 h.Mac == null ? null : "MAC " + h.Mac + (string.IsNullOrEmpty(h.Vendor) ? string.Empty : " (" + h.Vendor + ")"),
                 h.LatencyText,
-                h.Distance > 0 ? h.Distance + (h.Distance == 1 ? " hop" : " hops") : null
+                h.Distance > 0 ? Format.Count(h.Distance, "hop") : null
             }.Where(s => !string.IsNullOrEmpty(s));
             head.Children.Add(Ui.Column(title, Ui.Subtle(string.Join(" · ", info), 12, false)).At(0, 1));
             var web = h.OpenPorts.FirstOrDefault(p => p.LooksLikeWeb);
@@ -643,9 +643,8 @@ namespace Kudunmap.Views
             _vulnersNote.Inlines.Clear();
             if (_options != null)
             {
-                _vulnersNote.Inlines.Add(new Run("CVE lookup (vulners) was "));
-                _vulnersNote.Inlines.Add(new Run(_options.Vulners ? "on" : "off") { FontWeight = FontWeights.SemiBold });
-                _vulnersNote.Inlines.Add(new Run(" for this scan"));
+                _vulnersNote.Inlines.Add(new Run(Lang.T("CVE lookup (vulners) for this scan:") + " "));
+                _vulnersNote.Inlines.Add(new Run(Lang.T(_options.Vulners ? "On" : "Off")) { FontWeight = FontWeights.SemiBold });
             }
 
             if (_result == null || _vulns.Count == 0)

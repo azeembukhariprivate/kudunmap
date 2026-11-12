@@ -1,0 +1,733 @@
+Something went wrong:\n\n{0}	Un problème est survenu :\n\n{0}
+Azeem Bukhari	Azeem Bukhari
+less than a second	moins d'une seconde
+{0} h {1} min	{0} h {1} min
+{0} min {1} s	{0} min {1} s
+Address	Adresse
+Name	Nom
+Vendor	Fabricant
+Port	Port
+Protocol	Protocole
+State	État
+Service	Service
+Version	Version
+Severity	Gravité
+Finding	Constat
+Script	Script
+Note	Note
+Change	Changement
+Details	Détails
+body{font:14px/1.5 'Segoe UI',system-ui,sans-serif;margin:0;background:#F3F3F3;color:#1B1B1B}	body{font:14px/1.5 'Segoe UI',system-ui,sans-serif;margin:0;background:#F3F3F3;color:#1B1B1B}
+main{max-width:1100px;margin:0 auto;padding:24px}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 10px}	main{max-width:1100px;margin:0 auto;padding:24px}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 10px}
+.sub{color:#5C5C5C}.card{background:#fff;border:1px solid #E0E0E0;border-radius:10px;padding:16px 18px;margin:12px 0}	.sub{color:#5C5C5C}.card{background:#fff;border:1px solid #E0E0E0;border-radius:10px;padding:16px 18px;margin:12px 0}
+table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid #E0E0E0;vertical-align:top}	table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid #E0E0E0;vertical-align:top}
+th{font-size:12px;color:#5C5C5C}code,pre{font-family:Consolas,monospace;font-size:12px}pre{white-space:pre-wrap;margin:6px 0 0;color:#5C5C5C}	th{font-size:12px;color:#5C5C5C}code,pre{font-family:Consolas,monospace;font-size:12px}pre{white-space:pre-wrap;margin:6px 0 0;color:#5C5C5C}
+· Nmap	· Nmap
+hosts online	appareils en ligne
+open ports	ports ouverts
+scan time	durée de l'analyse
+"Matched by version" means the software version is listed as affected; the fix may already be applied.	« Repéré par la version » signifie que cette version du logiciel est listée comme touchée ; le correctif est peut-être déjà appliqué.
+open	ouvert
+Low	Faible
+High	Élevée
+Medium	Moyenne
+. Scans performed by Nmap (nmap.org).	. Scans performed by Nmap (nmap.org).
+This PC	Ce PC
+Router	Routeur
+Computer	Ordinateur
+Server	Serveur
+Phone or tablet	Téléphone ou tablette
+Printer	Imprimante
+TV or media player	TV ou lecteur multimédia
+Camera	Caméra
+Storage (NAS)	Stockage (NAS)
+Smart-home device	Appareil de maison connectée
+Network device	Appareil réseau
+Device	Appareil
+axis comm	axis comm
+netgear readynas	netgear readynas
+western digital	western digital
+wd my cloud	wd my cloud
+samsung tv	samsung tv
+lg tv	lg tv
+smart tv	smart tv
+apple tv	apple tv
+fire tv	fire tv
+amazon fire	amazon fire
+nvidia shield	nvidia shield
+android tv	android tv
+philips lighting	philips lighting
+tp-link smart	tp-link smart
+amazon echo	amazon echo
+google home	google home
+asus router	asus router
+access point	access point
+windows server	windows server
+mac os	mac os
+intel corporate	intel corporate
+requires root privileges|requires (?:administrator|root)	requires root privileges|requires (?:administrator|root)
+This scan needs administrator rights. Use "Restart as administrator" and run it again.	Cette analyse a besoin des droits d'administrateur. Utilisez « Redémarrer en administrateur » et relancez-la.
+Npcap|WinPcap|pcap_open|dnet: Failed to open device	Npcap|WinPcap|pcap_open|dnet: Failed to open device
+Nmap couldn't use Npcap, the network driver it needs on Windows. Re-run the Nmap installer from nmap.org and keep the Npcap option ticked, or restart KUDUNMAP as administrator.	Nmap n'a pas pu utiliser Npcap, le pilote réseau dont il a besoin sous Windows. Relancez l'installateur de Nmap depuis nmap.org en laissant l'option Npcap cochée, ou redémarrez KUDUNMAP en administrateur.
+Failed to resolve|Unable to split netmask	Failed to resolve|Unable to split netmask
+Nmap couldn't understand or look up one of the targets. Check the spelling of the address or name.	Nmap n'a pas pu comprendre ou trouver une des cibles. Vérifiez l'orthographe de l'adresse ou du nom.
+No targets were specified	No targets were specified
+No targets were given to scan.	Aucune cible n'a été donnée à analyser.
+This isn't an Nmap results file.	Ce n'est pas un fichier de résultats Nmap.
+Risky	Risqué
+Worth a look	À regarder
+Fine	Correct
+Close it if you don't use it, and never let it be reached from the internet.	Fermez-le si vous ne l'utilisez pas, et ne le laissez jamais joignable depuis internet.
+FTP (file transfer, data)	FTP (transfert de fichiers, données)
+Old file sharing that sends names, passwords and files without any protection.{0}	Un ancien partage de fichiers qui envoie noms, mots de passe et fichiers sans aucune protection.{0}
+FTP (file transfer)	FTP (transfert de fichiers)
+Old file sharing that sends names and passwords without any protection, so anyone on the network can read them.{0}	Un ancien partage de fichiers qui envoie noms et mots de passe sans aucune protection : n'importe qui sur le réseau peut les lire.{0}
+SSH (remote command line)	SSH (ligne de commande à distance)
+Lets someone control this device by typing commands, after signing in. Safe with strong passwords or keys; often attacked if it can be reached from the internet.	Permet de contrôler cet appareil en tapant des commandes, après connexion. Sûr avec des mots de passe ou des clés solides ; souvent attaqué s'il est joignable depuis internet.
+Telnet (old remote command line)	Telnet (ancienne ligne de commande à distance)
+Lets someone control this device with no protection at all: everything, passwords included, can be read on the network. Common on old routers and cameras.{0}	Permet de contrôler cet appareil sans aucune protection : tout, mots de passe compris, peut être lu sur le réseau. Courant sur les vieux routeurs et caméras.{0}
+Email sending (SMTP)	Envoi de courriel (SMTP)
+A mail server. Expected on a mail server; anywhere else, check what it is.	Un serveur de courriel. Attendu sur un serveur de courriel ; ailleurs, vérifiez ce que c'est.
+Name lookup (DNS)	Recherche de noms (DNS)
+Turns names like example.com into addresses. Normal on routers and DNS servers.	Transforme des noms comme example.com en adresses. Normal sur les routeurs et les serveurs DNS.
+Address handout (DHCP)	Attribution d'adresses (DHCP)
+Gives devices their network address. Normal on routers.	Donne aux appareils leur adresse réseau. Normal sur les routeurs.
+TFTP (simple file transfer)	TFTP (transfert de fichiers simple)
+Hands out files to anyone who asks, with no password. Used to set up phones and network devices.{0}	Donne des fichiers à quiconque les demande, sans mot de passe. Sert à configurer téléphones et appareils réseau.{0}
+Web page (HTTP)	Page web (HTTP)
+A web page, often a device's settings page. Pages are sent without protection, so don't type passwords on it over Wi-Fi you don't trust.	Une page web, souvent la page de réglages d'un appareil. Les pages sont envoyées sans protection : n'y tapez pas de mot de passe sur un Wi-Fi auquel vous ne faites pas confiance.
+Windows domain sign-in (Kerberos)	Connexion au domaine Windows (Kerberos)
+Normal on a company's domain controller.	Normal sur le contrôleur de domaine d'une entreprise.
+Email collection (POP3)	Relève du courriel (POP3)
+Collects email; without protection, passwords can be read on the network.	Relève le courriel ; sans protection, les mots de passe peuvent être lus sur le réseau.
+RPC port mapper	Mappeur de ports RPC
+Used by Linux and storage devices for file sharing (NFS). Often abused if it can be reached from the internet.	Utilisé par Linux et les appareils de stockage pour partager des fichiers (NFS). Souvent détourné s'il est joignable depuis internet.
+Time (NTP)	Heure (NTP)
+Keeps clocks right. Normal on routers and servers.	Garde les horloges à l'heure. Normal sur les routeurs et les serveurs.
+Windows remote calls (RPC)	Appels à distance Windows (RPC)
+Windows uses it to talk to other Windows PCs. Normal inside a home or office network; it should never be reachable from the internet.	Windows l'utilise pour parler aux autres PC Windows. Normal dans un réseau de maison ou de bureau ; ne doit jamais être joignable depuis internet.
+Windows names (NetBIOS)	Noms Windows (NetBIOS)
+Old Windows name sharing. Normal on older networks; it should never be reachable from the internet.	Ancien partage de noms Windows. Normal sur les anciens réseaux ; ne doit jamais être joignable depuis internet.
+Windows file sharing (old)	Partage de fichiers Windows (ancien)
+Shares files and printers the old Windows way. Fine at home if you share files on purpose; never from the internet.	Partage fichiers et imprimantes à l'ancienne manière de Windows. Correct à la maison si vous partagez des fichiers exprès ; jamais depuis internet.
+Email reading (IMAP)	Lecture du courriel (IMAP)
+Reads email on a mail server; without protection, passwords can be read on the network.	Lit le courriel sur un serveur ; sans protection, les mots de passe peuvent être lus sur le réseau.
+Device monitoring (SNMP)	Surveillance des appareils (SNMP)
+Lets other devices read this one's details. Old versions use a shared word like "public" instead of a password; check it's changed.	Permet à d'autres appareils de lire les infos de celui-ci. Les anciennes versions utilisent un mot partagé comme « public » au lieu d'un mot de passe ; vérifiez qu'il a été changé.
+Directory (LDAP)	Annuaire (LDAP)
+Company address books and sign-in. Normal on a domain controller; not expected elsewhere.	Carnets d'adresses d'entreprise et connexion. Normal sur un contrôleur de domaine ; inattendu ailleurs.
+Secure web page (HTTPS)	Page web sécurisée (HTTPS)
+A web page with protection, often a device's settings page.	Une page web avec protection, souvent la page de réglages d'un appareil.
+Windows file sharing (SMB)	Partage de fichiers Windows (SMB)
+Shares files and printers between Windows PCs. Fine at home if you share files on purpose. It's been behind some of the worst attacks, so keep Windows up to date and never let it be reached from the internet.	Partage fichiers et imprimantes entre PC Windows. Correct à la maison si vous partagez des fichiers exprès. Il a été au cœur de certaines des pires attaques : gardez Windows à jour et ne le laissez jamais joignable depuis internet.
+Secure email sending	Envoi de courriel sécurisé
+Sends email with protection. Normal on a mail server.	Envoie le courriel avec protection. Normal sur un serveur de courriel.
+Printing (LPD)	Impression (LPD)
+Old printing. Normal on printers.	Impression à l'ancienne. Normal sur les imprimantes.
+Mac file sharing (AFP)	Partage de fichiers Mac (AFP)
+Shares files the old Mac way. Fine if you share files on purpose.	Partage des fichiers à l'ancienne manière de Mac. Correct si vous partagez des fichiers exprès.
+Video stream (RTSP)	Flux vidéo (RTSP)
+Streams video, usually from a camera. Check the camera has a password and its own, not the one it came with.	Diffuse de la vidéo, en général depuis une caméra. Vérifiez que la caméra a un mot de passe, le vôtre et pas celui d'origine.
+Email sending	Envoi de courriel
+Sends email after signing in. Normal on a mail server.	Envoie le courriel après connexion. Normal sur un serveur de courriel.
+Printing (IPP)	Impression (IPP)
+Normal on printers and PCs that share a printer.	Normal sur les imprimantes et les PC qui partagent une imprimante.
+Secure directory (LDAPS)	Annuaire sécurisé (LDAPS)
+Company address books with protection. Normal on a domain controller.	Carnets d'adresses d'entreprise avec protection. Normal sur un contrôleur de domaine.
+File copying (rsync)	Copie de fichiers (rsync)
+Copies files between devices; some set-ups need no password. Check it's meant to be on.	Copie des fichiers entre appareils ; certaines configurations ne demandent pas de mot de passe. Vérifiez qu'il doit être actif.
+Secure email reading (IMAPS)	Lecture du courriel sécurisée (IMAPS)
+Reads email with protection. Normal on a mail server.	Lit le courriel avec protection. Normal sur un serveur de courriel.
+Secure email collection (POP3S)	Relève du courriel sécurisée (POP3S)
+Collects email with protection. Normal on a mail server.	Relève le courriel avec protection. Normal sur un serveur de courriel.
+Microsoft SQL Server (database)	Microsoft SQL Server (base de données)
+A database that answers on the network. Databases are a top target: keep it to the computers that need it.{0}	Une base de données qui répond sur le réseau. Les bases de données sont une cible de choix : réservez-la aux ordinateurs qui en ont besoin.{0}
+Oracle database	Base de données Oracle
+A database that answers on the network.{0}	Une base de données qui répond sur le réseau.{0}
+PPTP (old VPN)	PPTP (ancien VPN)
+An old VPN with known weaknesses. Use a newer VPN instead.	Un ancien VPN aux faiblesses connues. Utilisez plutôt un VPN récent.
+Smart-home messages (MQTT)	Messages de maison connectée (MQTT)
+Smart-home and sensor devices talk through it; often without a password. Check it needs one.	Les appareils de maison connectée et les capteurs communiquent par là ; souvent sans mot de passe. Vérifiez qu'il en demande un.
+Device discovery (UPnP)	Découverte d'appareils (UPnP)
+Lets devices find each other, and lets programs open ports on the router by themselves. Turn UPnP off on the router if you don't need it.	Permet aux appareils de se trouver, et aux programmes d'ouvrir eux-mêmes des ports sur le routeur. Désactivez UPnP sur le routeur si vous n'en avez pas besoin.
+NFS file sharing	Partage de fichiers NFS
+Linux and storage-device file sharing. Check which folders it shares and with whom.	Partage de fichiers de Linux et des appareils de stockage. Vérifiez quels dossiers sont partagés et avec qui.
+MySQL / MariaDB (database)	MySQL / MariaDB (base de données)
+Remote Desktop	Bureau à distance
+Lets someone sign in and use this PC from another one. It's one of the most attacked doors on the internet: use a strong password, turn it off if you don't use it, and never let it be reached from the internet.	Permet de se connecter et d'utiliser ce PC depuis un autre. C'est une des portes les plus attaquées d'internet : utilisez un mot de passe solide, désactivez-le si vous ne l'utilisez pas, et ne le laissez jamais joignable depuis internet.
+Web service (often a NAS or developer tool)	Service web (souvent un NAS ou un outil de développement)
+Often a storage device's settings page or a program being written. Check what it is.	Souvent la page de réglages d'un appareil de stockage ou un programme en cours d'écriture. Vérifiez ce que c'est.
+Internet phone (SIP)	Téléphone par internet (SIP)
+Phone calls over the network. Normal on phone boxes and routers with phone sockets; often attacked from the internet.	Appels téléphoniques par le réseau. Normal sur les standards et les routeurs avec prise téléphone ; souvent attaqué depuis internet.
+Device discovery (Bonjour)	Découverte d'appareils (Bonjour)
+Lets devices find printers and speakers. Normal at home.	Permet de trouver imprimantes et enceintes. Normal à la maison.
+PostgreSQL (database)	PostgreSQL (base de données)
+VNC (remote screen)	VNC (écran à distance)
+Lets someone see and control this screen. Often set up without a password or with a weak one.{0}	Permet de voir et contrôler cet écran. Souvent configuré sans mot de passe ou avec un mot de passe faible.{0}
+Windows remote management	Gestion à distance de Windows
+Lets administrators run commands on this PC. Normal in companies; not expected at home.	Permet aux administrateurs d'exécuter des commandes sur ce PC. Normal en entreprise ; inattendu à la maison.
+Redis (data store)	Redis (stockage de données)
+A data store that often has no password at all.{0}	Un stockage de données souvent sans aucun mot de passe.{0}
+Router remote management (TR-069)	Gestion à distance du routeur (TR-069)
+Lets an internet provider manage the router. Weak versions have been used to take routers over; it should only be reachable by your provider.	Permet au fournisseur d'accès de gérer le routeur. Des versions faibles ont servi à prendre le contrôle de routeurs ; seul votre fournisseur devrait pouvoir le joindre.
+Web service	Service web
+Often a camera, recorder or a program being written. Check what it is and that it has its own password.	Souvent une caméra, un enregistreur ou un programme en cours d'écriture. Vérifiez ce que c'est et qu'il a son propre mot de passe.
+Web service (alternative)	Service web (autre)
+Often a settings page, a proxy or a program being written. Check what it is.	Souvent une page de réglages, un proxy ou un programme en cours d'écriture. Vérifiez ce que c'est.
+Secure web service (alternative)	Service web sécurisé (autre)
+A web page with protection on another number, often a settings page.	Une page web avec protection sur un autre numéro, souvent une page de réglages.
+Printing (raw)	Impression (directe)
+Anyone on the network can send pages straight to this printer. Normal for printers; never from the internet.	N'importe qui sur le réseau peut envoyer des pages directement à cette imprimante. Normal pour les imprimantes ; jamais depuis internet.
+Elasticsearch (search database)	Elasticsearch (base de recherche)
+A search database that often has no password.{0}	Une base de recherche souvent sans mot de passe.{0}
+Memcached	Memcached
+A memory cache with no password, abused for attacks.{0}	Un cache mémoire sans mot de passe, détourné pour des attaques.{0}
+MongoDB (database)	MongoDB (base de données)
+A database that often has no password.{0}	Une base de données souvent sans mot de passe.{0}
+Plex media server	Serveur multimédia Plex
+Shares films and music. Fine if you use Plex.	Partage films et musique. Correct si vous utilisez Plex.
+Camera recorder (Dahua)	Enregistreur de caméras (Dahua)
+A security-camera recorder; old ones have known weaknesses. Keep it updated and never let it be reached from the internet.	Un enregistreur de caméras de surveillance ; les anciens ont des faiblesses connues. Gardez-le à jour et ne le laissez jamais joignable depuis internet.
+Windows (changing numbers)	Windows (numéros variables)
+Windows and other systems use numbers from here up for their own services. Normal on Windows PCs.	Windows et d'autres systèmes utilisent les numéros à partir d'ici pour leurs propres services. Normal sur les PC Windows.
+{0} on port {1}	{0} sur le port {1}
+Secure web service	Service web sécurisé
+A web page, often a device's settings page or a program's. Check what it is and that it has its own password.	Une page web, souvent la page de réglages d'un appareil ou d'un programme. Vérifiez ce que c'est et qu'il a son propre mot de passe.
+Unknown service	Service inconnu
+Something on this device answers here. If you don't know what it is, find out (the version Nmap found may help), and close it if it isn't needed.	Quelque chose sur cet appareil répond ici. Si vous ne savez pas ce que c'est, renseignez-vous (la version trouvée par Nmap peut aider), et fermez-le s'il n'est pas utile.
+Paranoid	Paranoïaque
+Sneaky	Furtif
+Polite	Poli
+Normal	Normal
+Fast	Rapide
+Insane	Extrême
+paranoid speed (very slow, quiet)	vitesse paranoïaque (très lent, discret)
+sneaky speed (slow, quiet)	vitesse furtive (lent, discret)
+polite speed (gentle on the network)	vitesse polie (douce pour le réseau)
+normal speed	vitesse normale
+insane speed (may miss ports)	vitesse extrême (peut rater des ports)
+fast speed	vitesse rapide
+Quick scan	Analyse rapide
+Top 100 ports, fast	Les 100 ports principaux, rapide
+Checks the 100 most common ports on each host. A good first look.	Vérifie les 100 ports les plus courants de chaque appareil. Un bon premier coup d'œil.
+Ping sweep	Balayage ping
+Who's online? No port scan	Qui est en ligne ? Sans analyse de ports
+Finds which devices are switched on and answering. Doesn't look at ports.	Trouve quels appareils sont allumés et répondent. Ne regarde pas les ports.
+Common ports	Ports courants
+Top 1,000 ports	Les 1 000 ports principaux
+Checks the 1,000 most common ports on each host. Nmap's standard scan.	Vérifie les 1 000 ports les plus courants de chaque appareil. L'analyse standard de Nmap.
+All ports	Tous les ports
+All 65,535 TCP ports · slow	Les 65 535 ports TCP · lent
+Checks every TCP port. Finds services on unusual ports, but takes much longer.	Vérifie tous les ports TCP. Trouve des services sur des ports inhabituels, mais prend beaucoup plus de temps.
+Services & versions	Services et versions
+What software runs on each port	Quel logiciel tourne sur chaque port
+Finds open ports and asks each one what software and version it runs.	Trouve les ports ouverts et demande à chacun quel logiciel et quelle version il fait tourner.
+OS detection	Détection du système
+Guess the operating system	Deviner le système d'exploitation
+Guesses each host's operating system from how it answers. Needs administrator rights.	Devine le système d'exploitation de chaque appareil d'après sa façon de répondre. Nécessite les droits d'administrateur.
+Intense	Approfondie
+Versions, OS, scripts, traceroute	Versions, système, scripts, traceroute
+Versions, operating system, default scripts and traceroute in one go. Needs administrator rights.	Versions, système d'exploitation, scripts standard et traceroute en une fois. Nécessite les droits d'administrateur.
+UDP scan	Analyse UDP
+Top 100 UDP ports · slow	Les 100 ports UDP principaux · lent
+Checks the 100 most common UDP ports (DNS, DHCP, SNMP and more). Slow. Needs administrator rights.	Vérifie les 100 ports UDP les plus courants (DNS, DHCP, SNMP et plus). Lent. Nécessite les droits d'administrateur.
+Vulnerability check	Recherche de failles
+Known problems & CVEs	Problèmes connus et CVE
+Finds versions, then runs Nmap's vuln scripts to check for well-known problems. Some checks send unusual traffic.	Trouve les versions, puis lance les scripts vuln de Nmap pour vérifier les problèmes connus. Certaines vérifications envoient un trafic inhabituel.
+Starting Nmap…	Démarrage de Nmap…
+NSE: Script scanning	NSE: Script scanning
+Running scripts	Exécution des scripts
+Collecting results	Collecte des résultats
+Read data files from	Read data files from
+Nmap done	Nmap done
+Finishing	Finalisation
+host discovery	host discovery
+Finding hosts	Recherche des appareils
+Detecting versions	Détection des versions
+os detection	os detection
+Detecting operating systems	Détection des systèmes d'exploitation
+Tracing routes	Traçage des routes
+Scanning ports	Analyse des ports
+Find hosts	Trouver les appareils
+Scan ports	Analyser les ports
+Detect versions	Détecter les versions
+Detect OS	Détecter le système
+Vulnerability scripts	Scripts de failles
+Scripts	Scripts
+Traceroute	Traceroute
+New host	Nouvel appareil
+Host gone	Appareil disparu
+Port opened	Port ouvert
+Port closed	Port fermé
+Version changed	Version changée
+Unchanged	Inchangé
+Appeared · no open ports	Apparu · aucun port ouvert
+Appeared · open ports {0}	Apparu · ports ouverts {0}
+Did not reply in the newer scan	N'a pas répondu dans l'analyse la plus récente
+No open ports	Aucun port ouvert
+Open ports {0}	Ports ouverts {0}
+UDP scans	les analyses UDP
+operating system detection	la détection du système d'exploitation
+traceroute	traceroute
+Type an IP address, host name, range or network to scan.	Tapez une adresse IP, un nom d'appareil, une plage ou un réseau à analyser.
+"{0}" doesn't look like an address, name, range or network.\n\nExamples: 192.168.1.10, router.lan, 192.168.1.1-50, 192.168.1.0/24	« {0} » ne ressemble pas à une adresse, un nom, une plage ou un réseau.\n\nExemples : 192.168.1.10, router.lan, 192.168.1.1-50, 192.168.1.0/24
+Type the ports to scan, for example 22,80,443 or 1-1024.	Tapez les ports à analyser, par exemple 22,80,443 ou 1-1024.
+"{0}" isn't a valid port list. Use numbers, commas and ranges, for example 22,80,443 or 1-1024.	« {0} » n'est pas une liste de ports valide. Utilisez des nombres, des virgules et des plages, par exemple 22,80,443 ou 1-1024.
+find hosts only, no port scan	trouver les appareils seulement, sans analyse de ports
+fast SYN scan	analyse SYN rapide
+connect scan (works without admin)	analyse par connexion (fonctionne sans administrateur)
+top 100 ports	les 100 ports principaux
+all 65,535 ports	les 65 535 ports
+only these ports	seulement ces ports
+detect versions	détecter les versions
+detect operating system	détecter le système d'exploitation
+default scripts	scripts standard
+run these scripts	lancer ces scripts
+trace the route	tracer la route
+treat every host as online	considérer chaque appareil comme en ligne
+don't look up names	ne pas chercher les noms
+only show open ports	n'afficher que les ports ouverts
+list ports as they're found	lister les ports au fur et à mesure
+progress updates	suivi de la progression
+results for KUDUNMAP	résultats pour KUDUNMAP
+nmap {0}	nmap {0}
+{0} ms	{0} ms
+Sunday	dimanche
+Monday	lundi
+Tuesday	mardi
+Wednesday	mercredi
+Thursday	jeudi
+Friday	vendredi
+Saturday	samedi
+Every hour	Toutes les heures
+Every {0} hours	Toutes les {0} heures
+Every {0} at {1}	Chaque {0} à {1}
+Every day at {0}	Tous les jours à {0}
+KUDUNMAP -	KUDUNMAP -
+{0}.json	{0}.json
+Runs the KUDUNMAP scan "{0}" ({1}) and says if anything changed.	Lance l'analyse KUDUNMAP « {0} » ({1}) et signale si quelque chose a changé.
+a new device	un nouvel appareil
+{0} new devices	{0} nouveaux appareils
+a port opened	un port s'est ouvert
+{0} ports opened	{0} ports se sont ouverts
+a device went away	un appareil a disparu
+{0} devices went away	{0} appareils ont disparu
+a port closed	un port s'est fermé
+{0} ports closed	{0} ports se sont fermés
+a service changed version	un service a changé de version
+{0} services changed version	{0} services ont changé de version
+{0}.xml	{0}.xml
+Windows' question about administrator rights was answered No, so the scan wasn't scheduled.	La question de Windows sur les droits d'administrateur a reçu la réponse Non, donc l'analyse n'a pas été programmée.
+Windows Task Scheduler said: {0}	Le Planificateur de tâches de Windows a répondu : {0}
+error {0}	erreur {0}
+Task Scheduler didn't respond.	Le Planificateur de tâches n'a pas répondu.
+Theme	Thème
+System	Système
+scan	analyse
+{0}.tmp	{0}.tmp
+open port	port ouvert
+Today, {0}	Aujourd'hui, {0}
+Yesterday, {0}	Hier, {0}
+Custom	Personnalisé
+Missing theme resource {0}	Missing theme resource {0}
+Light	Clair
+Styles	Styles
+Dark	Sombre
+Application	Application
+host	appareil
+Matched by version{0}	Repéré par la version{0}
+ · CVSS {0}	 · CVSS {0}
+Likely vulnerable, reported by the script	Probablement vulnérable, d'après le script
+Reported as vulnerable by the script	Signalé comme vulnérable par le script
+{0} · CVSS {1}	{0} · CVSS {1}
+NOT VULNERABLE	PAS VULNÉRABLE
+Detected software	Logiciel détecté
+Matched by version	Repéré par la version
+{0}: known vulnerability {1}{2}	{0} : faille connue {1}{2}
+(public exploit exists)	(une attaque publique existe)
+Error message shown: {0}	Error message shown: {0}
+All files	Tous les fichiers
+Save	Enregistrer
+Cancel	Annuler
+History	Historique
+Open	Ouvrir
+Compare with an earlier scan	Comparer avec une analyse précédente
+Delete	Supprimer
+Open the History folder	Ouvrir le dossier de l'historique
+When	Quand
+Scan type	Type d'analyse
+Target	Cible
+Result	Résultat
+No saved scans yet. Every finished scan is saved here automatically.	Aucune analyse enregistrée pour l'instant. Chaque analyse terminée est enregistrée ici automatiquement.
+saved scan on this computer	analyse enregistrée sur cet ordinateur
+saved scans on this computer	analyses enregistrées sur cet ordinateur
+Delete the saved scan "{0}" of {1} from {2}?	Supprimer l'analyse enregistrée « {0} » de {1} du {2} ?
+Couldn't delete it:\n\n{0}	Impossible de la supprimer :\n\n{0}
+Show unchanged hosts	Afficher les appareils inchangés
+Compare scans	Comparer des analyses
+Older scan	Analyse plus ancienne
+Newer scan	Analyse plus récente
+What changed	Ce qui a changé
+Hosts and ports that are the same in both scans are hidden.	Les appareils et ports identiques dans les deux analyses sont masqués.
+Export	Exporter
+Choose two different scans.	Choisissez deux analyses différentes.
+Couldn't read one of the scans: {0}	Impossible de lire une des analyses : {0}
+new hosts	nouveaux appareils
+hosts gone	appareils disparus
+ports opened	ports se sont ouverts
+ports closed	ports se sont fermés
+versions changed	versions changées
+Scan this host	Analyser cet appareil
+Nothing changed between these two scans.	Rien n'a changé entre ces deux analyses.
+Export changes	Exporter les changements
+KUDUNMAP changes {0}	Changements KUDUNMAP {0}
+{0}.csv	{0}.csv
+CSV file	Fichier CSV
+Couldn't save the file:\n\n{0}	Impossible d'enregistrer le fichier :\n\n{0}
+KUDUNMAP	KUDUNMAP
+Nmap is a separate program by the Nmap Project (nmap.org), installed by you and not included with KUDUNMAP. KUDUNMAP is not affiliated with, sponsored or endorsed by the Nmap Project or Nmap Software LLC. "Nmap" is their trademark.	Nmap est un programme distinct du Nmap Project (nmap.org), installé par vous et non fourni avec KUDUNMAP. KUDUNMAP n'est ni affilié, ni parrainé, ni approuvé par le Nmap Project ou Nmap Software LLC. « Nmap » est leur marque.
+Only scan networks and devices you own or have permission to scan.	N'analysez que les réseaux et appareils qui vous appartiennent ou que vous avez le droit d'analyser.
+Scanning other people's systems without permission may be illegal where you live, and can be noticed as an attack.	Analyser les systèmes d'autres personnes sans autorisation peut être illégal là où vous vivez, et peut être vu comme une attaque.
+Welcome to KUDUNMAP	Bienvenue dans KUDUNMAP
+A visual way to use Nmap	Une façon visuelle d'utiliser Nmap
+KUDUNMAP runs Nmap on your computer and shows its results. Nmap is a separate program made by the Nmap Project. KUDUNMAP is not affiliated with or endorsed by them.	KUDUNMAP lance Nmap sur votre ordinateur et affiche ses résultats. Nmap est un programme distinct fait par le Nmap Project. KUDUNMAP n'est ni affilié ni approuvé par eux.
+Shown once. You can read it again in Settings → About.	Affiché une seule fois. Vous pouvez le relire dans Paramètres → À propos.
+I understand	J'ai compris
+Close	Fermer
+Version {0} · Network scanning made visual	Version {0} · L'analyse réseau en images
+Azeem, with Claude and	Azeem, with Claude and
+Made by	Made by
+Licence	Licence
+Nmap Public Source License (NPSL) 0.95 · free and open source	Nmap Public Source License (NPSL) 0.95 · libre et open source
+View	Voir
+Source code	Code source
+Nmap in use	Nmap utilisé
+Not found	Introuvable
+Nmap {0} · {1}	Nmap {0} · {1}
+Third-party	Tiers
+Third-party notices	Mentions des tiers
+Show the first-start notice again	Réafficher l'avis du premier démarrage
+Check for updates	Rechercher des mises à jour
+About KUDUNMAP	À propos de KUDUNMAP
+Couldn't find any published version yet.	Aucune version publiée trouvée pour l'instant.
+KUDUNMAP {0} is available. Open the download page?	KUDUNMAP {0} est disponible. Ouvrir la page de téléchargement ?
+You have the latest version.	Vous avez la dernière version.
+Couldn't check for updates. Check your internet connection and try again.	Impossible de rechercher des mises à jour. Vérifiez votre connexion internet et réessayez.
+Settings	Paramètres
+Appearance	Apparence
+Same as Windows	Comme Windows
+Language	Langue
+Nmap	Nmap
+Choose nmap.exe…	Choisir nmap.exe…
+Find automatically	Trouver automatiquement
+Get Nmap from nmap.org	Obtenir Nmap sur nmap.org
+Scans	Analyses
+Show a Windows notification when a scan finishes	Afficher une notification Windows à la fin d'une analyse
+Scans are saved in History on this computer only ({0}).	Les analyses sont enregistrées dans l'historique sur cet ordinateur uniquement ({0}).
+Updates	Mises à jour
+Check for a new KUDUNMAP version when it starts	Rechercher une nouvelle version de KUDUNMAP au démarrage
+Only asks GitHub for the latest version number. Nothing is downloaded without asking.	Demande seulement à GitHub le numéro de la dernière version. Rien n'est téléchargé sans vous le demander.
+Nmap wasn't found. Install it from nmap.org, or choose nmap.exe if it's somewhere else.	Nmap est introuvable. Installez-le depuis nmap.org, ou choisissez nmap.exe s'il est ailleurs.
+Using Nmap {0}: {1}{2}	Nmap {0} utilisé : {1}{2}
+(found automatically)	(trouvé automatiquement)
+(chosen by you)	(choisi par vous)
+Choose nmap.exe	Choisir nmap.exe
+That file didn't answer like Nmap. Choose the nmap.exe from your Nmap folder.	Ce fichier n'a pas répondu comme Nmap. Choisissez le nmap.exe de votre dossier Nmap.
+IP, name, range or network	IP, nom, plage ou réseau
+Scan	Analyser
+From file…	Depuis un fichier…
+Administrator	Administrateur
+KUDUNMAP is running as administrator, so every scan type is available.	KUDUNMAP tourne en administrateur, donc tous les types d'analyse sont disponibles.
+Standard user	Utilisateur standard
+Some scans (OS detection, UDP, traceroute) need administrator rights. KUDUNMAP offers to restart when they do.	Certaines analyses (détection du système, UDP, traceroute) nécessitent les droits d'administrateur. KUDUNMAP propose alors de redémarrer.
+Compare	Comparer
+Scheduled	Programmées
+Scans that run by themselves and tell you when something changes	Des analyses qui tournent seules et vous préviennent quand quelque chose change
+Download Nmap from nmap.org	Télécharger Nmap sur nmap.org
+Choose the "Latest stable release self-installer" for Windows.	Choisissez le « Latest stable release self-installer » pour Windows.
+Run the Nmap installer	Lancez l'installateur de Nmap
+Keep the Npcap option ticked. Nmap needs it to scan on Windows.	Laissez l'option Npcap cochée. Nmap en a besoin pour analyser sous Windows.
+Come back and press Check again	Revenez et appuyez sur Vérifier à nouveau
+KUDUNMAP finds Nmap automatically. No restart needed.	KUDUNMAP trouve Nmap automatiquement. Pas besoin de redémarrer.
+Open nmap.org download page	Ouvrir la page de téléchargement de nmap.org
+Check again	Vérifier à nouveau
+Locate nmap.exe…	Localiser nmap.exe…
+Nmap isn't installed yet	Nmap n'est pas encore installé
+KUDUNMAP is the window, Nmap does the scanning. It's free, from the Nmap Project.	KUDUNMAP est la fenêtre, Nmap fait l'analyse. Il est gratuit, du Nmap Project.
+KUDUNMAP never downloads or installs Nmap itself. The download page opens in your browser, so you get Nmap straight from the Nmap Project.	KUDUNMAP ne télécharge ni n'installe jamais Nmap lui-même. La page de téléchargement s'ouvre dans votre navigateur, vous obtenez donc Nmap directement du Nmap Project.
+Nmap not found · looked in {0}	Nmap introuvable · cherché dans {0}
+Ready	Prêt
+Nmap not found	Nmap introuvable
+Nmap {0}	Nmap {0}
+KUDUNMAP {0} is available	KUDUNMAP {0} est disponible
+Skip	Ignorer
+Choose a list of targets (one per line)	Choisissez une liste de cibles (une par ligne)
+Text files	Fichiers texte
+Stop using this file	Ne plus utiliser ce fichier
+Command copied. Paste it into a terminal to run the same scan with Nmap directly.	Commande copiée. Collez-la dans un terminal pour faire la même analyse directement avec Nmap.
+A scan is running. Stop it and restart KUDUNMAP as administrator?	Une analyse est en cours. L'arrêter et redémarrer KUDUNMAP en administrateur ?
+Restart as administrator was cancelled.	Le redémarrage en administrateur a été annulé.
+The target file can't be found:\n\n{0}	Le fichier de cibles est introuvable :\n\n{0}
+This scan needs administrator rights for {0}.\n\nRestart KUDUNMAP as administrator and start the scan?	Cette analyse a besoin des droits d'administrateur pour {0}.\n\nRedémarrer KUDUNMAP en administrateur et lancer l'analyse ?
+Advanced scripts are on ({0}).\n\nThey can lock accounts, crash services or be seen as an attack. {1}\n\nStart the scan?	Les scripts avancés sont activés ({0}).\n\nIls peuvent bloquer des comptes, faire planter des services ou être vus comme une attaque. {1}\n\nLancer l'analyse ?
+Scanning · started {0}	Analyse en cours · commencée à {0}
+You'll get a Windows notification when it finishes	Vous recevrez une notification Windows à la fin
+Nmap couldn't start	Nmap n'a pas pu démarrer
+Stopping Nmap…	Arrêt de Nmap…
+Scanning · {0} found so far · started {1}	Analyse en cours · {0} trouvés pour l'instant · commencée à {1}
+Scan cancelled	Analyse annulée
+Nmap was stopped. The output so far is below.	Nmap a été arrêté. La sortie obtenue jusqu'ici est ci-dessous.
+Nmap reported an error.	Nmap a signalé une erreur.
+Nmap stopped without results (exit code {0}).	Nmap s'est arrêté sans résultat (exit code {0}).
+The scan didn't finish	L'analyse n'est pas allée au bout
+{0} Nmap's output is below.	{0} La sortie de Nmap est ci-dessous.
+Scan didn't finish	Analyse non terminée
+Couldn't save to History: {0}	Impossible d'enregistrer dans l'historique : {0}
+host online	appareil en ligne
+Done · {0}	Terminé · {0}
+{0} finished	{0} terminée
+Target set to {0}. Pick a scan type and press Scan.	Cible réglée sur {0}. Choisissez un type d'analyse et appuyez sur Analyser.
+Compare needs at least two saved scans. Run the same scan again later to see what changed.	La comparaison nécessite au moins deux analyses enregistrées. Refaites la même analyse plus tard pour voir ce qui a changé.
+Wait for the running scan to finish, or cancel it, before opening saved results.	Attendez la fin de l'analyse en cours, ou annulez-la, avant d'ouvrir des résultats enregistrés.
+Saved scan from {0} · {1}	Analyse enregistrée du {0} · {1}
+Couldn't open these results:\n\n{0}	Impossible d'ouvrir ces résultats :\n\n{0}
+A scan is still running. Stop it and close KUDUNMAP?	Une analyse est encore en cours. L'arrêter et fermer KUDUNMAP ?
+This appears when the scan finishes.	Ceci apparaît à la fin de l'analyse.
+Nothing worth a look	Rien à regarder
+{0} worth a look	{0} à regarder
+ ({0} risky)	 ({0} risqués)
+Every open port found is normal for its kind of device.	Tous les ports ouverts trouvés sont normaux pour ce type d'appareil.
+What each open port is, in plain words, and what it could risk. Risky ones are often used by attackers: close them if they aren't needed, and never let them be reached from the internet.	Ce qu'est chaque port ouvert, en mots simples, et ce qu'il peut risquer. Les ports risqués sont souvent utilisés par les attaquants : fermez-les s'ils ne servent pas, et ne les laissez jamais joignables depuis internet.
+Show this device	Afficher cet appareil
+The map appears when the scan finishes.	La carte apparaît à la fin de l'analyse.
+No devices replied, so there's nothing to draw.	Aucun appareil n'a répondu, il n'y a donc rien à dessiner.
+Each device found, with a guess of what it is. Red and orange marks are open ports that are risky or worth a look. Click a device to see its details.	Chaque appareil trouvé, avec une supposition de ce qu'il est. Les marques rouges et orange sont des ports ouverts risqués ou à regarder. Cliquez sur un appareil pour voir ses détails.
+Save as a picture…	Enregistrer en image…
+Segoe Fluent Icons, Segoe MDL2 Assets	Segoe Fluent Icons, Segoe MDL2 Assets
+{0} risky	{0} risqués
+{0} to check	{0} à vérifier
+Network map {0}	Carte du réseau {0}
+{0}.png	{0}.png
+Save the map as a picture	Enregistrer la carte en image
+PNG picture	Image PNG
+Found so far	Trouvé jusqu'ici
+Hosts & ports	Appareils et ports
+Map	Carte
+Vulnerabilities	Failles
+Raw output	Sortie brute
+Scan details	Détails de l'analyse
+Filter hosts…	Filtrer les appareils…
+Name / OS	Nom / Système
+These are checks for known problems. "Matched by version" means the software version is listed as affected; the fix may already be applied. A clean result doesn't guarantee a system is safe.	Ce sont des vérifications de problèmes connus. « Repéré par la version » signifie que cette version du logiciel est listée comme touchée ; le correctif est peut-être déjà appliqué. Un résultat propre ne garantit pas qu'un système est sûr.
+Host	Appareil
+Found by	Trouvé par
+Open ports	Ports ouverts
+Results appear here when the scan finishes. Live output is on the Raw output tab.	Les résultats apparaissent ici à la fin de l'analyse. La sortie en direct est dans l'onglet Sortie brute.
+Starting…	Démarrage…
+Scanning…	Analyse en cours…
+{0} · about {1} left	{0} · encore environ {1}
+{0} seconds	{0} secondes
+Failed	Échec
+Cancelled	Annulée
+Change options	Modifier les options
+Try again	Réessayer
+Found before stopping	Trouvé avant l'arrêt
+Hosts	Appareils
+hosts affected	appareils touchés
+no reply	pas de réponse
+✓ Finished · {0}	✓ Terminée · {0}
+New scan	Nouvelle analyse
+Scan again	Analyser à nouveau
+HTML report…	Rapport HTML…
+HTML report	Rapport HTML
+{0}.html	{0}.html
+Hosts and ports (CSV)…	Appareils et ports (CSV)…
+Vulnerabilities (CSV)…	Failles (CSV)…
+Nmap XML…	Nmap XML…
+Nmap XML	Nmap XML
+Nmap text output…	Sortie texte de Nmap…
+{0}.txt	{0}.txt
+Text file	Fichier texte
+Export {0}	Exporter {0}
+Saved {0}	Enregistré {0}
+(no name)	(sans nom)
+No hosts answered. They may be switched off, or blocking pings. Try "Skip ping" in the options.	Aucun appareil n'a répondu. Ils sont peut-être éteints, ou bloquent les pings. Essayez « Ignorer le ping » dans les options.
+No hosts match the filter.	Aucun appareil ne correspond au filtre.
+MAC {0}	MAC {0}
+Open in browser	Ouvrir dans le navigateur
+Scan this host…	Analyser cet appareil…
+This was a ping sweep, so ports weren't scanned.	C'était un balayage ping, les ports n'ont donc pas été analysés.
+No open ports found on this host.	Aucun port ouvert trouvé sur cet appareil.
+Proto	Proto
+Host script results	Résultats des scripts de l'appareil
+Route	Route
+Right-click a host or port to copy it, open it in a browser, ping it, or start a new scan on just that host.	Clic droit sur un appareil ou un port pour le copier, l'ouvrir dans un navigateur, le pinguer ou lancer une nouvelle analyse sur cet appareil seulement.
+Copy address	Copier l'adresse
+Copy name	Copier le nom
+Ping	Ping
+Copy {0}	Copier {0}
+Copy version	Copier la version
+https	https
+http	http
+/k ping {0}	/k ping {0}
+CVE lookup (vulners) for this scan:	Recherche de CVE (vulners) pour cette analyse :
+On	Activée
+Off	Désactivée
+Findings appear here when the scan finishes.	Les constats apparaissent ici à la fin de l'analyse.
+No known vulnerabilities were reported. That doesn't guarantee these systems are safe: only well-known problems are checked.	Aucune faille connue n'a été signalée. Cela ne garantit pas que ces systèmes sont sûrs : seuls les problèmes bien connus sont vérifiés.
+This scan didn't check for vulnerabilities. Choose "Vulnerability check" on the New scan screen, or switch on the vuln scripts.	Cette analyse n'a pas cherché de failles. Choisissez « Recherche de failles » sur l'écran Nouvelle analyse, ou activez les scripts vuln.
+All	Tout
+no CVE	pas de CVE
+Copy finding	Copier le constat
+Copy CVE	Copier le CVE
+(no text output)	(pas de sortie texte)
+What Nmap reported · {0}	Ce que Nmap a signalé · {0}
+Learn more	En savoir plus
+Links come from the CVE and script names in Nmap's results. Severity is the CVSS score when there is one, otherwise the script's risk factor.	Les liens viennent des noms de CVE et de scripts dans les résultats de Nmap. La gravité est le score CVSS quand il existe, sinon le facteur de risque du script.
+Details appear here when the scan finishes.	Les détails apparaissent ici à la fin de l'analyse.
+Command	Commande
+Nmap version	Version de Nmap
+Started	Début
+Finished	Fin
+Scan time	Durée de l'analyse
+{0} online, {1} no reply, {2} scanned	{0} en ligne, {1} sans réponse, {2} analysés
+Nmap's summary	Résumé de Nmap
+Run as	Lancé en tant que
+Saved in	Enregistré dans
+Open folder	Ouvrir le dossier
+{0} ran into a problem it couldn't get past, and has to close.	{0} a rencontré un problème qu'il n'a pas pu surmonter et doit se fermer.
+Nmap wasn't found.	Nmap est introuvable.
+The target file can't be found.	Le fichier de cibles est introuvable.
+Nmap stopped without results (exit code {0}). {1}	Nmap s'est arrêté sans résultat (exit code {0}). {1}
+Nmap couldn't start: {0}	Nmap n'a pas pu démarrer : {0}
+First run · {0}	Première exécution · {0}
+Nothing changed	Rien n'a changé
+{0} · couldn't compare: {1}	{0} · comparaison impossible : {1}
+Didn't finish: {0}	Pas terminée : {0}
+The scan didn't finish. {0}	L'analyse n'est pas allée au bout. {0}
+{0} didn't finish	{0} pas terminée
+{0}: something changed	{0} : quelque chose a changé
+Scheduled scans	Analyses programmées
+Schedule the scan set up now…	Programmer l'analyse réglée maintenant…
+Change…	Modifier…
+Run now	Lancer maintenant
+Remove	Retirer
+Open History	Ouvrir l'historique
+Last run	Dernière exécution
+Each scheduled scan runs by itself, even when KUDUNMAP is closed (you need to be signed in to Windows). Every run is kept in History, and a Windows notification tells you when a device or open port appears or goes away. Windows asks for administrator rights once, when a scan is scheduled, so it can use every scan type.	Chaque analyse programmée tourne seule, même quand KUDUNMAP est fermé (vous devez être connecté à Windows). Chaque exécution est gardée dans l'historique, et une notification Windows vous prévient quand un appareil ou un port ouvert apparaît ou disparaît. Windows demande les droits d'administrateur une fois, quand une analyse est programmée, pour pouvoir utiliser tous les types d'analyse.
+Not run yet	Pas encore lancée
+None yet. Set up a scan in the main window, then schedule it here.	Aucune pour l'instant. Réglez une analyse dans la fenêtre principale, puis programmez-la ici.
+scheduled scan	analyse programmée
+Type what to scan in the main window first.\n\n{0}	Tapez d'abord quoi analyser dans la fenêtre principale.\n\n{0}
+This scan uses advanced scripts, which can lock accounts, crash services or be seen as an attack. Running them again and again by themselves isn't a good idea.\n\nSchedule it anyway?	Cette analyse utilise des scripts avancés, qui peuvent bloquer des comptes, faire planter des services ou être vus comme une attaque. Les lancer encore et encore tout seuls n'est pas une bonne idée.\n\nLa programmer quand même ?
+Every hour (or every few hours)	Toutes les heures (ou toutes les quelques heures)
+Every day	Tous les jours
+Every week	Toutes les semaines
+How often	Fréquence
+At	À
+Runs	Exécutions
+Schedule this scan	Programmer cette analyse
+Change this scheduled scan	Modifier cette analyse programmée
+If the PC is off or asleep at that time, the scan runs as soon as it can.	Si le PC est éteint ou en veille à ce moment-là, l'analyse se fait dès que possible.
+Schedule	Programmer
+Schedule a scan	Programmer une analyse
+Change a scheduled scan	Modifier une analyse programmée
+"{0}" is running now, without a window. It will be in History when it finishes, and you'll get a notification if something changed.	« {0} » tourne maintenant, sans fenêtre. Elle sera dans l'historique une fois terminée, et vous recevrez une notification si quelque chose a changé.
+Windows' task for "{0}" is missing. Make it again?	La tâche Windows de « {0} » est manquante. La recréer ?
+Stop running "{0}" by itself?\n\nIts earlier runs stay in History.	Arrêter de lancer « {0} » automatiquement ?\n\nSes exécutions précédentes restent dans l'historique.
+Windows didn't remove the task. You can remove it in Task Scheduler: it's called\n\n{0}	Windows n'a pas retiré la tâche. Vous pouvez la retirer dans le Planificateur de tâches : elle s'appelle\n\n{0}
+Skip ping (treat every host as online)	Ignorer le ping (considérer chaque appareil comme en ligne)
+Resolve host names	Trouver les noms des appareils
+Show only open ports	N'afficher que les ports ouverts
+Detect service versions	Détecter les versions des services
+Detect operating system	Détecter le système d'exploitation
+Advanced	Avancé
+Look up known CVEs online (vulners)	Chercher les CVE connus en ligne (vulners)
+Restart as administrator	Redémarrer en administrateur
+My presets	Mes préréglages
+Needs administrator rights	Nécessite les droits d'administrateur
+What to scan	Quoi analyser
+TCP ports	Ports TCP
+UDP ports	Ports UDP
+Hosts only	Appareils seulement
+Speed	Vitesse
+Top 100	100 principaux
+Top 1,000	1 000 principaux
+For example 22,80,443 or 1-1024	Par exemple 22,80,443 ou 1-1024
+Ports	Ports
+Discovery	Découverte
+Detection	Détection
+Needs admin	Nécessite administrateur
+These scripts can log in with guessed passwords, try exploits or overload services. Only use them on systems you are allowed to test.	Ces scripts peuvent se connecter en devinant des mots de passe, tenter des attaques ou surcharger des services. Ne les utilisez que sur des systèmes que vous avez le droit de tester.
+When on, the names and versions of the services found are sent to vulners.com to look up known CVEs. Off by default.	Si c'est activé, les noms et versions des services trouvés sont envoyés à vulners.com pour chercher les CVE connus. Désactivé par défaut.
+Scripts (NSE)	Scripts (NSE)
+Nmap's standard set of useful, safe scripts (same as -sC).	L'ensemble standard de scripts utiles et sûrs de Nmap (comme -sC).
+Scripts that won't crash services or use lots of bandwidth.	Des scripts qui ne feront pas planter de services ni n'utiliseront beaucoup de bande passante.
+Find out more about the network: names, shares, directories.	En savoir plus sur le réseau : noms, partages, annuaires.
+Extra version detection.	Détection de versions supplémentaire.
+Check for well-known vulnerabilities. Some checks send unusual traffic.	Vérifier les failles bien connues. Certaines vérifications envoient un trafic inhabituel.
+Check for weak or missing authentication.	Vérifier les connexions faibles ou sans mot de passe.
+Discover hosts by broadcasting on the local network.	Découvrir les appareils en diffusant sur le réseau local.
+Guess passwords. Can lock accounts.	Deviner les mots de passe. Peut bloquer des comptes.
+Denial-of-service tests. Can crash services.	Tests de déni de service. Peuvent faire planter des services.
+Actively try to exploit vulnerabilities.	Essayer réellement d'exploiter des failles.
+Send data to third-party services on the internet.	Envoyer des données à des services tiers sur internet.
+Send unexpected data. Can crash services.	Envoyer des données inattendues. Peut faire planter des services.
+Risky scripts that may crash services or be seen as attacks.	Des scripts risqués qui peuvent faire planter des services ou être vus comme des attaques.
+Check for signs of backdoors and malware.	Chercher des signes de portes dérobées et de logiciels malveillants.
+Updates as you change options. You never need to type it.	Se met à jour quand vous changez les options. Vous n'avez jamais besoin de la taper.
+Copy	Copier
+Save as preset	Enregistrer comme préréglage
+Recent scans	Analyses récentes
+See all history	Voir tout l'historique
+Your own saved options.	Vos propres options enregistrées.
+My preset	Mon préréglage
+Preset	Préréglage
+Changed	Modifié
+Hosts only: no ports are scanned.	Appareils seulement : aucun port n'est analysé.
+Numbers, commas and ranges. Add U: for UDP, e.g. U:53.	Nombres, virgules et plages. Ajoutez U: pour l'UDP, par ex. U:53.
+All 65,535 ports. Much slower, but finds services on unusual ports.	Les 65 535 ports. Beaucoup plus lent, mais trouve des services sur des ports inhabituels.
+The 100 most common ports. Quickest.	Les 100 ports les plus courants. Le plus rapide.
+The 1,000 most common ports. Nmap's standard.	Les 1 000 ports les plus courants. Le standard de Nmap.
+added by KUDUNMAP for live progress (left out when you copy)	ajouté par KUDUNMAP pour la progression en direct (retiré quand vous copiez)
+Ready to scan the targets in {0}	Prêt à analyser les cibles de {0}
+You can cancel at any time.	Vous pouvez annuler à tout moment.
+Type a target to scan	Tapez une cible à analyser
+An IP address (192.168.1.10), name (router.lan), range (192.168.1.1-50) or network (192.168.1.0/24).	Une adresse IP (192.168.1.10), un nom (router.lan), une plage (192.168.1.1-50) ou un réseau (192.168.1.0/24).
+Check the target	Vérifiez la cible
+Ready to scan	Prêt à analyser
+Ready to scan 1 address	Prêt à analyser 1 adresse
+Ready to scan {0} addresses	Prêt à analyser {0} adresses
+That's a lot of addresses. This may take a long time. You can cancel at any time.	Cela fait beaucoup d'adresses. Cela peut prendre longtemps. Vous pouvez annuler à tout moment.
+Nmap {0} found · {1}	Nmap {0} trouvé · {1}
+This scan needs administrator rights for {0}. Restart KUDUNMAP as administrator, or turn those options off.	Cette analyse a besoin des droits d'administrateur pour {0}. Redémarrez KUDUNMAP en administrateur, ou désactivez ces options.
+Advanced scripts are on. They can lock accounts, crash services or be seen as an attack.	Les scripts avancés sont activés. Ils peuvent bloquer des comptes, faire planter des services ou être vus comme une attaque.
+Vulnerability scripts send unusual traffic that can occasionally upset old or fragile devices.	Les scripts de failles envoient un trafic inhabituel qui peut parfois gêner les appareils anciens ou fragiles.
+CVE lookup is on: service names and versions will be sent to vulners.com.	La recherche de CVE est activée : les noms et versions des services seront envoyés à vulners.com.
+{0} and {1}	{0} et {1}
+Very slow and quiet. Can take hours on a network.	Très lent et discret. Peut prendre des heures sur un réseau.
+Gentle on slow networks and old devices.	Doux pour les réseaux lents et les vieux appareils.
+Nmap's normal speed.	La vitesse normale de Nmap.
+Fastest. On busy or slow networks it can miss ports.	Le plus rapide. Sur les réseaux chargés ou lents, il peut rater des ports.
+Fast is right for most home and office networks.	Rapide convient à la plupart des réseaux de maison et de bureau.
+Save your own with "Save as preset" under the command.	Enregistrez les vôtres avec « Enregistrer comme préréglage » sous la commande.
+Delete this preset	Supprimer ce préréglage
+Delete the preset "{0}"?	Supprimer le préréglage « {0} » ?
+Right-click to delete	Clic droit pour supprimer
+Give these options a name. The target is saved too, so you can repeat this scan with one click.	Donnez un nom à ces options. La cible est aussi enregistrée, pour refaire cette analyse en un clic.
+Finished scans appear here, and in History.	Les analyses terminées apparaissent ici et dans l'historique.
+Open these results	Ouvrir ces résultats
+{0} host	{0} appareil
+{0} hosts	{0} appareils
+{0} open port	{0} port ouvert
+{0} open ports	{0} ports ouverts
+{0} finding	{0} constat
+{0} findings	{0} constats
+{0} saved scan on this computer	{0} analyse enregistrée sur cet ordinateur
+{0} saved scans on this computer	{0} analyses enregistrées sur cet ordinateur
+{0} host online	{0} appareil en ligne
+{0} hosts online	{0} appareils en ligne
+{0} hop	{0} saut
+{0} hops	{0} sauts
+{0} scheduled scan	{0} analyse programmée
+{0} scheduled scans	{0} analyses programmées

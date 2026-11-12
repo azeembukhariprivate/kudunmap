@@ -93,7 +93,7 @@ namespace Kudunmap.Views
             }
             _count.Text = entries.Count == 0
                 ? "No saved scans yet. Every finished scan is saved here automatically."
-                : $"{entries.Count} saved scan{(entries.Count == 1 ? "" : "s")} on this computer";
+                : Format.Count(entries.Count, "saved scan on this computer", "saved scans on this computer");
             if (_list.Items.Count > 0) _list.SelectedIndex = 0;
             UpdateButtons();
         }

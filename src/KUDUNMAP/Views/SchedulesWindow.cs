@@ -106,7 +106,7 @@ namespace Kudunmap.Views
             }
             _count.Text = all.Count == 0
                 ? "None yet. Set up a scan in the main window, then schedule it here."
-                : $"{all.Count} scheduled scan{(all.Count == 1 ? "" : "s")}";
+                : Format.Count(all.Count, "scheduled scan");
             if (_list.SelectedItem == null && _list.Items.Count > 0) _list.SelectedIndex = 0;
             UpdateButtons();
         }

@@ -403,7 +403,7 @@ namespace Kudunmap.Views
             var targetError = string.IsNullOrEmpty(o.TargetFile) ? CommandBuilder.ValidateTargets(o.Targets) : null;
             if (!string.IsNullOrEmpty(o.TargetFile))
             {
-                _readyTitle.Text = "Ready to scan the targets in " + System.IO.Path.GetFileName(o.TargetFile);
+                _readyTitle.Text = Lang.T("Ready to scan the targets in {0}", System.IO.Path.GetFileName(o.TargetFile));
                 _readyText.Text = "You can cancel at any time.";
             }
             else if (string.IsNullOrWhiteSpace(o.Targets))
@@ -421,18 +421,17 @@ namespace Kudunmap.Views
                 var count = CommandBuilder.CountAddresses(o.Targets);
                 _readyTitle.Text = count < 0 ? "Ready to scan"
                     : count == 1 ? "Ready to scan 1 address"
-                    : "Ready to scan " + count.ToString("N0", CultureInfo.CurrentCulture) + " addresses";
-                _readyText.Text = (count > 4096 ? "That's a lot of addresses. This may take a long time. " : string.Empty) + "You can cancel at any time.";
+                    : Lang.T("Ready to scan {0} addresses", count.ToString("N0", CultureInfo.CurrentCulture));
+                _readyText.Text = count > 4096 ? Lang.T("That's a lot of addresses. This may take a long time. You can cancel at any time.") : Lang.T("You can cancel at any time.");
             }
 
             var nmap = _main.Nmap;
-            _nmapText.Text = nmap == null ? string.Empty : "Nmap " + nmap.Version + " found · " + nmap.Folder;
+            _nmapText.Text = nmap == null ? string.Empty : Lang.T("Nmap {0} found · {1}", nmap.Version, nmap.Folder);
 
             var reasons = o.AdminReasons();
             if (reasons.Count > 0 && !isAdmin)
             {
-                _adminText.Text = "This scan needs administrator rights for " + Join(reasons) + ". " +
-                                  "Restart KUDUNMAP as administrator, or turn those options off.";
+                _adminText.Text = Lang.T("This scan needs administrator rights for {0}. Restart KUDUNMAP as administrator, or turn those options off.", Join(reasons));
                 _adminBanner.Visibility = Visibility.Visible;
             }
             else
@@ -449,7 +448,7 @@ namespace Kudunmap.Views
         }
 
         private static string Join(List<string> items) =>
-            items.Count == 1 ? items[0] : string.Join(", ", items.Take(items.Count - 1)) + " and " + items.Last();
+            items.Count == 1 ? items[0] : Lang.T("{0} and {1}", string.Join(", ", items.Take(items.Count - 1)), items.Last());
 
         private static string SpeedHint(int timing)
         {

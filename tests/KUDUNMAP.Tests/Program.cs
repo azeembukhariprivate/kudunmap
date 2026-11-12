@@ -15,6 +15,7 @@ namespace Kudunmap.Tests
         private static int Main()
         {
             Run("Parses hosts and ports", ParsesHostsAndPorts);
+            Run("In other languages", LangTests.Run);
             Run("Finds vulnerabilities", FindsVulnerabilities);
             Run("Reads text-only vuln output", ReadsTextOnlyVulnOutput);
             Run("Builds commands for presets", BuildsCommands);

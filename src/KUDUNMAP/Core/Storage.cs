@@ -94,8 +94,8 @@ namespace Kudunmap.Core
         public string XmlPath => Path.Combine(Folder, "scan.xml");
         public string OutputPath => Path.Combine(Folder, "output.txt");
 
-        public string Summary => $"{HostsUp} host{(HostsUp == 1 ? "" : "s")} · {OpenPorts} open port{(OpenPorts == 1 ? "" : "s")}" +
-                                 (Findings > 0 ? $" · {Findings} finding{(Findings == 1 ? "" : "s")}" : string.Empty);
+        public string Summary => Format.Count(HostsUp, "host") + " · " + Format.Count(OpenPorts, "open port") +
+                                 (Findings > 0 ? " · " + Format.Count(Findings, "finding") : string.Empty);
 
         public string WhenText => FriendlyDate(Started);
 

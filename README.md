@@ -37,6 +37,7 @@
 - **Right-click actions**: copy, open in a browser, ping, or scan just that host.
 - **Windows notification** when a long scan finishes.
 - **Light and dark mode**, following your Windows setting.
+- **In your language**: English, Malayalam (മലയാളം), Hindi (हिन्दी), Spanish, French and Arabic (with the windows mirrored for right-to-left). KUDUNMAP starts in the same language as Windows when it has it; choose another in Settings. Nmap's own output and the saved reports stay in English.
 
 ## You need Nmap
 

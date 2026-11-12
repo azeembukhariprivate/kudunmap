@@ -44,6 +44,8 @@ namespace Kudunmap
             }
 
             SafetyNet.Install(); // says so if an error behind the window closes the app
+
+            LangUi.Start(); // the app in the chosen language
             ThemeManager.Init(Settings.Theme);
             ThemeManager.WatchSystem();
 

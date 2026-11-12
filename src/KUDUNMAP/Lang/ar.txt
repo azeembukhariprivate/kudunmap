@@ -1,0 +1,733 @@
+Something went wrong:\n\n{0}	حدث خطأ ما:\n\n{0}
+Azeem Bukhari	Azeem Bukhari
+less than a second	أقل من ثانية
+{0} h {1} min	{0} س {1} د
+{0} min {1} s	{0} د {1} ث
+Address	العنوان
+Name	الاسم
+Vendor	الشركة المصنّعة
+Port	المنفذ
+Protocol	البروتوكول
+State	الحالة
+Service	الخدمة
+Version	الإصدار
+Severity	الخطورة
+Finding	النتيجة
+Script	البرنامج النصي
+Note	ملاحظة
+Change	التغيير
+Details	التفاصيل
+body{font:14px/1.5 'Segoe UI',system-ui,sans-serif;margin:0;background:#F3F3F3;color:#1B1B1B}	body{font:14px/1.5 'Segoe UI',system-ui,sans-serif;margin:0;background:#F3F3F3;color:#1B1B1B}
+main{max-width:1100px;margin:0 auto;padding:24px}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 10px}	main{max-width:1100px;margin:0 auto;padding:24px}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 10px}
+.sub{color:#5C5C5C}.card{background:#fff;border:1px solid #E0E0E0;border-radius:10px;padding:16px 18px;margin:12px 0}	.sub{color:#5C5C5C}.card{background:#fff;border:1px solid #E0E0E0;border-radius:10px;padding:16px 18px;margin:12px 0}
+table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid #E0E0E0;vertical-align:top}	table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid #E0E0E0;vertical-align:top}
+th{font-size:12px;color:#5C5C5C}code,pre{font-family:Consolas,monospace;font-size:12px}pre{white-space:pre-wrap;margin:6px 0 0;color:#5C5C5C}	th{font-size:12px;color:#5C5C5C}code,pre{font-family:Consolas,monospace;font-size:12px}pre{white-space:pre-wrap;margin:6px 0 0;color:#5C5C5C}
+· Nmap	· Nmap
+hosts online	أجهزة متصلة
+open ports	منافذ مفتوحة
+scan time	مدة الفحص
+"Matched by version" means the software version is listed as affected; the fix may already be applied.	"مطابق حسب الإصدار" يعني أن إصدار البرنامج هذا مدرج ضمن المتأثرين؛ ربما تم تطبيق الإصلاح بالفعل.
+open	مفتوح
+Low	منخفضة
+High	عالية
+Medium	متوسطة
+. Scans performed by Nmap (nmap.org).	. Scans performed by Nmap (nmap.org).
+This PC	هذا الكمبيوتر
+Router	الموجّه (الراوتر)
+Computer	كمبيوتر
+Server	خادم
+Phone or tablet	هاتف أو جهاز لوحي
+Printer	طابعة
+TV or media player	تلفاز أو مشغّل وسائط
+Camera	كاميرا
+Storage (NAS)	تخزين (NAS)
+Smart-home device	جهاز منزل ذكي
+Network device	جهاز شبكة
+Device	جهاز
+axis comm	axis comm
+netgear readynas	netgear readynas
+western digital	western digital
+wd my cloud	wd my cloud
+samsung tv	samsung tv
+lg tv	lg tv
+smart tv	smart tv
+apple tv	apple tv
+fire tv	fire tv
+amazon fire	amazon fire
+nvidia shield	nvidia shield
+android tv	android tv
+philips lighting	philips lighting
+tp-link smart	tp-link smart
+amazon echo	amazon echo
+google home	google home
+asus router	asus router
+access point	access point
+windows server	windows server
+mac os	mac os
+intel corporate	intel corporate
+requires root privileges|requires (?:administrator|root)	requires root privileges|requires (?:administrator|root)
+This scan needs administrator rights. Use "Restart as administrator" and run it again.	يحتاج هذا الفحص إلى صلاحيات المسؤول. استخدم "إعادة التشغيل كمسؤول" وشغّله مرة أخرى.
+Npcap|WinPcap|pcap_open|dnet: Failed to open device	Npcap|WinPcap|pcap_open|dnet: Failed to open device
+Nmap couldn't use Npcap, the network driver it needs on Windows. Re-run the Nmap installer from nmap.org and keep the Npcap option ticked, or restart KUDUNMAP as administrator.	لم يتمكن Nmap من استخدام Npcap، وهو برنامج تشغيل الشبكة الذي يحتاجه على Windows. أعد تشغيل مثبّت Nmap من nmap.org مع إبقاء خيار Npcap محددًا، أو أعد تشغيل KUDUNMAP كمسؤول.
+Failed to resolve|Unable to split netmask	Failed to resolve|Unable to split netmask
+Nmap couldn't understand or look up one of the targets. Check the spelling of the address or name.	لم يتمكن Nmap من فهم أحد الأهداف أو العثور عليه. تحقق من كتابة العنوان أو الاسم.
+No targets were specified	No targets were specified
+No targets were given to scan.	لم يُحدَّد أي هدف للفحص.
+This isn't an Nmap results file.	هذا ليس ملف نتائج Nmap.
+Risky	خطِر
+Worth a look	يستحق النظر
+Fine	سليم
+Close it if you don't use it, and never let it be reached from the internet.	أغلقه إذا كنت لا تستخدمه، ولا تسمح أبدًا بالوصول إليه من الإنترنت.
+FTP (file transfer, data)	FTP (نقل الملفات، البيانات)
+Old file sharing that sends names, passwords and files without any protection.{0}	مشاركة ملفات قديمة ترسل الأسماء وكلمات المرور والملفات دون أي حماية.{0}
+FTP (file transfer)	FTP (نقل الملفات)
+Old file sharing that sends names and passwords without any protection, so anyone on the network can read them.{0}	مشاركة ملفات قديمة ترسل الأسماء وكلمات المرور دون أي حماية، فيمكن لأي شخص على الشبكة قراءتها.{0}
+SSH (remote command line)	SSH (سطر أوامر عن بُعد)
+Lets someone control this device by typing commands, after signing in. Safe with strong passwords or keys; often attacked if it can be reached from the internet.	يتيح التحكم في هذا الجهاز بكتابة الأوامر بعد تسجيل الدخول. آمن مع كلمات مرور أو مفاتيح قوية؛ يُهاجَم كثيرًا إذا أمكن الوصول إليه من الإنترنت.
+Telnet (old remote command line)	Telnet (سطر أوامر قديم عن بُعد)
+Lets someone control this device with no protection at all: everything, passwords included, can be read on the network. Common on old routers and cameras.{0}	يتيح التحكم في هذا الجهاز دون أي حماية: كل شيء، بما فيه كلمات المرور، يمكن قراءته على الشبكة. شائع في الموجّهات والكاميرات القديمة.{0}
+Email sending (SMTP)	إرسال البريد (SMTP)
+A mail server. Expected on a mail server; anywhere else, check what it is.	خادم بريد. متوقَّع على خادم بريد؛ وفي غير ذلك تحقّق مما هو.
+Name lookup (DNS)	البحث عن الأسماء (DNS)
+Turns names like example.com into addresses. Normal on routers and DNS servers.	يحوّل أسماء مثل example.com إلى عناوين. عادي على الموجّهات وخوادم DNS.
+Address handout (DHCP)	توزيع العناوين (DHCP)
+Gives devices their network address. Normal on routers.	يعطي الأجهزة عناوينها على الشبكة. عادي على الموجّهات.
+TFTP (simple file transfer)	TFTP (نقل ملفات بسيط)
+Hands out files to anyone who asks, with no password. Used to set up phones and network devices.{0}	يعطي الملفات لكل من يطلبها دون كلمة مرور. يُستخدم لإعداد الهواتف وأجهزة الشبكة.{0}
+Web page (HTTP)	صفحة ويب (HTTP)
+A web page, often a device's settings page. Pages are sent without protection, so don't type passwords on it over Wi-Fi you don't trust.	صفحة ويب، غالبًا صفحة إعدادات جهاز. تُرسل الصفحات دون حماية، فلا تكتب كلمات مرور فيها عبر شبكة Wi-Fi لا تثق بها.
+Windows domain sign-in (Kerberos)	تسجيل الدخول إلى نطاق Windows (Kerberos)
+Normal on a company's domain controller.	عادي على وحدة التحكم بالنطاق في شركة.
+Email collection (POP3)	جلب البريد (POP3)
+Collects email; without protection, passwords can be read on the network.	يجلب البريد؛ دون حماية يمكن قراءة كلمات المرور على الشبكة.
+RPC port mapper	مُعيِّن منافذ RPC
+Used by Linux and storage devices for file sharing (NFS). Often abused if it can be reached from the internet.	يستخدمه Linux وأجهزة التخزين لمشاركة الملفات (NFS). يُساء استخدامه كثيرًا إذا أمكن الوصول إليه من الإنترنت.
+Time (NTP)	الوقت (NTP)
+Keeps clocks right. Normal on routers and servers.	يضبط الساعات. عادي على الموجّهات والخوادم.
+Windows remote calls (RPC)	استدعاءات Windows عن بُعد (RPC)
+Windows uses it to talk to other Windows PCs. Normal inside a home or office network; it should never be reachable from the internet.	يستخدمه Windows للتواصل مع أجهزة Windows الأخرى. عادي داخل شبكة المنزل أو المكتب؛ يجب ألا يكون قابلًا للوصول من الإنترنت أبدًا.
+Windows names (NetBIOS)	أسماء Windows (NetBIOS)
+Old Windows name sharing. Normal on older networks; it should never be reachable from the internet.	مشاركة أسماء Windows القديمة. عادي على الشبكات القديمة؛ يجب ألا يكون قابلًا للوصول من الإنترنت أبدًا.
+Windows file sharing (old)	مشاركة ملفات Windows (قديمة)
+Shares files and printers the old Windows way. Fine at home if you share files on purpose; never from the internet.	يشارك الملفات والطابعات بطريقة Windows القديمة. لا بأس في المنزل إذا كنت تشارك الملفات عن قصد؛ وأبدًا من الإنترنت.
+Email reading (IMAP)	قراءة البريد (IMAP)
+Reads email on a mail server; without protection, passwords can be read on the network.	يقرأ البريد على خادم بريد؛ دون حماية يمكن قراءة كلمات المرور على الشبكة.
+Device monitoring (SNMP)	مراقبة الأجهزة (SNMP)
+Lets other devices read this one's details. Old versions use a shared word like "public" instead of a password; check it's changed.	يتيح للأجهزة الأخرى قراءة تفاصيل هذا الجهاز. الإصدارات القديمة تستخدم كلمة مشتركة مثل "public" بدل كلمة المرور؛ تأكد من تغييرها.
+Directory (LDAP)	الدليل (LDAP)
+Company address books and sign-in. Normal on a domain controller; not expected elsewhere.	دفاتر عناوين الشركة وتسجيل الدخول. عادي على وحدة التحكم بالنطاق؛ وغير متوقَّع في غيرها.
+Secure web page (HTTPS)	صفحة ويب آمنة (HTTPS)
+A web page with protection, often a device's settings page.	صفحة ويب محمية، غالبًا صفحة إعدادات جهاز.
+Windows file sharing (SMB)	مشاركة ملفات Windows (SMB)
+Shares files and printers between Windows PCs. Fine at home if you share files on purpose. It's been behind some of the worst attacks, so keep Windows up to date and never let it be reached from the internet.	يشارك الملفات والطابعات بين أجهزة Windows. لا بأس في المنزل إذا كنت تشارك الملفات عن قصد. كان وراء بعض أسوأ الهجمات، فأبقِ Windows محدّثًا ولا تسمح أبدًا بالوصول إليه من الإنترنت.
+Secure email sending	إرسال بريد آمن
+Sends email with protection. Normal on a mail server.	يرسل البريد بحماية. عادي على خادم بريد.
+Printing (LPD)	الطباعة (LPD)
+Old printing. Normal on printers.	طباعة قديمة. عادي على الطابعات.
+Mac file sharing (AFP)	مشاركة ملفات Mac (AFP)
+Shares files the old Mac way. Fine if you share files on purpose.	يشارك الملفات بطريقة Mac القديمة. لا بأس إذا كنت تشارك الملفات عن قصد.
+Video stream (RTSP)	بث فيديو (RTSP)
+Streams video, usually from a camera. Check the camera has a password and its own, not the one it came with.	يبث الفيديو، عادةً من كاميرا. تأكد أن للكاميرا كلمة مرور خاصة بك، لا التي جاءت معها.
+Email sending	إرسال البريد
+Sends email after signing in. Normal on a mail server.	يرسل البريد بعد تسجيل الدخول. عادي على خادم بريد.
+Printing (IPP)	الطباعة (IPP)
+Normal on printers and PCs that share a printer.	عادي على الطابعات وأجهزة الكمبيوتر التي تشارك طابعة.
+Secure directory (LDAPS)	دليل آمن (LDAPS)
+Company address books with protection. Normal on a domain controller.	دفاتر عناوين الشركة بحماية. عادي على وحدة التحكم بالنطاق.
+File copying (rsync)	نسخ الملفات (rsync)
+Copies files between devices; some set-ups need no password. Check it's meant to be on.	ينسخ الملفات بين الأجهزة؛ بعض الإعدادات لا تحتاج كلمة مرور. تأكد أنه يجب أن يكون مفعّلًا.
+Secure email reading (IMAPS)	قراءة بريد آمنة (IMAPS)
+Reads email with protection. Normal on a mail server.	يقرأ البريد بحماية. عادي على خادم بريد.
+Secure email collection (POP3S)	جلب بريد آمن (POP3S)
+Collects email with protection. Normal on a mail server.	يجلب البريد بحماية. عادي على خادم بريد.
+Microsoft SQL Server (database)	Microsoft SQL Server (قاعدة بيانات)
+A database that answers on the network. Databases are a top target: keep it to the computers that need it.{0}	قاعدة بيانات تستجيب على الشبكة. قواعد البيانات هدف رئيسي: اجعلها متاحة فقط للأجهزة التي تحتاجها.{0}
+Oracle database	قاعدة بيانات Oracle
+A database that answers on the network.{0}	قاعدة بيانات تستجيب على الشبكة.{0}
+PPTP (old VPN)	PPTP (VPN قديم)
+An old VPN with known weaknesses. Use a newer VPN instead.	VPN قديم به نقاط ضعف معروفة. استخدم VPN أحدث بدلًا منه.
+Smart-home messages (MQTT)	رسائل المنزل الذكي (MQTT)
+Smart-home and sensor devices talk through it; often without a password. Check it needs one.	تتواصل أجهزة المنزل الذكي والمستشعرات عبره؛ غالبًا دون كلمة مرور. تأكد أنه يطلب واحدة.
+Device discovery (UPnP)	اكتشاف الأجهزة (UPnP)
+Lets devices find each other, and lets programs open ports on the router by themselves. Turn UPnP off on the router if you don't need it.	يتيح للأجهزة أن تجد بعضها، وللبرامج أن تفتح منافذ على الموجّه بنفسها. أوقف UPnP على الموجّه إذا لم تكن تحتاجه.
+NFS file sharing	مشاركة ملفات NFS
+Linux and storage-device file sharing. Check which folders it shares and with whom.	مشاركة ملفات Linux وأجهزة التخزين. تحقق من المجلدات المشتركة ومع من.
+MySQL / MariaDB (database)	MySQL / MariaDB (قاعدة بيانات)
+Remote Desktop	سطح المكتب البعيد
+Lets someone sign in and use this PC from another one. It's one of the most attacked doors on the internet: use a strong password, turn it off if you don't use it, and never let it be reached from the internet.	يتيح لشخص تسجيل الدخول واستخدام هذا الكمبيوتر من جهاز آخر. إنه من أكثر الأبواب تعرضًا للهجوم على الإنترنت: استخدم كلمة مرور قوية، وأوقفه إن لم تستخدمه، ولا تسمح أبدًا بالوصول إليه من الإنترنت.
+Web service (often a NAS or developer tool)	خدمة ويب (غالبًا NAS أو أداة مطوّرين)
+Often a storage device's settings page or a program being written. Check what it is.	غالبًا صفحة إعدادات جهاز تخزين أو برنامج قيد الكتابة. تحقّق مما هو.
+Internet phone (SIP)	هاتف عبر الإنترنت (SIP)
+Phone calls over the network. Normal on phone boxes and routers with phone sockets; often attacked from the internet.	مكالمات هاتفية عبر الشبكة. عادي على مقاسم الهاتف والموجّهات ذات منافذ الهاتف؛ يُهاجَم كثيرًا من الإنترنت.
+Device discovery (Bonjour)	اكتشاف الأجهزة (Bonjour)
+Lets devices find printers and speakers. Normal at home.	يتيح للأجهزة إيجاد الطابعات ومكبرات الصوت. عادي في المنزل.
+PostgreSQL (database)	PostgreSQL (قاعدة بيانات)
+VNC (remote screen)	VNC (شاشة عن بُعد)
+Lets someone see and control this screen. Often set up without a password or with a weak one.{0}	يتيح لشخص رؤية هذه الشاشة والتحكم فيها. غالبًا يُعدّ دون كلمة مرور أو بكلمة ضعيفة.{0}
+Windows remote management	إدارة Windows عن بُعد
+Lets administrators run commands on this PC. Normal in companies; not expected at home.	يتيح للمسؤولين تشغيل أوامر على هذا الكمبيوتر. عادي في الشركات؛ وغير متوقَّع في المنزل.
+Redis (data store)	Redis (مخزن بيانات)
+A data store that often has no password at all.{0}	مخزن بيانات غالبًا بلا أي كلمة مرور.{0}
+Router remote management (TR-069)	إدارة الموجّه عن بُعد (TR-069)
+Lets an internet provider manage the router. Weak versions have been used to take routers over; it should only be reachable by your provider.	يتيح لمزوّد الإنترنت إدارة الموجّه. استُخدمت إصدارات ضعيفة للاستيلاء على موجّهات؛ يجب أن يصل إليه مزوّدك فقط.
+Web service	خدمة ويب
+Often a camera, recorder or a program being written. Check what it is and that it has its own password.	غالبًا كاميرا أو جهاز تسجيل أو برنامج قيد الكتابة. تحقّق مما هو وأن له كلمة مرور خاصة.
+Web service (alternative)	خدمة ويب (بديلة)
+Often a settings page, a proxy or a program being written. Check what it is.	غالبًا صفحة إعدادات أو وكيل أو برنامج قيد الكتابة. تحقّق مما هو.
+Secure web service (alternative)	خدمة ويب آمنة (بديلة)
+A web page with protection on another number, often a settings page.	صفحة ويب محمية على رقم آخر، غالبًا صفحة إعدادات.
+Printing (raw)	الطباعة (مباشرة)
+Anyone on the network can send pages straight to this printer. Normal for printers; never from the internet.	يمكن لأي شخص على الشبكة إرسال صفحات مباشرة إلى هذه الطابعة. عادي للطابعات؛ وأبدًا من الإنترنت.
+Elasticsearch (search database)	Elasticsearch (قاعدة بيانات بحث)
+A search database that often has no password.{0}	قاعدة بيانات بحث غالبًا بلا كلمة مرور.{0}
+Memcached	Memcached
+A memory cache with no password, abused for attacks.{0}	ذاكرة تخزين مؤقت بلا كلمة مرور، يُساء استخدامها في الهجمات.{0}
+MongoDB (database)	MongoDB (قاعدة بيانات)
+A database that often has no password.{0}	قاعدة بيانات غالبًا بلا كلمة مرور.{0}
+Plex media server	خادم وسائط Plex
+Shares films and music. Fine if you use Plex.	يشارك الأفلام والموسيقى. لا بأس إذا كنت تستخدم Plex.
+Camera recorder (Dahua)	مسجّل كاميرات (Dahua)
+A security-camera recorder; old ones have known weaknesses. Keep it updated and never let it be reached from the internet.	مسجّل كاميرات مراقبة؛ القديمة منها بها نقاط ضعف معروفة. أبقِه محدّثًا ولا تسمح أبدًا بالوصول إليه من الإنترنت.
+Windows (changing numbers)	Windows (أرقام متغيرة)
+Windows and other systems use numbers from here up for their own services. Normal on Windows PCs.	يستخدم Windows والأنظمة الأخرى الأرقام من هنا فما فوق لخدماتها. عادي على أجهزة Windows.
+{0} on port {1}	{0} على المنفذ {1}
+Secure web service	خدمة ويب آمنة
+A web page, often a device's settings page or a program's. Check what it is and that it has its own password.	صفحة ويب، غالبًا صفحة إعدادات جهاز أو برنامج. تحقّق مما هي وأن لها كلمة مرور خاصة.
+Unknown service	خدمة غير معروفة
+Something on this device answers here. If you don't know what it is, find out (the version Nmap found may help), and close it if it isn't needed.	شيء ما على هذا الجهاز يستجيب هنا. إذا لم تكن تعرف ما هو، فابحث عنه (قد يساعد الإصدار الذي وجده Nmap)، وأغلقه إن لم يكن ضروريًا.
+Paranoid	متخفٍّ جدًا
+Sneaky	متخفٍّ
+Polite	مهذّب
+Normal	عادي
+Fast	سريع
+Insane	سريع جدًا
+paranoid speed (very slow, quiet)	سرعة متخفية جدًا (بطيئة جدًا، هادئة)
+sneaky speed (slow, quiet)	سرعة متخفية (بطيئة، هادئة)
+polite speed (gentle on the network)	سرعة مهذّبة (لطيفة على الشبكة)
+normal speed	سرعة عادية
+insane speed (may miss ports)	سرعة قصوى (قد تفوت منافذ)
+fast speed	سرعة عالية
+Quick scan	فحص سريع
+Top 100 ports, fast	أهم 100 منفذ، سريع
+Checks the 100 most common ports on each host. A good first look.	يفحص أكثر 100 منفذ شيوعًا على كل جهاز. نظرة أولى جيدة.
+Ping sweep	مسح Ping
+Who's online? No port scan	من المتصل؟ دون فحص المنافذ
+Finds which devices are switched on and answering. Doesn't look at ports.	يجد الأجهزة المشغّلة التي تستجيب. لا ينظر إلى المنافذ.
+Common ports	المنافذ الشائعة
+Top 1,000 ports	أهم 1,000 منفذ
+Checks the 1,000 most common ports on each host. Nmap's standard scan.	يفحص أكثر 1,000 منفذ شيوعًا على كل جهاز. فحص Nmap المعتاد.
+All ports	كل المنافذ
+All 65,535 TCP ports · slow	كل منافذ TCP الـ 65,535 · بطيء
+Checks every TCP port. Finds services on unusual ports, but takes much longer.	يفحص كل منفذ TCP. يجد خدمات على منافذ غير معتادة، لكنه يستغرق وقتًا أطول بكثير.
+Services & versions	الخدمات والإصدارات
+What software runs on each port	أي برنامج يعمل على كل منفذ
+Finds open ports and asks each one what software and version it runs.	يجد المنافذ المفتوحة ويسأل كلًّا منها عن البرنامج والإصدار الذي يشغّله.
+OS detection	اكتشاف النظام
+Guess the operating system	تخمين نظام التشغيل
+Guesses each host's operating system from how it answers. Needs administrator rights.	يخمّن نظام تشغيل كل جهاز من طريقة استجابته. يحتاج صلاحيات المسؤول.
+Intense	مكثّف
+Versions, OS, scripts, traceroute	الإصدارات، النظام، البرامج النصية، traceroute
+Versions, operating system, default scripts and traceroute in one go. Needs administrator rights.	الإصدارات ونظام التشغيل والبرامج النصية المعتادة وtraceroute معًا. يحتاج صلاحيات المسؤول.
+UDP scan	فحص UDP
+Top 100 UDP ports · slow	أهم 100 منفذ UDP · بطيء
+Checks the 100 most common UDP ports (DNS, DHCP, SNMP and more). Slow. Needs administrator rights.	يفحص أكثر 100 منفذ UDP شيوعًا (DNS وDHCP وSNMP وغيرها). بطيء. يحتاج صلاحيات المسؤول.
+Vulnerability check	فحص الثغرات
+Known problems & CVEs	المشاكل المعروفة وCVE
+Finds versions, then runs Nmap's vuln scripts to check for well-known problems. Some checks send unusual traffic.	يجد الإصدارات ثم يشغّل برامج vuln النصية في Nmap للتحقق من المشاكل المعروفة. بعض الفحوصات ترسل حركة غير معتادة.
+Starting Nmap…	جارٍ تشغيل Nmap…
+NSE: Script scanning	NSE: Script scanning
+Running scripts	تشغيل البرامج النصية
+Collecting results	جمع النتائج
+Read data files from	Read data files from
+Nmap done	Nmap done
+Finishing	جارٍ الإنهاء
+host discovery	host discovery
+Finding hosts	البحث عن الأجهزة
+Detecting versions	اكتشاف الإصدارات
+os detection	os detection
+Detecting operating systems	اكتشاف أنظمة التشغيل
+Tracing routes	تتبّع المسارات
+Scanning ports	فحص المنافذ
+Find hosts	البحث عن الأجهزة
+Scan ports	فحص المنافذ
+Detect versions	اكتشاف الإصدارات
+Detect OS	اكتشاف النظام
+Vulnerability scripts	برامج نصية للثغرات
+Scripts	البرامج النصية
+Traceroute	Traceroute
+New host	جهاز جديد
+Host gone	جهاز اختفى
+Port opened	منفذ فُتح
+Port closed	منفذ أُغلق
+Version changed	تغيّر الإصدار
+Unchanged	لم يتغير
+Appeared · no open ports	ظهر · لا منافذ مفتوحة
+Appeared · open ports {0}	ظهر · منافذ مفتوحة {0}
+Did not reply in the newer scan	لم يستجب في الفحص الأحدث
+No open ports	لا منافذ مفتوحة
+Open ports {0}	منافذ مفتوحة {0}
+UDP scans	فحوصات UDP
+operating system detection	اكتشاف نظام التشغيل
+traceroute	traceroute
+Type an IP address, host name, range or network to scan.	اكتب عنوان IP أو اسم جهاز أو نطاقًا أو شبكة لفحصها.
+"{0}" doesn't look like an address, name, range or network.\n\nExamples: 192.168.1.10, router.lan, 192.168.1.1-50, 192.168.1.0/24	"{0}" لا يبدو عنوانًا أو اسمًا أو نطاقًا أو شبكة.\n\nأمثلة: 192.168.1.10، router.lan، 192.168.1.1-50، 192.168.1.0/24
+Type the ports to scan, for example 22,80,443 or 1-1024.	اكتب المنافذ المراد فحصها، مثلًا 22,80,443 أو 1-1024.
+"{0}" isn't a valid port list. Use numbers, commas and ranges, for example 22,80,443 or 1-1024.	"{0}" ليست قائمة منافذ صحيحة. استخدم الأرقام والفواصل والنطاقات، مثلًا 22,80,443 أو 1-1024.
+find hosts only, no port scan	البحث عن الأجهزة فقط، دون فحص المنافذ
+fast SYN scan	فحص SYN سريع
+connect scan (works without admin)	فحص بالاتصال (يعمل دون مسؤول)
+top 100 ports	أهم 100 منفذ
+all 65,535 ports	كل المنافذ الـ 65,535
+only these ports	هذه المنافذ فقط
+detect versions	اكتشاف الإصدارات
+detect operating system	اكتشاف نظام التشغيل
+default scripts	البرامج النصية المعتادة
+run these scripts	تشغيل هذه البرامج النصية
+trace the route	تتبّع المسار
+treat every host as online	اعتبار كل جهاز متصلًا
+don't look up names	عدم البحث عن الأسماء
+only show open ports	عرض المنافذ المفتوحة فقط
+list ports as they're found	سرد المنافذ فور إيجادها
+progress updates	متابعة التقدم
+results for KUDUNMAP	نتائج لـ KUDUNMAP
+nmap {0}	nmap {0}
+{0} ms	{0} م.ث
+Sunday	الأحد
+Monday	الاثنين
+Tuesday	الثلاثاء
+Wednesday	الأربعاء
+Thursday	الخميس
+Friday	الجمعة
+Saturday	السبت
+Every hour	كل ساعة
+Every {0} hours	كل {0} ساعات
+Every {0} at {1}	كل {0} في {1}
+Every day at {0}	كل يوم في {0}
+KUDUNMAP -	KUDUNMAP -
+{0}.json	{0}.json
+Runs the KUDUNMAP scan "{0}" ({1}) and says if anything changed.	يشغّل فحص KUDUNMAP "{0}" ({1}) ويخبرك إن تغيّر شيء.
+a new device	جهاز جديد
+{0} new devices	{0} أجهزة جديدة
+a port opened	فُتح منفذ
+{0} ports opened	{0} منافذ فُتحت
+a device went away	اختفى جهاز
+{0} devices went away	{0} أجهزة اختفت
+a port closed	أُغلق منفذ
+{0} ports closed	{0} منافذ أُغلقت
+a service changed version	تغيّر إصدار خدمة
+{0} services changed version	{0} خدمات تغيّر إصدارها
+{0}.xml	{0}.xml
+Windows' question about administrator rights was answered No, so the scan wasn't scheduled.	كانت الإجابة على سؤال Windows عن صلاحيات المسؤول "لا"، لذلك لم تتم جدولة الفحص.
+Windows Task Scheduler said: {0}	قال برنامج جدولة المهام في Windows: {0}
+error {0}	خطأ {0}
+Task Scheduler didn't respond.	لم يستجب برنامج جدولة المهام.
+Theme	المظهر
+System	النظام
+scan	فحص
+{0}.tmp	{0}.tmp
+open port	منفذ مفتوح
+Today, {0}	اليوم، {0}
+Yesterday, {0}	أمس، {0}
+Custom	مخصص
+Missing theme resource {0}	Missing theme resource {0}
+Light	فاتح
+Styles	Styles
+Dark	داكن
+Application	Application
+host	جهاز
+Matched by version{0}	مطابق حسب الإصدار{0}
+ · CVSS {0}	 · CVSS {0}
+Likely vulnerable, reported by the script	قد يكون عرضة للخطر، حسب البرنامج النصي
+Reported as vulnerable by the script	أبلغ البرنامج النصي أنه عرضة للخطر
+{0} · CVSS {1}	{0} · CVSS {1}
+NOT VULNERABLE	غير معرّض للخطر
+Detected software	برنامج مكتشف
+Matched by version	مطابق حسب الإصدار
+{0}: known vulnerability {1}{2}	{0}: ثغرة معروفة {1}{2}
+(public exploit exists)	(توجد شيفرة هجوم منشورة)
+Error message shown: {0}	Error message shown: {0}
+All files	كل الملفات
+Save	حفظ
+Cancel	إلغاء
+History	السجل
+Open	فتح
+Compare with an earlier scan	المقارنة بفحص سابق
+Delete	حذف
+Open the History folder	فتح مجلد السجل
+When	متى
+Scan type	نوع الفحص
+Target	الهدف
+Result	النتيجة
+No saved scans yet. Every finished scan is saved here automatically.	لا توجد فحوصات محفوظة بعد. يُحفظ كل فحص مكتمل هنا تلقائيًا.
+saved scan on this computer	فحص محفوظ على هذا الكمبيوتر
+saved scans on this computer	فحوصات محفوظة على هذا الكمبيوتر
+Delete the saved scan "{0}" of {1} from {2}?	هل تريد حذف الفحص المحفوظ "{0}" لـ {1} من {2}؟
+Couldn't delete it:\n\n{0}	تعذّر الحذف:\n\n{0}
+Show unchanged hosts	عرض الأجهزة التي لم تتغير
+Compare scans	مقارنة الفحوصات
+Older scan	الفحص الأقدم
+Newer scan	الفحص الأحدث
+What changed	ما الذي تغيّر
+Hosts and ports that are the same in both scans are hidden.	الأجهزة والمنافذ المتطابقة في الفحصين مخفية.
+Export	تصدير
+Choose two different scans.	اختر فحصين مختلفين.
+Couldn't read one of the scans: {0}	تعذّرت قراءة أحد الفحوصات: {0}
+new hosts	أجهزة جديدة
+hosts gone	أجهزة اختفت
+ports opened	منافذ فُتحت
+ports closed	منافذ أُغلقت
+versions changed	إصدارات تغيّرت
+Scan this host	فحص هذا الجهاز
+Nothing changed between these two scans.	لم يتغيّر شيء بين هذين الفحصين.
+Export changes	تصدير التغييرات
+KUDUNMAP changes {0}	تغييرات KUDUNMAP {0}
+{0}.csv	{0}.csv
+CSV file	ملف CSV
+Couldn't save the file:\n\n{0}	تعذّر حفظ الملف:\n\n{0}
+KUDUNMAP	KUDUNMAP
+Nmap is a separate program by the Nmap Project (nmap.org), installed by you and not included with KUDUNMAP. KUDUNMAP is not affiliated with, sponsored or endorsed by the Nmap Project or Nmap Software LLC. "Nmap" is their trademark.	Nmap برنامج منفصل من Nmap Project (nmap.org)، ثبّته أنت وليس مضمّنًا مع KUDUNMAP. لا يرتبط KUDUNMAP بـ Nmap Project أو Nmap Software LLC ولا يحظى برعايتهما أو اعتمادهما. "Nmap" علامتهم التجارية.
+Only scan networks and devices you own or have permission to scan.	افحص فقط الشبكات والأجهزة التي تملكها أو لديك إذن بفحصها.
+Scanning other people's systems without permission may be illegal where you live, and can be noticed as an attack.	فحص أنظمة الآخرين دون إذن قد يكون مخالفًا للقانون حيث تعيش، وقد يُعتبر هجومًا.
+Welcome to KUDUNMAP	مرحبًا بك في KUDUNMAP
+A visual way to use Nmap	طريقة مرئية لاستخدام Nmap
+KUDUNMAP runs Nmap on your computer and shows its results. Nmap is a separate program made by the Nmap Project. KUDUNMAP is not affiliated with or endorsed by them.	يشغّل KUDUNMAP برنامج Nmap على جهازك ويعرض نتائجه. Nmap برنامج منفصل من صنع Nmap Project. لا يرتبط KUDUNMAP بهم ولا يحظى باعتمادهم.
+Shown once. You can read it again in Settings → About.	يُعرض مرة واحدة. يمكنك قراءته مرة أخرى في الإعدادات ← حول.
+I understand	فهمت
+Close	إغلاق
+Version {0} · Network scanning made visual	الإصدار {0} · فحص الشبكة أمام عينيك
+Azeem, with Claude and	Azeem, with Claude and
+Made by	Made by
+Licence	الترخيص
+Nmap Public Source License (NPSL) 0.95 · free and open source	Nmap Public Source License (NPSL) 0.95 · مجاني ومفتوح المصدر
+View	عرض
+Source code	الشيفرة المصدرية
+Nmap in use	Nmap المستخدم
+Not found	غير موجود
+Nmap {0} · {1}	Nmap {0} · {1}
+Third-party	أطراف أخرى
+Third-party notices	إشعارات الأطراف الأخرى
+Show the first-start notice again	إظهار إشعار التشغيل الأول مرة أخرى
+Check for updates	البحث عن تحديثات
+About KUDUNMAP	حول KUDUNMAP
+Couldn't find any published version yet.	لم يُعثر على أي إصدار منشور بعد.
+KUDUNMAP {0} is available. Open the download page?	يتوفر KUDUNMAP {0}. هل تريد فتح صفحة التنزيل؟
+You have the latest version.	لديك أحدث إصدار.
+Couldn't check for updates. Check your internet connection and try again.	تعذّر البحث عن تحديثات. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.
+Settings	الإعدادات
+Appearance	المظهر
+Same as Windows	مثل Windows
+Language	اللغة
+Nmap	Nmap
+Choose nmap.exe…	اختيار nmap.exe…
+Find automatically	البحث تلقائيًا
+Get Nmap from nmap.org	احصل على Nmap من nmap.org
+Scans	الفحوصات
+Show a Windows notification when a scan finishes	إظهار إشعار من Windows عند انتهاء الفحص
+Scans are saved in History on this computer only ({0}).	تُحفظ الفحوصات في السجل على هذا الكمبيوتر فقط ({0}).
+Updates	التحديثات
+Check for a new KUDUNMAP version when it starts	البحث عن إصدار جديد من KUDUNMAP عند البدء
+Only asks GitHub for the latest version number. Nothing is downloaded without asking.	يسأل GitHub فقط عن رقم أحدث إصدار. لا يُنزَّل شيء دون أن يسألك.
+Nmap wasn't found. Install it from nmap.org, or choose nmap.exe if it's somewhere else.	لم يُعثر على Nmap. ثبّته من nmap.org، أو اختر nmap.exe إذا كان في مكان آخر.
+Using Nmap {0}: {1}{2}	يُستخدم Nmap {0}: {1}{2}
+(found automatically)	(وُجد تلقائيًا)
+(chosen by you)	(اخترته أنت)
+Choose nmap.exe	اختيار nmap.exe
+That file didn't answer like Nmap. Choose the nmap.exe from your Nmap folder.	لم يستجب ذلك الملف مثل Nmap. اختر nmap.exe من مجلد Nmap لديك.
+IP, name, range or network	IP أو اسم أو نطاق أو شبكة
+Scan	فحص
+From file…	من ملف…
+Administrator	مسؤول
+KUDUNMAP is running as administrator, so every scan type is available.	يعمل KUDUNMAP كمسؤول، لذلك كل أنواع الفحص متاحة.
+Standard user	مستخدم عادي
+Some scans (OS detection, UDP, traceroute) need administrator rights. KUDUNMAP offers to restart when they do.	بعض الفحوصات (اكتشاف النظام، UDP، traceroute) تحتاج صلاحيات المسؤول. يعرض KUDUNMAP إعادة التشغيل عند الحاجة.
+Compare	مقارنة
+Scheduled	مجدولة
+Scans that run by themselves and tell you when something changes	فحوصات تعمل بنفسها وتخبرك عندما يتغير شيء
+Download Nmap from nmap.org	تنزيل Nmap من nmap.org
+Choose the "Latest stable release self-installer" for Windows.	اختر "Latest stable release self-installer" لنظام Windows.
+Run the Nmap installer	شغّل مثبّت Nmap
+Keep the Npcap option ticked. Nmap needs it to scan on Windows.	أبقِ خيار Npcap محددًا. يحتاجه Nmap للفحص على Windows.
+Come back and press Check again	عُد واضغط "تحقق مرة أخرى"
+KUDUNMAP finds Nmap automatically. No restart needed.	يجد KUDUNMAP برنامج Nmap تلقائيًا. لا حاجة لإعادة التشغيل.
+Open nmap.org download page	فتح صفحة تنزيل nmap.org
+Check again	تحقق مرة أخرى
+Locate nmap.exe…	تحديد مكان nmap.exe…
+Nmap isn't installed yet	Nmap غير مثبّت بعد
+KUDUNMAP is the window, Nmap does the scanning. It's free, from the Nmap Project.	KUDUNMAP هو النافذة، وNmap هو من يفحص. إنه مجاني، من Nmap Project.
+KUDUNMAP never downloads or installs Nmap itself. The download page opens in your browser, so you get Nmap straight from the Nmap Project.	لا ينزّل KUDUNMAP برنامج Nmap ولا يثبّته بنفسه أبدًا. تُفتح صفحة التنزيل في متصفحك، فتحصل على Nmap مباشرة من Nmap Project.
+Nmap not found · looked in {0}	Nmap غير موجود · بُحث في {0}
+Ready	جاهز
+Nmap not found	Nmap غير موجود
+Nmap {0}	Nmap {0}
+KUDUNMAP {0} is available	يتوفر KUDUNMAP {0}
+Skip	تخطي
+Choose a list of targets (one per line)	اختر قائمة أهداف (هدف في كل سطر)
+Text files	ملفات نصية
+Stop using this file	التوقف عن استخدام هذا الملف
+Command copied. Paste it into a terminal to run the same scan with Nmap directly.	نُسخ الأمر. الصقه في نافذة الأوامر لتشغيل الفحص نفسه مباشرة بـ Nmap.
+A scan is running. Stop it and restart KUDUNMAP as administrator?	هناك فحص قيد التشغيل. هل تريد إيقافه وإعادة تشغيل KUDUNMAP كمسؤول؟
+Restart as administrator was cancelled.	أُلغيت إعادة التشغيل كمسؤول.
+The target file can't be found:\n\n{0}	تعذّر العثور على ملف الأهداف:\n\n{0}
+This scan needs administrator rights for {0}.\n\nRestart KUDUNMAP as administrator and start the scan?	يحتاج هذا الفحص إلى صلاحيات المسؤول من أجل {0}.\n\nهل تريد إعادة تشغيل KUDUNMAP كمسؤول وبدء الفحص؟
+Advanced scripts are on ({0}).\n\nThey can lock accounts, crash services or be seen as an attack. {1}\n\nStart the scan?	البرامج النصية المتقدمة مفعّلة ({0}).\n\nقد تقفل الحسابات أو توقف الخدمات أو تُعتبر هجومًا. {1}\n\nهل تريد بدء الفحص؟
+Scanning · started {0}	جارٍ الفحص · بدأ في {0}
+You'll get a Windows notification when it finishes	سيصلك إشعار من Windows عند الانتهاء
+Nmap couldn't start	تعذّر تشغيل Nmap
+Stopping Nmap…	جارٍ إيقاف Nmap…
+Scanning · {0} found so far · started {1}	جارٍ الفحص · وُجد {0} حتى الآن · بدأ في {1}
+Scan cancelled	أُلغي الفحص
+Nmap was stopped. The output so far is below.	أُوقف Nmap. المخرجات حتى الآن أدناه.
+Nmap reported an error.	أبلغ Nmap عن خطأ.
+Nmap stopped without results (exit code {0}).	توقف Nmap دون نتائج (exit code {0}).
+The scan didn't finish	لم يكتمل الفحص
+{0} Nmap's output is below.	{0} مخرجات Nmap أدناه.
+Scan didn't finish	لم يكتمل الفحص
+Couldn't save to History: {0}	تعذّر الحفظ في السجل: {0}
+host online	جهاز متصل
+Done · {0}	تم · {0}
+{0} finished	انتهى {0}
+Target set to {0}. Pick a scan type and press Scan.	تم ضبط الهدف على {0}. اختر نوع الفحص واضغط "فحص".
+Compare needs at least two saved scans. Run the same scan again later to see what changed.	تحتاج المقارنة إلى فحصين محفوظين على الأقل. شغّل الفحص نفسه لاحقًا لترى ما تغيّر.
+Wait for the running scan to finish, or cancel it, before opening saved results.	انتظر انتهاء الفحص الجاري، أو ألغِه، قبل فتح نتائج محفوظة.
+Saved scan from {0} · {1}	فحص محفوظ من {0} · {1}
+Couldn't open these results:\n\n{0}	تعذّر فتح هذه النتائج:\n\n{0}
+A scan is still running. Stop it and close KUDUNMAP?	لا يزال هناك فحص قيد التشغيل. هل تريد إيقافه وإغلاق KUDUNMAP؟
+This appears when the scan finishes.	يظهر هذا عند انتهاء الفحص.
+Nothing worth a look	لا شيء يستحق النظر
+{0} worth a look	{0} تستحق النظر
+ ({0} risky)	 ({0} خطِرة)
+Every open port found is normal for its kind of device.	كل المنافذ المفتوحة التي وُجدت عادية لنوع جهازها.
+What each open port is, in plain words, and what it could risk. Risky ones are often used by attackers: close them if they aren't needed, and never let them be reached from the internet.	ما هو كل منفذ مفتوح، بكلمات بسيطة، وما الخطر الذي قد يسببه. المنافذ الخطِرة يستخدمها المهاجمون كثيرًا: أغلقها إن لم تكن ضرورية، ولا تسمح أبدًا بالوصول إليها من الإنترنت.
+Show this device	إظهار هذا الجهاز
+The map appears when the scan finishes.	تظهر الخريطة عند انتهاء الفحص.
+No devices replied, so there's nothing to draw.	لم يستجب أي جهاز، لذلك لا يوجد ما يُرسم.
+Each device found, with a guess of what it is. Red and orange marks are open ports that are risky or worth a look. Click a device to see its details.	كل جهاز وُجد، مع تخمين لما هو. العلامات الحمراء والبرتقالية منافذ مفتوحة خطِرة أو تستحق النظر. انقر على جهاز لرؤية تفاصيله.
+Save as a picture…	حفظ كصورة…
+Segoe Fluent Icons, Segoe MDL2 Assets	Segoe Fluent Icons, Segoe MDL2 Assets
+{0} risky	{0} خطِرة
+{0} to check	{0} للتحقق
+Network map {0}	خريطة الشبكة {0}
+{0}.png	{0}.png
+Save the map as a picture	حفظ الخريطة كصورة
+PNG picture	صورة PNG
+Found so far	ما وُجد حتى الآن
+Hosts & ports	الأجهزة والمنافذ
+Map	الخريطة
+Vulnerabilities	الثغرات
+Raw output	المخرجات الخام
+Scan details	تفاصيل الفحص
+Filter hosts…	تصفية الأجهزة…
+Name / OS	الاسم / النظام
+These are checks for known problems. "Matched by version" means the software version is listed as affected; the fix may already be applied. A clean result doesn't guarantee a system is safe.	هذه فحوصات لمشاكل معروفة. "مطابق حسب الإصدار" يعني أن إصدار البرنامج هذا مدرج ضمن المتأثرين؛ ربما تم تطبيق الإصلاح بالفعل. النتيجة النظيفة لا تضمن أن النظام آمن.
+Host	الجهاز
+Found by	وجده
+Open ports	المنافذ المفتوحة
+Results appear here when the scan finishes. Live output is on the Raw output tab.	تظهر النتائج هنا عند انتهاء الفحص. المخرجات المباشرة في تبويب المخرجات الخام.
+Starting…	جارٍ البدء…
+Scanning…	جارٍ الفحص…
+{0} · about {1} left	{0} · بقي حوالي {1}
+{0} seconds	{0} ثانية
+Failed	فشل
+Cancelled	أُلغي
+Change options	تغيير الخيارات
+Try again	حاول مرة أخرى
+Found before stopping	ما وُجد قبل التوقف
+Hosts	الأجهزة
+hosts affected	أجهزة متأثرة
+no reply	لا استجابة
+✓ Finished · {0}	✓ انتهى · {0}
+New scan	فحص جديد
+Scan again	الفحص مرة أخرى
+HTML report…	تقرير HTML…
+HTML report	تقرير HTML
+{0}.html	{0}.html
+Hosts and ports (CSV)…	الأجهزة والمنافذ (CSV)…
+Vulnerabilities (CSV)…	الثغرات (CSV)…
+Nmap XML…	Nmap XML…
+Nmap XML	Nmap XML
+Nmap text output…	مخرجات Nmap النصية…
+{0}.txt	{0}.txt
+Text file	ملف نصي
+Export {0}	تصدير {0}
+Saved {0}	حُفظ {0}
+(no name)	(بلا اسم)
+No hosts answered. They may be switched off, or blocking pings. Try "Skip ping" in the options.	لم يستجب أي جهاز. ربما هي مطفأة، أو تحجب ping. جرّب "تخطي ping" في الخيارات.
+No hosts match the filter.	لا توجد أجهزة تطابق التصفية.
+MAC {0}	MAC {0}
+Open in browser	فتح في المتصفح
+Scan this host…	فحص هذا الجهاز…
+This was a ping sweep, so ports weren't scanned.	كان هذا مسح Ping، لذلك لم تُفحص المنافذ.
+No open ports found on this host.	لم يُعثر على منافذ مفتوحة على هذا الجهاز.
+Proto	البروتوكول
+Host script results	نتائج البرامج النصية للجهاز
+Route	المسار
+Right-click a host or port to copy it, open it in a browser, ping it, or start a new scan on just that host.	انقر بزر الماوس الأيمن على جهاز أو منفذ لنسخه أو فتحه في متصفح أو عمل ping له أو بدء فحص جديد لذلك الجهاز فقط.
+Copy address	نسخ العنوان
+Copy name	نسخ الاسم
+Ping	Ping
+Copy {0}	نسخ {0}
+Copy version	نسخ الإصدار
+https	https
+http	http
+/k ping {0}	/k ping {0}
+CVE lookup (vulners) for this scan:	البحث عن CVE (vulners) لهذا الفحص:
+On	مفعّل
+Off	متوقف
+Findings appear here when the scan finishes.	تظهر النتائج هنا عند انتهاء الفحص.
+No known vulnerabilities were reported. That doesn't guarantee these systems are safe: only well-known problems are checked.	لم يُبلَغ عن ثغرات معروفة. هذا لا يضمن أن هذه الأنظمة آمنة: تُفحص المشاكل المعروفة فقط.
+This scan didn't check for vulnerabilities. Choose "Vulnerability check" on the New scan screen, or switch on the vuln scripts.	لم يفحص هذا الفحص الثغرات. اختر "فحص الثغرات" في شاشة الفحص الجديد، أو فعّل برامج vuln النصية.
+All	الكل
+no CVE	لا CVE
+Copy finding	نسخ النتيجة
+Copy CVE	نسخ CVE
+(no text output)	(لا مخرجات نصية)
+What Nmap reported · {0}	ما أبلغ عنه Nmap · {0}
+Learn more	اعرف المزيد
+Links come from the CVE and script names in Nmap's results. Severity is the CVSS score when there is one, otherwise the script's risk factor.	الروابط مأخوذة من أسماء CVE والبرامج النصية في نتائج Nmap. الخطورة هي درجة CVSS إن وُجدت، وإلا فعامل خطر البرنامج النصي.
+Details appear here when the scan finishes.	تظهر التفاصيل هنا عند انتهاء الفحص.
+Command	الأمر
+Nmap version	إصدار Nmap
+Started	البدء
+Finished	الانتهاء
+Scan time	مدة الفحص
+{0} online, {1} no reply, {2} scanned	{0} متصلة، {1} دون استجابة، {2} فُحصت
+Nmap's summary	ملخص Nmap
+Run as	شُغّل باسم
+Saved in	حُفظ في
+Open folder	فتح المجلد
+{0} ran into a problem it couldn't get past, and has to close.	واجه {0} مشكلة لم يستطع تجاوزها، ويجب أن يُغلق.
+Nmap wasn't found.	لم يُعثر على Nmap.
+The target file can't be found.	تعذّر العثور على ملف الأهداف.
+Nmap stopped without results (exit code {0}). {1}	توقف Nmap دون نتائج (exit code {0}). {1}
+Nmap couldn't start: {0}	تعذّر تشغيل Nmap: {0}
+First run · {0}	التشغيل الأول · {0}
+Nothing changed	لم يتغيّر شيء
+{0} · couldn't compare: {1}	{0} · تعذّرت المقارنة: {1}
+Didn't finish: {0}	لم يكتمل: {0}
+The scan didn't finish. {0}	لم يكتمل الفحص. {0}
+{0} didn't finish	لم يكتمل {0}
+{0}: something changed	{0}: تغيّر شيء ما
+Scheduled scans	الفحوصات المجدولة
+Schedule the scan set up now…	جدولة الفحص المُعدّ الآن…
+Change…	تغيير…
+Run now	تشغيل الآن
+Remove	إزالة
+Open History	فتح السجل
+Last run	آخر تشغيل
+Each scheduled scan runs by itself, even when KUDUNMAP is closed (you need to be signed in to Windows). Every run is kept in History, and a Windows notification tells you when a device or open port appears or goes away. Windows asks for administrator rights once, when a scan is scheduled, so it can use every scan type.	يعمل كل فحص مجدول بنفسه، حتى عندما يكون KUDUNMAP مغلقًا (يجب أن تكون مسجّل الدخول إلى Windows). يُحفظ كل تشغيل في السجل، ويخبرك إشعار من Windows عندما يظهر جهاز أو منفذ مفتوح أو يختفي. يطلب Windows صلاحيات المسؤول مرة واحدة عند جدولة الفحص، ليتمكن من استخدام كل أنواع الفحص.
+Not run yet	لم يُشغَّل بعد
+None yet. Set up a scan in the main window, then schedule it here.	لا شيء بعد. أعدّ فحصًا في النافذة الرئيسية، ثم جدوله هنا.
+scheduled scan	فحص مجدول
+Type what to scan in the main window first.\n\n{0}	اكتب أولًا ما تريد فحصه في النافذة الرئيسية.\n\n{0}
+This scan uses advanced scripts, which can lock accounts, crash services or be seen as an attack. Running them again and again by themselves isn't a good idea.\n\nSchedule it anyway?	يستخدم هذا الفحص برامج نصية متقدمة قد تقفل الحسابات أو توقف الخدمات أو تُعتبر هجومًا. تشغيلها مرارًا بنفسها ليس فكرة جيدة.\n\nهل تريد جدولته على أي حال؟
+Every hour (or every few hours)	كل ساعة (أو كل بضع ساعات)
+Every day	كل يوم
+Every week	كل أسبوع
+How often	كم مرة
+At	في
+Runs	مرات التشغيل
+Schedule this scan	جدولة هذا الفحص
+Change this scheduled scan	تغيير هذا الفحص المجدول
+If the PC is off or asleep at that time, the scan runs as soon as it can.	إذا كان الكمبيوتر مطفأً أو في وضع السكون في ذلك الوقت، يعمل الفحص بأسرع ما يمكن.
+Schedule	جدولة
+Schedule a scan	جدولة فحص
+Change a scheduled scan	تغيير فحص مجدول
+"{0}" is running now, without a window. It will be in History when it finishes, and you'll get a notification if something changed.	"{0}" يعمل الآن دون نافذة. سيكون في السجل عند انتهائه، وسيصلك إشعار إذا تغيّر شيء.
+Windows' task for "{0}" is missing. Make it again?	مهمة Windows الخاصة بـ "{0}" مفقودة. هل تريد إنشاءها مرة أخرى؟
+Stop running "{0}" by itself?\n\nIts earlier runs stay in History.	هل تريد إيقاف تشغيل "{0}" تلقائيًا؟\n\nتبقى مرات تشغيله السابقة في السجل.
+Windows didn't remove the task. You can remove it in Task Scheduler: it's called\n\n{0}	لم يُزل Windows المهمة. يمكنك إزالتها من برنامج جدولة المهام: اسمها\n\n{0}
+Skip ping (treat every host as online)	تخطي ping (اعتبار كل جهاز متصلًا)
+Resolve host names	معرفة أسماء الأجهزة
+Show only open ports	عرض المنافذ المفتوحة فقط
+Detect service versions	اكتشاف إصدارات الخدمات
+Detect operating system	اكتشاف نظام التشغيل
+Advanced	متقدم
+Look up known CVEs online (vulners)	البحث عن CVE المعروفة عبر الإنترنت (vulners)
+Restart as administrator	إعادة التشغيل كمسؤول
+My presets	إعداداتي المحفوظة
+Needs administrator rights	يحتاج صلاحيات المسؤول
+What to scan	ما الذي يُفحص
+TCP ports	منافذ TCP
+UDP ports	منافذ UDP
+Hosts only	الأجهزة فقط
+Speed	السرعة
+Top 100	أهم 100
+Top 1,000	أهم 1,000
+For example 22,80,443 or 1-1024	مثلًا 22,80,443 أو 1-1024
+Ports	المنافذ
+Discovery	الاكتشاف
+Detection	التعرّف
+Needs admin	يحتاج مسؤولًا
+These scripts can log in with guessed passwords, try exploits or overload services. Only use them on systems you are allowed to test.	يمكن لهذه البرامج النصية تسجيل الدخول بكلمات مرور مخمّنة، أو تجربة هجمات، أو إثقال الخدمات. استخدمها فقط على أنظمة مسموح لك باختبارها.
+When on, the names and versions of the services found are sent to vulners.com to look up known CVEs. Off by default.	عند التفعيل، تُرسل أسماء الخدمات الموجودة وإصداراتها إلى vulners.com للبحث عن CVE المعروفة. متوقف افتراضيًا.
+Scripts (NSE)	البرامج النصية (NSE)
+Nmap's standard set of useful, safe scripts (same as -sC).	مجموعة Nmap المعتادة من البرامج النصية المفيدة والآمنة (مثل -sC).
+Scripts that won't crash services or use lots of bandwidth.	برامج نصية لن توقف الخدمات أو تستهلك الكثير من عرض النطاق.
+Find out more about the network: names, shares, directories.	معرفة المزيد عن الشبكة: الأسماء، المشاركات، الأدلة.
+Extra version detection.	اكتشاف إضافي للإصدارات.
+Check for well-known vulnerabilities. Some checks send unusual traffic.	التحقق من الثغرات المعروفة. بعض الفحوصات ترسل حركة غير معتادة.
+Check for weak or missing authentication.	التحقق من تسجيل دخول ضعيف أو غائب.
+Discover hosts by broadcasting on the local network.	اكتشاف الأجهزة بالبث على الشبكة المحلية.
+Guess passwords. Can lock accounts.	تخمين كلمات المرور. قد يقفل الحسابات.
+Denial-of-service tests. Can crash services.	اختبارات حجب الخدمة. قد توقف الخدمات.
+Actively try to exploit vulnerabilities.	محاولة استغلال الثغرات فعليًا.
+Send data to third-party services on the internet.	إرسال بيانات إلى خدمات أطراف أخرى على الإنترنت.
+Send unexpected data. Can crash services.	إرسال بيانات غير متوقعة. قد يوقف الخدمات.
+Risky scripts that may crash services or be seen as attacks.	برامج نصية خطِرة قد توقف الخدمات أو تُعتبر هجمات.
+Check for signs of backdoors and malware.	البحث عن علامات الأبواب الخلفية والبرامج الضارة.
+Updates as you change options. You never need to type it.	يتحدّث عند تغيير الخيارات. لا تحتاج أبدًا إلى كتابته.
+Copy	نسخ
+Save as preset	حفظ كإعداد محفوظ
+Recent scans	الفحوصات الأخيرة
+See all history	عرض السجل كله
+Your own saved options.	خياراتك المحفوظة.
+My preset	إعدادي المحفوظ
+Preset	إعداد محفوظ
+Changed	معدّل
+Hosts only: no ports are scanned.	الأجهزة فقط: لا تُفحص أي منافذ.
+Numbers, commas and ranges. Add U: for UDP, e.g. U:53.	أرقام وفواصل ونطاقات. أضف U: لـ UDP، مثلًا U:53.
+All 65,535 ports. Much slower, but finds services on unusual ports.	كل المنافذ الـ 65,535. أبطأ بكثير، لكنه يجد خدمات على منافذ غير معتادة.
+The 100 most common ports. Quickest.	أكثر 100 منفذ شيوعًا. الأسرع.
+The 1,000 most common ports. Nmap's standard.	أكثر 1,000 منفذ شيوعًا. معيار Nmap.
+added by KUDUNMAP for live progress (left out when you copy)	أضافه KUDUNMAP لمتابعة التقدم مباشرة (يُحذف عند النسخ)
+Ready to scan the targets in {0}	جاهز لفحص الأهداف في {0}
+You can cancel at any time.	يمكنك الإلغاء في أي وقت.
+Type a target to scan	اكتب هدفًا لفحصه
+An IP address (192.168.1.10), name (router.lan), range (192.168.1.1-50) or network (192.168.1.0/24).	عنوان IP (192.168.1.10)، أو اسم (router.lan)، أو نطاق (192.168.1.1-50)، أو شبكة (192.168.1.0/24).
+Check the target	تحقق من الهدف
+Ready to scan	جاهز للفحص
+Ready to scan 1 address	جاهز لفحص عنوان واحد
+Ready to scan {0} addresses	جاهز لفحص {0} عنوانًا
+That's a lot of addresses. This may take a long time. You can cancel at any time.	هذه عناوين كثيرة. قد يستغرق ذلك وقتًا طويلًا. يمكنك الإلغاء في أي وقت.
+Nmap {0} found · {1}	وُجد Nmap {0} · {1}
+This scan needs administrator rights for {0}. Restart KUDUNMAP as administrator, or turn those options off.	يحتاج هذا الفحص إلى صلاحيات المسؤول من أجل {0}. أعد تشغيل KUDUNMAP كمسؤول، أو أوقف تلك الخيارات.
+Advanced scripts are on. They can lock accounts, crash services or be seen as an attack.	البرامج النصية المتقدمة مفعّلة. قد تقفل الحسابات أو توقف الخدمات أو تُعتبر هجومًا.
+Vulnerability scripts send unusual traffic that can occasionally upset old or fragile devices.	ترسل برامج الثغرات النصية حركة غير معتادة قد تزعج أحيانًا الأجهزة القديمة أو الحساسة.
+CVE lookup is on: service names and versions will be sent to vulners.com.	البحث عن CVE مفعّل: ستُرسل أسماء الخدمات وإصداراتها إلى vulners.com.
+{0} and {1}	{0} و{1}
+Very slow and quiet. Can take hours on a network.	بطيء جدًا وهادئ. قد يستغرق ساعات على شبكة.
+Gentle on slow networks and old devices.	لطيف على الشبكات البطيئة والأجهزة القديمة.
+Nmap's normal speed.	سرعة Nmap العادية.
+Fastest. On busy or slow networks it can miss ports.	الأسرع. على الشبكات المزدحمة أو البطيئة قد تفوته منافذ.
+Fast is right for most home and office networks.	السريع مناسب لمعظم شبكات المنازل والمكاتب.
+Save your own with "Save as preset" under the command.	احفظ إعداداتك بـ "حفظ كإعداد محفوظ" تحت الأمر.
+Delete this preset	حذف هذا الإعداد المحفوظ
+Delete the preset "{0}"?	هل تريد حذف الإعداد المحفوظ "{0}"؟
+Right-click to delete	انقر بزر الماوس الأيمن للحذف
+Give these options a name. The target is saved too, so you can repeat this scan with one click.	أعطِ هذه الخيارات اسمًا. يُحفظ الهدف أيضًا، فتستطيع تكرار هذا الفحص بنقرة واحدة.
+Finished scans appear here, and in History.	تظهر الفحوصات المكتملة هنا وفي السجل.
+Open these results	فتح هذه النتائج
+{0} host	{0} جهاز
+{0} hosts	{0} أجهزة
+{0} open port	{0} منفذ مفتوح
+{0} open ports	{0} منافذ مفتوحة
+{0} finding	{0} نتيجة
+{0} findings	{0} نتائج
+{0} saved scan on this computer	{0} فحص محفوظ على هذا الكمبيوتر
+{0} saved scans on this computer	{0} فحوصات محفوظة على هذا الكمبيوتر
+{0} host online	{0} جهاز متصل
+{0} hosts online	{0} أجهزة متصلة
+{0} hop	{0} قفزة
+{0} hops	{0} قفزات
+{0} scheduled scan	{0} فحص مجدول
+{0} scheduled scans	{0} فحوصات مجدولة

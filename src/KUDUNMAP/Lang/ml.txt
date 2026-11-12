@@ -1,0 +1,733 @@
+Something went wrong:\n\n{0}	എന്തോ കുഴപ്പം സംഭവിച്ചു:\n\n{0}
+Azeem Bukhari	Azeem Bukhari
+less than a second	ഒരു സെക്കൻഡിൽ താഴെ
+{0} h {1} min	{0} മണി {1} മിനിറ്റ്
+{0} min {1} s	{0} മിനിറ്റ് {1} സെ
+Address	വിലാസം
+Name	പേര്
+Vendor	നിർമ്മാതാവ്
+Port	പോർട്ട്
+Protocol	പ്രോട്ടോക്കോൾ
+State	നില
+Service	സേവനം
+Version	പതിപ്പ്
+Severity	ഗൗരവം
+Finding	കണ്ടെത്തൽ
+Script	സ്ക്രിപ്റ്റ്
+Note	കുറിപ്പ്
+Change	മാറ്റം
+Details	വിശദാംശങ്ങൾ
+body{font:14px/1.5 'Segoe UI',system-ui,sans-serif;margin:0;background:#F3F3F3;color:#1B1B1B}	body{font:14px/1.5 'Segoe UI',system-ui,sans-serif;margin:0;background:#F3F3F3;color:#1B1B1B}
+main{max-width:1100px;margin:0 auto;padding:24px}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 10px}	main{max-width:1100px;margin:0 auto;padding:24px}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 10px}
+.sub{color:#5C5C5C}.card{background:#fff;border:1px solid #E0E0E0;border-radius:10px;padding:16px 18px;margin:12px 0}	.sub{color:#5C5C5C}.card{background:#fff;border:1px solid #E0E0E0;border-radius:10px;padding:16px 18px;margin:12px 0}
+table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid #E0E0E0;vertical-align:top}	table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid #E0E0E0;vertical-align:top}
+th{font-size:12px;color:#5C5C5C}code,pre{font-family:Consolas,monospace;font-size:12px}pre{white-space:pre-wrap;margin:6px 0 0;color:#5C5C5C}	th{font-size:12px;color:#5C5C5C}code,pre{font-family:Consolas,monospace;font-size:12px}pre{white-space:pre-wrap;margin:6px 0 0;color:#5C5C5C}
+· Nmap	· Nmap
+hosts online	ഓൺലൈനിലുള്ള ഹോസ്റ്റുകൾ
+open ports	തുറന്ന പോർട്ടുകൾ
+scan time	സ്കാൻ സമയം
+"Matched by version" means the software version is listed as affected; the fix may already be applied.	"പതിപ്പ് വെച്ച് യോജിച്ചു" എന്നാൽ ആ സോഫ്റ്റ്‌വെയർ പതിപ്പ് ബാധിക്കപ്പെട്ടവയുടെ പട്ടികയിലുണ്ട് എന്നാണ്; പരിഹാരം ഇതിനകം ചേർത്തിട്ടുണ്ടാകാം.
+open	തുറന്നത്
+Low	കുറവ്
+High	കൂടുതൽ
+Medium	ഇടത്തരം
+. Scans performed by Nmap (nmap.org).	. Scans performed by Nmap (nmap.org).
+This PC	ഈ പിസി
+Router	റൗട്ടർ
+Computer	കമ്പ്യൂട്ടർ
+Server	സെർവർ
+Phone or tablet	ഫോൺ അല്ലെങ്കിൽ ടാബ്‌ലെറ്റ്
+Printer	പ്രിന്റർ
+TV or media player	ടിവി അല്ലെങ്കിൽ മീഡിയ പ്ലെയർ
+Camera	ക്യാമറ
+Storage (NAS)	സ്റ്റോറേജ് (NAS)
+Smart-home device	സ്മാർട്ട്-ഹോം ഉപകരണം
+Network device	നെറ്റ്‌വർക്ക് ഉപകരണം
+Device	ഉപകരണം
+axis comm	axis comm
+netgear readynas	netgear readynas
+western digital	western digital
+wd my cloud	wd my cloud
+samsung tv	samsung tv
+lg tv	lg tv
+smart tv	smart tv
+apple tv	apple tv
+fire tv	fire tv
+amazon fire	amazon fire
+nvidia shield	nvidia shield
+android tv	android tv
+philips lighting	philips lighting
+tp-link smart	tp-link smart
+amazon echo	amazon echo
+google home	google home
+asus router	asus router
+access point	access point
+windows server	windows server
+mac os	mac os
+intel corporate	intel corporate
+requires root privileges|requires (?:administrator|root)	requires root privileges|requires (?:administrator|root)
+This scan needs administrator rights. Use "Restart as administrator" and run it again.	ഈ സ്കാനിന് അഡ്മിനിസ്ട്രേറ്റർ അനുമതി വേണം. "അഡ്മിനിസ്ട്രേറ്ററായി വീണ്ടും തുടങ്ങുക" ഉപയോഗിച്ച് വീണ്ടും ചെയ്യുക.
+Npcap|WinPcap|pcap_open|dnet: Failed to open device	Npcap|WinPcap|pcap_open|dnet: Failed to open device
+Nmap couldn't use Npcap, the network driver it needs on Windows. Re-run the Nmap installer from nmap.org and keep the Npcap option ticked, or restart KUDUNMAP as administrator.	Windows-ൽ Nmap-ന് വേണ്ട നെറ്റ്‌വർക്ക് ഡ്രൈവറായ Npcap ഉപയോഗിക്കാൻ Nmap-ന് കഴിഞ്ഞില്ല. nmap.org-ൽ നിന്നുള്ള Nmap ഇൻസ്റ്റാളർ വീണ്ടും പ്രവർത്തിപ്പിച്ച് Npcap ടിക്ക് ചെയ്തുതന്നെ വെക്കുക, അല്ലെങ്കിൽ KUDUNMAP അഡ്മിനിസ്ട്രേറ്ററായി വീണ്ടും തുടങ്ങുക.
+Failed to resolve|Unable to split netmask	Failed to resolve|Unable to split netmask
+Nmap couldn't understand or look up one of the targets. Check the spelling of the address or name.	ലക്ഷ്യങ്ങളിൽ ഒന്ന് Nmap-ന് മനസ്സിലാക്കാനോ കണ്ടെത്താനോ കഴിഞ്ഞില്ല. വിലാസത്തിന്റെയോ പേരിന്റെയോ അക്ഷരങ്ങൾ പരിശോധിക്കുക.
+No targets were specified	No targets were specified
+No targets were given to scan.	സ്കാൻ ചെയ്യാൻ ലക്ഷ്യങ്ങളൊന്നും നൽകിയിട്ടില്ല.
+This isn't an Nmap results file.	ഇത് ഒരു Nmap ഫലഫയൽ അല്ല.
+Risky	അപകടസാധ്യത
+Worth a look	ശ്രദ്ധിക്കേണ്ടത്
+Fine	കുഴപ്പമില്ല
+Close it if you don't use it, and never let it be reached from the internet.	ഉപയോഗിക്കുന്നില്ലെങ്കിൽ അടയ്ക്കുക, ഇന്റർനെറ്റിൽ നിന്ന് എത്താൻ ഒരിക്കലും അനുവദിക്കരുത്.
+FTP (file transfer, data)	FTP (ഫയൽ കൈമാറ്റം, ഡാറ്റ)
+Old file sharing that sends names, passwords and files without any protection.{0}	പേരുകളും പാസ്‌വേഡുകളും ഫയലുകളും ഒരു സംരക്ഷണവുമില്ലാതെ അയയ്ക്കുന്ന പഴയ ഫയൽ പങ്കിടൽ.{0}
+FTP (file transfer)	FTP (ഫയൽ കൈമാറ്റം)
+Old file sharing that sends names and passwords without any protection, so anyone on the network can read them.{0}	പേരുകളും പാസ്‌വേഡുകളും ഒരു സംരക്ഷണവുമില്ലാതെ അയയ്ക്കുന്ന പഴയ ഫയൽ പങ്കിടൽ, അതിനാൽ നെറ്റ്‌വർക്കിലുള്ള ആർക്കും അവ വായിക്കാം.{0}
+SSH (remote command line)	SSH (ദൂരെ നിന്നുള്ള കമാൻഡ് ലൈൻ)
+Lets someone control this device by typing commands, after signing in. Safe with strong passwords or keys; often attacked if it can be reached from the internet.	സൈൻ ഇൻ ചെയ്തശേഷം കമാൻഡുകൾ ടൈപ്പ് ചെയ്ത് ഈ ഉപകരണം നിയന്ത്രിക്കാൻ അനുവദിക്കുന്നു. ശക്തമായ പാസ്‌വേഡുകളോ കീകളോ ഉണ്ടെങ്കിൽ സുരക്ഷിതം; ഇന്റർനെറ്റിൽ നിന്ന് എത്താമെങ്കിൽ പലപ്പോഴും ആക്രമിക്കപ്പെടും.
+Telnet (old remote command line)	Telnet (പഴയ ദൂര കമാൻഡ് ലൈൻ)
+Lets someone control this device with no protection at all: everything, passwords included, can be read on the network. Common on old routers and cameras.{0}	ഒരു സംരക്ഷണവുമില്ലാതെ ഈ ഉപകരണം നിയന്ത്രിക്കാൻ അനുവദിക്കുന്നു: പാസ്‌വേഡുകൾ ഉൾപ്പെടെ എല്ലാം നെറ്റ്‌വർക്കിൽ വായിക്കാം. പഴയ റൗട്ടറുകളിലും ക്യാമറകളിലും സാധാരണം.{0}
+Email sending (SMTP)	ഇമെയിൽ അയയ്ക്കൽ (SMTP)
+A mail server. Expected on a mail server; anywhere else, check what it is.	ഒരു മെയിൽ സെർവർ. മെയിൽ സെർവറിൽ പ്രതീക്ഷിക്കാം; മറ്റെവിടെയെങ്കിലുമാണെങ്കിൽ എന്താണെന്ന് പരിശോധിക്കുക.
+Name lookup (DNS)	പേര് തിരയൽ (DNS)
+Turns names like example.com into addresses. Normal on routers and DNS servers.	example.com പോലുള്ള പേരുകളെ വിലാസങ്ങളാക്കുന്നു. റൗട്ടറുകളിലും DNS സെർവറുകളിലും സാധാരണം.
+Address handout (DHCP)	വിലാസം നൽകൽ (DHCP)
+Gives devices their network address. Normal on routers.	ഉപകരണങ്ങൾക്ക് അവയുടെ നെറ്റ്‌വർക്ക് വിലാസം നൽകുന്നു. റൗട്ടറുകളിൽ സാധാരണം.
+TFTP (simple file transfer)	TFTP (ലളിതമായ ഫയൽ കൈമാറ്റം)
+Hands out files to anyone who asks, with no password. Used to set up phones and network devices.{0}	ചോദിക്കുന്ന ആർക്കും പാസ്‌വേഡില്ലാതെ ഫയലുകൾ നൽകുന്നു. ഫോണുകളും നെറ്റ്‌വർക്ക് ഉപകരണങ്ങളും സജ്ജമാക്കാൻ ഉപയോഗിക്കുന്നു.{0}
+Web page (HTTP)	വെബ് പേജ് (HTTP)
+A web page, often a device's settings page. Pages are sent without protection, so don't type passwords on it over Wi-Fi you don't trust.	ഒരു വെബ് പേജ്, പലപ്പോഴും ഒരു ഉപകരണത്തിന്റെ ക്രമീകരണ പേജ്. പേജുകൾ സംരക്ഷണമില്ലാതെ അയയ്ക്കുന്നു, അതിനാൽ വിശ്വാസമില്ലാത്ത Wi-Fi-യിൽ ഇതിൽ പാസ്‌വേഡ് ടൈപ്പ് ചെയ്യരുത്.
+Windows domain sign-in (Kerberos)	Windows ഡൊമെയ്ൻ സൈൻ-ഇൻ (Kerberos)
+Normal on a company's domain controller.	ഒരു കമ്പനിയുടെ ഡൊമെയ്ൻ കൺട്രോളറിൽ സാധാരണം.
+Email collection (POP3)	ഇമെയിൽ ശേഖരണം (POP3)
+Collects email; without protection, passwords can be read on the network.	ഇമെയിൽ ശേഖരിക്കുന്നു; സംരക്ഷണമില്ലെങ്കിൽ പാസ്‌വേഡുകൾ നെറ്റ്‌വർക്കിൽ വായിക്കാം.
+RPC port mapper	RPC പോർട്ട് മാപ്പർ
+Used by Linux and storage devices for file sharing (NFS). Often abused if it can be reached from the internet.	ഫയൽ പങ്കിടലിനായി (NFS) Linux-ഉം സ്റ്റോറേജ് ഉപകരണങ്ങളും ഉപയോഗിക്കുന്നു. ഇന്റർനെറ്റിൽ നിന്ന് എത്താമെങ്കിൽ പലപ്പോഴും ദുരുപയോഗം ചെയ്യപ്പെടുന്നു.
+Time (NTP)	സമയം (NTP)
+Keeps clocks right. Normal on routers and servers.	ക്ലോക്കുകൾ ശരിയായി സൂക്ഷിക്കുന്നു. റൗട്ടറുകളിലും സെർവറുകളിലും സാധാരണം.
+Windows remote calls (RPC)	Windows ദൂര വിളികൾ (RPC)
+Windows uses it to talk to other Windows PCs. Normal inside a home or office network; it should never be reachable from the internet.	മറ്റ് Windows പിസികളുമായി സംസാരിക്കാൻ Windows ഇത് ഉപയോഗിക്കുന്നു. വീട്ടിലെയോ ഓഫീസിലെയോ നെറ്റ്‌വർക്കിനുള്ളിൽ സാധാരണം; ഇന്റർനെറ്റിൽ നിന്ന് ഒരിക്കലും എത്താൻ പാടില്ല.
+Windows names (NetBIOS)	Windows പേരുകൾ (NetBIOS)
+Old Windows name sharing. Normal on older networks; it should never be reachable from the internet.	പഴയ Windows പേര് പങ്കിടൽ. പഴയ നെറ്റ്‌വർക്കുകളിൽ സാധാരണം; ഇന്റർനെറ്റിൽ നിന്ന് ഒരിക്കലും എത്താൻ പാടില്ല.
+Windows file sharing (old)	Windows ഫയൽ പങ്കിടൽ (പഴയത്)
+Shares files and printers the old Windows way. Fine at home if you share files on purpose; never from the internet.	പഴയ Windows രീതിയിൽ ഫയലുകളും പ്രിന്ററുകളും പങ്കിടുന്നു. മനഃപൂർവം ഫയലുകൾ പങ്കിടുന്നുണ്ടെങ്കിൽ വീട്ടിൽ കുഴപ്പമില്ല; ഇന്റർനെറ്റിൽ നിന്ന് ഒരിക്കലും പാടില്ല.
+Email reading (IMAP)	ഇമെയിൽ വായന (IMAP)
+Reads email on a mail server; without protection, passwords can be read on the network.	മെയിൽ സെർവറിലെ ഇമെയിൽ വായിക്കുന്നു; സംരക്ഷണമില്ലെങ്കിൽ പാസ്‌വേഡുകൾ നെറ്റ്‌വർക്കിൽ വായിക്കാം.
+Device monitoring (SNMP)	ഉപകരണ നിരീക്ഷണം (SNMP)
+Lets other devices read this one's details. Old versions use a shared word like "public" instead of a password; check it's changed.	മറ്റ് ഉപകരണങ്ങൾക്ക് ഇതിന്റെ വിവരങ്ങൾ വായിക്കാൻ അനുവദിക്കുന്നു. പഴയ പതിപ്പുകൾ പാസ്‌വേഡിന് പകരം "public" പോലുള്ള പൊതുവായ ഒരു വാക്ക് ഉപയോഗിക്കുന്നു; അത് മാറ്റിയിട്ടുണ്ടെന്ന് ഉറപ്പാക്കുക.
+Directory (LDAP)	ഡയറക്ടറി (LDAP)
+Company address books and sign-in. Normal on a domain controller; not expected elsewhere.	കമ്പനി വിലാസ പുസ്തകങ്ങളും സൈൻ-ഇന്നും. ഡൊമെയ്ൻ കൺട്രോളറിൽ സാധാരണം; മറ്റെവിടെയും പ്രതീക്ഷിക്കുന്നില്ല.
+Secure web page (HTTPS)	സുരക്ഷിത വെബ് പേജ് (HTTPS)
+A web page with protection, often a device's settings page.	സംരക്ഷണമുള്ള ഒരു വെബ് പേജ്, പലപ്പോഴും ഒരു ഉപകരണത്തിന്റെ ക്രമീകരണ പേജ്.
+Windows file sharing (SMB)	Windows ഫയൽ പങ്കിടൽ (SMB)
+Shares files and printers between Windows PCs. Fine at home if you share files on purpose. It's been behind some of the worst attacks, so keep Windows up to date and never let it be reached from the internet.	Windows പിസികൾക്കിടയിൽ ഫയലുകളും പ്രിന്ററുകളും പങ്കിടുന്നു. മനഃപൂർവം ഫയലുകൾ പങ്കിടുന്നുണ്ടെങ്കിൽ വീട്ടിൽ കുഴപ്പമില്ല. ഏറ്റവും മോശമായ ചില ആക്രമണങ്ങൾക്ക് പിന്നിൽ ഇതുണ്ടായിരുന്നു, അതിനാൽ Windows പുതുക്കി വെക്കുക, ഇന്റർനെറ്റിൽ നിന്ന് എത്താൻ ഒരിക്കലും അനുവദിക്കരുത്.
+Secure email sending	സുരക്ഷിത ഇമെയിൽ അയയ്ക്കൽ
+Sends email with protection. Normal on a mail server.	സംരക്ഷണത്തോടെ ഇമെയിൽ അയയ്ക്കുന്നു. മെയിൽ സെർവറിൽ സാധാരണം.
+Printing (LPD)	പ്രിന്റിംഗ് (LPD)
+Old printing. Normal on printers.	പഴയ പ്രിന്റിംഗ്. പ്രിന്ററുകളിൽ സാധാരണം.
+Mac file sharing (AFP)	Mac ഫയൽ പങ്കിടൽ (AFP)
+Shares files the old Mac way. Fine if you share files on purpose.	പഴയ Mac രീതിയിൽ ഫയലുകൾ പങ്കിടുന്നു. മനഃപൂർവം ഫയലുകൾ പങ്കിടുന്നുണ്ടെങ്കിൽ കുഴപ്പമില്ല.
+Video stream (RTSP)	വീഡിയോ സ്ട്രീം (RTSP)
+Streams video, usually from a camera. Check the camera has a password and its own, not the one it came with.	സാധാരണയായി ഒരു ക്യാമറയിൽ നിന്ന് വീഡിയോ അയയ്ക്കുന്നു. ക്യാമറയ്ക്ക് പാസ്‌വേഡ് ഉണ്ടെന്നും അത് കൂടെ വന്നതല്ല, സ്വന്തമാണെന്നും ഉറപ്പാക്കുക.
+Email sending	ഇമെയിൽ അയയ്ക്കൽ
+Sends email after signing in. Normal on a mail server.	സൈൻ ഇൻ ചെയ്തശേഷം ഇമെയിൽ അയയ്ക്കുന്നു. മെയിൽ സെർവറിൽ സാധാരണം.
+Printing (IPP)	പ്രിന്റിംഗ് (IPP)
+Normal on printers and PCs that share a printer.	പ്രിന്ററുകളിലും പ്രിന്റർ പങ്കിടുന്ന പിസികളിലും സാധാരണം.
+Secure directory (LDAPS)	സുരക്ഷിത ഡയറക്ടറി (LDAPS)
+Company address books with protection. Normal on a domain controller.	സംരക്ഷണമുള്ള കമ്പനി വിലാസ പുസ്തകങ്ങൾ. ഡൊമെയ്ൻ കൺട്രോളറിൽ സാധാരണം.
+File copying (rsync)	ഫയൽ പകർത്തൽ (rsync)
+Copies files between devices; some set-ups need no password. Check it's meant to be on.	ഉപകരണങ്ങൾക്കിടയിൽ ഫയലുകൾ പകർത്തുന്നു; ചില ക്രമീകരണങ്ങളിൽ പാസ്‌വേഡ് വേണ്ട. ഇത് ഓണായിരിക്കേണ്ടതാണോ എന്ന് പരിശോധിക്കുക.
+Secure email reading (IMAPS)	സുരക്ഷിത ഇമെയിൽ വായന (IMAPS)
+Reads email with protection. Normal on a mail server.	സംരക്ഷണത്തോടെ ഇമെയിൽ വായിക്കുന്നു. മെയിൽ സെർവറിൽ സാധാരണം.
+Secure email collection (POP3S)	സുരക്ഷിത ഇമെയിൽ ശേഖരണം (POP3S)
+Collects email with protection. Normal on a mail server.	സംരക്ഷണത്തോടെ ഇമെയിൽ ശേഖരിക്കുന്നു. മെയിൽ സെർവറിൽ സാധാരണം.
+Microsoft SQL Server (database)	Microsoft SQL Server (ഡാറ്റാബേസ്)
+A database that answers on the network. Databases are a top target: keep it to the computers that need it.{0}	നെറ്റ്‌വർക്കിൽ മറുപടി നൽകുന്ന ഒരു ഡാറ്റാബേസ്. ഡാറ്റാബേസുകൾ പ്രധാന ലക്ഷ്യമാണ്: ആവശ്യമുള്ള കമ്പ്യൂട്ടറുകൾക്ക് മാത്രം ലഭ്യമാക്കുക.{0}
+Oracle database	Oracle ഡാറ്റാബേസ്
+A database that answers on the network.{0}	നെറ്റ്‌വർക്കിൽ മറുപടി നൽകുന്ന ഒരു ഡാറ്റാബേസ്.{0}
+PPTP (old VPN)	PPTP (പഴയ VPN)
+An old VPN with known weaknesses. Use a newer VPN instead.	അറിയപ്പെടുന്ന ദൗർബല്യങ്ങളുള്ള പഴയ ഒരു VPN. പകരം പുതിയ VPN ഉപയോഗിക്കുക.
+Smart-home messages (MQTT)	സ്മാർട്ട്-ഹോം സന്ദേശങ്ങൾ (MQTT)
+Smart-home and sensor devices talk through it; often without a password. Check it needs one.	സ്മാർട്ട്-ഹോം, സെൻസർ ഉപകരണങ്ങൾ ഇതിലൂടെ സംസാരിക്കുന്നു; പലപ്പോഴും പാസ്‌വേഡില്ലാതെ. പാസ്‌വേഡ് ചോദിക്കുന്നുണ്ടെന്ന് ഉറപ്പാക്കുക.
+Device discovery (UPnP)	ഉപകരണം കണ്ടെത്തൽ (UPnP)
+Lets devices find each other, and lets programs open ports on the router by themselves. Turn UPnP off on the router if you don't need it.	ഉപകരണങ്ങൾക്ക് പരസ്പരം കണ്ടെത്താനും, പ്രോഗ്രാമുകൾക്ക് സ്വയം റൗട്ടറിൽ പോർട്ടുകൾ തുറക്കാനും അനുവദിക്കുന്നു. ആവശ്യമില്ലെങ്കിൽ റൗട്ടറിൽ UPnP ഓഫാക്കുക.
+NFS file sharing	NFS ഫയൽ പങ്കിടൽ
+Linux and storage-device file sharing. Check which folders it shares and with whom.	Linux, സ്റ്റോറേജ് ഉപകരണങ്ങളുടെ ഫയൽ പങ്കിടൽ. ഏത് ഫോൾഡറുകൾ ആരുമായി പങ്കിടുന്നു എന്ന് പരിശോധിക്കുക.
+MySQL / MariaDB (database)	MySQL / MariaDB (ഡാറ്റാബേസ്)
+Remote Desktop	റിമോട്ട് ഡെസ്ക്ടോപ്പ്
+Lets someone sign in and use this PC from another one. It's one of the most attacked doors on the internet: use a strong password, turn it off if you don't use it, and never let it be reached from the internet.	മറ്റൊരു പിസിയിൽ നിന്ന് സൈൻ ഇൻ ചെയ്ത് ഈ പിസി ഉപയോഗിക്കാൻ അനുവദിക്കുന്നു. ഇന്റർനെറ്റിൽ ഏറ്റവും കൂടുതൽ ആക്രമിക്കപ്പെടുന്ന വാതിലുകളിൽ ഒന്നാണിത്: ശക്തമായ പാസ്‌വേഡ് ഉപയോഗിക്കുക, ഉപയോഗിക്കുന്നില്ലെങ്കിൽ ഓഫാക്കുക, ഇന്റർനെറ്റിൽ നിന്ന് എത്താൻ ഒരിക്കലും അനുവദിക്കരുത്.
+Web service (often a NAS or developer tool)	വെബ് സേവനം (പലപ്പോഴും NAS അല്ലെങ്കിൽ ഡെവലപ്പർ ടൂൾ)
+Often a storage device's settings page or a program being written. Check what it is.	പലപ്പോഴും ഒരു സ്റ്റോറേജ് ഉപകരണത്തിന്റെ ക്രമീകരണ പേജ് അല്ലെങ്കിൽ എഴുതിക്കൊണ്ടിരിക്കുന്ന ഒരു പ്രോഗ്രാം. എന്താണെന്ന് പരിശോധിക്കുക.
+Internet phone (SIP)	ഇന്റർനെറ്റ് ഫോൺ (SIP)
+Phone calls over the network. Normal on phone boxes and routers with phone sockets; often attacked from the internet.	നെറ്റ്‌വർക്കിലൂടെയുള്ള ഫോൺ വിളികൾ. ഫോൺ ബോക്സുകളിലും ഫോൺ സോക്കറ്റുള്ള റൗട്ടറുകളിലും സാധാരണം; ഇന്റർനെറ്റിൽ നിന്ന് പലപ്പോഴും ആക്രമിക്കപ്പെടുന്നു.
+Device discovery (Bonjour)	ഉപകരണം കണ്ടെത്തൽ (Bonjour)
+Lets devices find printers and speakers. Normal at home.	ഉപകരണങ്ങൾക്ക് പ്രിന്ററുകളും സ്പീക്കറുകളും കണ്ടെത്താൻ സഹായിക്കുന്നു. വീട്ടിൽ സാധാരണം.
+PostgreSQL (database)	PostgreSQL (ഡാറ്റാബേസ്)
+VNC (remote screen)	VNC (ദൂര സ്ക്രീൻ)
+Lets someone see and control this screen. Often set up without a password or with a weak one.{0}	ഈ സ്ക്രീൻ കാണാനും നിയന്ത്രിക്കാനും അനുവദിക്കുന്നു. പലപ്പോഴും പാസ്‌വേഡില്ലാതെയോ ദുർബലമായ പാസ്‌വേഡോടെയോ സജ്ജമാക്കുന്നു.{0}
+Windows remote management	Windows ദൂര നിയന്ത്രണം
+Lets administrators run commands on this PC. Normal in companies; not expected at home.	അഡ്മിനിസ്ട്രേറ്റർമാർക്ക് ഈ പിസിയിൽ കമാൻഡുകൾ പ്രവർത്തിപ്പിക്കാൻ അനുവദിക്കുന്നു. കമ്പനികളിൽ സാധാരണം; വീട്ടിൽ പ്രതീക്ഷിക്കുന്നില്ല.
+Redis (data store)	Redis (ഡാറ്റ സംഭരണം)
+A data store that often has no password at all.{0}	പലപ്പോഴും ഒരു പാസ്‌വേഡും ഇല്ലാത്ത ഡാറ്റ സംഭരണം.{0}
+Router remote management (TR-069)	റൗട്ടർ ദൂര നിയന്ത്രണം (TR-069)
+Lets an internet provider manage the router. Weak versions have been used to take routers over; it should only be reachable by your provider.	ഇന്റർനെറ്റ് ദാതാവിന് റൗട്ടർ നിയന്ത്രിക്കാൻ അനുവദിക്കുന്നു. ദുർബലമായ പതിപ്പുകൾ റൗട്ടറുകൾ കൈയടക്കാൻ ഉപയോഗിച്ചിട്ടുണ്ട്; നിങ്ങളുടെ ദാതാവിന് മാത്രമേ എത്താൻ കഴിയാവൂ.
+Web service	വെബ് സേവനം
+Often a camera, recorder or a program being written. Check what it is and that it has its own password.	പലപ്പോഴും ഒരു ക്യാമറ, റെക്കോർഡർ അല്ലെങ്കിൽ എഴുതിക്കൊണ്ടിരിക്കുന്ന ഒരു പ്രോഗ്രാം. എന്താണെന്നും അതിന് സ്വന്തം പാസ്‌വേഡ് ഉണ്ടെന്നും പരിശോധിക്കുക.
+Web service (alternative)	വെബ് സേവനം (മറ്റൊന്ന്)
+Often a settings page, a proxy or a program being written. Check what it is.	പലപ്പോഴും ഒരു ക്രമീകരണ പേജ്, പ്രോക്സി അല്ലെങ്കിൽ എഴുതിക്കൊണ്ടിരിക്കുന്ന ഒരു പ്രോഗ്രാം. എന്താണെന്ന് പരിശോധിക്കുക.
+Secure web service (alternative)	സുരക്ഷിത വെബ് സേവനം (മറ്റൊന്ന്)
+A web page with protection on another number, often a settings page.	മറ്റൊരു നമ്പറിലുള്ള സംരക്ഷണമുള്ള വെബ് പേജ്, പലപ്പോഴും ഒരു ക്രമീകരണ പേജ്.
+Printing (raw)	പ്രിന്റിംഗ് (നേരിട്ട്)
+Anyone on the network can send pages straight to this printer. Normal for printers; never from the internet.	നെറ്റ്‌വർക്കിലുള്ള ആർക്കും ഈ പ്രിന്ററിലേക്ക് നേരിട്ട് പേജുകൾ അയയ്ക്കാം. പ്രിന്ററുകൾക്ക് സാധാരണം; ഇന്റർനെറ്റിൽ നിന്ന് ഒരിക്കലും പാടില്ല.
+Elasticsearch (search database)	Elasticsearch (തിരയൽ ഡാറ്റാബേസ്)
+A search database that often has no password.{0}	പലപ്പോഴും പാസ്‌വേഡില്ലാത്ത തിരയൽ ഡാറ്റാബേസ്.{0}
+Memcached	Memcached
+A memory cache with no password, abused for attacks.{0}	പാസ്‌വേഡില്ലാത്ത മെമ്മറി കാഷെ, ആക്രമണങ്ങൾക്ക് ദുരുപയോഗം ചെയ്യപ്പെടുന്നു.{0}
+MongoDB (database)	MongoDB (ഡാറ്റാബേസ്)
+A database that often has no password.{0}	പലപ്പോഴും പാസ്‌വേഡില്ലാത്ത ഡാറ്റാബേസ്.{0}
+Plex media server	Plex മീഡിയ സെർവർ
+Shares films and music. Fine if you use Plex.	സിനിമകളും സംഗീതവും പങ്കിടുന്നു. Plex ഉപയോഗിക്കുന്നുണ്ടെങ്കിൽ കുഴപ്പമില്ല.
+Camera recorder (Dahua)	ക്യാമറ റെക്കോർഡർ (Dahua)
+A security-camera recorder; old ones have known weaknesses. Keep it updated and never let it be reached from the internet.	സുരക്ഷാ ക്യാമറ റെക്കോർഡർ; പഴയവയ്ക്ക് അറിയപ്പെടുന്ന ദൗർബല്യങ്ങളുണ്ട്. പുതുക്കി വെക്കുക, ഇന്റർനെറ്റിൽ നിന്ന് എത്താൻ ഒരിക്കലും അനുവദിക്കരുത്.
+Windows (changing numbers)	Windows (മാറുന്ന നമ്പറുകൾ)
+Windows and other systems use numbers from here up for their own services. Normal on Windows PCs.	Windows-ഉം മറ്റ് സിസ്റ്റങ്ങളും ഇവിടെ മുതലുള്ള നമ്പറുകൾ സ്വന്തം സേവനങ്ങൾക്ക് ഉപയോഗിക്കുന്നു. Windows പിസികളിൽ സാധാരണം.
+{0} on port {1}	പോർട്ട് {1}-ൽ {0}
+Secure web service	സുരക്ഷിത വെബ് സേവനം
+A web page, often a device's settings page or a program's. Check what it is and that it has its own password.	ഒരു വെബ് പേജ്, പലപ്പോഴും ഒരു ഉപകരണത്തിന്റെയോ പ്രോഗ്രാമിന്റെയോ ക്രമീകരണ പേജ്. എന്താണെന്നും അതിന് സ്വന്തം പാസ്‌വേഡ് ഉണ്ടെന്നും പരിശോധിക്കുക.
+Unknown service	അറിയാത്ത സേവനം
+Something on this device answers here. If you don't know what it is, find out (the version Nmap found may help), and close it if it isn't needed.	ഈ ഉപകരണത്തിലെ എന്തോ ഇവിടെ മറുപടി നൽകുന്നു. അത് എന്താണെന്ന് അറിയില്ലെങ്കിൽ കണ്ടെത്തുക (Nmap കണ്ടെത്തിയ പതിപ്പ് സഹായിച്ചേക്കാം), ആവശ്യമില്ലെങ്കിൽ അടയ്ക്കുക.
+Paranoid	വളരെ ഒളിവിൽ
+Sneaky	ഒളിവിൽ
+Polite	മാന്യമായി
+Normal	സാധാരണ
+Fast	വേഗത്തിൽ
+Insane	അതിവേഗം
+paranoid speed (very slow, quiet)	വളരെ ഒളിവിലുള്ള വേഗത (വളരെ പതുക്കെ, നിശ്ശബ്ദം)
+sneaky speed (slow, quiet)	ഒളിവിലുള്ള വേഗത (പതുക്കെ, നിശ്ശബ്ദം)
+polite speed (gentle on the network)	മാന്യമായ വേഗത (നെറ്റ്‌വർക്കിന് ഭാരമില്ലാതെ)
+normal speed	സാധാരണ വേഗത
+insane speed (may miss ports)	അതിവേഗം (പോർട്ടുകൾ വിട്ടുപോയേക്കാം)
+fast speed	വേഗത
+Quick scan	പെട്ടെന്നുള്ള സ്കാൻ
+Top 100 ports, fast	മികച്ച 100 പോർട്ടുകൾ, വേഗത്തിൽ
+Checks the 100 most common ports on each host. A good first look.	ഓരോ ഹോസ്റ്റിലും ഏറ്റവും സാധാരണമായ 100 പോർട്ടുകൾ പരിശോധിക്കുന്നു. ആദ്യ നോട്ടത്തിന് നല്ലത്.
+Ping sweep	പിംഗ് സ്വീപ്പ്
+Who's online? No port scan	ആരൊക്കെ ഓൺലൈനിലുണ്ട്? പോർട്ട് സ്കാൻ ഇല്ല
+Finds which devices are switched on and answering. Doesn't look at ports.	ഏതൊക്കെ ഉപകരണങ്ങൾ ഓണാണെന്നും മറുപടി നൽകുന്നുവെന്നും കണ്ടെത്തുന്നു. പോർട്ടുകൾ നോക്കുന്നില്ല.
+Common ports	സാധാരണ പോർട്ടുകൾ
+Top 1,000 ports	മികച്ച 1,000 പോർട്ടുകൾ
+Checks the 1,000 most common ports on each host. Nmap's standard scan.	ഓരോ ഹോസ്റ്റിലും ഏറ്റവും സാധാരണമായ 1,000 പോർട്ടുകൾ പരിശോധിക്കുന്നു. Nmap-ന്റെ സാധാരണ സ്കാൻ.
+All ports	എല്ലാ പോർട്ടുകളും
+All 65,535 TCP ports · slow	എല്ലാ 65,535 TCP പോർട്ടുകളും · പതുക്കെ
+Checks every TCP port. Finds services on unusual ports, but takes much longer.	എല്ലാ TCP പോർട്ടുകളും പരിശോധിക്കുന്നു. അസാധാരണ പോർട്ടുകളിലെ സേവനങ്ങൾ കണ്ടെത്തും, പക്ഷേ വളരെ സമയമെടുക്കും.
+Services & versions	സേവനങ്ങളും പതിപ്പുകളും
+What software runs on each port	ഓരോ പോർട്ടിലും ഏത് സോഫ്റ്റ്‌വെയർ പ്രവർത്തിക്കുന്നു
+Finds open ports and asks each one what software and version it runs.	തുറന്ന പോർട്ടുകൾ കണ്ടെത്തി, ഓരോന്നിനോടും ഏത് സോഫ്റ്റ്‌വെയറും പതിപ്പുമാണ് പ്രവർത്തിക്കുന്നതെന്ന് ചോദിക്കുന്നു.
+OS detection	OS കണ്ടെത്തൽ
+Guess the operating system	ഓപ്പറേറ്റിംഗ് സിസ്റ്റം ഊഹിക്കുക
+Guesses each host's operating system from how it answers. Needs administrator rights.	ഓരോ ഹോസ്റ്റും മറുപടി നൽകുന്ന രീതിയിൽ നിന്ന് അതിന്റെ ഓപ്പറേറ്റിംഗ് സിസ്റ്റം ഊഹിക്കുന്നു. അഡ്മിനിസ്ട്രേറ്റർ അനുമതി വേണം.
+Intense	തീവ്രം
+Versions, OS, scripts, traceroute	പതിപ്പുകൾ, OS, സ്ക്രിപ്റ്റുകൾ, traceroute
+Versions, operating system, default scripts and traceroute in one go. Needs administrator rights.	പതിപ്പുകൾ, ഓപ്പറേറ്റിംഗ് സിസ്റ്റം, സാധാരണ സ്ക്രിപ്റ്റുകൾ, traceroute എല്ലാം ഒറ്റയടിക്ക്. അഡ്മിനിസ്ട്രേറ്റർ അനുമതി വേണം.
+UDP scan	UDP സ്കാൻ
+Top 100 UDP ports · slow	മികച്ച 100 UDP പോർട്ടുകൾ · പതുക്കെ
+Checks the 100 most common UDP ports (DNS, DHCP, SNMP and more). Slow. Needs administrator rights.	ഏറ്റവും സാധാരണമായ 100 UDP പോർട്ടുകൾ (DNS, DHCP, SNMP എന്നിവയും മറ്റും) പരിശോധിക്കുന്നു. പതുക്കെ. അഡ്മിനിസ്ട്രേറ്റർ അനുമതി വേണം.
+Vulnerability check	സുരക്ഷാ പ്രശ്ന പരിശോധന
+Known problems & CVEs	അറിയപ്പെടുന്ന പ്രശ്നങ്ങളും CVE-കളും
+Finds versions, then runs Nmap's vuln scripts to check for well-known problems. Some checks send unusual traffic.	പതിപ്പുകൾ കണ്ടെത്തി, നന്നായി അറിയപ്പെടുന്ന പ്രശ്നങ്ങൾക്കായി Nmap-ന്റെ vuln സ്ക്രിപ്റ്റുകൾ പ്രവർത്തിപ്പിക്കുന്നു. ചില പരിശോധനകൾ അസാധാരണ ട്രാഫിക് അയയ്ക്കുന്നു.
+Starting Nmap…	Nmap തുടങ്ങുന്നു…
+NSE: Script scanning	NSE: Script scanning
+Running scripts	സ്ക്രിപ്റ്റുകൾ പ്രവർത്തിക്കുന്നു
+Collecting results	ഫലങ്ങൾ ശേഖരിക്കുന്നു
+Read data files from	Read data files from
+Nmap done	Nmap done
+Finishing	പൂർത്തിയാക്കുന്നു
+host discovery	host discovery
+Finding hosts	ഹോസ്റ്റുകൾ കണ്ടെത്തുന്നു
+Detecting versions	പതിപ്പുകൾ കണ്ടെത്തുന്നു
+os detection	os detection
+Detecting operating systems	ഓപ്പറേറ്റിംഗ് സിസ്റ്റങ്ങൾ കണ്ടെത്തുന്നു
+Tracing routes	വഴികൾ കണ്ടെത്തുന്നു
+Scanning ports	പോർട്ടുകൾ സ്കാൻ ചെയ്യുന്നു
+Find hosts	ഹോസ്റ്റുകൾ കണ്ടെത്തുക
+Scan ports	പോർട്ടുകൾ സ്കാൻ ചെയ്യുക
+Detect versions	പതിപ്പുകൾ കണ്ടെത്തുക
+Detect OS	OS കണ്ടെത്തുക
+Vulnerability scripts	സുരക്ഷാ പ്രശ്ന സ്ക്രിപ്റ്റുകൾ
+Scripts	സ്ക്രിപ്റ്റുകൾ
+Traceroute	Traceroute
+New host	പുതിയ ഹോസ്റ്റ്
+Host gone	ഹോസ്റ്റ് പോയി
+Port opened	പോർട്ട് തുറന്നു
+Port closed	പോർട്ട് അടഞ്ഞു
+Version changed	പതിപ്പ് മാറി
+Unchanged	മാറ്റമില്ല
+Appeared · no open ports	പുതുതായി വന്നു · തുറന്ന പോർട്ടുകളില്ല
+Appeared · open ports {0}	പുതുതായി വന്നു · തുറന്ന പോർട്ടുകൾ {0}
+Did not reply in the newer scan	പുതിയ സ്കാനിൽ മറുപടി നൽകിയില്ല
+No open ports	തുറന്ന പോർട്ടുകളില്ല
+Open ports {0}	തുറന്ന പോർട്ടുകൾ {0}
+UDP scans	UDP സ്കാനുകൾ
+operating system detection	ഓപ്പറേറ്റിംഗ് സിസ്റ്റം കണ്ടെത്തൽ
+traceroute	traceroute
+Type an IP address, host name, range or network to scan.	സ്കാൻ ചെയ്യാൻ ഒരു IP വിലാസം, ഹോസ്റ്റ് പേര്, ശ്രേണി അല്ലെങ്കിൽ നെറ്റ്‌വർക്ക് ടൈപ്പ് ചെയ്യുക.
+"{0}" doesn't look like an address, name, range or network.\n\nExamples: 192.168.1.10, router.lan, 192.168.1.1-50, 192.168.1.0/24	"{0}" ഒരു വിലാസമോ പേരോ ശ്രേണിയോ നെറ്റ്‌വർക്കോ ആയി തോന്നുന്നില്ല.\n\nഉദാഹരണങ്ങൾ: 192.168.1.10, router.lan, 192.168.1.1-50, 192.168.1.0/24
+Type the ports to scan, for example 22,80,443 or 1-1024.	സ്കാൻ ചെയ്യേണ്ട പോർട്ടുകൾ ടൈപ്പ് ചെയ്യുക, ഉദാഹരണത്തിന് 22,80,443 അല്ലെങ്കിൽ 1-1024.
+"{0}" isn't a valid port list. Use numbers, commas and ranges, for example 22,80,443 or 1-1024.	"{0}" ശരിയായ പോർട്ട് പട്ടികയല്ല. നമ്പറുകളും കോമകളും ശ്രേണികളും ഉപയോഗിക്കുക, ഉദാഹരണത്തിന് 22,80,443 അല്ലെങ്കിൽ 1-1024.
+find hosts only, no port scan	ഹോസ്റ്റുകൾ മാത്രം കണ്ടെത്തുക, പോർട്ട് സ്കാൻ ഇല്ല
+fast SYN scan	വേഗത്തിലുള്ള SYN സ്കാൻ
+connect scan (works without admin)	കണക്ട് സ്കാൻ (അഡ്മിൻ ഇല്ലാതെ പ്രവർത്തിക്കും)
+top 100 ports	മികച്ച 100 പോർട്ടുകൾ
+all 65,535 ports	എല്ലാ 65,535 പോർട്ടുകളും
+only these ports	ഈ പോർട്ടുകൾ മാത്രം
+detect versions	പതിപ്പുകൾ കണ്ടെത്തുക
+detect operating system	ഓപ്പറേറ്റിംഗ് സിസ്റ്റം കണ്ടെത്തുക
+default scripts	സാധാരണ സ്ക്രിപ്റ്റുകൾ
+run these scripts	ഈ സ്ക്രിപ്റ്റുകൾ പ്രവർത്തിപ്പിക്കുക
+trace the route	വഴി കണ്ടെത്തുക
+treat every host as online	എല്ലാ ഹോസ്റ്റുകളും ഓൺലൈനായി കണക്കാക്കുക
+don't look up names	പേരുകൾ തിരയരുത്
+only show open ports	തുറന്ന പോർട്ടുകൾ മാത്രം കാണിക്കുക
+list ports as they're found	കണ്ടെത്തുന്നതനുസരിച്ച് പോർട്ടുകൾ കാണിക്കുക
+progress updates	പുരോഗതി അറിയിപ്പുകൾ
+results for KUDUNMAP	KUDUNMAP-നുള്ള ഫലങ്ങൾ
+nmap {0}	nmap {0}
+{0} ms	{0} മി.സെ
+Sunday	ഞായർ
+Monday	തിങ്കൾ
+Tuesday	ചൊവ്വ
+Wednesday	ബുധൻ
+Thursday	വ്യാഴം
+Friday	വെള്ളി
+Saturday	ശനി
+Every hour	ഓരോ മണിക്കൂറിലും
+Every {0} hours	ഓരോ {0} മണിക്കൂറിലും
+Every {0} at {1}	എല്ലാ {0} ദിവസവും {1}-ന്
+Every day at {0}	എല്ലാ ദിവസവും {0}-ന്
+KUDUNMAP -	KUDUNMAP -
+{0}.json	{0}.json
+Runs the KUDUNMAP scan "{0}" ({1}) and says if anything changed.	KUDUNMAP സ്കാൻ "{0}" ({1}) പ്രവർത്തിപ്പിക്കുകയും എന്തെങ്കിലും മാറിയോ എന്ന് പറയുകയും ചെയ്യുന്നു.
+a new device	ഒരു പുതിയ ഉപകരണം
+{0} new devices	{0} പുതിയ ഉപകരണങ്ങൾ
+a port opened	ഒരു പോർട്ട് തുറന്നു
+{0} ports opened	{0} പോർട്ടുകൾ തുറന്നു
+a device went away	ഒരു ഉപകരണം പോയി
+{0} devices went away	{0} ഉപകരണങ്ങൾ പോയി
+a port closed	ഒരു പോർട്ട് അടഞ്ഞു
+{0} ports closed	{0} പോർട്ടുകൾ അടഞ്ഞു
+a service changed version	ഒരു സേവനത്തിന്റെ പതിപ്പ് മാറി
+{0} services changed version	{0} സേവനങ്ങളുടെ പതിപ്പ് മാറി
+{0}.xml	{0}.xml
+Windows' question about administrator rights was answered No, so the scan wasn't scheduled.	അഡ്മിനിസ്ട്രേറ്റർ അനുമതിയെക്കുറിച്ചുള്ള Windows-ന്റെ ചോദ്യത്തിന് ഇല്ല എന്ന് മറുപടി നൽകി, അതിനാൽ സ്കാൻ ഷെഡ്യൂൾ ചെയ്തില്ല.
+Windows Task Scheduler said: {0}	Windows ടാസ്ക് ഷെഡ്യൂളർ പറഞ്ഞു: {0}
+error {0}	പിശക് {0}
+Task Scheduler didn't respond.	ടാസ്ക് ഷെഡ്യൂളർ മറുപടി നൽകിയില്ല.
+Theme	തീം
+System	സിസ്റ്റം
+scan	സ്കാൻ
+{0}.tmp	{0}.tmp
+open port	തുറന്ന പോർട്ട്
+Today, {0}	ഇന്ന്, {0}
+Yesterday, {0}	ഇന്നലെ, {0}
+Custom	ഇഷ്ടാനുസൃതം
+Missing theme resource {0}	Missing theme resource {0}
+Light	ലൈറ്റ്
+Styles	Styles
+Dark	ഡാർക്ക്
+Application	Application
+host	ഹോസ്റ്റ്
+Matched by version{0}	പതിപ്പ് വെച്ച് യോജിച്ചു{0}
+ · CVSS {0}	 · CVSS {0}
+Likely vulnerable, reported by the script	സുരക്ഷാ പ്രശ്നം ഉണ്ടാകാൻ സാധ്യത, സ്ക്രിപ്റ്റ് റിപ്പോർട്ട് ചെയ്തത്
+Reported as vulnerable by the script	സ്ക്രിപ്റ്റ് സുരക്ഷാ പ്രശ്നമുള്ളതായി റിപ്പോർട്ട് ചെയ്തു
+{0} · CVSS {1}	{0} · CVSS {1}
+NOT VULNERABLE	പ്രശ്നമില്ല
+Detected software	കണ്ടെത്തിയ സോഫ്റ്റ്‌വെയർ
+Matched by version	പതിപ്പ് വെച്ച് യോജിച്ചു
+{0}: known vulnerability {1}{2}	{0}: അറിയപ്പെടുന്ന സുരക്ഷാ പ്രശ്നം {1}{2}
+(public exploit exists)	(പൊതുവായ ആക്രമണ കോഡ് നിലവിലുണ്ട്)
+Error message shown: {0}	Error message shown: {0}
+All files	എല്ലാ ഫയലുകളും
+Save	സേവ് ചെയ്യുക
+Cancel	റദ്ദാക്കുക
+History	ചരിത്രം
+Open	തുറക്കുക
+Compare with an earlier scan	മുമ്പത്തെ സ്കാനുമായി താരതമ്യം ചെയ്യുക
+Delete	ഇല്ലാതാക്കുക
+Open the History folder	ചരിത്ര ഫോൾഡർ തുറക്കുക
+When	എപ്പോൾ
+Scan type	സ്കാൻ തരം
+Target	ലക്ഷ്യം
+Result	ഫലം
+No saved scans yet. Every finished scan is saved here automatically.	ഇതുവരെ സേവ് ചെയ്ത സ്കാനുകളില്ല. പൂർത്തിയായ ഓരോ സ്കാനും ഇവിടെ തനിയെ സേവ് ചെയ്യപ്പെടും.
+saved scan on this computer	ഈ കമ്പ്യൂട്ടറിൽ സേവ് ചെയ്ത സ്കാൻ
+saved scans on this computer	ഈ കമ്പ്യൂട്ടറിൽ സേവ് ചെയ്ത സ്കാനുകൾ
+Delete the saved scan "{0}" of {1} from {2}?	{2}-ലെ {1}-ന്റെ സേവ് ചെയ്ത സ്കാൻ "{0}" ഇല്ലാതാക്കണോ?
+Couldn't delete it:\n\n{0}	ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല:\n\n{0}
+Show unchanged hosts	മാറ്റമില്ലാത്ത ഹോസ്റ്റുകൾ കാണിക്കുക
+Compare scans	സ്കാനുകൾ താരതമ്യം ചെയ്യുക
+Older scan	പഴയ സ്കാൻ
+Newer scan	പുതിയ സ്കാൻ
+What changed	എന്താണ് മാറിയത്
+Hosts and ports that are the same in both scans are hidden.	രണ്ട് സ്കാനുകളിലും ഒരുപോലെയുള്ള ഹോസ്റ്റുകളും പോർട്ടുകളും മറച്ചിരിക്കുന്നു.
+Export	എക്സ്പോർട്ട്
+Choose two different scans.	വ്യത്യസ്തമായ രണ്ട് സ്കാനുകൾ തിരഞ്ഞെടുക്കുക.
+Couldn't read one of the scans: {0}	സ്കാനുകളിൽ ഒന്ന് വായിക്കാൻ കഴിഞ്ഞില്ല: {0}
+new hosts	പുതിയ ഹോസ്റ്റുകൾ
+hosts gone	പോയ ഹോസ്റ്റുകൾ
+ports opened	പോർട്ടുകൾ തുറന്നു
+ports closed	പോർട്ടുകൾ അടഞ്ഞു
+versions changed	പതിപ്പുകൾ മാറി
+Scan this host	ഈ ഹോസ്റ്റ് സ്കാൻ ചെയ്യുക
+Nothing changed between these two scans.	ഈ രണ്ട് സ്കാനുകൾക്കിടയിൽ ഒന്നും മാറിയിട്ടില്ല.
+Export changes	മാറ്റങ്ങൾ എക്സ്പോർട്ട് ചെയ്യുക
+KUDUNMAP changes {0}	KUDUNMAP മാറ്റങ്ങൾ {0}
+{0}.csv	{0}.csv
+CSV file	CSV ഫയൽ
+Couldn't save the file:\n\n{0}	ഫയൽ സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല:\n\n{0}
+KUDUNMAP	KUDUNMAP
+Nmap is a separate program by the Nmap Project (nmap.org), installed by you and not included with KUDUNMAP. KUDUNMAP is not affiliated with, sponsored or endorsed by the Nmap Project or Nmap Software LLC. "Nmap" is their trademark.	Nmap പ്രോജക്റ്റിന്റെ (nmap.org) വേറൊരു പ്രോഗ്രാമാണ് Nmap, നിങ്ങൾ ഇൻസ്റ്റാൾ ചെയ്തത്, KUDUNMAP-ൽ ഉൾപ്പെടുത്തിയിട്ടില്ല. KUDUNMAP-ന് Nmap പ്രോജക്റ്റുമായോ Nmap Software LLC-യുമായോ ബന്ധമോ അവരുടെ പിന്തുണയോ അംഗീകാരമോ ഇല്ല. "Nmap" അവരുടെ വ്യാപാരമുദ്രയാണ്.
+Only scan networks and devices you own or have permission to scan.	നിങ്ങളുടേതായ അല്ലെങ്കിൽ സ്കാൻ ചെയ്യാൻ അനുമതിയുള്ള നെറ്റ്‌വർക്കുകളും ഉപകരണങ്ങളും മാത്രം സ്കാൻ ചെയ്യുക.
+Scanning other people's systems without permission may be illegal where you live, and can be noticed as an attack.	അനുമതിയില്ലാതെ മറ്റുള്ളവരുടെ സിസ്റ്റങ്ങൾ സ്കാൻ ചെയ്യുന്നത് നിങ്ങളുടെ നാട്ടിൽ നിയമവിരുദ്ധമായേക്കാം, ഒരു ആക്രമണമായി ശ്രദ്ധിക്കപ്പെടുകയും ചെയ്യാം.
+Welcome to KUDUNMAP	KUDUNMAP-ലേക്ക് സ്വാഗതം
+A visual way to use Nmap	Nmap ഉപയോഗിക്കാനുള്ള കാഴ്ചയിലൂടെയുള്ള വഴി
+KUDUNMAP runs Nmap on your computer and shows its results. Nmap is a separate program made by the Nmap Project. KUDUNMAP is not affiliated with or endorsed by them.	KUDUNMAP നിങ്ങളുടെ കമ്പ്യൂട്ടറിൽ Nmap പ്രവർത്തിപ്പിച്ച് അതിന്റെ ഫലങ്ങൾ കാണിക്കുന്നു. Nmap പ്രോജക്റ്റ് നിർമ്മിച്ച വേറൊരു പ്രോഗ്രാമാണ് Nmap. KUDUNMAP-ന് അവരുമായി ബന്ധമോ അവരുടെ അംഗീകാരമോ ഇല്ല.
+Shown once. You can read it again in Settings → About.	ഒരിക്കൽ മാത്രം കാണിക്കുന്നു. ക്രമീകരണങ്ങൾ → കുറിച്ച് എന്നതിൽ വീണ്ടും വായിക്കാം.
+I understand	എനിക്ക് മനസ്സിലായി
+Close	അടയ്ക്കുക
+Version {0} · Network scanning made visual	പതിപ്പ് {0} · നെറ്റ്‌വർക്ക് സ്കാനിംഗ് കാഴ്ചയിലൂടെ
+Azeem, with Claude and	Azeem, with Claude and
+Made by	Made by
+Licence	ലൈസൻസ്
+Nmap Public Source License (NPSL) 0.95 · free and open source	Nmap Public Source License (NPSL) 0.95 · സൗജന്യവും ഓപ്പൺ സോഴ്സും
+View	കാണുക
+Source code	സോഴ്സ് കോഡ്
+Nmap in use	ഉപയോഗത്തിലുള്ള Nmap
+Not found	കണ്ടെത്തിയില്ല
+Nmap {0} · {1}	Nmap {0} · {1}
+Third-party	മൂന്നാം കക്ഷി
+Third-party notices	മൂന്നാം കക്ഷി അറിയിപ്പുകൾ
+Show the first-start notice again	ആദ്യ തുടക്കത്തിലെ അറിയിപ്പ് വീണ്ടും കാണിക്കുക
+Check for updates	അപ്ഡേറ്റുകൾ പരിശോധിക്കുക
+About KUDUNMAP	KUDUNMAP-നെക്കുറിച്ച്
+Couldn't find any published version yet.	പ്രസിദ്ധീകരിച്ച പതിപ്പൊന്നും ഇതുവരെ കണ്ടെത്തിയില്ല.
+KUDUNMAP {0} is available. Open the download page?	KUDUNMAP {0} ലഭ്യമാണ്. ഡൗൺലോഡ് പേജ് തുറക്കണോ?
+You have the latest version.	നിങ്ങളുടെ കൈയിൽ ഏറ്റവും പുതിയ പതിപ്പാണ്.
+Couldn't check for updates. Check your internet connection and try again.	അപ്ഡേറ്റുകൾ പരിശോധിക്കാൻ കഴിഞ്ഞില്ല. ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.
+Settings	ക്രമീകരണങ്ങൾ
+Appearance	രൂപം
+Same as Windows	Windows-ന്റേത് പോലെ
+Language	ഭാഷ
+Nmap	Nmap
+Choose nmap.exe…	nmap.exe തിരഞ്ഞെടുക്കുക…
+Find automatically	തനിയെ കണ്ടെത്തുക
+Get Nmap from nmap.org	nmap.org-ൽ നിന്ന് Nmap നേടുക
+Scans	സ്കാനുകൾ
+Show a Windows notification when a scan finishes	ഒരു സ്കാൻ കഴിയുമ്പോൾ Windows അറിയിപ്പ് കാണിക്കുക
+Scans are saved in History on this computer only ({0}).	സ്കാനുകൾ ഈ കമ്പ്യൂട്ടറിലെ ചരിത്രത്തിൽ മാത്രം സേവ് ചെയ്യുന്നു ({0}).
+Updates	അപ്ഡേറ്റുകൾ
+Check for a new KUDUNMAP version when it starts	തുടങ്ങുമ്പോൾ KUDUNMAP-ന്റെ പുതിയ പതിപ്പുണ്ടോ എന്ന് പരിശോധിക്കുക
+Only asks GitHub for the latest version number. Nothing is downloaded without asking.	ഏറ്റവും പുതിയ പതിപ്പിന്റെ നമ്പർ മാത്രം GitHub-നോട് ചോദിക്കുന്നു. ചോദിക്കാതെ ഒന്നും ഡൗൺലോഡ് ചെയ്യില്ല.
+Nmap wasn't found. Install it from nmap.org, or choose nmap.exe if it's somewhere else.	Nmap കണ്ടെത്തിയില്ല. nmap.org-ൽ നിന്ന് ഇൻസ്റ്റാൾ ചെയ്യുക, അല്ലെങ്കിൽ മറ്റെവിടെയെങ്കിലുമാണെങ്കിൽ nmap.exe തിരഞ്ഞെടുക്കുക.
+Using Nmap {0}: {1}{2}	Nmap {0} ഉപയോഗിക്കുന്നു: {1}{2}
+(found automatically)	(തനിയെ കണ്ടെത്തിയത്)
+(chosen by you)	(നിങ്ങൾ തിരഞ്ഞെടുത്തത്)
+Choose nmap.exe	nmap.exe തിരഞ്ഞെടുക്കുക
+That file didn't answer like Nmap. Choose the nmap.exe from your Nmap folder.	ആ ഫയൽ Nmap പോലെ മറുപടി നൽകിയില്ല. നിങ്ങളുടെ Nmap ഫോൾഡറിലെ nmap.exe തിരഞ്ഞെടുക്കുക.
+IP, name, range or network	IP, പേര്, ശ്രേണി അല്ലെങ്കിൽ നെറ്റ്‌വർക്ക്
+Scan	സ്കാൻ
+From file…	ഫയലിൽ നിന്ന്…
+Administrator	അഡ്മിനിസ്ട്രേറ്റർ
+KUDUNMAP is running as administrator, so every scan type is available.	KUDUNMAP അഡ്മിനിസ്ട്രേറ്ററായി പ്രവർത്തിക്കുന്നു, അതിനാൽ എല്ലാ സ്കാൻ തരങ്ങളും ലഭ്യമാണ്.
+Standard user	സാധാരണ ഉപയോക്താവ്
+Some scans (OS detection, UDP, traceroute) need administrator rights. KUDUNMAP offers to restart when they do.	ചില സ്കാനുകൾക്ക് (OS കണ്ടെത്തൽ, UDP, traceroute) അഡ്മിനിസ്ട്രേറ്റർ അനുമതി വേണം. അപ്പോൾ KUDUNMAP വീണ്ടും തുടങ്ങാൻ നിർദ്ദേശിക്കും.
+Compare	താരതമ്യം
+Scheduled	ഷെഡ്യൂൾ ചെയ്തവ
+Scans that run by themselves and tell you when something changes	തനിയെ പ്രവർത്തിച്ച് എന്തെങ്കിലും മാറുമ്പോൾ അറിയിക്കുന്ന സ്കാനുകൾ
+Download Nmap from nmap.org	nmap.org-ൽ നിന്ന് Nmap ഡൗൺലോഡ് ചെയ്യുക
+Choose the "Latest stable release self-installer" for Windows.	Windows-നുള്ള "Latest stable release self-installer" തിരഞ്ഞെടുക്കുക.
+Run the Nmap installer	Nmap ഇൻസ്റ്റാളർ പ്രവർത്തിപ്പിക്കുക
+Keep the Npcap option ticked. Nmap needs it to scan on Windows.	Npcap ടിക്ക് ചെയ്തുതന്നെ വെക്കുക. Windows-ൽ സ്കാൻ ചെയ്യാൻ Nmap-ന് അത് വേണം.
+Come back and press Check again	തിരികെ വന്ന് വീണ്ടും പരിശോധിക്കുക അമർത്തുക
+KUDUNMAP finds Nmap automatically. No restart needed.	KUDUNMAP തനിയെ Nmap കണ്ടെത്തും. വീണ്ടും തുടങ്ങേണ്ടതില്ല.
+Open nmap.org download page	nmap.org ഡൗൺലോഡ് പേജ് തുറക്കുക
+Check again	വീണ്ടും പരിശോധിക്കുക
+Locate nmap.exe…	nmap.exe കണ്ടെത്തുക…
+Nmap isn't installed yet	Nmap ഇതുവരെ ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല
+KUDUNMAP is the window, Nmap does the scanning. It's free, from the Nmap Project.	KUDUNMAP ജാലകമാണ്, സ്കാൻ ചെയ്യുന്നത് Nmap ആണ്. അത് സൗജന്യമാണ്, Nmap പ്രോജക്റ്റിൽ നിന്ന്.
+KUDUNMAP never downloads or installs Nmap itself. The download page opens in your browser, so you get Nmap straight from the Nmap Project.	KUDUNMAP ഒരിക്കലും സ്വയം Nmap ഡൗൺലോഡ് ചെയ്യുകയോ ഇൻസ്റ്റാൾ ചെയ്യുകയോ ഇല്ല. ഡൗൺലോഡ് പേജ് നിങ്ങളുടെ ബ്രൗസറിൽ തുറക്കും, അതിനാൽ Nmap നേരിട്ട് Nmap പ്രോജക്റ്റിൽ നിന്ന് ലഭിക്കും.
+Nmap not found · looked in {0}	Nmap കണ്ടെത്തിയില്ല · നോക്കിയത് {0}
+Ready	തയ്യാർ
+Nmap not found	Nmap കണ്ടെത്തിയില്ല
+Nmap {0}	Nmap {0}
+KUDUNMAP {0} is available	KUDUNMAP {0} ലഭ്യമാണ്
+Skip	ഒഴിവാക്കുക
+Choose a list of targets (one per line)	ലക്ഷ്യങ്ങളുടെ ഒരു പട്ടിക തിരഞ്ഞെടുക്കുക (ഒരു വരിയിൽ ഒന്ന്)
+Text files	ടെക്സ്റ്റ് ഫയലുകൾ
+Stop using this file	ഈ ഫയൽ ഉപയോഗിക്കുന്നത് നിർത്തുക
+Command copied. Paste it into a terminal to run the same scan with Nmap directly.	കമാൻഡ് പകർത്തി. ഇതേ സ്കാൻ Nmap ഉപയോഗിച്ച് നേരിട്ട് ചെയ്യാൻ ഒരു ടെർമിനലിൽ ഒട്ടിക്കുക.
+A scan is running. Stop it and restart KUDUNMAP as administrator?	ഒരു സ്കാൻ നടക്കുന്നുണ്ട്. അത് നിർത്തി KUDUNMAP അഡ്മിനിസ്ട്രേറ്ററായി വീണ്ടും തുടങ്ങണോ?
+Restart as administrator was cancelled.	അഡ്മിനിസ്ട്രേറ്ററായി വീണ്ടും തുടങ്ങുന്നത് റദ്ദാക്കി.
+The target file can't be found:\n\n{0}	ലക്ഷ്യ ഫയൽ കണ്ടെത്താനാകുന്നില്ല:\n\n{0}
+This scan needs administrator rights for {0}.\n\nRestart KUDUNMAP as administrator and start the scan?	{0}-ന് ഈ സ്കാനിന് അഡ്മിനിസ്ട്രേറ്റർ അനുമതി വേണം.\n\nKUDUNMAP അഡ്മിനിസ്ട്രേറ്ററായി വീണ്ടും തുടങ്ങി സ്കാൻ ആരംഭിക്കണോ?
+Advanced scripts are on ({0}).\n\nThey can lock accounts, crash services or be seen as an attack. {1}\n\nStart the scan?	വിപുലമായ സ്ക്രിപ്റ്റുകൾ ഓണാണ് ({0}).\n\nഅവ അക്കൗണ്ടുകൾ പൂട്ടിയേക്കാം, സേവനങ്ങൾ തകർത്തേക്കാം, അല്ലെങ്കിൽ ആക്രമണമായി കാണപ്പെട്ടേക്കാം. {1}\n\nസ്കാൻ ആരംഭിക്കണോ?
+Scanning · started {0}	സ്കാൻ ചെയ്യുന്നു · {0}-ന് തുടങ്ങി
+You'll get a Windows notification when it finishes	കഴിയുമ്പോൾ ഒരു Windows അറിയിപ്പ് ലഭിക്കും
+Nmap couldn't start	Nmap-ന് തുടങ്ങാൻ കഴിഞ്ഞില്ല
+Stopping Nmap…	Nmap നിർത്തുന്നു…
+Scanning · {0} found so far · started {1}	സ്കാൻ ചെയ്യുന്നു · ഇതുവരെ {0} കണ്ടെത്തി · {1}-ന് തുടങ്ങി
+Scan cancelled	സ്കാൻ റദ്ദാക്കി
+Nmap was stopped. The output so far is below.	Nmap നിർത്തി. ഇതുവരെയുള്ള ഔട്ട്പുട്ട് താഴെ.
+Nmap reported an error.	Nmap ഒരു പിശക് റിപ്പോർട്ട് ചെയ്തു.
+Nmap stopped without results (exit code {0}).	ഫലങ്ങളില്ലാതെ Nmap നിന്നു (exit code {0}).
+The scan didn't finish	സ്കാൻ പൂർത്തിയായില്ല
+{0} Nmap's output is below.	{0} Nmap-ന്റെ ഔട്ട്പുട്ട് താഴെ.
+Scan didn't finish	സ്കാൻ പൂർത്തിയായില്ല
+Couldn't save to History: {0}	ചരിത്രത്തിൽ സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല: {0}
+host online	ഹോസ്റ്റ് ഓൺലൈനിൽ
+Done · {0}	കഴിഞ്ഞു · {0}
+{0} finished	{0} കഴിഞ്ഞു
+Target set to {0}. Pick a scan type and press Scan.	ലക്ഷ്യം {0} ആക്കി. ഒരു സ്കാൻ തരം തിരഞ്ഞെടുത്ത് സ്കാൻ അമർത്തുക.
+Compare needs at least two saved scans. Run the same scan again later to see what changed.	താരതമ്യത്തിന് കുറഞ്ഞത് രണ്ട് സേവ് ചെയ്ത സ്കാനുകൾ വേണം. എന്ത് മാറി എന്ന് കാണാൻ പിന്നീട് ഇതേ സ്കാൻ വീണ്ടും ചെയ്യുക.
+Wait for the running scan to finish, or cancel it, before opening saved results.	സേവ് ചെയ്ത ഫലങ്ങൾ തുറക്കുന്നതിന് മുമ്പ് നടക്കുന്ന സ്കാൻ കഴിയാൻ കാത്തിരിക്കുക, അല്ലെങ്കിൽ റദ്ദാക്കുക.
+Saved scan from {0} · {1}	{0}-ലെ സേവ് ചെയ്ത സ്കാൻ · {1}
+Couldn't open these results:\n\n{0}	ഈ ഫലങ്ങൾ തുറക്കാൻ കഴിഞ്ഞില്ല:\n\n{0}
+A scan is still running. Stop it and close KUDUNMAP?	ഒരു സ്കാൻ ഇപ്പോഴും നടക്കുന്നു. അത് നിർത്തി KUDUNMAP അടയ്ക്കണോ?
+This appears when the scan finishes.	സ്കാൻ കഴിയുമ്പോൾ ഇത് കാണിക്കും.
+Nothing worth a look	ശ്രദ്ധിക്കേണ്ടതായി ഒന്നുമില്ല
+{0} worth a look	{0} ശ്രദ്ധിക്കേണ്ടത്
+ ({0} risky)	 ({0} അപകടസാധ്യത)
+Every open port found is normal for its kind of device.	കണ്ടെത്തിയ എല്ലാ തുറന്ന പോർട്ടുകളും ആ തരം ഉപകരണത്തിന് സാധാരണമാണ്.
+What each open port is, in plain words, and what it could risk. Risky ones are often used by attackers: close them if they aren't needed, and never let them be reached from the internet.	ഓരോ തുറന്ന പോർട്ടും എന്താണെന്നും എന്ത് അപകടമുണ്ടാകാമെന്നും ലളിതമായ വാക്കുകളിൽ. അപകടസാധ്യതയുള്ളവ ആക്രമണകാരികൾ പലപ്പോഴും ഉപയോഗിക്കുന്നു: ആവശ്യമില്ലെങ്കിൽ അടയ്ക്കുക, ഇന്റർനെറ്റിൽ നിന്ന് എത്താൻ ഒരിക്കലും അനുവദിക്കരുത്.
+Show this device	ഈ ഉപകരണം കാണിക്കുക
+The map appears when the scan finishes.	സ്കാൻ കഴിയുമ്പോൾ മാപ്പ് കാണിക്കും.
+No devices replied, so there's nothing to draw.	ഒരു ഉപകരണവും മറുപടി നൽകിയില്ല, അതിനാൽ വരയ്ക്കാൻ ഒന്നുമില്ല.
+Each device found, with a guess of what it is. Red and orange marks are open ports that are risky or worth a look. Click a device to see its details.	കണ്ടെത്തിയ ഓരോ ഉപകരണവും, അത് എന്താണെന്ന ഊഹത്തോടെ. ചുവപ്പും ഓറഞ്ചും അടയാളങ്ങൾ അപകടസാധ്യതയുള്ളതോ ശ്രദ്ധിക്കേണ്ടതോ ആയ തുറന്ന പോർട്ടുകളാണ്. വിശദാംശങ്ങൾ കാണാൻ ഒരു ഉപകരണത്തിൽ ക്ലിക്ക് ചെയ്യുക.
+Save as a picture…	ചിത്രമായി സേവ് ചെയ്യുക…
+Segoe Fluent Icons, Segoe MDL2 Assets	Segoe Fluent Icons, Segoe MDL2 Assets
+{0} risky	{0} അപകടസാധ്യത
+{0} to check	{0} പരിശോധിക്കാൻ
+Network map {0}	നെറ്റ്‌വർക്ക് മാപ്പ് {0}
+{0}.png	{0}.png
+Save the map as a picture	മാപ്പ് ചിത്രമായി സേവ് ചെയ്യുക
+PNG picture	PNG ചിത്രം
+Found so far	ഇതുവരെ കണ്ടെത്തിയത്
+Hosts & ports	ഹോസ്റ്റുകളും പോർട്ടുകളും
+Map	മാപ്പ്
+Vulnerabilities	സുരക്ഷാ പ്രശ്നങ്ങൾ
+Raw output	അസംസ്കൃത ഔട്ട്പുട്ട്
+Scan details	സ്കാൻ വിശദാംശങ്ങൾ
+Filter hosts…	ഹോസ്റ്റുകൾ അരിക്കുക…
+Name / OS	പേര് / OS
+These are checks for known problems. "Matched by version" means the software version is listed as affected; the fix may already be applied. A clean result doesn't guarantee a system is safe.	ഇവ അറിയപ്പെടുന്ന പ്രശ്നങ്ങൾക്കുള്ള പരിശോധനകളാണ്. "പതിപ്പ് വെച്ച് യോജിച്ചു" എന്നാൽ ആ സോഫ്റ്റ്‌വെയർ പതിപ്പ് ബാധിക്കപ്പെട്ടവയുടെ പട്ടികയിലുണ്ട് എന്നാണ്; പരിഹാരം ഇതിനകം ചേർത്തിട്ടുണ്ടാകാം. പ്രശ്നമില്ലാത്ത ഫലം ഒരു സിസ്റ്റം സുരക്ഷിതമാണെന്ന് ഉറപ്പ് നൽകുന്നില്ല.
+Host	ഹോസ്റ്റ്
+Found by	കണ്ടെത്തിയത്
+Open ports	തുറന്ന പോർട്ടുകൾ
+Results appear here when the scan finishes. Live output is on the Raw output tab.	സ്കാൻ കഴിയുമ്പോൾ ഫലങ്ങൾ ഇവിടെ കാണിക്കും. തത്സമയ ഔട്ട്പുട്ട് അസംസ്കൃത ഔട്ട്പുട്ട് ടാബിലാണ്.
+Starting…	തുടങ്ങുന്നു…
+Scanning…	സ്കാൻ ചെയ്യുന്നു…
+{0} · about {1} left	{0} · ഏകദേശം {1} ബാക്കി
+{0} seconds	{0} സെക്കൻഡ്
+Failed	പരാജയപ്പെട്ടു
+Cancelled	റദ്ദാക്കി
+Change options	ഓപ്ഷനുകൾ മാറ്റുക
+Try again	വീണ്ടും ശ്രമിക്കുക
+Found before stopping	നിർത്തുന്നതിന് മുമ്പ് കണ്ടെത്തിയത്
+Hosts	ഹോസ്റ്റുകൾ
+hosts affected	ബാധിക്കപ്പെട്ട ഹോസ്റ്റുകൾ
+no reply	മറുപടിയില്ല
+✓ Finished · {0}	✓ കഴിഞ്ഞു · {0}
+New scan	പുതിയ സ്കാൻ
+Scan again	വീണ്ടും സ്കാൻ ചെയ്യുക
+HTML report…	HTML റിപ്പോർട്ട്…
+HTML report	HTML റിപ്പോർട്ട്
+{0}.html	{0}.html
+Hosts and ports (CSV)…	ഹോസ്റ്റുകളും പോർട്ടുകളും (CSV)…
+Vulnerabilities (CSV)…	സുരക്ഷാ പ്രശ്നങ്ങൾ (CSV)…
+Nmap XML…	Nmap XML…
+Nmap XML	Nmap XML
+Nmap text output…	Nmap ടെക്സ്റ്റ് ഔട്ട്പുട്ട്…
+{0}.txt	{0}.txt
+Text file	ടെക്സ്റ്റ് ഫയൽ
+Export {0}	എക്സ്പോർട്ട് {0}
+Saved {0}	സേവ് ചെയ്തു {0}
+(no name)	(പേരില്ല)
+No hosts answered. They may be switched off, or blocking pings. Try "Skip ping" in the options.	ഒരു ഹോസ്റ്റും മറുപടി നൽകിയില്ല. അവ ഓഫായിരിക്കാം, അല്ലെങ്കിൽ പിംഗുകൾ തടയുന്നുണ്ടാകാം. ഓപ്ഷനുകളിൽ "പിംഗ് ഒഴിവാക്കുക" ശ്രമിക്കുക.
+No hosts match the filter.	അരിപ്പയ്ക്ക് യോജിക്കുന്ന ഹോസ്റ്റുകളില്ല.
+MAC {0}	MAC {0}
+Open in browser	ബ്രൗസറിൽ തുറക്കുക
+Scan this host…	ഈ ഹോസ്റ്റ് സ്കാൻ ചെയ്യുക…
+This was a ping sweep, so ports weren't scanned.	ഇതൊരു പിംഗ് സ്വീപ്പായിരുന്നു, അതിനാൽ പോർട്ടുകൾ സ്കാൻ ചെയ്തില്ല.
+No open ports found on this host.	ഈ ഹോസ്റ്റിൽ തുറന്ന പോർട്ടുകളൊന്നും കണ്ടെത്തിയില്ല.
+Proto	പ്രോട്ടോ
+Host script results	ഹോസ്റ്റ് സ്ക്രിപ്റ്റ് ഫലങ്ങൾ
+Route	വഴി
+Right-click a host or port to copy it, open it in a browser, ping it, or start a new scan on just that host.	ഒരു ഹോസ്റ്റിലോ പോർട്ടിലോ റൈറ്റ്-ക്ലിക്ക് ചെയ്ത് പകർത്താം, ബ്രൗസറിൽ തുറക്കാം, പിംഗ് ചെയ്യാം, അല്ലെങ്കിൽ ആ ഹോസ്റ്റിൽ മാത്രം പുതിയ സ്കാൻ തുടങ്ങാം.
+Copy address	വിലാസം പകർത്തുക
+Copy name	പേര് പകർത്തുക
+Ping	Ping
+Copy {0}	{0} പകർത്തുക
+Copy version	പതിപ്പ് പകർത്തുക
+https	https
+http	http
+/k ping {0}	/k ping {0}
+CVE lookup (vulners) for this scan:	ഈ സ്കാനിനുള്ള CVE തിരയൽ (vulners):
+On	ഓൺ
+Off	ഓഫ്
+Findings appear here when the scan finishes.	സ്കാൻ കഴിയുമ്പോൾ കണ്ടെത്തലുകൾ ഇവിടെ കാണിക്കും.
+No known vulnerabilities were reported. That doesn't guarantee these systems are safe: only well-known problems are checked.	അറിയപ്പെടുന്ന സുരക്ഷാ പ്രശ്നങ്ങളൊന്നും റിപ്പോർട്ട് ചെയ്തില്ല. ഈ സിസ്റ്റങ്ങൾ സുരക്ഷിതമാണെന്ന് അത് ഉറപ്പ് നൽകുന്നില്ല: നന്നായി അറിയപ്പെടുന്ന പ്രശ്നങ്ങൾ മാത്രമേ പരിശോധിക്കൂ.
+This scan didn't check for vulnerabilities. Choose "Vulnerability check" on the New scan screen, or switch on the vuln scripts.	ഈ സ്കാൻ സുരക്ഷാ പ്രശ്നങ്ങൾ പരിശോധിച്ചില്ല. പുതിയ സ്കാൻ സ്ക്രീനിൽ "സുരക്ഷാ പ്രശ്ന പരിശോധന" തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ vuln സ്ക്രിപ്റ്റുകൾ ഓണാക്കുക.
+All	എല്ലാം
+no CVE	CVE ഇല്ല
+Copy finding	കണ്ടെത്തൽ പകർത്തുക
+Copy CVE	CVE പകർത്തുക
+(no text output)	(ടെക്സ്റ്റ് ഔട്ട്പുട്ട് ഇല്ല)
+What Nmap reported · {0}	Nmap റിപ്പോർട്ട് ചെയ്തത് · {0}
+Learn more	കൂടുതൽ അറിയുക
+Links come from the CVE and script names in Nmap's results. Severity is the CVSS score when there is one, otherwise the script's risk factor.	Nmap-ന്റെ ഫലങ്ങളിലെ CVE, സ്ക്രിപ്റ്റ് പേരുകളിൽ നിന്നാണ് ലിങ്കുകൾ. ഗൗരവം CVSS സ്കോർ ഉള്ളപ്പോൾ അതാണ്, ഇല്ലെങ്കിൽ സ്ക്രിപ്റ്റിന്റെ അപകട ഘടകം.
+Details appear here when the scan finishes.	സ്കാൻ കഴിയുമ്പോൾ വിശദാംശങ്ങൾ ഇവിടെ കാണിക്കും.
+Command	കമാൻഡ്
+Nmap version	Nmap പതിപ്പ്
+Started	തുടങ്ങിയത്
+Finished	കഴിഞ്ഞത്
+Scan time	സ്കാൻ സമയം
+{0} online, {1} no reply, {2} scanned	{0} ഓൺലൈനിൽ, {1} മറുപടിയില്ല, {2} സ്കാൻ ചെയ്തു
+Nmap's summary	Nmap-ന്റെ സംഗ്രഹം
+Run as	ആയി പ്രവർത്തിച്ചു
+Saved in	സേവ് ചെയ്തത്
+Open folder	ഫോൾഡർ തുറക്കുക
+{0} ran into a problem it couldn't get past, and has to close.	{0}-ന് മറികടക്കാനാകാത്ത ഒരു പ്രശ്നം നേരിട്ടു, അതിനാൽ അടയ്ക്കേണ്ടി വരുന്നു.
+Nmap wasn't found.	Nmap കണ്ടെത്തിയില്ല.
+The target file can't be found.	ലക്ഷ്യ ഫയൽ കണ്ടെത്താനാകുന്നില്ല.
+Nmap stopped without results (exit code {0}). {1}	ഫലങ്ങളില്ലാതെ Nmap നിന്നു (exit code {0}). {1}
+Nmap couldn't start: {0}	Nmap-ന് തുടങ്ങാൻ കഴിഞ്ഞില്ല: {0}
+First run · {0}	ആദ്യ ഓട്ടം · {0}
+Nothing changed	ഒന്നും മാറിയില്ല
+{0} · couldn't compare: {1}	{0} · താരതമ്യം ചെയ്യാൻ കഴിഞ്ഞില്ല: {1}
+Didn't finish: {0}	പൂർത്തിയായില്ല: {0}
+The scan didn't finish. {0}	സ്കാൻ പൂർത്തിയായില്ല. {0}
+{0} didn't finish	{0} പൂർത്തിയായില്ല
+{0}: something changed	{0}: എന്തോ മാറി
+Scheduled scans	ഷെഡ്യൂൾ ചെയ്ത സ്കാനുകൾ
+Schedule the scan set up now…	ഇപ്പോൾ സജ്ജമാക്കിയ സ്കാൻ ഷെഡ്യൂൾ ചെയ്യുക…
+Change…	മാറ്റുക…
+Run now	ഇപ്പോൾ പ്രവർത്തിപ്പിക്കുക
+Remove	നീക്കം ചെയ്യുക
+Open History	ചരിത്രം തുറക്കുക
+Last run	അവസാന ഓട്ടം
+Each scheduled scan runs by itself, even when KUDUNMAP is closed (you need to be signed in to Windows). Every run is kept in History, and a Windows notification tells you when a device or open port appears or goes away. Windows asks for administrator rights once, when a scan is scheduled, so it can use every scan type.	ഷെഡ്യൂൾ ചെയ്ത ഓരോ സ്കാനും KUDUNMAP അടച്ചിരിക്കുമ്പോഴും തനിയെ പ്രവർത്തിക്കും (Windows-ൽ സൈൻ ഇൻ ചെയ്തിരിക്കണം). ഓരോ ഓട്ടവും ചരിത്രത്തിൽ സൂക്ഷിക്കും, ഒരു ഉപകരണമോ തുറന്ന പോർട്ടോ വരികയോ പോകുകയോ ചെയ്യുമ്പോൾ Windows അറിയിപ്പ് നൽകും. എല്ലാ സ്കാൻ തരങ്ങളും ഉപയോഗിക്കാൻ, ഒരു സ്കാൻ ഷെഡ്യൂൾ ചെയ്യുമ്പോൾ Windows ഒരിക്കൽ അഡ്മിനിസ്ട്രേറ്റർ അനുമതി ചോദിക്കും.
+Not run yet	ഇതുവരെ പ്രവർത്തിച്ചിട്ടില്ല
+None yet. Set up a scan in the main window, then schedule it here.	ഇതുവരെ ഒന്നുമില്ല. പ്രധാന ജാലകത്തിൽ ഒരു സ്കാൻ സജ്ജമാക്കി ഇവിടെ ഷെഡ്യൂൾ ചെയ്യുക.
+scheduled scan	ഷെഡ്യൂൾ ചെയ്ത സ്കാൻ
+Type what to scan in the main window first.\n\n{0}	ആദ്യം പ്രധാന ജാലകത്തിൽ എന്ത് സ്കാൻ ചെയ്യണമെന്ന് ടൈപ്പ് ചെയ്യുക.\n\n{0}
+This scan uses advanced scripts, which can lock accounts, crash services or be seen as an attack. Running them again and again by themselves isn't a good idea.\n\nSchedule it anyway?	ഈ സ്കാൻ വിപുലമായ സ്ക്രിപ്റ്റുകൾ ഉപയോഗിക്കുന്നു, അവ അക്കൗണ്ടുകൾ പൂട്ടിയേക്കാം, സേവനങ്ങൾ തകർത്തേക്കാം, അല്ലെങ്കിൽ ആക്രമണമായി കാണപ്പെട്ടേക്കാം. അവ വീണ്ടും വീണ്ടും തനിയെ പ്രവർത്തിപ്പിക്കുന്നത് നല്ലതല്ല.\n\nഎന്നാലും ഷെഡ്യൂൾ ചെയ്യണോ?
+Every hour (or every few hours)	ഓരോ മണിക്കൂറിലും (അല്ലെങ്കിൽ ഏതാനും മണിക്കൂറിലൊരിക്കൽ)
+Every day	എല്ലാ ദിവസവും
+Every week	എല്ലാ ആഴ്ചയും
+How often	എത്ര തവണ
+At	സമയം
+Runs	ഓട്ടങ്ങൾ
+Schedule this scan	ഈ സ്കാൻ ഷെഡ്യൂൾ ചെയ്യുക
+Change this scheduled scan	ഈ ഷെഡ്യൂൾ ചെയ്ത സ്കാൻ മാറ്റുക
+If the PC is off or asleep at that time, the scan runs as soon as it can.	ആ സമയത്ത് പിസി ഓഫോ ഉറക്കത്തിലോ ആണെങ്കിൽ, കഴിയുന്നതും വേഗം സ്കാൻ പ്രവർത്തിക്കും.
+Schedule	ഷെഡ്യൂൾ ചെയ്യുക
+Schedule a scan	ഒരു സ്കാൻ ഷെഡ്യൂൾ ചെയ്യുക
+Change a scheduled scan	ഒരു ഷെഡ്യൂൾ ചെയ്ത സ്കാൻ മാറ്റുക
+"{0}" is running now, without a window. It will be in History when it finishes, and you'll get a notification if something changed.	"{0}" ഇപ്പോൾ ജാലകമില്ലാതെ പ്രവർത്തിക്കുന്നു. കഴിയുമ്പോൾ ചരിത്രത്തിലുണ്ടാകും, എന്തെങ്കിലും മാറിയാൽ ഒരു അറിയിപ്പും ലഭിക്കും.
+Windows' task for "{0}" is missing. Make it again?	"{0}"-നുള്ള Windows ടാസ്ക് കാണാനില്ല. വീണ്ടും ഉണ്ടാക്കണോ?
+Stop running "{0}" by itself?\n\nIts earlier runs stay in History.	"{0}" തനിയെ പ്രവർത്തിക്കുന്നത് നിർത്തണോ?\n\nഅതിന്റെ മുമ്പത്തെ ഓട്ടങ്ങൾ ചരിത്രത്തിൽ തന്നെയുണ്ടാകും.
+Windows didn't remove the task. You can remove it in Task Scheduler: it's called\n\n{0}	Windows ടാസ്ക് നീക്കം ചെയ്തില്ല. ടാസ്ക് ഷെഡ്യൂളറിൽ നിങ്ങൾക്ക് നീക്കം ചെയ്യാം: അതിന്റെ പേര്\n\n{0}
+Skip ping (treat every host as online)	പിംഗ് ഒഴിവാക്കുക (എല്ലാ ഹോസ്റ്റുകളും ഓൺലൈനായി കണക്കാക്കുക)
+Resolve host names	ഹോസ്റ്റ് പേരുകൾ കണ്ടെത്തുക
+Show only open ports	തുറന്ന പോർട്ടുകൾ മാത്രം കാണിക്കുക
+Detect service versions	സേവന പതിപ്പുകൾ കണ്ടെത്തുക
+Detect operating system	ഓപ്പറേറ്റിംഗ് സിസ്റ്റം കണ്ടെത്തുക
+Advanced	വിപുലം
+Look up known CVEs online (vulners)	അറിയപ്പെടുന്ന CVE-കൾ ഓൺലൈനിൽ തിരയുക (vulners)
+Restart as administrator	അഡ്മിനിസ്ട്രേറ്ററായി വീണ്ടും തുടങ്ങുക
+My presets	എന്റെ പ്രീസെറ്റുകൾ
+Needs administrator rights	അഡ്മിനിസ്ട്രേറ്റർ അനുമതി വേണം
+What to scan	എന്ത് സ്കാൻ ചെയ്യണം
+TCP ports	TCP പോർട്ടുകൾ
+UDP ports	UDP പോർട്ടുകൾ
+Hosts only	ഹോസ്റ്റുകൾ മാത്രം
+Speed	വേഗത
+Top 100	മികച്ച 100
+Top 1,000	മികച്ച 1,000
+For example 22,80,443 or 1-1024	ഉദാഹരണത്തിന് 22,80,443 അല്ലെങ്കിൽ 1-1024
+Ports	പോർട്ടുകൾ
+Discovery	കണ്ടെത്തൽ
+Detection	തിരിച്ചറിയൽ
+Needs admin	അഡ്മിൻ വേണം
+These scripts can log in with guessed passwords, try exploits or overload services. Only use them on systems you are allowed to test.	ഈ സ്ക്രിപ്റ്റുകൾക്ക് ഊഹിച്ച പാസ്‌വേഡുകൾ കൊണ്ട് ലോഗിൻ ചെയ്യാനും, ആക്രമണ കോഡുകൾ പരീക്ഷിക്കാനും, സേവനങ്ങൾ ഭാരപ്പെടുത്താനും കഴിയും. പരീക്ഷിക്കാൻ അനുമതിയുള്ള സിസ്റ്റങ്ങളിൽ മാത്രം ഉപയോഗിക്കുക.
+When on, the names and versions of the services found are sent to vulners.com to look up known CVEs. Off by default.	ഓണായിരിക്കുമ്പോൾ, കണ്ടെത്തിയ സേവനങ്ങളുടെ പേരുകളും പതിപ്പുകളും അറിയപ്പെടുന്ന CVE-കൾ തിരയാൻ vulners.com-ലേക്ക് അയയ്ക്കും. സാധാരണ ഓഫാണ്.
+Scripts (NSE)	സ്ക്രിപ്റ്റുകൾ (NSE)
+Nmap's standard set of useful, safe scripts (same as -sC).	Nmap-ന്റെ ഉപയോഗപ്രദവും സുരക്ഷിതവുമായ സാധാരണ സ്ക്രിപ്റ്റുകൾ (-sC പോലെ).
+Scripts that won't crash services or use lots of bandwidth.	സേവനങ്ങൾ തകർക്കുകയോ ധാരാളം ബാൻഡ്‌വിഡ്ത്ത് ഉപയോഗിക്കുകയോ ചെയ്യാത്ത സ്ക്രിപ്റ്റുകൾ.
+Find out more about the network: names, shares, directories.	നെറ്റ്‌വർക്കിനെക്കുറിച്ച് കൂടുതൽ അറിയുക: പേരുകൾ, പങ്കിടലുകൾ, ഡയറക്ടറികൾ.
+Extra version detection.	അധിക പതിപ്പ് കണ്ടെത്തൽ.
+Check for well-known vulnerabilities. Some checks send unusual traffic.	നന്നായി അറിയപ്പെടുന്ന സുരക്ഷാ പ്രശ്നങ്ങൾ പരിശോധിക്കുക. ചില പരിശോധനകൾ അസാധാരണ ട്രാഫിക് അയയ്ക്കുന്നു.
+Check for weak or missing authentication.	ദുർബലമായതോ ഇല്ലാത്തതോ ആയ സൈൻ-ഇൻ പരിശോധിക്കുക.
+Discover hosts by broadcasting on the local network.	ലോക്കൽ നെറ്റ്‌വർക്കിൽ പ്രക്ഷേപണം ചെയ്ത് ഹോസ്റ്റുകൾ കണ്ടെത്തുക.
+Guess passwords. Can lock accounts.	പാസ്‌വേഡുകൾ ഊഹിക്കുക. അക്കൗണ്ടുകൾ പൂട്ടിയേക്കാം.
+Denial-of-service tests. Can crash services.	സേവന-നിഷേധ പരിശോധനകൾ. സേവനങ്ങൾ തകർത്തേക്കാം.
+Actively try to exploit vulnerabilities.	സുരക്ഷാ പ്രശ്നങ്ങൾ ശരിക്കും മുതലെടുക്കാൻ ശ്രമിക്കുക.
+Send data to third-party services on the internet.	ഇന്റർനെറ്റിലെ മൂന്നാം കക്ഷി സേവനങ്ങൾക്ക് ഡാറ്റ അയയ്ക്കുക.
+Send unexpected data. Can crash services.	പ്രതീക്ഷിക്കാത്ത ഡാറ്റ അയയ്ക്കുക. സേവനങ്ങൾ തകർത്തേക്കാം.
+Risky scripts that may crash services or be seen as attacks.	സേവനങ്ങൾ തകർക്കുകയോ ആക്രമണമായി കാണപ്പെടുകയോ ചെയ്യാവുന്ന അപകടകരമായ സ്ക്രിപ്റ്റുകൾ.
+Check for signs of backdoors and malware.	പിൻവാതിലുകളുടെയും മാൽവെയറിന്റെയും അടയാളങ്ങൾ പരിശോധിക്കുക.
+Updates as you change options. You never need to type it.	ഓപ്ഷനുകൾ മാറ്റുമ്പോൾ പുതുക്കുന്നു. ഇത് ഒരിക്കലും ടൈപ്പ് ചെയ്യേണ്ടതില്ല.
+Copy	പകർത്തുക
+Save as preset	പ്രീസെറ്റായി സേവ് ചെയ്യുക
+Recent scans	സമീപകാല സ്കാനുകൾ
+See all history	എല്ലാ ചരിത്രവും കാണുക
+Your own saved options.	നിങ്ങൾ സേവ് ചെയ്ത ഓപ്ഷനുകൾ.
+My preset	എന്റെ പ്രീസെറ്റ്
+Preset	പ്രീസെറ്റ്
+Changed	മാറ്റിയത്
+Hosts only: no ports are scanned.	ഹോസ്റ്റുകൾ മാത്രം: പോർട്ടുകളൊന്നും സ്കാൻ ചെയ്യില്ല.
+Numbers, commas and ranges. Add U: for UDP, e.g. U:53.	നമ്പറുകൾ, കോമകൾ, ശ്രേണികൾ. UDP-ക്ക് U: ചേർക്കുക, ഉദാ. U:53.
+All 65,535 ports. Much slower, but finds services on unusual ports.	എല്ലാ 65,535 പോർട്ടുകളും. വളരെ പതുക്കെ, പക്ഷേ അസാധാരണ പോർട്ടുകളിലെ സേവനങ്ങൾ കണ്ടെത്തും.
+The 100 most common ports. Quickest.	ഏറ്റവും സാധാരണമായ 100 പോർട്ടുകൾ. ഏറ്റവും വേഗം.
+The 1,000 most common ports. Nmap's standard.	ഏറ്റവും സാധാരണമായ 1,000 പോർട്ടുകൾ. Nmap-ന്റെ സാധാരണ.
+added by KUDUNMAP for live progress (left out when you copy)	തത്സമയ പുരോഗതിക്കായി KUDUNMAP ചേർത്തത് (പകർത്തുമ്പോൾ ഒഴിവാക്കും)
+Ready to scan the targets in {0}	{0}-ലെ ലക്ഷ്യങ്ങൾ സ്കാൻ ചെയ്യാൻ തയ്യാർ
+You can cancel at any time.	എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാം.
+Type a target to scan	സ്കാൻ ചെയ്യാൻ ഒരു ലക്ഷ്യം ടൈപ്പ് ചെയ്യുക
+An IP address (192.168.1.10), name (router.lan), range (192.168.1.1-50) or network (192.168.1.0/24).	ഒരു IP വിലാസം (192.168.1.10), പേര് (router.lan), ശ്രേണി (192.168.1.1-50) അല്ലെങ്കിൽ നെറ്റ്‌വർക്ക് (192.168.1.0/24).
+Check the target	ലക്ഷ്യം പരിശോധിക്കുക
+Ready to scan	സ്കാൻ ചെയ്യാൻ തയ്യാർ
+Ready to scan 1 address	1 വിലാസം സ്കാൻ ചെയ്യാൻ തയ്യാർ
+Ready to scan {0} addresses	{0} വിലാസങ്ങൾ സ്കാൻ ചെയ്യാൻ തയ്യാർ
+That's a lot of addresses. This may take a long time. You can cancel at any time.	ഇത് ധാരാളം വിലാസങ്ങളാണ്. വളരെ സമയമെടുത്തേക്കാം. എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാം.
+Nmap {0} found · {1}	Nmap {0} കണ്ടെത്തി · {1}
+This scan needs administrator rights for {0}. Restart KUDUNMAP as administrator, or turn those options off.	{0}-ന് ഈ സ്കാനിന് അഡ്മിനിസ്ട്രേറ്റർ അനുമതി വേണം. KUDUNMAP അഡ്മിനിസ്ട്രേറ്ററായി വീണ്ടും തുടങ്ങുക, അല്ലെങ്കിൽ ആ ഓപ്ഷനുകൾ ഓഫാക്കുക.
+Advanced scripts are on. They can lock accounts, crash services or be seen as an attack.	വിപുലമായ സ്ക്രിപ്റ്റുകൾ ഓണാണ്. അവ അക്കൗണ്ടുകൾ പൂട്ടിയേക്കാം, സേവനങ്ങൾ തകർത്തേക്കാം, അല്ലെങ്കിൽ ആക്രമണമായി കാണപ്പെട്ടേക്കാം.
+Vulnerability scripts send unusual traffic that can occasionally upset old or fragile devices.	സുരക്ഷാ പ്രശ്ന സ്ക്രിപ്റ്റുകൾ അസാധാരണ ട്രാഫിക് അയയ്ക്കുന്നു, അത് ചിലപ്പോൾ പഴയതോ ദുർബലമോ ആയ ഉപകരണങ്ങളെ ബാധിച്ചേക്കാം.
+CVE lookup is on: service names and versions will be sent to vulners.com.	CVE തിരയൽ ഓണാണ്: സേവന പേരുകളും പതിപ്പുകളും vulners.com-ലേക്ക് അയയ്ക്കും.
+{0} and {1}	{0}, {1} എന്നിവ
+Very slow and quiet. Can take hours on a network.	വളരെ പതുക്കെ, നിശ്ശബ്ദം. ഒരു നെറ്റ്‌വർക്കിൽ മണിക്കൂറുകളെടുക്കാം.
+Gentle on slow networks and old devices.	പതുക്കെയുള്ള നെറ്റ്‌വർക്കുകളോടും പഴയ ഉപകരണങ്ങളോടും മൃദുവായി.
+Nmap's normal speed.	Nmap-ന്റെ സാധാരണ വേഗത.
+Fastest. On busy or slow networks it can miss ports.	ഏറ്റവും വേഗം. തിരക്കേറിയതോ പതുക്കെയുള്ളതോ ആയ നെറ്റ്‌വർക്കുകളിൽ പോർട്ടുകൾ വിട്ടുപോയേക്കാം.
+Fast is right for most home and office networks.	മിക്ക വീട്ടിലെയും ഓഫീസിലെയും നെറ്റ്‌വർക്കുകൾക്ക് വേഗത ശരിയാണ്.
+Save your own with "Save as preset" under the command.	കമാൻഡിന് താഴെയുള്ള "പ്രീസെറ്റായി സേവ് ചെയ്യുക" ഉപയോഗിച്ച് സ്വന്തമായി സേവ് ചെയ്യുക.
+Delete this preset	ഈ പ്രീസെറ്റ് ഇല്ലാതാക്കുക
+Delete the preset "{0}"?	"{0}" എന്ന പ്രീസെറ്റ് ഇല്ലാതാക്കണോ?
+Right-click to delete	ഇല്ലാതാക്കാൻ റൈറ്റ്-ക്ലിക്ക് ചെയ്യുക
+Give these options a name. The target is saved too, so you can repeat this scan with one click.	ഈ ഓപ്ഷനുകൾക്ക് ഒരു പേര് നൽകുക. ലക്ഷ്യവും സേവ് ചെയ്യും, അതിനാൽ ഒറ്റ ക്ലിക്കിൽ ഈ സ്കാൻ ആവർത്തിക്കാം.
+Finished scans appear here, and in History.	പൂർത്തിയായ സ്കാനുകൾ ഇവിടെയും ചരിത്രത്തിലും കാണിക്കും.
+Open these results	ഈ ഫലങ്ങൾ തുറക്കുക
+{0} host	{0} ഹോസ്റ്റ്
+{0} hosts	{0} ഹോസ്റ്റുകൾ
+{0} open port	{0} തുറന്ന പോർട്ട്
+{0} open ports	{0} തുറന്ന പോർട്ടുകൾ
+{0} finding	{0} കണ്ടെത്തൽ
+{0} findings	{0} കണ്ടെത്തലുകൾ
+{0} saved scan on this computer	ഈ കമ്പ്യൂട്ടറിൽ സേവ് ചെയ്ത {0} സ്കാൻ
+{0} saved scans on this computer	ഈ കമ്പ്യൂട്ടറിൽ സേവ് ചെയ്ത {0} സ്കാനുകൾ
+{0} host online	{0} ഹോസ്റ്റ് ഓൺലൈനിൽ
+{0} hosts online	{0} ഹോസ്റ്റുകൾ ഓൺലൈനിൽ
+{0} hop	{0} ഹോപ്പ്
+{0} hops	{0} ഹോപ്പുകൾ
+{0} scheduled scan	{0} ഷെഡ്യൂൾ ചെയ്ത സ്കാൻ
+{0} scheduled scans	{0} ഷെഡ്യൂൾ ചെയ്ത സ്കാനുകൾ

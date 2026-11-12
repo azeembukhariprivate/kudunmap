@@ -1,0 +1,733 @@
+Something went wrong:\n\n{0}	कुछ गड़बड़ हो गई:\n\n{0}
+Azeem Bukhari	Azeem Bukhari
+less than a second	एक सेकंड से कम
+{0} h {1} min	{0} घं {1} मिनट
+{0} min {1} s	{0} मिनट {1} से
+Address	पता
+Name	नाम
+Vendor	निर्माता
+Port	पोर्ट
+Protocol	प्रोटोकॉल
+State	स्थिति
+Service	सेवा
+Version	संस्करण
+Severity	गंभीरता
+Finding	खोज
+Script	स्क्रिप्ट
+Note	टिप्पणी
+Change	बदलाव
+Details	विवरण
+body{font:14px/1.5 'Segoe UI',system-ui,sans-serif;margin:0;background:#F3F3F3;color:#1B1B1B}	body{font:14px/1.5 'Segoe UI',system-ui,sans-serif;margin:0;background:#F3F3F3;color:#1B1B1B}
+main{max-width:1100px;margin:0 auto;padding:24px}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 10px}	main{max-width:1100px;margin:0 auto;padding:24px}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 10px}
+.sub{color:#5C5C5C}.card{background:#fff;border:1px solid #E0E0E0;border-radius:10px;padding:16px 18px;margin:12px 0}	.sub{color:#5C5C5C}.card{background:#fff;border:1px solid #E0E0E0;border-radius:10px;padding:16px 18px;margin:12px 0}
+table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid #E0E0E0;vertical-align:top}	table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid #E0E0E0;vertical-align:top}
+th{font-size:12px;color:#5C5C5C}code,pre{font-family:Consolas,monospace;font-size:12px}pre{white-space:pre-wrap;margin:6px 0 0;color:#5C5C5C}	th{font-size:12px;color:#5C5C5C}code,pre{font-family:Consolas,monospace;font-size:12px}pre{white-space:pre-wrap;margin:6px 0 0;color:#5C5C5C}
+· Nmap	· Nmap
+hosts online	ऑनलाइन होस्ट
+open ports	खुले पोर्ट
+scan time	स्कैन का समय
+"Matched by version" means the software version is listed as affected; the fix may already be applied.	"संस्करण से मिला" का मतलब है कि वह सॉफ़्टवेयर संस्करण प्रभावितों की सूची में है; सुधार शायद पहले ही लग चुका हो।
+open	खुला
+Low	कम
+High	ज़्यादा
+Medium	मध्यम
+. Scans performed by Nmap (nmap.org).	. Scans performed by Nmap (nmap.org).
+This PC	यह पीसी
+Router	राउटर
+Computer	कंप्यूटर
+Server	सर्वर
+Phone or tablet	फ़ोन या टैबलेट
+Printer	प्रिंटर
+TV or media player	टीवी या मीडिया प्लेयर
+Camera	कैमरा
+Storage (NAS)	स्टोरेज (NAS)
+Smart-home device	स्मार्ट-होम डिवाइस
+Network device	नेटवर्क डिवाइस
+Device	डिवाइस
+axis comm	axis comm
+netgear readynas	netgear readynas
+western digital	western digital
+wd my cloud	wd my cloud
+samsung tv	samsung tv
+lg tv	lg tv
+smart tv	smart tv
+apple tv	apple tv
+fire tv	fire tv
+amazon fire	amazon fire
+nvidia shield	nvidia shield
+android tv	android tv
+philips lighting	philips lighting
+tp-link smart	tp-link smart
+amazon echo	amazon echo
+google home	google home
+asus router	asus router
+access point	access point
+windows server	windows server
+mac os	mac os
+intel corporate	intel corporate
+requires root privileges|requires (?:administrator|root)	requires root privileges|requires (?:administrator|root)
+This scan needs administrator rights. Use "Restart as administrator" and run it again.	इस स्कैन को व्यवस्थापक अधिकार चाहिए। "व्यवस्थापक के रूप में फिर से शुरू करें" से इसे फिर चलाएँ।
+Npcap|WinPcap|pcap_open|dnet: Failed to open device	Npcap|WinPcap|pcap_open|dnet: Failed to open device
+Nmap couldn't use Npcap, the network driver it needs on Windows. Re-run the Nmap installer from nmap.org and keep the Npcap option ticked, or restart KUDUNMAP as administrator.	Nmap, Npcap का उपयोग नहीं कर सका, जो Windows पर उसे चाहिए नेटवर्क ड्राइवर है। nmap.org से Nmap इंस्टॉलर फिर चलाएँ और Npcap विकल्प पर टिक लगा रहने दें, या KUDUNMAP को व्यवस्थापक के रूप में फिर से शुरू करें।
+Failed to resolve|Unable to split netmask	Failed to resolve|Unable to split netmask
+Nmap couldn't understand or look up one of the targets. Check the spelling of the address or name.	Nmap किसी एक लक्ष्य को समझ या ढूँढ नहीं सका। पते या नाम की वर्तनी जाँचें।
+No targets were specified	No targets were specified
+No targets were given to scan.	स्कैन करने के लिए कोई लक्ष्य नहीं दिया गया।
+This isn't an Nmap results file.	यह Nmap की परिणाम फ़ाइल नहीं है।
+Risky	जोखिम भरा
+Worth a look	देखने लायक
+Fine	ठीक
+Close it if you don't use it, and never let it be reached from the internet.	अगर इसका उपयोग नहीं करते तो बंद कर दें, और इसे कभी इंटरनेट से पहुँचने न दें।
+FTP (file transfer, data)	FTP (फ़ाइल भेजना, डेटा)
+Old file sharing that sends names, passwords and files without any protection.{0}	पुराना फ़ाइल साझाकरण जो नाम, पासवर्ड और फ़ाइलें बिना किसी सुरक्षा के भेजता है।{0}
+FTP (file transfer)	FTP (फ़ाइल भेजना)
+Old file sharing that sends names and passwords without any protection, so anyone on the network can read them.{0}	पुराना फ़ाइल साझाकरण जो नाम और पासवर्ड बिना किसी सुरक्षा के भेजता है, इसलिए नेटवर्क पर कोई भी उन्हें पढ़ सकता है।{0}
+SSH (remote command line)	SSH (दूर से कमांड लाइन)
+Lets someone control this device by typing commands, after signing in. Safe with strong passwords or keys; often attacked if it can be reached from the internet.	साइन इन करने के बाद कमांड टाइप करके इस डिवाइस को नियंत्रित करने देता है। मज़बूत पासवर्ड या कुंजियों के साथ सुरक्षित; इंटरनेट से पहुँचा जा सके तो अक्सर हमले होते हैं।
+Telnet (old remote command line)	Telnet (पुरानी दूर की कमांड लाइन)
+Lets someone control this device with no protection at all: everything, passwords included, can be read on the network. Common on old routers and cameras.{0}	इस डिवाइस को बिना किसी सुरक्षा के नियंत्रित करने देता है: पासवर्ड समेत सब कुछ नेटवर्क पर पढ़ा जा सकता है। पुराने राउटर और कैमरों में आम।{0}
+Email sending (SMTP)	ईमेल भेजना (SMTP)
+A mail server. Expected on a mail server; anywhere else, check what it is.	एक मेल सर्वर। मेल सर्वर पर अपेक्षित; कहीं और हो तो जाँचें कि यह क्या है।
+Name lookup (DNS)	नाम खोज (DNS)
+Turns names like example.com into addresses. Normal on routers and DNS servers.	example.com जैसे नामों को पतों में बदलता है। राउटर और DNS सर्वर पर सामान्य।
+Address handout (DHCP)	पता देना (DHCP)
+Gives devices their network address. Normal on routers.	डिवाइसों को उनका नेटवर्क पता देता है। राउटर पर सामान्य।
+TFTP (simple file transfer)	TFTP (सरल फ़ाइल भेजना)
+Hands out files to anyone who asks, with no password. Used to set up phones and network devices.{0}	जो भी माँगे उसे बिना पासवर्ड फ़ाइलें दे देता है। फ़ोन और नेटवर्क डिवाइस सेट करने में उपयोग होता है।{0}
+Web page (HTTP)	वेब पेज (HTTP)
+A web page, often a device's settings page. Pages are sent without protection, so don't type passwords on it over Wi-Fi you don't trust.	एक वेब पेज, अक्सर किसी डिवाइस का सेटिंग पेज। पेज बिना सुरक्षा के भेजे जाते हैं, इसलिए जिस Wi-Fi पर भरोसा न हो वहाँ इस पर पासवर्ड न लिखें।
+Windows domain sign-in (Kerberos)	Windows डोमेन साइन-इन (Kerberos)
+Normal on a company's domain controller.	किसी कंपनी के डोमेन कंट्रोलर पर सामान्य।
+Email collection (POP3)	ईमेल लाना (POP3)
+Collects email; without protection, passwords can be read on the network.	ईमेल लाता है; सुरक्षा के बिना पासवर्ड नेटवर्क पर पढ़े जा सकते हैं।
+RPC port mapper	RPC पोर्ट मैपर
+Used by Linux and storage devices for file sharing (NFS). Often abused if it can be reached from the internet.	Linux और स्टोरेज डिवाइस फ़ाइल साझा करने (NFS) के लिए उपयोग करते हैं। इंटरनेट से पहुँचा जा सके तो अक्सर इसका दुरुपयोग होता है।
+Time (NTP)	समय (NTP)
+Keeps clocks right. Normal on routers and servers.	घड़ियाँ सही रखता है। राउटर और सर्वर पर सामान्य।
+Windows remote calls (RPC)	Windows दूरस्थ कॉल (RPC)
+Windows uses it to talk to other Windows PCs. Normal inside a home or office network; it should never be reachable from the internet.	Windows इसे दूसरे Windows पीसी से बात करने के लिए उपयोग करता है। घर या दफ़्तर के नेटवर्क के अंदर सामान्य; इंटरनेट से इस तक कभी नहीं पहुँचा जाना चाहिए।
+Windows names (NetBIOS)	Windows नाम (NetBIOS)
+Old Windows name sharing. Normal on older networks; it should never be reachable from the internet.	पुराना Windows नाम साझाकरण। पुराने नेटवर्क पर सामान्य; इंटरनेट से इस तक कभी नहीं पहुँचा जाना चाहिए।
+Windows file sharing (old)	Windows फ़ाइल साझाकरण (पुराना)
+Shares files and printers the old Windows way. Fine at home if you share files on purpose; never from the internet.	पुराने Windows तरीक़े से फ़ाइलें और प्रिंटर साझा करता है। घर पर ठीक है अगर आप जानबूझकर फ़ाइलें साझा करते हैं; इंटरनेट से कभी नहीं।
+Email reading (IMAP)	ईमेल पढ़ना (IMAP)
+Reads email on a mail server; without protection, passwords can be read on the network.	मेल सर्वर पर ईमेल पढ़ता है; सुरक्षा के बिना पासवर्ड नेटवर्क पर पढ़े जा सकते हैं।
+Device monitoring (SNMP)	डिवाइस निगरानी (SNMP)
+Lets other devices read this one's details. Old versions use a shared word like "public" instead of a password; check it's changed.	दूसरे डिवाइसों को इसकी जानकारी पढ़ने देता है। पुराने संस्करण पासवर्ड की जगह "public" जैसा साझा शब्द उपयोग करते हैं; जाँचें कि वह बदला गया है।
+Directory (LDAP)	निर्देशिका (LDAP)
+Company address books and sign-in. Normal on a domain controller; not expected elsewhere.	कंपनी की पता पुस्तिकाएँ और साइन-इन। डोमेन कंट्रोलर पर सामान्य; कहीं और अपेक्षित नहीं।
+Secure web page (HTTPS)	सुरक्षित वेब पेज (HTTPS)
+A web page with protection, often a device's settings page.	सुरक्षा वाला वेब पेज, अक्सर किसी डिवाइस का सेटिंग पेज।
+Windows file sharing (SMB)	Windows फ़ाइल साझाकरण (SMB)
+Shares files and printers between Windows PCs. Fine at home if you share files on purpose. It's been behind some of the worst attacks, so keep Windows up to date and never let it be reached from the internet.	Windows पीसी के बीच फ़ाइलें और प्रिंटर साझा करता है। घर पर ठीक है अगर आप जानबूझकर फ़ाइलें साझा करते हैं। यह कुछ सबसे बुरे हमलों के पीछे रहा है, इसलिए Windows अपडेट रखें और इसे कभी इंटरनेट से पहुँचने न दें।
+Secure email sending	सुरक्षित ईमेल भेजना
+Sends email with protection. Normal on a mail server.	सुरक्षा के साथ ईमेल भेजता है। मेल सर्वर पर सामान्य।
+Printing (LPD)	प्रिंटिंग (LPD)
+Old printing. Normal on printers.	पुरानी प्रिंटिंग। प्रिंटर पर सामान्य।
+Mac file sharing (AFP)	Mac फ़ाइल साझाकरण (AFP)
+Shares files the old Mac way. Fine if you share files on purpose.	पुराने Mac तरीक़े से फ़ाइलें साझा करता है। ठीक है अगर आप जानबूझकर फ़ाइलें साझा करते हैं।
+Video stream (RTSP)	वीडियो स्ट्रीम (RTSP)
+Streams video, usually from a camera. Check the camera has a password and its own, not the one it came with.	वीडियो भेजता है, आमतौर पर कैमरे से। जाँचें कि कैमरे का पासवर्ड है और वह आपका अपना है, साथ आया हुआ नहीं।
+Email sending	ईमेल भेजना
+Sends email after signing in. Normal on a mail server.	साइन इन के बाद ईमेल भेजता है। मेल सर्वर पर सामान्य।
+Printing (IPP)	प्रिंटिंग (IPP)
+Normal on printers and PCs that share a printer.	प्रिंटर और प्रिंटर साझा करने वाले पीसी पर सामान्य।
+Secure directory (LDAPS)	सुरक्षित निर्देशिका (LDAPS)
+Company address books with protection. Normal on a domain controller.	सुरक्षा वाली कंपनी पता पुस्तिकाएँ। डोमेन कंट्रोलर पर सामान्य।
+File copying (rsync)	फ़ाइल कॉपी (rsync)
+Copies files between devices; some set-ups need no password. Check it's meant to be on.	डिवाइसों के बीच फ़ाइलें कॉपी करता है; कुछ सेटअप में पासवर्ड नहीं चाहिए। जाँचें कि इसे चालू होना चाहिए।
+Secure email reading (IMAPS)	सुरक्षित ईमेल पढ़ना (IMAPS)
+Reads email with protection. Normal on a mail server.	सुरक्षा के साथ ईमेल पढ़ता है। मेल सर्वर पर सामान्य।
+Secure email collection (POP3S)	सुरक्षित ईमेल लाना (POP3S)
+Collects email with protection. Normal on a mail server.	सुरक्षा के साथ ईमेल लाता है। मेल सर्वर पर सामान्य।
+Microsoft SQL Server (database)	Microsoft SQL Server (डेटाबेस)
+A database that answers on the network. Databases are a top target: keep it to the computers that need it.{0}	नेटवर्क पर जवाब देने वाला डेटाबेस। डेटाबेस बड़ा निशाना होते हैं: इसे केवल उन्हीं कंप्यूटरों तक रखें जिन्हें इसकी ज़रूरत है।{0}
+Oracle database	Oracle डेटाबेस
+A database that answers on the network.{0}	नेटवर्क पर जवाब देने वाला डेटाबेस।{0}
+PPTP (old VPN)	PPTP (पुराना VPN)
+An old VPN with known weaknesses. Use a newer VPN instead.	ज्ञात कमज़ोरियों वाला पुराना VPN। इसकी जगह नया VPN उपयोग करें।
+Smart-home messages (MQTT)	स्मार्ट-होम संदेश (MQTT)
+Smart-home and sensor devices talk through it; often without a password. Check it needs one.	स्मार्ट-होम और सेंसर डिवाइस इसके ज़रिए बात करते हैं; अक्सर बिना पासवर्ड। जाँचें कि इसे पासवर्ड चाहिए।
+Device discovery (UPnP)	डिवाइस खोज (UPnP)
+Lets devices find each other, and lets programs open ports on the router by themselves. Turn UPnP off on the router if you don't need it.	डिवाइसों को एक-दूसरे को ढूँढने देता है, और प्रोग्रामों को राउटर पर ख़ुद पोर्ट खोलने देता है। ज़रूरत न हो तो राउटर पर UPnP बंद करें।
+NFS file sharing	NFS फ़ाइल साझाकरण
+Linux and storage-device file sharing. Check which folders it shares and with whom.	Linux और स्टोरेज डिवाइस का फ़ाइल साझाकरण। जाँचें कि कौन-से फ़ोल्डर किसके साथ साझा हैं।
+MySQL / MariaDB (database)	MySQL / MariaDB (डेटाबेस)
+Remote Desktop	रिमोट डेस्कटॉप
+Lets someone sign in and use this PC from another one. It's one of the most attacked doors on the internet: use a strong password, turn it off if you don't use it, and never let it be reached from the internet.	किसी को दूसरे पीसी से साइन इन करके इस पीसी का उपयोग करने देता है। यह इंटरनेट पर सबसे ज़्यादा हमले झेलने वाले दरवाज़ों में से एक है: मज़बूत पासवर्ड उपयोग करें, उपयोग न करें तो बंद करें, और इसे कभी इंटरनेट से पहुँचने न दें।
+Web service (often a NAS or developer tool)	वेब सेवा (अक्सर NAS या डेवलपर टूल)
+Often a storage device's settings page or a program being written. Check what it is.	अक्सर किसी स्टोरेज डिवाइस का सेटिंग पेज या बन रहा कोई प्रोग्राम। जाँचें कि यह क्या है।
+Internet phone (SIP)	इंटरनेट फ़ोन (SIP)
+Phone calls over the network. Normal on phone boxes and routers with phone sockets; often attacked from the internet.	नेटवर्क पर फ़ोन कॉल। फ़ोन बॉक्स और फ़ोन सॉकेट वाले राउटर पर सामान्य; इंटरनेट से अक्सर हमले होते हैं।
+Device discovery (Bonjour)	डिवाइस खोज (Bonjour)
+Lets devices find printers and speakers. Normal at home.	डिवाइसों को प्रिंटर और स्पीकर ढूँढने देता है। घर पर सामान्य।
+PostgreSQL (database)	PostgreSQL (डेटाबेस)
+VNC (remote screen)	VNC (दूर की स्क्रीन)
+Lets someone see and control this screen. Often set up without a password or with a weak one.{0}	किसी को यह स्क्रीन देखने और नियंत्रित करने देता है। अक्सर बिना पासवर्ड या कमज़ोर पासवर्ड के साथ सेट होता है।{0}
+Windows remote management	Windows दूरस्थ प्रबंधन
+Lets administrators run commands on this PC. Normal in companies; not expected at home.	व्यवस्थापकों को इस पीसी पर कमांड चलाने देता है। कंपनियों में सामान्य; घर पर अपेक्षित नहीं।
+Redis (data store)	Redis (डेटा भंडार)
+A data store that often has no password at all.{0}	एक डेटा भंडार जिसमें अक्सर कोई पासवर्ड नहीं होता।{0}
+Router remote management (TR-069)	राउटर दूरस्थ प्रबंधन (TR-069)
+Lets an internet provider manage the router. Weak versions have been used to take routers over; it should only be reachable by your provider.	इंटरनेट प्रदाता को राउटर संभालने देता है। कमज़ोर संस्करणों से राउटर पर क़ब्ज़ा किया गया है; केवल आपका प्रदाता इस तक पहुँच सके।
+Web service	वेब सेवा
+Often a camera, recorder or a program being written. Check what it is and that it has its own password.	अक्सर कोई कैमरा, रिकॉर्डर या बन रहा प्रोग्राम। जाँचें कि यह क्या है और इसका अपना पासवर्ड है।
+Web service (alternative)	वेब सेवा (वैकल्पिक)
+Often a settings page, a proxy or a program being written. Check what it is.	अक्सर सेटिंग पेज, प्रॉक्सी या बन रहा प्रोग्राम। जाँचें कि यह क्या है।
+Secure web service (alternative)	सुरक्षित वेब सेवा (वैकल्पिक)
+A web page with protection on another number, often a settings page.	दूसरे नंबर पर सुरक्षा वाला वेब पेज, अक्सर सेटिंग पेज।
+Printing (raw)	प्रिंटिंग (सीधे)
+Anyone on the network can send pages straight to this printer. Normal for printers; never from the internet.	नेटवर्क पर कोई भी इस प्रिंटर को सीधे पेज भेज सकता है। प्रिंटर के लिए सामान्य; इंटरनेट से कभी नहीं।
+Elasticsearch (search database)	Elasticsearch (खोज डेटाबेस)
+A search database that often has no password.{0}	एक खोज डेटाबेस जिसमें अक्सर पासवर्ड नहीं होता।{0}
+Memcached	Memcached
+A memory cache with no password, abused for attacks.{0}	बिना पासवर्ड वाला मेमोरी कैश, हमलों में दुरुपयोग होता है।{0}
+MongoDB (database)	MongoDB (डेटाबेस)
+A database that often has no password.{0}	एक डेटाबेस जिसमें अक्सर पासवर्ड नहीं होता।{0}
+Plex media server	Plex मीडिया सर्वर
+Shares films and music. Fine if you use Plex.	फ़िल्में और संगीत साझा करता है। ठीक है अगर आप Plex उपयोग करते हैं।
+Camera recorder (Dahua)	कैमरा रिकॉर्डर (Dahua)
+A security-camera recorder; old ones have known weaknesses. Keep it updated and never let it be reached from the internet.	सुरक्षा कैमरा रिकॉर्डर; पुराने वालों में ज्ञात कमज़ोरियाँ हैं। अपडेट रखें और इसे कभी इंटरनेट से पहुँचने न दें।
+Windows (changing numbers)	Windows (बदलते नंबर)
+Windows and other systems use numbers from here up for their own services. Normal on Windows PCs.	Windows और दूसरे सिस्टम यहाँ से ऊपर के नंबर अपनी सेवाओं के लिए उपयोग करते हैं। Windows पीसी पर सामान्य।
+{0} on port {1}	पोर्ट {1} पर {0}
+Secure web service	सुरक्षित वेब सेवा
+A web page, often a device's settings page or a program's. Check what it is and that it has its own password.	एक वेब पेज, अक्सर किसी डिवाइस या प्रोग्राम का सेटिंग पेज। जाँचें कि यह क्या है और इसका अपना पासवर्ड है।
+Unknown service	अज्ञात सेवा
+Something on this device answers here. If you don't know what it is, find out (the version Nmap found may help), and close it if it isn't needed.	इस डिवाइस पर कुछ यहाँ जवाब देता है। अगर आपको नहीं पता यह क्या है, तो पता करें (Nmap का पाया संस्करण मदद कर सकता है), और ज़रूरत न हो तो बंद करें।
+Paranoid	बहुत छिपकर
+Sneaky	छिपकर
+Polite	विनम्र
+Normal	सामान्य
+Fast	तेज़
+Insane	बहुत तेज़
+paranoid speed (very slow, quiet)	बहुत छिपी गति (बहुत धीमी, शांत)
+sneaky speed (slow, quiet)	छिपी गति (धीमी, शांत)
+polite speed (gentle on the network)	विनम्र गति (नेटवर्क पर हल्की)
+normal speed	सामान्य गति
+insane speed (may miss ports)	बहुत तेज़ गति (पोर्ट छूट सकते हैं)
+fast speed	तेज़ गति
+Quick scan	झटपट स्कैन
+Top 100 ports, fast	शीर्ष 100 पोर्ट, तेज़
+Checks the 100 most common ports on each host. A good first look.	हर होस्ट पर 100 सबसे आम पोर्ट जाँचता है। पहली नज़र के लिए अच्छा।
+Ping sweep	पिंग स्वीप
+Who's online? No port scan	कौन ऑनलाइन है? पोर्ट स्कैन नहीं
+Finds which devices are switched on and answering. Doesn't look at ports.	पता लगाता है कि कौन-से डिवाइस चालू हैं और जवाब दे रहे हैं। पोर्ट नहीं देखता।
+Common ports	आम पोर्ट
+Top 1,000 ports	शीर्ष 1,000 पोर्ट
+Checks the 1,000 most common ports on each host. Nmap's standard scan.	हर होस्ट पर 1,000 सबसे आम पोर्ट जाँचता है। Nmap का सामान्य स्कैन।
+All ports	सभी पोर्ट
+All 65,535 TCP ports · slow	सभी 65,535 TCP पोर्ट · धीमा
+Checks every TCP port. Finds services on unusual ports, but takes much longer.	हर TCP पोर्ट जाँचता है। असामान्य पोर्ट पर सेवाएँ ढूँढता है, पर बहुत ज़्यादा समय लेता है।
+Services & versions	सेवाएँ और संस्करण
+What software runs on each port	हर पोर्ट पर कौन-सा सॉफ़्टवेयर चलता है
+Finds open ports and asks each one what software and version it runs.	खुले पोर्ट ढूँढता है और हर एक से पूछता है कि कौन-सा सॉफ़्टवेयर और संस्करण चलता है।
+OS detection	OS पहचान
+Guess the operating system	ऑपरेटिंग सिस्टम का अनुमान
+Guesses each host's operating system from how it answers. Needs administrator rights.	हर होस्ट के जवाब देने के तरीक़े से उसके ऑपरेटिंग सिस्टम का अनुमान लगाता है। व्यवस्थापक अधिकार चाहिए।
+Intense	गहन
+Versions, OS, scripts, traceroute	संस्करण, OS, स्क्रिप्ट, traceroute
+Versions, operating system, default scripts and traceroute in one go. Needs administrator rights.	संस्करण, ऑपरेटिंग सिस्टम, मानक स्क्रिप्ट और traceroute एक साथ। व्यवस्थापक अधिकार चाहिए।
+UDP scan	UDP स्कैन
+Top 100 UDP ports · slow	शीर्ष 100 UDP पोर्ट · धीमा
+Checks the 100 most common UDP ports (DNS, DHCP, SNMP and more). Slow. Needs administrator rights.	100 सबसे आम UDP पोर्ट (DNS, DHCP, SNMP और अन्य) जाँचता है। धीमा। व्यवस्थापक अधिकार चाहिए।
+Vulnerability check	कमज़ोरी जाँच
+Known problems & CVEs	ज्ञात समस्याएँ और CVE
+Finds versions, then runs Nmap's vuln scripts to check for well-known problems. Some checks send unusual traffic.	संस्करण ढूँढता है, फिर जानी-मानी समस्याओं की जाँच के लिए Nmap की vuln स्क्रिप्ट चलाता है। कुछ जाँचें असामान्य ट्रैफ़िक भेजती हैं।
+Starting Nmap…	Nmap शुरू हो रहा है…
+NSE: Script scanning	NSE: Script scanning
+Running scripts	स्क्रिप्ट चल रही हैं
+Collecting results	परिणाम इकट्ठा हो रहे हैं
+Read data files from	Read data files from
+Nmap done	Nmap done
+Finishing	पूरा हो रहा है
+host discovery	host discovery
+Finding hosts	होस्ट ढूँढे जा रहे हैं
+Detecting versions	संस्करण पहचाने जा रहे हैं
+os detection	os detection
+Detecting operating systems	ऑपरेटिंग सिस्टम पहचाने जा रहे हैं
+Tracing routes	रास्ते खोजे जा रहे हैं
+Scanning ports	पोर्ट स्कैन हो रहे हैं
+Find hosts	होस्ट ढूँढें
+Scan ports	पोर्ट स्कैन करें
+Detect versions	संस्करण पहचानें
+Detect OS	OS पहचानें
+Vulnerability scripts	कमज़ोरी स्क्रिप्ट
+Scripts	स्क्रिप्ट
+Traceroute	Traceroute
+New host	नया होस्ट
+Host gone	होस्ट गया
+Port opened	पोर्ट खुला
+Port closed	पोर्ट बंद हुआ
+Version changed	संस्करण बदला
+Unchanged	कोई बदलाव नहीं
+Appeared · no open ports	दिखाई दिया · कोई खुला पोर्ट नहीं
+Appeared · open ports {0}	दिखाई दिया · खुले पोर्ट {0}
+Did not reply in the newer scan	नए स्कैन में जवाब नहीं दिया
+No open ports	कोई खुला पोर्ट नहीं
+Open ports {0}	खुले पोर्ट {0}
+UDP scans	UDP स्कैन
+operating system detection	ऑपरेटिंग सिस्टम पहचान
+traceroute	traceroute
+Type an IP address, host name, range or network to scan.	स्कैन करने के लिए IP पता, होस्ट नाम, सीमा या नेटवर्क लिखें।
+"{0}" doesn't look like an address, name, range or network.\n\nExamples: 192.168.1.10, router.lan, 192.168.1.1-50, 192.168.1.0/24	"{0}" पता, नाम, सीमा या नेटवर्क जैसा नहीं लगता।\n\nउदाहरण: 192.168.1.10, router.lan, 192.168.1.1-50, 192.168.1.0/24
+Type the ports to scan, for example 22,80,443 or 1-1024.	स्कैन करने वाले पोर्ट लिखें, जैसे 22,80,443 या 1-1024।
+"{0}" isn't a valid port list. Use numbers, commas and ranges, for example 22,80,443 or 1-1024.	"{0}" सही पोर्ट सूची नहीं है। नंबर, कॉमा और सीमाएँ उपयोग करें, जैसे 22,80,443 या 1-1024।
+find hosts only, no port scan	केवल होस्ट ढूँढें, पोर्ट स्कैन नहीं
+fast SYN scan	तेज़ SYN स्कैन
+connect scan (works without admin)	कनेक्ट स्कैन (व्यवस्थापक बिना चलता है)
+top 100 ports	शीर्ष 100 पोर्ट
+all 65,535 ports	सभी 65,535 पोर्ट
+only these ports	केवल ये पोर्ट
+detect versions	संस्करण पहचानें
+detect operating system	ऑपरेटिंग सिस्टम पहचानें
+default scripts	मानक स्क्रिप्ट
+run these scripts	ये स्क्रिप्ट चलाएँ
+trace the route	रास्ता खोजें
+treat every host as online	हर होस्ट को ऑनलाइन मानें
+don't look up names	नाम न खोजें
+only show open ports	केवल खुले पोर्ट दिखाएँ
+list ports as they're found	मिलते ही पोर्ट दिखाएँ
+progress updates	प्रगति की जानकारी
+results for KUDUNMAP	KUDUNMAP के लिए परिणाम
+nmap {0}	nmap {0}
+{0} ms	{0} मि.से.
+Sunday	रविवार
+Monday	सोमवार
+Tuesday	मंगलवार
+Wednesday	बुधवार
+Thursday	गुरुवार
+Friday	शुक्रवार
+Saturday	शनिवार
+Every hour	हर घंटे
+Every {0} hours	हर {0} घंटे
+Every {0} at {1}	हर {0} को {1} बजे
+Every day at {0}	हर दिन {0} बजे
+KUDUNMAP -	KUDUNMAP -
+{0}.json	{0}.json
+Runs the KUDUNMAP scan "{0}" ({1}) and says if anything changed.	KUDUNMAP स्कैन "{0}" ({1}) चलाता है और बताता है कि कुछ बदला या नहीं।
+a new device	एक नया डिवाइस
+{0} new devices	{0} नए डिवाइस
+a port opened	एक पोर्ट खुला
+{0} ports opened	{0} पोर्ट खुले
+a device went away	एक डिवाइस चला गया
+{0} devices went away	{0} डिवाइस चले गए
+a port closed	एक पोर्ट बंद हुआ
+{0} ports closed	{0} पोर्ट बंद हुए
+a service changed version	एक सेवा का संस्करण बदला
+{0} services changed version	{0} सेवाओं के संस्करण बदले
+{0}.xml	{0}.xml
+Windows' question about administrator rights was answered No, so the scan wasn't scheduled.	व्यवस्थापक अधिकारों के बारे में Windows के सवाल का जवाब नहीं था, इसलिए स्कैन तय नहीं हुआ।
+Windows Task Scheduler said: {0}	Windows टास्क शेड्यूलर ने कहा: {0}
+error {0}	त्रुटि {0}
+Task Scheduler didn't respond.	टास्क शेड्यूलर ने जवाब नहीं दिया।
+Theme	थीम
+System	सिस्टम
+scan	स्कैन
+{0}.tmp	{0}.tmp
+open port	खुला पोर्ट
+Today, {0}	आज, {0}
+Yesterday, {0}	कल, {0}
+Custom	अपनी पसंद
+Missing theme resource {0}	Missing theme resource {0}
+Light	हल्का
+Styles	Styles
+Dark	गहरा
+Application	Application
+host	होस्ट
+Matched by version{0}	संस्करण से मिला{0}
+ · CVSS {0}	 · CVSS {0}
+Likely vulnerable, reported by the script	शायद कमज़ोर, स्क्रिप्ट ने बताया
+Reported as vulnerable by the script	स्क्रिप्ट ने कमज़ोर बताया
+{0} · CVSS {1}	{0} · CVSS {1}
+NOT VULNERABLE	कमज़ोर नहीं
+Detected software	पाया गया सॉफ़्टवेयर
+Matched by version	संस्करण से मिला
+{0}: known vulnerability {1}{2}	{0}: ज्ञात कमज़ोरी {1}{2}
+(public exploit exists)	(सार्वजनिक हमला कोड मौजूद है)
+Error message shown: {0}	Error message shown: {0}
+All files	सभी फ़ाइलें
+Save	सहेजें
+Cancel	रद्द करें
+History	इतिहास
+Open	खोलें
+Compare with an earlier scan	पिछले स्कैन से तुलना करें
+Delete	हटाएँ
+Open the History folder	इतिहास फ़ोल्डर खोलें
+When	कब
+Scan type	स्कैन का प्रकार
+Target	लक्ष्य
+Result	परिणाम
+No saved scans yet. Every finished scan is saved here automatically.	अभी कोई सहेजा स्कैन नहीं। हर पूरा स्कैन यहाँ अपने आप सहेजा जाता है।
+saved scan on this computer	इस कंप्यूटर पर सहेजा स्कैन
+saved scans on this computer	इस कंप्यूटर पर सहेजे स्कैन
+Delete the saved scan "{0}" of {1} from {2}?	{2} को {1} पर किया गया सहेजा स्कैन "{0}" हटाएँ?
+Couldn't delete it:\n\n{0}	हटाया नहीं जा सका:\n\n{0}
+Show unchanged hosts	बिना बदलाव वाले होस्ट दिखाएँ
+Compare scans	स्कैन की तुलना
+Older scan	पुराना स्कैन
+Newer scan	नया स्कैन
+What changed	क्या बदला
+Hosts and ports that are the same in both scans are hidden.	दोनों स्कैन में एक जैसे होस्ट और पोर्ट छिपाए गए हैं।
+Export	निर्यात
+Choose two different scans.	दो अलग स्कैन चुनें।
+Couldn't read one of the scans: {0}	एक स्कैन पढ़ा नहीं जा सका: {0}
+new hosts	नए होस्ट
+hosts gone	गए होस्ट
+ports opened	पोर्ट खुले
+ports closed	पोर्ट बंद हुए
+versions changed	संस्करण बदले
+Scan this host	यह होस्ट स्कैन करें
+Nothing changed between these two scans.	इन दो स्कैन के बीच कुछ नहीं बदला।
+Export changes	बदलाव निर्यात करें
+KUDUNMAP changes {0}	KUDUNMAP बदलाव {0}
+{0}.csv	{0}.csv
+CSV file	CSV फ़ाइल
+Couldn't save the file:\n\n{0}	फ़ाइल सहेजी नहीं जा सकी:\n\n{0}
+KUDUNMAP	KUDUNMAP
+Nmap is a separate program by the Nmap Project (nmap.org), installed by you and not included with KUDUNMAP. KUDUNMAP is not affiliated with, sponsored or endorsed by the Nmap Project or Nmap Software LLC. "Nmap" is their trademark.	Nmap, Nmap Project (nmap.org) का अलग प्रोग्राम है, जिसे आपने इंस्टॉल किया है और जो KUDUNMAP के साथ नहीं आता। KUDUNMAP का Nmap Project या Nmap Software LLC से कोई संबंध नहीं है, न ही उनका समर्थन या प्रायोजन है। "Nmap" उनका ट्रेडमार्क है।
+Only scan networks and devices you own or have permission to scan.	केवल वही नेटवर्क और डिवाइस स्कैन करें जो आपके हैं या जिन्हें स्कैन करने की अनुमति है।
+Scanning other people's systems without permission may be illegal where you live, and can be noticed as an attack.	बिना अनुमति दूसरों के सिस्टम स्कैन करना आपके यहाँ ग़ैरक़ानूनी हो सकता है, और इसे हमला समझा जा सकता है।
+Welcome to KUDUNMAP	KUDUNMAP में आपका स्वागत है
+A visual way to use Nmap	Nmap उपयोग करने का दिखने वाला तरीक़ा
+KUDUNMAP runs Nmap on your computer and shows its results. Nmap is a separate program made by the Nmap Project. KUDUNMAP is not affiliated with or endorsed by them.	KUDUNMAP आपके कंप्यूटर पर Nmap चलाता है और उसके परिणाम दिखाता है। Nmap, Nmap Project का बनाया अलग प्रोग्राम है। KUDUNMAP का उनसे कोई संबंध या समर्थन नहीं है।
+Shown once. You can read it again in Settings → About.	एक बार दिखाया जाता है। सेटिंग्स → परिचय में फिर पढ़ सकते हैं।
+I understand	मैं समझ गया
+Close	बंद करें
+Version {0} · Network scanning made visual	संस्करण {0} · नेटवर्क स्कैनिंग, आँखों के सामने
+Azeem, with Claude and	Azeem, with Claude and
+Made by	Made by
+Licence	लाइसेंस
+Nmap Public Source License (NPSL) 0.95 · free and open source	Nmap Public Source License (NPSL) 0.95 · मुफ़्त और ओपन सोर्स
+View	देखें
+Source code	सोर्स कोड
+Nmap in use	उपयोग में Nmap
+Not found	नहीं मिला
+Nmap {0} · {1}	Nmap {0} · {1}
+Third-party	तृतीय पक्ष
+Third-party notices	तृतीय पक्ष सूचनाएँ
+Show the first-start notice again	पहली बार वाली सूचना फिर दिखाएँ
+Check for updates	अपडेट देखें
+About KUDUNMAP	KUDUNMAP के बारे में
+Couldn't find any published version yet.	अभी तक कोई प्रकाशित संस्करण नहीं मिला।
+KUDUNMAP {0} is available. Open the download page?	KUDUNMAP {0} उपलब्ध है। डाउनलोड पेज खोलें?
+You have the latest version.	आपके पास नवीनतम संस्करण है।
+Couldn't check for updates. Check your internet connection and try again.	अपडेट नहीं देखे जा सके। अपना इंटरनेट कनेक्शन जाँचें और फिर कोशिश करें।
+Settings	सेटिंग्स
+Appearance	रूप
+Same as Windows	Windows जैसा
+Language	भाषा
+Nmap	Nmap
+Choose nmap.exe…	nmap.exe चुनें…
+Find automatically	अपने आप ढूँढें
+Get Nmap from nmap.org	nmap.org से Nmap लें
+Scans	स्कैन
+Show a Windows notification when a scan finishes	स्कैन पूरा होने पर Windows सूचना दिखाएँ
+Scans are saved in History on this computer only ({0}).	स्कैन केवल इसी कंप्यूटर पर इतिहास में सहेजे जाते हैं ({0})।
+Updates	अपडेट
+Check for a new KUDUNMAP version when it starts	शुरू होने पर KUDUNMAP का नया संस्करण देखें
+Only asks GitHub for the latest version number. Nothing is downloaded without asking.	GitHub से केवल नवीनतम संस्करण का नंबर पूछता है। बिना पूछे कुछ डाउनलोड नहीं होता।
+Nmap wasn't found. Install it from nmap.org, or choose nmap.exe if it's somewhere else.	Nmap नहीं मिला। nmap.org से इंस्टॉल करें, या कहीं और है तो nmap.exe चुनें।
+Using Nmap {0}: {1}{2}	Nmap {0} उपयोग में: {1}{2}
+(found automatically)	(अपने आप मिला)
+(chosen by you)	(आपने चुना)
+Choose nmap.exe	nmap.exe चुनें
+That file didn't answer like Nmap. Choose the nmap.exe from your Nmap folder.	उस फ़ाइल ने Nmap की तरह जवाब नहीं दिया। अपने Nmap फ़ोल्डर से nmap.exe चुनें।
+IP, name, range or network	IP, नाम, सीमा या नेटवर्क
+Scan	स्कैन
+From file…	फ़ाइल से…
+Administrator	व्यवस्थापक
+KUDUNMAP is running as administrator, so every scan type is available.	KUDUNMAP व्यवस्थापक के रूप में चल रहा है, इसलिए हर तरह का स्कैन उपलब्ध है।
+Standard user	सामान्य उपयोगकर्ता
+Some scans (OS detection, UDP, traceroute) need administrator rights. KUDUNMAP offers to restart when they do.	कुछ स्कैन (OS पहचान, UDP, traceroute) को व्यवस्थापक अधिकार चाहिए। तब KUDUNMAP फिर से शुरू करने का सुझाव देता है।
+Compare	तुलना
+Scheduled	तय किए गए
+Scans that run by themselves and tell you when something changes	स्कैन जो अपने आप चलते हैं और कुछ बदलने पर बताते हैं
+Download Nmap from nmap.org	nmap.org से Nmap डाउनलोड करें
+Choose the "Latest stable release self-installer" for Windows.	Windows के लिए "Latest stable release self-installer" चुनें।
+Run the Nmap installer	Nmap इंस्टॉलर चलाएँ
+Keep the Npcap option ticked. Nmap needs it to scan on Windows.	Npcap विकल्प पर टिक लगा रहने दें। Windows पर स्कैन करने के लिए Nmap को इसकी ज़रूरत है।
+Come back and press Check again	वापस आएँ और फिर से जाँचें दबाएँ
+KUDUNMAP finds Nmap automatically. No restart needed.	KUDUNMAP Nmap को अपने आप ढूँढ लेता है। फिर से शुरू करने की ज़रूरत नहीं।
+Open nmap.org download page	nmap.org डाउनलोड पेज खोलें
+Check again	फिर से जाँचें
+Locate nmap.exe…	nmap.exe ढूँढें…
+Nmap isn't installed yet	Nmap अभी इंस्टॉल नहीं है
+KUDUNMAP is the window, Nmap does the scanning. It's free, from the Nmap Project.	KUDUNMAP खिड़की है, स्कैन Nmap करता है। यह मुफ़्त है, Nmap Project से।
+KUDUNMAP never downloads or installs Nmap itself. The download page opens in your browser, so you get Nmap straight from the Nmap Project.	KUDUNMAP कभी ख़ुद Nmap डाउनलोड या इंस्टॉल नहीं करता। डाउनलोड पेज आपके ब्राउज़र में खुलता है, ताकि आपको Nmap सीधे Nmap Project से मिले।
+Nmap not found · looked in {0}	Nmap नहीं मिला · यहाँ देखा: {0}
+Ready	तैयार
+Nmap not found	Nmap नहीं मिला
+Nmap {0}	Nmap {0}
+KUDUNMAP {0} is available	KUDUNMAP {0} उपलब्ध है
+Skip	छोड़ें
+Choose a list of targets (one per line)	लक्ष्यों की सूची चुनें (हर पंक्ति में एक)
+Text files	टेक्स्ट फ़ाइलें
+Stop using this file	यह फ़ाइल उपयोग करना बंद करें
+Command copied. Paste it into a terminal to run the same scan with Nmap directly.	कमांड कॉपी हो गई। Nmap से सीधे यही स्कैन चलाने के लिए इसे टर्मिनल में चिपकाएँ।
+A scan is running. Stop it and restart KUDUNMAP as administrator?	एक स्कैन चल रहा है। उसे रोककर KUDUNMAP को व्यवस्थापक के रूप में फिर से शुरू करें?
+Restart as administrator was cancelled.	व्यवस्थापक के रूप में फिर से शुरू करना रद्द हुआ।
+The target file can't be found:\n\n{0}	लक्ष्य फ़ाइल नहीं मिल रही:\n\n{0}
+This scan needs administrator rights for {0}.\n\nRestart KUDUNMAP as administrator and start the scan?	इस स्कैन को {0} के लिए व्यवस्थापक अधिकार चाहिए।\n\nKUDUNMAP को व्यवस्थापक के रूप में फिर से शुरू करके स्कैन शुरू करें?
+Advanced scripts are on ({0}).\n\nThey can lock accounts, crash services or be seen as an attack. {1}\n\nStart the scan?	उन्नत स्क्रिप्ट चालू हैं ({0})।\n\nये खाते लॉक कर सकती हैं, सेवाएँ गिरा सकती हैं या हमला समझी जा सकती हैं। {1}\n\nस्कैन शुरू करें?
+Scanning · started {0}	स्कैन हो रहा है · {0} पर शुरू हुआ
+You'll get a Windows notification when it finishes	पूरा होने पर आपको Windows सूचना मिलेगी
+Nmap couldn't start	Nmap शुरू नहीं हो सका
+Stopping Nmap…	Nmap रोका जा रहा है…
+Scanning · {0} found so far · started {1}	स्कैन हो रहा है · अब तक {0} मिले · {1} पर शुरू हुआ
+Scan cancelled	स्कैन रद्द हुआ
+Nmap was stopped. The output so far is below.	Nmap रोका गया। अब तक का आउटपुट नीचे है।
+Nmap reported an error.	Nmap ने त्रुटि बताई।
+Nmap stopped without results (exit code {0}).	Nmap बिना परिणाम के रुक गया (exit code {0})।
+The scan didn't finish	स्कैन पूरा नहीं हुआ
+{0} Nmap's output is below.	{0} Nmap का आउटपुट नीचे है।
+Scan didn't finish	स्कैन पूरा नहीं हुआ
+Couldn't save to History: {0}	इतिहास में सहेजा नहीं जा सका: {0}
+host online	होस्ट ऑनलाइन
+Done · {0}	पूरा · {0}
+{0} finished	{0} पूरा हुआ
+Target set to {0}. Pick a scan type and press Scan.	लक्ष्य {0} रखा गया। स्कैन का प्रकार चुनें और स्कैन दबाएँ।
+Compare needs at least two saved scans. Run the same scan again later to see what changed.	तुलना के लिए कम से कम दो सहेजे स्कैन चाहिए। क्या बदला यह देखने के लिए बाद में वही स्कैन फिर चलाएँ।
+Wait for the running scan to finish, or cancel it, before opening saved results.	सहेजे परिणाम खोलने से पहले चल रहे स्कैन के पूरा होने का इंतज़ार करें, या उसे रद्द करें।
+Saved scan from {0} · {1}	{0} का सहेजा स्कैन · {1}
+Couldn't open these results:\n\n{0}	ये परिणाम खोले नहीं जा सके:\n\n{0}
+A scan is still running. Stop it and close KUDUNMAP?	एक स्कैन अभी चल रहा है। उसे रोककर KUDUNMAP बंद करें?
+This appears when the scan finishes.	स्कैन पूरा होने पर यह दिखेगा।
+Nothing worth a look	देखने लायक कुछ नहीं
+{0} worth a look	{0} देखने लायक
+ ({0} risky)	 ({0} जोखिम भरे)
+Every open port found is normal for its kind of device.	मिला हर खुला पोर्ट उस तरह के डिवाइस के लिए सामान्य है।
+What each open port is, in plain words, and what it could risk. Risky ones are often used by attackers: close them if they aren't needed, and never let them be reached from the internet.	हर खुला पोर्ट क्या है, आसान शब्दों में, और उससे क्या जोखिम हो सकता है। जोखिम भरे पोर्ट अक्सर हमलावर उपयोग करते हैं: ज़रूरत न हो तो बंद करें, और उन्हें कभी इंटरनेट से पहुँचने न दें।
+Show this device	यह डिवाइस दिखाएँ
+The map appears when the scan finishes.	स्कैन पूरा होने पर नक्शा दिखेगा।
+No devices replied, so there's nothing to draw.	किसी डिवाइस ने जवाब नहीं दिया, इसलिए बनाने को कुछ नहीं है।
+Each device found, with a guess of what it is. Red and orange marks are open ports that are risky or worth a look. Click a device to see its details.	मिला हर डिवाइस, इस अनुमान के साथ कि वह क्या है। लाल और नारंगी निशान जोखिम भरे या देखने लायक खुले पोर्ट हैं। विवरण देखने के लिए किसी डिवाइस पर क्लिक करें।
+Save as a picture…	चित्र के रूप में सहेजें…
+Segoe Fluent Icons, Segoe MDL2 Assets	Segoe Fluent Icons, Segoe MDL2 Assets
+{0} risky	{0} जोखिम भरे
+{0} to check	{0} जाँचने लायक
+Network map {0}	नेटवर्क नक्शा {0}
+{0}.png	{0}.png
+Save the map as a picture	नक्शा चित्र के रूप में सहेजें
+PNG picture	PNG चित्र
+Found so far	अब तक मिले
+Hosts & ports	होस्ट और पोर्ट
+Map	नक्शा
+Vulnerabilities	कमज़ोरियाँ
+Raw output	कच्चा आउटपुट
+Scan details	स्कैन विवरण
+Filter hosts…	होस्ट छानें…
+Name / OS	नाम / OS
+These are checks for known problems. "Matched by version" means the software version is listed as affected; the fix may already be applied. A clean result doesn't guarantee a system is safe.	ये ज्ञात समस्याओं की जाँचें हैं। "संस्करण से मिला" का मतलब है कि वह सॉफ़्टवेयर संस्करण प्रभावितों की सूची में है; सुधार शायद पहले ही लग चुका हो। साफ़ परिणाम इस बात की गारंटी नहीं कि सिस्टम सुरक्षित है।
+Host	होस्ट
+Found by	किसने पाया
+Open ports	खुले पोर्ट
+Results appear here when the scan finishes. Live output is on the Raw output tab.	स्कैन पूरा होने पर परिणाम यहाँ दिखेंगे। लाइव आउटपुट कच्चा आउटपुट टैब पर है।
+Starting…	शुरू हो रहा है…
+Scanning…	स्कैन हो रहा है…
+{0} · about {1} left	{0} · लगभग {1} बाक़ी
+{0} seconds	{0} सेकंड
+Failed	विफल
+Cancelled	रद्द
+Change options	विकल्प बदलें
+Try again	फिर कोशिश करें
+Found before stopping	रुकने से पहले मिले
+Hosts	होस्ट
+hosts affected	प्रभावित होस्ट
+no reply	कोई जवाब नहीं
+✓ Finished · {0}	✓ पूरा · {0}
+New scan	नया स्कैन
+Scan again	फिर स्कैन करें
+HTML report…	HTML रिपोर्ट…
+HTML report	HTML रिपोर्ट
+{0}.html	{0}.html
+Hosts and ports (CSV)…	होस्ट और पोर्ट (CSV)…
+Vulnerabilities (CSV)…	कमज़ोरियाँ (CSV)…
+Nmap XML…	Nmap XML…
+Nmap XML	Nmap XML
+Nmap text output…	Nmap टेक्स्ट आउटपुट…
+{0}.txt	{0}.txt
+Text file	टेक्स्ट फ़ाइल
+Export {0}	निर्यात {0}
+Saved {0}	सहेजा {0}
+(no name)	(कोई नाम नहीं)
+No hosts answered. They may be switched off, or blocking pings. Try "Skip ping" in the options.	किसी होस्ट ने जवाब नहीं दिया। शायद वे बंद हैं, या पिंग रोक रहे हैं। विकल्पों में "पिंग छोड़ें" आज़माएँ।
+No hosts match the filter.	फ़िल्टर से कोई होस्ट मेल नहीं खाता।
+MAC {0}	MAC {0}
+Open in browser	ब्राउज़र में खोलें
+Scan this host…	यह होस्ट स्कैन करें…
+This was a ping sweep, so ports weren't scanned.	यह पिंग स्वीप था, इसलिए पोर्ट स्कैन नहीं हुए।
+No open ports found on this host.	इस होस्ट पर कोई खुला पोर्ट नहीं मिला।
+Proto	प्रोटो
+Host script results	होस्ट स्क्रिप्ट परिणाम
+Route	रास्ता
+Right-click a host or port to copy it, open it in a browser, ping it, or start a new scan on just that host.	किसी होस्ट या पोर्ट पर राइट-क्लिक करके उसे कॉपी करें, ब्राउज़र में खोलें, पिंग करें, या सिर्फ़ उसी होस्ट पर नया स्कैन शुरू करें।
+Copy address	पता कॉपी करें
+Copy name	नाम कॉपी करें
+Ping	Ping
+Copy {0}	{0} कॉपी करें
+Copy version	संस्करण कॉपी करें
+https	https
+http	http
+/k ping {0}	/k ping {0}
+CVE lookup (vulners) for this scan:	इस स्कैन के लिए CVE खोज (vulners):
+On	चालू
+Off	बंद
+Findings appear here when the scan finishes.	स्कैन पूरा होने पर खोजें यहाँ दिखेंगी।
+No known vulnerabilities were reported. That doesn't guarantee these systems are safe: only well-known problems are checked.	कोई ज्ञात कमज़ोरी नहीं बताई गई। इससे यह गारंटी नहीं कि ये सिस्टम सुरक्षित हैं: केवल जानी-मानी समस्याएँ जाँची जाती हैं।
+This scan didn't check for vulnerabilities. Choose "Vulnerability check" on the New scan screen, or switch on the vuln scripts.	इस स्कैन ने कमज़ोरियाँ नहीं जाँचीं। नया स्कैन स्क्रीन पर "कमज़ोरी जाँच" चुनें, या vuln स्क्रिप्ट चालू करें।
+All	सभी
+no CVE	कोई CVE नहीं
+Copy finding	खोज कॉपी करें
+Copy CVE	CVE कॉपी करें
+(no text output)	(कोई टेक्स्ट आउटपुट नहीं)
+What Nmap reported · {0}	Nmap ने क्या बताया · {0}
+Learn more	और जानें
+Links come from the CVE and script names in Nmap's results. Severity is the CVSS score when there is one, otherwise the script's risk factor.	लिंक Nmap के परिणामों में CVE और स्क्रिप्ट नामों से आते हैं। गंभीरता CVSS स्कोर है जब वह हो, नहीं तो स्क्रिप्ट का जोखिम स्तर।
+Details appear here when the scan finishes.	स्कैन पूरा होने पर विवरण यहाँ दिखेंगे।
+Command	कमांड
+Nmap version	Nmap संस्करण
+Started	शुरू
+Finished	पूरा
+Scan time	स्कैन का समय
+{0} online, {1} no reply, {2} scanned	{0} ऑनलाइन, {1} बिना जवाब, {2} स्कैन किए
+Nmap's summary	Nmap का सारांश
+Run as	किस रूप में चला
+Saved in	कहाँ सहेजा
+Open folder	फ़ोल्डर खोलें
+{0} ran into a problem it couldn't get past, and has to close.	{0} को ऐसी समस्या आई जिससे वह आगे नहीं बढ़ सका, और उसे बंद होना होगा।
+Nmap wasn't found.	Nmap नहीं मिला।
+The target file can't be found.	लक्ष्य फ़ाइल नहीं मिल रही।
+Nmap stopped without results (exit code {0}). {1}	Nmap बिना परिणाम के रुक गया (exit code {0})। {1}
+Nmap couldn't start: {0}	Nmap शुरू नहीं हो सका: {0}
+First run · {0}	पहली बार · {0}
+Nothing changed	कुछ नहीं बदला
+{0} · couldn't compare: {1}	{0} · तुलना नहीं हो सकी: {1}
+Didn't finish: {0}	पूरा नहीं हुआ: {0}
+The scan didn't finish. {0}	स्कैन पूरा नहीं हुआ। {0}
+{0} didn't finish	{0} पूरा नहीं हुआ
+{0}: something changed	{0}: कुछ बदला
+Scheduled scans	तय किए गए स्कैन
+Schedule the scan set up now…	अभी सेट किया स्कैन तय करें…
+Change…	बदलें…
+Run now	अभी चलाएँ
+Remove	हटाएँ
+Open History	इतिहास खोलें
+Last run	पिछली बार चला
+Each scheduled scan runs by itself, even when KUDUNMAP is closed (you need to be signed in to Windows). Every run is kept in History, and a Windows notification tells you when a device or open port appears or goes away. Windows asks for administrator rights once, when a scan is scheduled, so it can use every scan type.	हर तय किया गया स्कैन अपने आप चलता है, तब भी जब KUDUNMAP बंद हो (आपका Windows में साइन इन होना ज़रूरी है)। हर बार का परिणाम इतिहास में रखा जाता है, और कोई डिवाइस या खुला पोर्ट आने या जाने पर Windows सूचना देता है। हर तरह का स्कैन उपयोग कर सके, इसलिए स्कैन तय करते समय Windows एक बार व्यवस्थापक अधिकार माँगता है।
+Not run yet	अभी चला नहीं
+None yet. Set up a scan in the main window, then schedule it here.	अभी कोई नहीं। मुख्य खिड़की में स्कैन सेट करें, फिर यहाँ तय करें।
+scheduled scan	तय किया गया स्कैन
+Type what to scan in the main window first.\n\n{0}	पहले मुख्य खिड़की में लिखें कि क्या स्कैन करना है।\n\n{0}
+This scan uses advanced scripts, which can lock accounts, crash services or be seen as an attack. Running them again and again by themselves isn't a good idea.\n\nSchedule it anyway?	यह स्कैन उन्नत स्क्रिप्ट उपयोग करता है, जो खाते लॉक कर सकती हैं, सेवाएँ गिरा सकती हैं या हमला समझी जा सकती हैं। इन्हें बार-बार अपने आप चलाना अच्छा नहीं।\n\nफिर भी तय करें?
+Every hour (or every few hours)	हर घंटे (या कुछ घंटों में)
+Every day	हर दिन
+Every week	हर हफ़्ते
+How often	कितनी बार
+At	समय
+Runs	चलता है
+Schedule this scan	यह स्कैन तय करें
+Change this scheduled scan	यह तय किया गया स्कैन बदलें
+If the PC is off or asleep at that time, the scan runs as soon as it can.	अगर उस समय पीसी बंद या स्लीप में हो, तो स्कैन जितनी जल्दी हो सके चलता है।
+Schedule	तय करें
+Schedule a scan	स्कैन तय करें
+Change a scheduled scan	तय किया गया स्कैन बदलें
+"{0}" is running now, without a window. It will be in History when it finishes, and you'll get a notification if something changed.	"{0}" अभी बिना खिड़की के चल रहा है। पूरा होने पर यह इतिहास में होगा, और कुछ बदला तो आपको सूचना मिलेगी।
+Windows' task for "{0}" is missing. Make it again?	"{0}" का Windows कार्य नहीं मिल रहा। फिर से बनाएँ?
+Stop running "{0}" by itself?\n\nIts earlier runs stay in History.	"{0}" का अपने आप चलना बंद करें?\n\nइसके पिछले परिणाम इतिहास में रहेंगे।
+Windows didn't remove the task. You can remove it in Task Scheduler: it's called\n\n{0}	Windows ने कार्य नहीं हटाया। आप इसे टास्क शेड्यूलर में हटा सकते हैं: इसका नाम है\n\n{0}
+Skip ping (treat every host as online)	पिंग छोड़ें (हर होस्ट को ऑनलाइन मानें)
+Resolve host names	होस्ट नाम खोजें
+Show only open ports	केवल खुले पोर्ट दिखाएँ
+Detect service versions	सेवा संस्करण पहचानें
+Detect operating system	ऑपरेटिंग सिस्टम पहचानें
+Advanced	उन्नत
+Look up known CVEs online (vulners)	ज्ञात CVE ऑनलाइन खोजें (vulners)
+Restart as administrator	व्यवस्थापक के रूप में फिर से शुरू करें
+My presets	मेरे प्रीसेट
+Needs administrator rights	व्यवस्थापक अधिकार चाहिए
+What to scan	क्या स्कैन करें
+TCP ports	TCP पोर्ट
+UDP ports	UDP पोर्ट
+Hosts only	केवल होस्ट
+Speed	गति
+Top 100	शीर्ष 100
+Top 1,000	शीर्ष 1,000
+For example 22,80,443 or 1-1024	जैसे 22,80,443 या 1-1024
+Ports	पोर्ट
+Discovery	खोज
+Detection	पहचान
+Needs admin	व्यवस्थापक चाहिए
+These scripts can log in with guessed passwords, try exploits or overload services. Only use them on systems you are allowed to test.	ये स्क्रिप्ट अनुमानित पासवर्ड से लॉग इन कर सकती हैं, हमले आज़मा सकती हैं या सेवाओं पर बोझ डाल सकती हैं। केवल उन्हीं सिस्टम पर उपयोग करें जिन्हें जाँचने की अनुमति है।
+When on, the names and versions of the services found are sent to vulners.com to look up known CVEs. Off by default.	चालू होने पर, मिली सेवाओं के नाम और संस्करण ज्ञात CVE खोजने के लिए vulners.com को भेजे जाते हैं। शुरू में बंद।
+Scripts (NSE)	स्क्रिप्ट (NSE)
+Nmap's standard set of useful, safe scripts (same as -sC).	Nmap का उपयोगी, सुरक्षित स्क्रिप्ट का मानक सेट (-sC जैसा)।
+Scripts that won't crash services or use lots of bandwidth.	ऐसी स्क्रिप्ट जो सेवाएँ नहीं गिराएँगी या ज़्यादा बैंडविड्थ नहीं लेंगी।
+Find out more about the network: names, shares, directories.	नेटवर्क के बारे में और जानें: नाम, साझा फ़ोल्डर, निर्देशिकाएँ।
+Extra version detection.	अतिरिक्त संस्करण पहचान।
+Check for well-known vulnerabilities. Some checks send unusual traffic.	जानी-मानी कमज़ोरियाँ जाँचें। कुछ जाँचें असामान्य ट्रैफ़िक भेजती हैं।
+Check for weak or missing authentication.	कमज़ोर या ग़ायब साइन-इन जाँचें।
+Discover hosts by broadcasting on the local network.	स्थानीय नेटवर्क पर प्रसारण से होस्ट ढूँढें।
+Guess passwords. Can lock accounts.	पासवर्ड का अनुमान लगाएँ। खाते लॉक हो सकते हैं।
+Denial-of-service tests. Can crash services.	सेवा-रोक परीक्षण। सेवाएँ गिर सकती हैं।
+Actively try to exploit vulnerabilities.	कमज़ोरियों का सच में फ़ायदा उठाने की कोशिश करें।
+Send data to third-party services on the internet.	इंटरनेट पर तृतीय पक्ष सेवाओं को डेटा भेजें।
+Send unexpected data. Can crash services.	अनपेक्षित डेटा भेजें। सेवाएँ गिर सकती हैं।
+Risky scripts that may crash services or be seen as attacks.	जोखिम भरी स्क्रिप्ट जो सेवाएँ गिरा सकती हैं या हमला समझी जा सकती हैं।
+Check for signs of backdoors and malware.	पिछले दरवाज़ों और मैलवेयर के निशान जाँचें।
+Updates as you change options. You never need to type it.	विकल्प बदलने पर अपडेट होता है। इसे कभी लिखना नहीं पड़ता।
+Copy	कॉपी करें
+Save as preset	प्रीसेट के रूप में सहेजें
+Recent scans	हाल के स्कैन
+See all history	पूरा इतिहास देखें
+Your own saved options.	आपके अपने सहेजे विकल्प।
+My preset	मेरा प्रीसेट
+Preset	प्रीसेट
+Changed	बदला गया
+Hosts only: no ports are scanned.	केवल होस्ट: कोई पोर्ट स्कैन नहीं होता।
+Numbers, commas and ranges. Add U: for UDP, e.g. U:53.	नंबर, कॉमा और सीमाएँ। UDP के लिए U: जोड़ें, जैसे U:53।
+All 65,535 ports. Much slower, but finds services on unusual ports.	सभी 65,535 पोर्ट। बहुत धीमा, पर असामान्य पोर्ट पर सेवाएँ ढूँढता है।
+The 100 most common ports. Quickest.	100 सबसे आम पोर्ट। सबसे जल्दी।
+The 1,000 most common ports. Nmap's standard.	1,000 सबसे आम पोर्ट। Nmap का मानक।
+added by KUDUNMAP for live progress (left out when you copy)	लाइव प्रगति के लिए KUDUNMAP ने जोड़ा (कॉपी करने पर छोड़ दिया जाता है)
+Ready to scan the targets in {0}	{0} के लक्ष्य स्कैन करने को तैयार
+You can cancel at any time.	आप कभी भी रद्द कर सकते हैं।
+Type a target to scan	स्कैन करने के लिए लक्ष्य लिखें
+An IP address (192.168.1.10), name (router.lan), range (192.168.1.1-50) or network (192.168.1.0/24).	IP पता (192.168.1.10), नाम (router.lan), सीमा (192.168.1.1-50) या नेटवर्क (192.168.1.0/24)।
+Check the target	लक्ष्य जाँचें
+Ready to scan	स्कैन को तैयार
+Ready to scan 1 address	1 पता स्कैन करने को तैयार
+Ready to scan {0} addresses	{0} पते स्कैन करने को तैयार
+That's a lot of addresses. This may take a long time. You can cancel at any time.	यह बहुत सारे पते हैं। इसमें बहुत समय लग सकता है। आप कभी भी रद्द कर सकते हैं।
+Nmap {0} found · {1}	Nmap {0} मिला · {1}
+This scan needs administrator rights for {0}. Restart KUDUNMAP as administrator, or turn those options off.	इस स्कैन को {0} के लिए व्यवस्थापक अधिकार चाहिए। KUDUNMAP को व्यवस्थापक के रूप में फिर से शुरू करें, या वे विकल्प बंद करें।
+Advanced scripts are on. They can lock accounts, crash services or be seen as an attack.	उन्नत स्क्रिप्ट चालू हैं। ये खाते लॉक कर सकती हैं, सेवाएँ गिरा सकती हैं या हमला समझी जा सकती हैं।
+Vulnerability scripts send unusual traffic that can occasionally upset old or fragile devices.	कमज़ोरी स्क्रिप्ट असामान्य ट्रैफ़िक भेजती हैं जो कभी-कभी पुराने या नाज़ुक डिवाइसों को परेशान कर सकता है।
+CVE lookup is on: service names and versions will be sent to vulners.com.	CVE खोज चालू है: सेवाओं के नाम और संस्करण vulners.com को भेजे जाएँगे।
+{0} and {1}	{0} और {1}
+Very slow and quiet. Can take hours on a network.	बहुत धीमा और शांत। एक नेटवर्क पर घंटों लग सकते हैं।
+Gentle on slow networks and old devices.	धीमे नेटवर्क और पुराने डिवाइसों पर हल्का।
+Nmap's normal speed.	Nmap की सामान्य गति।
+Fastest. On busy or slow networks it can miss ports.	सबसे तेज़। व्यस्त या धीमे नेटवर्क पर पोर्ट छूट सकते हैं।
+Fast is right for most home and office networks.	ज़्यादातर घर और दफ़्तर के नेटवर्क के लिए तेज़ सही है।
+Save your own with "Save as preset" under the command.	कमांड के नीचे "प्रीसेट के रूप में सहेजें" से अपना सहेजें।
+Delete this preset	यह प्रीसेट हटाएँ
+Delete the preset "{0}"?	प्रीसेट "{0}" हटाएँ?
+Right-click to delete	हटाने के लिए राइट-क्लिक करें
+Give these options a name. The target is saved too, so you can repeat this scan with one click.	इन विकल्पों को एक नाम दें। लक्ष्य भी सहेजा जाता है, ताकि आप एक क्लिक में यह स्कैन दोहरा सकें।
+Finished scans appear here, and in History.	पूरे हुए स्कैन यहाँ और इतिहास में दिखते हैं।
+Open these results	ये परिणाम खोलें
+{0} host	{0} होस्ट
+{0} hosts	{0} होस्ट
+{0} open port	{0} खुला पोर्ट
+{0} open ports	{0} खुले पोर्ट
+{0} finding	{0} खोज
+{0} findings	{0} खोजें
+{0} saved scan on this computer	इस कंप्यूटर पर {0} सहेजा स्कैन
+{0} saved scans on this computer	इस कंप्यूटर पर {0} सहेजे स्कैन
+{0} host online	{0} होस्ट ऑनलाइन
+{0} hosts online	{0} होस्ट ऑनलाइन
+{0} hop	{0} हॉप
+{0} hops	{0} हॉप
+{0} scheduled scan	{0} तय किया गया स्कैन
+{0} scheduled scans	{0} तय किए गए स्कैन

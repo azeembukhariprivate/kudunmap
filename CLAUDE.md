@@ -44,6 +44,12 @@ out\KUDUNMAP\KUDUNMAP.exe --self-test        (Windows only)
   `KUDUNMAP.exe --scheduled <id>` (`Views/ScheduledRun.cs`: no window, History with `ScheduleId`, compares with the run
   before and notifies when something changed). The uninstaller runs `--remove-schedules`.
 
+- Other languages (1.2): the shared `Lang`/`LangUi` (kudu-common) put each window into the chosen language as it's shown.
+  Texts built in code (summaries, counts, notifications, the admin and scripts warnings) call `Lang.T` or `Format.Count`
+  on whole sentences. Nmap's output, the command and the HTML/CSV reports stay in English. Texts are in
+  `src/KUDUNMAP/Lang/<code>.txt`, made and checked with kudu-common's `tools/lang.py`; when adding or changing a text,
+  add it to every language file (`tools/lang.py check ../kudunmap`).
+
 ## Shared code (kudu-common)
 
 The files listed in `.kudu-common` (the look and controls in `Controls/`, `Core/Admin.cs`, `AppInfo.cs`, `Args.cs`,

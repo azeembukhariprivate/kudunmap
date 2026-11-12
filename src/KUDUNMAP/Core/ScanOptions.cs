@@ -54,9 +54,9 @@ namespace Kudunmap.Core
         public List<string> AdminReasons()
         {
             var reasons = new List<string>();
-            if (Kind == ScanKind.Udp) reasons.Add("UDP scans");
-            if (DetectOs && Kind != ScanKind.Ping) reasons.Add("operating system detection");
-            if (Traceroute) reasons.Add("traceroute");
+            if (Kind == ScanKind.Udp) reasons.Add(Lang.T("UDP scans"));
+            if (DetectOs && Kind != ScanKind.Ping) reasons.Add(Lang.T("operating system detection"));
+            if (Traceroute) reasons.Add(Lang.T("traceroute"));
             return reasons;
         }
 

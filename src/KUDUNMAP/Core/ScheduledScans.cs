@@ -147,13 +147,13 @@ namespace Kudunmap.Core
             var parts = new List<string>();
             void Add(int n, string one, string many)
             {
-                if (n > 0) parts.Add(n == 1 ? one : n + " " + many);
+                if (n > 0) parts.Add(n == 1 ? Lang.T(one) : Lang.T(many, n)); // shown in a notification, in the language in use
             }
-            Add(Count(ChangeKind.NewHost), "a new device", "new devices");
-            Add(Count(ChangeKind.PortOpened), "a port opened", "ports opened");
-            Add(Count(ChangeKind.HostGone), "a device went away", "devices went away");
-            Add(Count(ChangeKind.PortClosed), "a port closed", "ports closed");
-            Add(Count(ChangeKind.VersionChanged), "a service changed version", "services changed version");
+            Add(Count(ChangeKind.NewHost), "a new device", "{0} new devices");
+            Add(Count(ChangeKind.PortOpened), "a port opened", "{0} ports opened");
+            Add(Count(ChangeKind.HostGone), "a device went away", "{0} devices went away");
+            Add(Count(ChangeKind.PortClosed), "a port closed", "{0} ports closed");
+            Add(Count(ChangeKind.VersionChanged), "a service changed version", "{0} services changed version");
             if (parts.Count == 0) return null;
             var text = string.Join(", ", parts);
             return char.ToUpperInvariant(text[0]) + text.Substring(1) + ".";
