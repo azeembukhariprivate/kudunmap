@@ -11,6 +11,7 @@ namespace Kudunmap.Core
     /// --options &lt;file&gt; is used internally when KUDUNMAP restarts itself as administrator.
     /// --scheduled &lt;id&gt; [--data &lt;folder&gt;] is what Windows' Task Scheduler runs for a scheduled scan (no window).
     /// --remove-schedules is run when KUDUNMAP is uninstalled.
+    /// --limit-schedules is run after installing: scheduled scans lose administrator rights when installed just for you.
     /// </summary>
     public sealed class CommandLine
     {
@@ -27,6 +28,9 @@ namespace Kudunmap.Core
         public string DataFolder { get; private set; }
 
         public bool RemoveSchedules { get; private set; }
+
+        /// <summary>--limit-schedules: run after installing, sets up scheduled scans again without administrator rights when needed (never asks).</summary>
+        public bool LimitSchedules { get; private set; }
 
         /// <summary>Options saved by the copy that restarted as administrator. Only files in KUDUNMAP's own folder are accepted.</summary>
         public string OptionsFile { get; private set; }
@@ -85,6 +89,11 @@ namespace Kudunmap.Core
                 if (arg.Equals("--remove-schedules", StringComparison.OrdinalIgnoreCase))
                 {
                     cmd.RemoveSchedules = true;
+                    continue;
+                }
+                if (arg.Equals("--limit-schedules", StringComparison.OrdinalIgnoreCase))
+                {
+                    cmd.LimitSchedules = true;
                     continue;
                 }
                 if (arg.Equals("--history", StringComparison.OrdinalIgnoreCase))

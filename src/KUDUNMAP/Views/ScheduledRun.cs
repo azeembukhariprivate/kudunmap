@@ -22,7 +22,30 @@ namespace Kudunmap.Views
                 app.Shutdown(2);
                 return;
             }
-            // The task runs with administrator rights: only use an nmap.exe chosen by hand when it's in Program Files
+            if (Admin.IsAdmin)
+            {
+                // With administrator rights only when KUDUNMAP is installed for all users, and never into a data folder that
+                // leads somewhere else (files written there with these rights could land anywhere).
+                // (A task set up without them can still have them when Windows doesn't ask for them at all.)
+                if (schedule.WithAdmin != false && !ScheduledScans.AdminAllowed(AppInfo.ExePath))
+                {
+                    Finish(app, schedule, null, Lang.T("This scheduled scan ran with administrator rights, but KUDUNMAP is installed just for you. Open KUDUNMAP once and it sets the scan up again without them."), true);
+                    return;
+                }
+                if (InstallPlace.HasRedirect(new[] { AppPaths.Root, AppPaths.History, AppPaths.Running, ScheduledScans.Folder }))
+                {
+                    // Nothing is written there, not even this run's result.
+                    app.Shutdown(1);
+                    return;
+                }
+            }
+            else if (schedule.Options != null && schedule.Options.NeedsAdmin)
+            {
+                Finish(app, schedule, null, ScheduledScans.CantSchedule(schedule.Options, AppInfo.ExePath)
+                    ?? Lang.T("This scan needs administrator rights for {0}.", string.Join(", ", schedule.Options.AdminReasons())), true);
+                return;
+            }
+            // The task may run with administrator rights: only use an nmap.exe chosen by hand when it's in Program Files
             // (which needs administrator rights to change), not one anywhere a normal program could put it.
             var custom = Settings.NmapPath;
             if (!string.IsNullOrEmpty(custom) && !InProgramFiles(custom)) custom = null;

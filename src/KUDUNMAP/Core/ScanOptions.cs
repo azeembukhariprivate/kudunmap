@@ -208,7 +208,10 @@ namespace Kudunmap.Core
             if (o.EffectiveVersions) Add("detect versions", "-sV");
             if (o.DetectOs && o.Kind != ScanKind.Ping) Add("detect operating system", "-O");
 
-            var scripts = new List<string>(o.Scripts ?? new List<string>());
+            // Only Nmap's own script categories: anything else (a script file's name) is never passed on, whatever the
+            // saved options say, as a scan can run with administrator rights.
+            var scripts = (o.Scripts ?? new List<string>()).Select(x => (x ?? string.Empty).Trim().ToLowerInvariant())
+                .Where(x => ScanOptions.SafeCategories.Contains(x) || ScanOptions.AdvancedCategories.Contains(x)).Distinct().ToList();
             if (o.Vulners) scripts.Add("vulners");
             if (scripts.Count == 1 && scripts[0] == "default") Add("default scripts", "-sC");
             else if (scripts.Count > 0) Add("run these scripts", "--script", string.Join(",", scripts));

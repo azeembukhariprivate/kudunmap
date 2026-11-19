@@ -220,6 +220,7 @@ namespace Kudunmap.Views
             _setup.LoadOptions(Options, Presets.Find(Options.PresetId) != null ? Options.PresetId : null);
             FindNmap();
             if (!SelfTest.Running) CheckForUpdatesQuietly();
+            if (!SelfTest.Running) Dispatcher.BeginInvoke(new Action(() => SchedulesWindow.LimitRights(this)), DispatcherPriority.ApplicationIdle);
 
             if (_cmd.ShowHistory) Dispatcher.BeginInvoke(new Action(ShowHistory), DispatcherPriority.ApplicationIdle);
             if (_cmd.ScanNow && Nmap != null) Dispatcher.BeginInvoke(new Action(StartScan), DispatcherPriority.ApplicationIdle);

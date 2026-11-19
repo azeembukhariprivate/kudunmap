@@ -40,9 +40,17 @@ out\KUDUNMAP\KUDUNMAP.exe --self-test        (Windows only)
 - 1.1: `Core/PortNotes.cs` (a plain-words note and level, Fine / Worth a look / Risky, per open port; shown under ports, in
   the "Worth a look" tab and the HTML report), `Core/NetworkMap.cs` (guesses each device's kind; rings around the router;
   drawn by `Views/ResultsExtras.cs`, saved as PNG), `Core/ScheduledScans.cs` (JSON in `Schedules\`, a Task Scheduler task
-  "KUDUNMAP - name (id)" made from XML with RunLevel HighestAvailable, so Windows asks once at setup). The task runs
+  "KUDUNMAP - name (id)" made from XML; RunLevel HighestAvailable only when installed for all users (`InstallPlace.IsProtected`: in
+  Program Files), so Windows asks once at setup; otherwise LeastPrivilege, and scans needing admin can't be scheduled,
+  `ScheduledScans.CantSchedule`). The task runs
   `KUDUNMAP.exe --scheduled <id>` (`Views/ScheduledRun.cs`: no window, History with `ScheduleId`, compares with the run
   before and notifies when something changed). The uninstaller runs `--remove-schedules`.
+
+- Rights (1.2.1): the installer offers all users / just me. Tasks made with admin rights by an earlier version on a
+  just-for-me install are made again without (`SchedulesWindow.LimitRights`: at start, and `--limit-schedules` from the
+  installer, which never asks). `ScheduledRun` refuses to run with admin rights from a just-for-me install or into a data
+  folder that is a link (`InstallPlace.HasRedirect`). Every Nmap run gets `--datadir` (Nmap's own folder, so nothing is
+  loaded from the user's folders) and no NMAPDIR; only Nmap's own script categories reach `--script`.
 
 - Other languages (1.2): the shared `Lang`/`LangUi` (kudu-common) put each window into the chosen language as it's shown.
   Texts built in code (summaries, counts, notifications, the admin and scripts warnings) call `Lang.T` or `Format.Count`

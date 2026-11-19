@@ -55,9 +55,14 @@ namespace Kudunmap.Views
             var card = Ui.Card(table, 0);
             card.ClipToBounds = true;
 
-            var note = Ui.Subtle("Each scheduled scan runs by itself, even when KUDUNMAP is closed (you need to be signed in to Windows). " +
-                                 "Every run is kept in History, and a Windows notification tells you when a device or open port appears or goes away. " +
-                                 "Windows asks for administrator rights once, when a scan is scheduled, so it can use every scan type.", 12, true);
+            var note = Ui.Subtle(ScheduledScans.AdminAllowed(Exe)
+                ? "Each scheduled scan runs by itself, even when KUDUNMAP is closed (you need to be signed in to Windows). " +
+                  "Every run is kept in History, and a Windows notification tells you when a device or open port appears or goes away. " +
+                  "Windows asks for administrator rights once, when a scan is scheduled, so it can use every scan type."
+                : "Each scheduled scan runs by itself, even when KUDUNMAP is closed (you need to be signed in to Windows). " +
+                  "Every run is kept in History, and a Windows notification tells you when a device or open port appears or goes away. " +
+                  "KUDUNMAP is installed just for you, so scheduled scans run without administrator rights and can't use UDP scans, " +
+                  "operating system detection or traceroute. Installed for all users, they can.", 12, true);
 
             var buttons = Ui.Row(add, _change.Margin(8, 0, 0, 0), _runNow.Margin(8, 0, 0, 0), _remove.Margin(8, 0, 0, 0));
             var root = new Grid { Margin = new Thickness(20) };
@@ -120,6 +125,43 @@ namespace Kudunmap.Views
         }
 
         private static string Exe => Process.GetCurrentProcess().MainModule.FileName;
+
+        /// <summary>
+        /// Sets up again, without administrator rights, the scheduled scans whose task has them while KUDUNMAP is installed
+        /// just for you (any program running as you could change what such a task runs). Tasks that are gone stay gone.
+        /// <paramref name="owner"/> null: never asks (right after an update); otherwise Windows may ask once, after a note.
+        /// </summary>
+        public static void LimitRights(Window owner)
+        {
+            List<ScheduledScan> list;
+            try { list = ScheduledScans.NeedingLessRights(Exe); }
+            catch (Exception) { return; }
+            var left = new List<ScheduledScan>();
+            foreach (var sc in list)
+            {
+                try
+                {
+                    if (!ScheduledScans.TaskExists(sc)) sc.WithAdmin = false;
+                    else if (ScheduledScans.Register(sc, Exe, Admin.IsAdmin, DataFolder, false, false) != null)
+                    {
+                        left.Add(sc);
+                        continue;
+                    }
+                    ScheduledScans.Save(sc);
+                }
+                catch (Exception) { /* tried again next time */ }
+            }
+            if (left.Count == 0 || owner == null) return;
+            Dialogs.Info(owner, Lang.T("Your scheduled scans are being set up again to run without administrator rights. That's safer while KUDUNMAP is installed just for you.\n\nWindows asks for permission once, to change them."));
+            foreach (var sc in left)
+            {
+                try
+                {
+                    if (ScheduledScans.Register(sc, Exe, Admin.IsAdmin, DataFolder, false, true) == null) ScheduledScans.Save(sc);
+                }
+                catch (Exception) { /* tried again next time */ }
+            }
+        }
 
         private void Add()
         {

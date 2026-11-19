@@ -30,6 +30,13 @@ namespace Kudunmap
                 Shutdown(0);
                 return;
             }
+            if (cmd.LimitSchedules)
+            {
+                try { SchedulesWindow.LimitRights(null); }
+                catch { /* done again when KUDUNMAP is opened */ }
+                Shutdown(0);
+                return;
+            }
             if (cmd.Scheduled != null)
             {
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;

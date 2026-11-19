@@ -117,9 +117,28 @@ namespace Kudunmap.Core
 
         public bool Cancelled => _cancelled;
 
+        /// <summary>
+        /// The arguments with Nmap's own folder as the place for its files (scripts, the lists of ports and services).
+        /// Otherwise Nmap also looks in your own folders first, where any program could put a script that would then run
+        /// with the scan's rights.
+        /// </summary>
+        public static List<string> WithOwnFiles(string nmapPath, IEnumerable<string> args, Func<string, bool> fileExists = null)
+        {
+            var list = new List<string>();
+            var path = nmapPath ?? string.Empty;
+            var dir = path.Substring(0, Math.Max(0, Math.Max(path.LastIndexOf('\\'), path.LastIndexOf('/'))));
+            if (!string.IsNullOrEmpty(dir) && (fileExists ?? File.Exists)(Path.Combine(dir, "nse_main.lua")))
+            {
+                list.Add("--datadir");
+                list.Add(dir);
+            }
+            list.AddRange(args);
+            return list;
+        }
+
         public void Start(string nmapPath, IEnumerable<string> args, string workingFolder)
         {
-            var psi = new ProcessStartInfo(nmapPath, CommandBuilder.JoinArguments(args))
+            var psi = new ProcessStartInfo(nmapPath, CommandBuilder.JoinArguments(WithOwnFiles(nmapPath, args)))
             {
                 UseShellExecute = false,
                 CreateNoWindow = true,
@@ -127,6 +146,7 @@ namespace Kudunmap.Core
                 RedirectStandardError = true,
                 WorkingDirectory = workingFolder
             };
+            psi.EnvironmentVariables.Remove("NMAPDIR"); // another place Nmap would look for its files
 
             _process = new Process { StartInfo = psi, EnableRaisingEvents = true };
             _process.OutputDataReceived += (s, e) => OnLine(e.Data);

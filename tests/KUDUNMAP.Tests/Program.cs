@@ -29,6 +29,7 @@ namespace Kudunmap.Tests
             Run("Port notes: what each open port is and what it could risk", PortNotesInPlainWords);
             Run("Network map: what each device is, and where it's drawn", NetworkMapGuessesAndPlaces);
             Run("Scheduled scans: kept, made into a Windows task, and alerts in plain words", ScheduledScansWork);
+            Run("Administrator rights: only for files only administrators can change", AdminRightsOnlyWhenSafe);
 
             Console.WriteLine();
             Console.WriteLine($"{_passes} passed, {_failures} failed");
@@ -399,6 +400,36 @@ namespace Kudunmap.Tests
             Equal("Router", router.KindText, "named in plain words");
         }
 
+        private static void AdminRightsOnlyWhenSafe()
+        {
+            var roots = new[] { @"C:\Program Files", @"C:\Program Files (x86)" };
+            Check(InstallPlace.IsUnder(@"C:\Program Files\KUDUNMAP\KUDUNMAP.exe", roots), "installed for all users");
+            Check(InstallPlace.IsUnder(@"c:\program files (x86)\KUDUNMAP\KUDUNMAP.exe", roots), "upper and lower case alike");
+            Check(!InstallPlace.IsUnder(@"C:\Users\a\AppData\Local\Programs\KUDUNMAP\KUDUNMAP.exe", roots), "installed just for you");
+            Check(!InstallPlace.IsUnder(@"C:\Program Files Evil\KUDUNMAP.exe", roots), "a folder that only starts the same");
+            Check(!InstallPlace.IsUnder(@"C:\Program Files\..\Users\a\KUDUNMAP.exe", roots), "a way out with ..");
+            Check(!InstallPlace.IsUnder(null, roots) && !InstallPlace.IsUnder(@"C:\Program Files", roots), "nothing, or the folder itself");
+
+            // Scripts: only Nmap's own categories reach the command, whatever saved options say.
+            var o = new ScanOptions { Targets = "10.0.0.1", Scripts = new List<string> { "default", "C:\\Users\\a\\evil.nse", "VULN", "default,../x", "brute" } };
+            var args = CommandBuilder.BuildArguments(o, true, @"C:\x.xml");
+            var i = args.IndexOf("--script");
+            Check(i >= 0 && args[i + 1] == "default,vuln,brute", "only known categories: " + string.Join(" ", args));
+            o.Scripts = new List<string> { "../../evil" };
+            Check(!CommandBuilder.BuildArguments(o, true, @"C:\x.xml").Any(a => a.Contains("evil")), "a script file never passed on");
+
+            // Nmap's own folder for its files, so it doesn't look in folders any program could put a script in.
+            var withFiles = NmapRunner.WithOwnFiles(@"C:\Program Files (x86)\Nmap\nmap.exe", new[] { "-sT", "10.0.0.1" }, f => f.EndsWith("nse_main.lua"));
+            Equal(@"--datadir|C:\Program Files (x86)\Nmap|-sT|10.0.0.1", string.Join("|", withFiles), "its own folder first");
+            Equal("-sT", NmapRunner.WithOwnFiles(@"C:\x\nmap.exe", new[] { "-sT" }, f => false).Single(), "left as it is when the folder has no Nmap files");
+
+            // Installed just for you: a scan that needs administrator rights can't be scheduled.
+            var exe = @"C:\Users\a\AppData\Local\Programs\KUDUNMAP\KUDUNMAP.exe";
+            Check(ScheduledScans.CantSchedule(new ScanOptions { DetectOs = true }, exe)?.Contains("operating system detection") == true, "said in plain words");
+            Equal(null, ScheduledScans.CantSchedule(new ScanOptions(), exe), "an ordinary scan can");
+            Check(!ScheduledScans.AdminAllowed(exe), "no administrator rights for tasks then");
+        }
+
         private static void ScheduledScansWork()
         {
             var saved = AppPaths.Root;
@@ -413,10 +444,12 @@ namespace Kudunmap.Tests
                 Equal("Every 3 hours", new ScheduledScan { Every = ScanEvery.Hourly, Hours = 3 }.When, "hourly");
                 Equal("Every day at 02:00", new ScheduledScan().When, "daily at 2 at night to start with");
 
-                var xml = ScheduledScans.TaskXml(s, @"C:\Program Files\KUDUNMAP\KUDUNMAP.exe", @"PC\Azeem & co", new DateTime(2026, 11, 3), @"C:\data");
+                var xml = ScheduledScans.TaskXml(s, @"C:\Program Files\KUDUNMAP\KUDUNMAP.exe", @"PC\Azeem & co", new DateTime(2026, 11, 3), @"C:\data", withAdmin: true);
                 var doc = System.Xml.Linq.XDocument.Parse(xml);
                 var ns = (System.Xml.Linq.XNamespace)"http://schemas.microsoft.com/windows/2004/02/mit/task";
-                Equal("HighestAvailable", doc.Descendants(ns + "RunLevel").Single().Value, "runs with administrator rights");
+                Equal("HighestAvailable", doc.Descendants(ns + "RunLevel").Single().Value, "installed for all users: runs with administrator rights");
+                var limited = System.Xml.Linq.XDocument.Parse(ScheduledScans.TaskXml(s, @"C:\Users\a\AppData\Local\Programs\KUDUNMAP\KUDUNMAP.exe", "PC\\a", new DateTime(2026, 11, 3)));
+                Equal("LeastPrivilege", limited.Descendants(ns + "RunLevel").Single().Value, "otherwise without them");
                 Equal("InteractiveToken", doc.Descendants(ns + "LogonType").Single().Value, "as you, when you're signed in (so the notification shows)");
                 Equal(@"PC\Azeem & co", doc.Descendants(ns + "UserId").Single().Value, "escaped properly");
                 Equal("2026-11-03T02:30:00", doc.Descendants(ns + "StartBoundary").Single().Value, "at the time chosen");

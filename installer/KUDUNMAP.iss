@@ -3,7 +3,7 @@
 ; Nmap is NOT included: KUDUNMAP asks the user to install it from nmap.org.
 
 #ifndef MyAppVersion
-  #define MyAppVersion "1.2.0"
+  #define MyAppVersion "1.2.1"
 #endif
 #ifndef SourceDir
   #define SourceDir "..\out\KUDUNMAP"
@@ -26,6 +26,10 @@ DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
+; "Install for all users" puts KUDUNMAP in Program Files, where only administrators can change it: scheduled scans may
+; then run with administrator rights. Installed just for you, they run without them.
+PrivilegesRequiredOverridesAllowed=dialog commandline
+UsedUserAreasWarning=no
 OutputDir=Output
 OutputBaseFilename=KUDUNMAP-{#MyAppVersion}-setup
 SetupIconFile=..\src\KUDUNMAP\Assets\KUDUNMAP.ico
@@ -52,6 +56,8 @@ Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExe}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExe}"; Tasks: desktopicon
 
 [Run]
+; Installed just for you: scheduled scans made with administrator rights are set up again without them.
+Filename: "{app}\{#MyAppExe}"; Parameters: "--limit-schedules"; Flags: runhidden waituntilterminated; Check: not IsAdminInstallMode
 Filename: "{app}\{#MyAppExe}"; Description: "Open KUDUNMAP now"; Flags: nowait postinstall skipifsilent
 
 [UninstallRun]

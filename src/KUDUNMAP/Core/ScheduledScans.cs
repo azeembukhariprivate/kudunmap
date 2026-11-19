@@ -28,6 +28,8 @@ namespace Kudunmap.Core
         [DataMember] public int Day { get; set; } = 1;
         [DataMember] public DateTime LastRun { get; set; }
         [DataMember] public string LastResult { get; set; } = string.Empty;
+        /// <summary>Whether Windows' task runs the scan with administrator rights; null for tasks made before 1.2.1 (they did).</summary>
+        [DataMember] public bool? WithAdmin { get; set; }
         public string File { get; set; }
 
         private static readonly string[] DayNames = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
@@ -101,8 +103,21 @@ namespace Kudunmap.Core
         public static string Arguments(ScheduledScan s, string dataFolder = null) =>
             "--scheduled " + s.Id + (string.IsNullOrEmpty(dataFolder) ? string.Empty : " --data " + CommandBuilder.JoinArguments(new[] { dataFolder }));
 
-        /// <summary>The task, in Task Scheduler's XML: runs as you, when you're signed in, with administrator rights.</summary>
-        public static string TaskXml(ScheduledScan s, string exe, string user, DateTime today, string dataFolder = null)
+        /// <summary>
+        /// Whether a scheduled scan may run with administrator rights: only when KUDUNMAP is installed for all users, so
+        /// that no program running as you can change what Windows runs with those rights.
+        /// </summary>
+        public static bool AdminAllowed(string exe) => InstallPlace.IsProtected(exe);
+
+        /// <summary>The scheduled scans whose task runs with administrator rights although KUDUNMAP is installed just for you.</summary>
+        public static List<ScheduledScan> NeedingLessRights(string exe) =>
+            AdminAllowed(exe) ? new List<ScheduledScan>() : List().Where(s => s.WithAdmin != false).ToList();
+
+        /// <summary>
+        /// The task, in Task Scheduler's XML: runs as you, when you're signed in; with administrator rights only when
+        /// <paramref name="withAdmin"/>.
+        /// </summary>
+        public static string TaskXml(ScheduledScan s, string exe, string user, DateTime today, string dataFolder = null, bool withAdmin = false)
         {
             var at = today.Date.AddMinutes(Math.Max(0, Math.Min(24 * 60 - 1, s.Minutes))).ToString("yyyy-MM-ddTHH:mm:ss");
             string trigger;
@@ -125,7 +140,7 @@ namespace Kudunmap.Core
                    "<Task version=\"1.2\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">" +
                    "<RegistrationInfo><Author>KUDUNMAP</Author><Description>" + Escape($"Runs the KUDUNMAP scan \"{s.Name}\" ({s.When.ToLowerInvariant()}) and says if anything changed.") + "</Description></RegistrationInfo>" +
                    "<Triggers>" + trigger + "</Triggers>" +
-                   "<Principals><Principal id=\"Author\"><UserId>" + Escape(user) + "</UserId><LogonType>InteractiveToken</LogonType><RunLevel>HighestAvailable</RunLevel></Principal></Principals>" +
+                   "<Principals><Principal id=\"Author\"><UserId>" + Escape(user) + "</UserId><LogonType>InteractiveToken</LogonType><RunLevel>" + (withAdmin ? "HighestAvailable" : "LeastPrivilege") + "</RunLevel></Principal></Principals>" +
                    "<Settings><MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy><DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>" +
                    "<StopIfGoingOnBatteries>false</StopIfGoingOnBatteries><AllowHardTerminate>true</AllowHardTerminate><StartWhenAvailable>true</StartWhenAvailable>" +
                    "<RunOnlyIfNetworkAvailable>true</RunOnlyIfNetworkAvailable><IdleSettings><StopOnIdleEnd>false</StopOnIdleEnd><RestartOnIdle>false</RestartOnIdle></IdleSettings>" +
@@ -167,18 +182,44 @@ namespace Kudunmap.Core
         // ================================================================ Windows' Task Scheduler
 
         /// <summary>
-        /// Creates or replaces the scan's task. Making a task that runs with administrator rights needs them, so Windows
-        /// asks here when KUDUNMAP isn't already running with them. Returns null, or what went wrong.
+        /// Why a scan can't be scheduled the way KUDUNMAP is installed, or null. Installed just for you, scheduled scans
+        /// run without administrator rights, so a scan that needs them for something can't be.
+        /// </summary>
+        public static string CantSchedule(ScanOptions o, string exe)
+        {
+            if (o == null || AdminAllowed(exe) || !o.NeedsAdmin) return null;
+            return Lang.T("This scan needs administrator rights for {0}. Scheduled scans get them only when KUDUNMAP is installed for all users.\n\nTurn those off for this scan, or install KUDUNMAP again and choose \"Install for all users\".",
+                string.Join(", ", o.AdminReasons()));
+        }
+
+        /// <summary>
+        /// Creates or replaces the scan's task: with administrator rights when KUDUNMAP is installed for all users (Windows
+        /// asks here when KUDUNMAP isn't already running with them), otherwise without. Returns null, or what went wrong.
         /// </summary>
         public static string Apply(ScheduledScan s, string exe, bool isAdmin, string dataFolder = null)
+        {
+            var cant = CantSchedule(s.Options, exe);
+            return cant ?? Register(s, exe, isAdmin, dataFolder, AdminAllowed(exe), true);
+        }
+
+        /// <summary>
+        /// Writes the scan's task. <paramref name="mayAsk"/>: whether Windows may ask for administrator rights (to make a
+        /// task that has them, or to replace one made with them).
+        /// </summary>
+        public static string Register(ScheduledScan s, string exe, bool isAdmin, string dataFolder, bool withAdmin, bool mayAsk)
         {
             var file = Path.Combine(AppPaths.Running, "task-" + Guid.NewGuid().ToString("N") + ".xml");
             try
             {
-                System.IO.File.WriteAllText(file, TaskXml(s, exe, CurrentUser(), DateTime.Today, dataFolder), Encoding.Unicode);
-                var (code, output) = SchTasks(!isAdmin, "/Create", "/TN", TaskName(s), "/XML", file, "/F");
+                System.IO.File.WriteAllText(file, TaskXml(s, exe, CurrentUser(), DateTime.Today, dataFolder, withAdmin), Encoding.Unicode);
+                var args = new[] { "/Create", "/TN", TaskName(s), "/XML", file, "/F" };
+                var (code, output) = SchTasks(withAdmin && !isAdmin, args);
+                // A task made earlier with administrator rights may only be replaced with them.
+                if (code != 0 && code != 1223 && !withAdmin && !isAdmin && mayAsk) (code, output) = SchTasks(true, args);
                 if (code == 1223) return "Windows' question about administrator rights was answered No, so the scan wasn't scheduled.";
-                return code == 0 ? null : "Windows Task Scheduler said: " + (string.IsNullOrWhiteSpace(output) ? "error " + code : output.Trim());
+                if (code != 0) return "Windows Task Scheduler said: " + (string.IsNullOrWhiteSpace(output) ? "error " + code : output.Trim());
+                s.WithAdmin = withAdmin;
+                return null;
             }
             finally
             {
@@ -201,6 +242,15 @@ namespace Kudunmap.Core
             if (SchTasks(false, "/Delete", "/TN", name, "/F").Code == 0) return true;
             if (SchTasks(false, "/Query", "/TN", name).Code != 0) return true; // already gone
             return SchTasks(true, "/Delete", "/TN", name, "/F").Code == 0;
+        }
+
+        /// <summary>The run level of the scan's task in Task Scheduler ("HighestAvailable", "LeastPrivilege"), or null.</summary>
+        public static string TaskRunLevel(ScheduledScan s)
+        {
+            var (code, output) = SchTasks(false, "/Query", "/TN", TaskName(s), "/XML");
+            if (code != 0) return null;
+            var m = System.Text.RegularExpressions.Regex.Match(output, "<RunLevel>(\\w+)</RunLevel>");
+            return m.Success ? m.Groups[1].Value : "LeastPrivilege"; // Windows leaves it out when it's the lowest
         }
 
         /// <summary>Starts the scan's task now.</summary>

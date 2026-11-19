@@ -51,7 +51,7 @@ KUDUNMAP is the window, Nmap does the scanning. **Nmap is not included.** Instal
 
 **[Download the installer](https://github.com/azeembukhariprivate/kudunmap/releases/latest/download/KUDUNMAP-setup.exe)** (`KUDUNMAP-setup.exe`, always the latest version), or get any of these from the [Releases page](https://github.com/azeembukhariprivate/kudunmap/releases/latest):
 
-- `KUDUNMAP-x.y.z-setup.exe`: installs for your user account and adds a Start menu entry.
+- `KUDUNMAP-x.y.z-setup.exe`: adds a Start menu entry. It asks whether to install for all users (in Program Files: Windows asks for administrator rights once, and scheduled scans can use every scan type) or just for you (no administrator rights needed).
 - `KUDUNMAP-x.y.z-portable.zip`: unzip anywhere and run `KUDUNMAP.exe`. Nothing is installed.
 
 Requires Windows 10 or 11. The .NET Framework 4.8 it uses is already part of Windows.
@@ -70,7 +70,9 @@ KUDUNMAP starts as a normal user. Most scans work that way. A few need administr
 
 Those are marked with a 🛡️ shield. When you start one, KUDUNMAP offers to restart itself as administrator and carry on with the same options. As administrator, TCP scans also use Nmap's faster SYN scan instead of a connect scan.
 
-Scheduled scans run with administrator rights, so they can use every scan type. Windows asks once, when you schedule a scan, and not again each time it runs. Uninstalling KUDUNMAP removes its scheduled scans from Windows.
+Scheduled scans run with administrator rights only when KUDUNMAP is installed for all users, so they can use every scan type. Windows asks once, when you schedule a scan, and not again each time it runs. Installed just for you, scheduled scans run without administrator rights (a connect scan; UDP scans, operating system detection and traceroute can't be scheduled): KUDUNMAP's files are then in your own folder, where any program could change them, so nothing runs them with those rights without Windows asking first. Scans made by an earlier version are set up again that way when you open KUDUNMAP. Uninstalling KUDUNMAP removes its scheduled scans from Windows.
+
+Every scan tells Nmap to use only its own folder for its scripts and lists, and only Nmap's own script groups are ever passed on, so a scan with administrator rights never picks up a script from anywhere else.
 
 ## About the vulnerability check
 

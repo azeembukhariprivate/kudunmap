@@ -202,6 +202,29 @@ namespace Kudunmap.Views
                 try
                 {
                     if (!ScheduledScans.TaskExists(sc)) throw new Exception("the Windows task wasn't made");
+                    // The build's copy isn't in Program Files: its tasks never get administrator rights.
+                    var protectedInstall = ScheduledScans.AdminAllowed(AppInfo.ExePath);
+                    var level = ScheduledScans.TaskRunLevel(sc);
+                    if (level != (protectedInstall ? "HighestAvailable" : "LeastPrivilege") || sc.WithAdmin != protectedInstall)
+                        throw new Exception("the task's rights: " + level + ", kept as " + sc.WithAdmin);
+                    if (!protectedInstall)
+                    {
+                        if (ScheduledScans.CantSchedule(new ScanOptions { Targets = "127.0.0.1", DetectOs = true }, AppInfo.ExePath) == null)
+                            throw new Exception("a scan needing administrator rights could be scheduled");
+                        // A task made with administrator rights by an earlier version is set up again without them.
+                        problem = ScheduledScans.Register(sc, AppInfo.ExePath, Admin.IsAdmin, temp, true, false);
+                        if (problem != null) throw new Exception("couldn't make an old-style task: " + problem);
+                        sc.WithAdmin = null;
+                        ScheduledScans.Save(sc);
+                        if (ScheduledScans.TaskRunLevel(sc) != "HighestAvailable") throw new Exception("the old-style task wasn't made");
+                        var keep = SchedulesWindow.DataFolder;
+                        SchedulesWindow.DataFolder = temp;
+                        try { SchedulesWindow.LimitRights(null); }
+                        finally { SchedulesWindow.DataFolder = keep; }
+                        sc = ScheduledScans.Find(sc.Id);
+                        if (ScheduledScans.TaskRunLevel(sc) != "LeastPrivilege" || sc.WithAdmin != false)
+                            throw new Exception("the old-style task still has administrator rights: " + ScheduledScans.TaskRunLevel(sc));
+                    }
                     var window = new SchedulesWindow(main);
                     OffScreen(window);
                     window.Show();
