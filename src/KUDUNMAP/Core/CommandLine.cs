@@ -19,6 +19,9 @@ namespace Kudunmap.Core
         public string Preset { get; private set; }
         public bool ScanNow { get; private set; }
         public bool SelfTest { get; private set; }
+
+        /// <summary>--install-check: run by the build on a copy installed for all users (Views/InstallCheck.cs).</summary>
+        public bool InstallCheck { get; private set; }
         public bool ShowHistory { get; private set; }
 
         /// <summary>The scheduled scan to run without a window.</summary>
@@ -104,6 +107,11 @@ namespace Kudunmap.Core
                 if (arg.Equals("--scan", StringComparison.OrdinalIgnoreCase))
                 {
                     cmd.ScanNow = true;
+                    continue;
+                }
+                if (arg.Equals("--install-check", StringComparison.OrdinalIgnoreCase))
+                {
+                    cmd.InstallCheck = true;
                     continue;
                 }
                 if (arg.Equals("--self-test", StringComparison.OrdinalIgnoreCase))

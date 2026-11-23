@@ -43,6 +43,12 @@ namespace Kudunmap
                 ScheduledRun.Start(this, cmd.Scheduled);
                 return;
             }
+            if (cmd.InstallCheck)
+            {
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                Shutdown(InstallCheck.Run());
+                return;
+            }
             if (cmd.SelfTest)
             {
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;

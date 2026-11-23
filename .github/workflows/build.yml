@@ -107,6 +107,27 @@ jobs:
           & $iscc "/DMyAppVersion=${{ steps.ver.outputs.version }}" "/DSourceDir=$PWD\out\KUDUNMAP" "/O$PWD\artifacts" installer\KUDUNMAP.iss
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+      - name: Install for all users and check scheduled scans with administrator rights
+        shell: pwsh
+        run: |
+          # What would otherwise be checked by hand: installed for all users (Program Files), a scan needing administrator
+          # rights may be scheduled, its task has them, and the run is let through. Then it's uninstalled again.
+          $setup = (Resolve-Path "artifacts/KUDUNMAP-${{ steps.ver.outputs.version }}-setup.exe").Path
+          $p = Start-Process -FilePath $setup -ArgumentList '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/ALLUSERS' -PassThru -Wait
+          if ($p.ExitCode -ne 0) { Write-Host "The installer ended with $($p.ExitCode)"; exit 1 }
+          $exe = @("$env:ProgramFiles\KUDUNMAP\KUDUNMAP.exe", "${env:ProgramFiles(x86)}\KUDUNMAP\KUDUNMAP.exe") | Where-Object { Test-Path $_ } | Select-Object -First 1
+          if (-not $exe) { Write-Host "KUDUNMAP wasn't installed in Program Files"; exit 1 }
+          Write-Host "Installed at $exe"
+          $c = Start-Process -FilePath $exe -ArgumentList '--install-check' -PassThru
+          if (-not $c.WaitForExit(300000)) { $c.Kill(); Write-Host "The check timed out"; exit 1 }
+          Get-Content "$env:TEMP\kudunmap-install-check.log" -ErrorAction SilentlyContinue
+          $code = $c.ExitCode
+          $un = Join-Path (Split-Path $exe) "unins000.exe"
+          $u = Start-Process -FilePath $un -ArgumentList '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART' -PassThru -Wait
+          if (Test-Path $exe) { Start-Sleep -Seconds 5 }
+          if (Test-Path $exe) { Write-Host "KUDUNMAP is still there after uninstalling"; exit 1 }
+          if ($code -ne 0) { Write-Host "The install check failed ($code)"; exit 1 }
+
       - name: Upload build files
         uses: actions/upload-artifact@v6
         with:
