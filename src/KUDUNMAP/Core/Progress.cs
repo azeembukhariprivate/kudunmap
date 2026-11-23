@@ -1,3 +1,5 @@
+// Follows a scan as it goes, from Nmap's output: which part it's on, how far, how long is left; and a way to sort
+// addresses by number.
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -6,22 +8,31 @@ using System.Text.RegularExpressions;
 
 namespace Kudunmap.Core
 {
+    /// <summary>The parts of a scan, in order.</summary>
     public enum Phase { Starting, FindHosts, ScanPorts, Versions, Os, Scripts, Traceroute, Finishing }
 
     /// <summary>Reads Nmap's normal text output line by line and keeps track of what it's doing.</summary>
     public sealed class ProgressTracker
     {
+        /// <summary>Nmap's "About 40% done; ETC ... (0:01:20 remaining)" lines.</summary>
         private static readonly Regex Timing = new Regex(
             @"^(?<what>.+?) Timing: About (?<pct>[\d.]+)% done(?:; ETC: \S+ \((?<left>[\d:]+) remaining\))?",
             RegexOptions.CultureInvariant);
+        /// <summary>Nmap's "Initiating ... scan" lines, saying a new part starts.</summary>
         private static readonly Regex Initiating = new Regex(@"^Initiating (?<what>.+?)(?: at \d|\s*\(|$)", RegexOptions.CultureInvariant);
+        /// <summary>Nmap's "Discovered open port" lines.</summary>
         private static readonly Regex Discovered = new Regex(
             @"^Discovered open port (?<port>\d+)/(?<proto>\w+) on (?<host>\S+)", RegexOptions.CultureInvariant);
+        /// <summary>Nmap's "Nmap scan report for" lines, one per host found.</summary>
         private static readonly Regex HostUp = new Regex(@"^Nmap scan report for (?<name>\S+)(?: \((?<ip>[^)]+)\))?", RegexOptions.CultureInvariant);
 
+        /// <summary>The part of the scan it's on.</summary>
         public Phase Phase { get; private set; } = Phase.Starting;
+        /// <summary>How far the scan is, 0 to 100.</summary>
         public double Percent { get; private set; }
+        /// <summary>About how long is left, when Nmap says.</summary>
         public TimeSpan? Remaining { get; private set; }
+        /// <summary>What it's doing now, in words.</summary>
         public string Activity { get; private set; } = "Starting Nmap…";
 
         /// <summary>Host address → open ports seen so far ("80/tcp"), in the order they were found.</summary>
@@ -90,6 +101,7 @@ namespace Kudunmap.Core
             return false;
         }
 
+        /// <summary>Works out the part of the scan from an "Initiating" line.</summary>
         private void SetPhase(string what)
         {
             var w = what.ToLowerInvariant();
@@ -125,6 +137,7 @@ namespace Kudunmap.Core
             }
         }
 
+        /// <summary>A time like "0:01:20" as a TimeSpan.</summary>
         private static TimeSpan? ParseRemaining(string s)
         {
             if (string.IsNullOrEmpty(s)) return null;
@@ -151,6 +164,7 @@ namespace Kudunmap.Core
     /// <summary>Sorts IPv4 addresses numerically (192.168.1.2 before 192.168.1.10), other text alphabetically.</summary>
     public sealed class AddressComparer : IComparer<string>
     {
+        /// <summary>Sorts two addresses.</summary>
         public int Compare(string a, string b)
         {
             var ka = Key(a);
@@ -161,6 +175,7 @@ namespace Kudunmap.Core
             return string.Compare(a, b, StringComparison.OrdinalIgnoreCase);
         }
 
+        /// <summary>An IPv4 address as one number, or null when it isn't one.</summary>
         private static long? Key(string s)
         {
             var parts = (s ?? string.Empty).Split('.');

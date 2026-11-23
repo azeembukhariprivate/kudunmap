@@ -1,3 +1,5 @@
+// KUDUNMAP.exe --self-test: drives the real windows with a sample result, keeping screenshots (run by the build on
+// Windows).
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,9 +18,12 @@ namespace Kudunmap.Views
     /// </summary>
     public static class SelfTest
     {
+        /// <summary>True while the self-test runs (errors are kept instead of shown).</summary>
         public static bool Running { get; private set; }
+        /// <summary>Errors that weren't expected.</summary>
         public static List<string> Errors { get; } = new List<string>();
 
+        /// <summary>A small Nmap results file to show.</summary>
         private const string SampleXml = @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <!DOCTYPE nmaprun>
 <nmaprun scanner=""nmap"" args=""nmap -sT -sV --script vuln,vulners --open -T4 192.168.1.0/24"" start=""1760982060"" version=""7.95"" xmloutputversion=""1.05"">
@@ -40,6 +45,7 @@ namespace Kudunmap.Views
 <runstats><finished time=""1760982166"" elapsed=""106.21"" summary=""Nmap done; 256 IP addresses (2 hosts up) scanned in 106.21 seconds"" exit=""success""/>
 <hosts up=""2"" down=""254"" total=""256""/></runstats></nmaprun>";
 
+        /// <summary>Runs every step and returns 0 when all passed.</summary>
         public static int Run()
         {
             Running = true;
@@ -302,11 +308,13 @@ namespace Kudunmap.Views
             return Errors.Count == 0 ? 0 : 1;
         }
 
+        /// <summary>Fails when ok isn't true.</summary>
         private static void Expect(bool ok, string what)
         {
             if (!ok) throw new Exception("expected " + what);
         }
 
+        /// <summary>Puts a window where it can't be seen.</summary>
         private static void OffScreen(Window w)
         {
             w.WindowStartupLocation = WindowStartupLocation.Manual;
@@ -317,6 +325,7 @@ namespace Kudunmap.Views
             w.ShowInTaskbar = false;
         }
 
+        /// <summary>Shows a window, takes its screenshot and closes it.</summary>
         private static void ShowAndClose(Window w)
         {
             OffScreen(w);

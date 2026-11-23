@@ -1,3 +1,5 @@
+// The results view: the progress while scanning, the summary, and the tabs (hosts, problems found, worth a look, map,
+// Nmap's output, details).
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,31 +20,48 @@ namespace Kudunmap.Views
     /// <summary>Shows a running scan (progress and live output) and finished results (hosts, ports, vulnerabilities).</summary>
     public sealed partial class ResultsView : Grid
     {
+        /// <summary>The main window.</summary>
         private readonly MainWindow _main;
+        /// <summary>The top: the progress card or the summary.</summary>
         private readonly Border _top = new Border();
+        /// <summary>Where the tab chosen is shown.</summary>
         private readonly Border _content = new Border();
+        /// <summary>The tab buttons, by number.</summary>
         private readonly Dictionary<int, RadioButton> _tabs = new Dictionary<int, RadioButton>();
+        /// <summary>The count shown on the problems tab.</summary>
         private readonly Border _vulnChipHost = new Border { Margin = new Thickness(6, 0, 0, 0) };
 
         // Hosts & ports
         private readonly Grid _hostsPanel;
+        /// <summary>Filters the hosts by text.</summary>
         private readonly TextBox _filter = new TextBox { MinHeight = 32, FontSize = 12 };
+        /// <summary>The list of hosts.</summary>
         private readonly ListBox _hostList = new ListBox().Styled("TableList");
+        /// <summary>The host chosen: its details and ports.</summary>
         private readonly StackPanel _hostDetail = new StackPanel();
 
         // Vulnerabilities
         private readonly Grid _vulnPanel;
+        /// <summary>Buttons to show only problems of one level.</summary>
         private readonly WrapPanel _vulnFilters = new WrapPanel();
+        /// <summary>A note about the online look-up (vulners).</summary>
         private readonly TextBlock _vulnersNote = Ui.Subtle(string.Empty, 12, false);
+        /// <summary>The list of problems found.</summary>
         private readonly ListBox _vulnList = new ListBox().Styled("TableList");
+        /// <summary>The problem chosen, and the list.</summary>
         private readonly Grid _vulnDetail = Ui.Columns(Ui.Star(), Ui.Px(12), Ui.Px(330));
+        /// <summary>What's shown when no problems were found.</summary>
         private readonly Border _vulnEmpty = new Border { Padding = new Thickness(24) };
+        /// <summary>The level shown (null for all).</summary>
         private Severity? _severityFilter;
 
         // Raw output
         private readonly Grid _rawPanel;
+        /// <summary>Nmap's output.</summary>
         private readonly TextBox _raw = Ui.MonoBox(false);
+        /// <summary>The hosts and ports found so far, while scanning.</summary>
         private readonly ListBox _foundList = new ListBox().Styled("TableList");
+        /// <summary>The heading over them.</summary>
         private readonly TextBlock _foundTitle = Ui.Heading("Found so far", 13);
 
         // Details
@@ -50,18 +69,29 @@ namespace Kudunmap.Views
 
         // Progress
         private readonly TextBlock _progressTitle = Ui.Heading(string.Empty, 14);
+        /// <summary>The time left.</summary>
         private readonly TextBlock _progressLeft = Ui.Subtle(string.Empty, 12.5, false);
+        /// <summary>How far, in percent.</summary>
         private readonly TextBlock _progressPercent = Ui.Text(string.Empty, 20, bold: true);
+        /// <summary>The progress bar.</summary>
         private readonly ProgressBar _progressBar = new ProgressBar { Height = 6, Minimum = 0, Maximum = 100 };
+        /// <summary>The parts of the scan, marked as they're done.</summary>
         private readonly StackPanel _steps = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 10, 0, 0) };
+        /// <summary>The card with the progress.</summary>
         private Border _progressCard;
+        /// <summary>The parts of this scan, in order.</summary>
         private List<(Phase Phase, string Name)> _stepList = new List<(Phase, string)>();
 
+        /// <summary>The results shown.</summary>
         private ScanResult _result;
+        /// <summary>The options they were scanned with.</summary>
         private ScanOptions _options;
+        /// <summary>Where they're kept in History.</summary>
         private HistoryEntry _entry;
+        /// <summary>The problems found.</summary>
         private List<Vulnerability> _vulns = new List<Vulnerability>();
 
+        /// <summary>Makes the results view.</summary>
         public ResultsView(MainWindow main)
         {
             _main = main;
@@ -95,6 +125,7 @@ namespace Kudunmap.Views
             SelectTab(0);
         }
 
+        /// <summary>Adds a tab button.</summary>
         private void AddTab(Panel bar, object header, int index)
         {
             var tab = new RadioButton { Content = header, GroupName = "resultTabs" }.Styled("TabRadio");
@@ -103,8 +134,10 @@ namespace Kudunmap.Views
             bar.Children.Add(tab);
         }
 
+        /// <summary>Shows a tab.</summary>
         public void SelectTab(int index) => _tabs[index].IsChecked = true;
 
+        /// <summary>Shows a tab's panel.</summary>
         private void ShowTab(int index)
         {
             switch (index)
@@ -120,6 +153,7 @@ namespace Kudunmap.Views
 
         // ================================================================== building the tabs
 
+        /// <summary>The hosts tab: a filter, the list, and the host chosen.</summary>
         private Grid BuildHostsPanel()
         {
             var grid = Ui.Columns(Ui.Px(430), Ui.Star());
@@ -148,6 +182,7 @@ namespace Kudunmap.Views
             return grid;
         }
 
+        /// <summary>A row of column headings.</summary>
         private static Grid Header(GridLength[] widths, params string[] titles)
         {
             var g = Ui.Columns(widths);
@@ -156,6 +191,7 @@ namespace Kudunmap.Views
             return g.WithBottomLine();
         }
 
+        /// <summary>The problems tab: level buttons, the list, and the problem chosen.</summary>
         private Grid BuildVulnPanel()
         {
             var grid = new Grid();
@@ -182,8 +218,10 @@ namespace Kudunmap.Views
             return grid;
         }
 
+        /// <summary>The widths of the problems list's columns.</summary>
         private static readonly GridLength[] VulnColumns = { Ui.Px(100), Ui.Star(), Ui.Px(170), Ui.Px(160), Ui.Px(150) };
 
+        /// <summary>Nmap's output tab.</summary>
         private Grid BuildRawPanel()
         {
             var grid = Ui.Columns(Ui.Star(), Ui.Px(420));
@@ -201,6 +239,7 @@ namespace Kudunmap.Views
 
         // ================================================================== running scan
 
+        /// <summary>Gets ready for a scan: the progress card with the parts of this scan, and empty lists.</summary>
         public void BeginScan(ScanOptions options)
         {
             _options = options;
@@ -239,9 +278,11 @@ namespace Kudunmap.Views
             SelectTab(2);
         }
 
+        /// <summary>The addresses scanned, as one text.</summary>
         private static string TargetText(ScanOptions o) =>
             string.IsNullOrEmpty(o.TargetFile) ? o.Targets.Trim() : Path.GetFileName(o.TargetFile);
 
+        /// <summary>Adds Nmap's output.</summary>
         public void AppendOutput(string text)
         {
             var atEnd = _raw.VerticalOffset + _raw.ViewportHeight >= _raw.ExtentHeight - 4;
@@ -249,6 +290,7 @@ namespace Kudunmap.Views
             if (atEnd) _raw.ScrollToEnd();
         }
 
+        /// <summary>Shows the progress: the part, percent, time left, and what was found so far.</summary>
         public void UpdateProgress(ProgressTracker t)
         {
             _progressLeft.Text = t.Remaining.HasValue
@@ -278,6 +320,7 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>Marks the parts done, the one going on and those to come.</summary>
         private void UpdateSteps(Phase current)
         {
             _steps.Children.Clear();
@@ -298,6 +341,7 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>A time left in words, like "about 2 minutes".</summary>
         private static string FriendlyTime(TimeSpan t)
         {
             if (t.TotalHours >= 1) return $"{(int)t.TotalHours} h {t.Minutes} min";
@@ -321,6 +365,7 @@ namespace Kudunmap.Views
 
         // ================================================================== finished results
 
+        /// <summary>Shows a scan's results in every tab.</summary>
         public void ShowResult(ScanResult result, ScanOptions options, HistoryEntry entry, string output)
         {
             _result = result;
@@ -348,6 +393,7 @@ namespace Kudunmap.Views
             SelectTab(_vulns.Count > 0 && (options.HasScript("vuln") || options.Vulners) ? 1 : 0);
         }
 
+        /// <summary>Fills "found so far" from the results.</summary>
         private void FillFoundFromResult()
         {
             _foundList.Items.Clear();
@@ -362,6 +408,9 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>
+        /// The summary at the top: counts, how long it took, and buttons to scan again, compare and save.
+        /// </summary>
         private void BuildSummary()
         {
             var r = _result;
@@ -401,6 +450,7 @@ namespace Kudunmap.Views
             _top.Child = Ui.Card(g, 14);
         }
 
+        /// <summary>The menu for saving the results (web page, CSV).</summary>
         private void ShowExportMenu(FrameworkElement anchor)
         {
             var menu = new ContextMenu { PlacementTarget = anchor, Placement = PlacementMode.Bottom };
@@ -425,12 +475,14 @@ namespace Kudunmap.Views
             menu.IsOpen = true;
         }
 
+        /// <summary>Runs a save, saying what went wrong if it fails.</summary>
         private void Export(Action action)
         {
             try { action(); }
             catch (Exception ex) { Dialogs.Error(Window.GetWindow(this), "Couldn't save the file:\n\n" + ex.Message); }
         }
 
+        /// <summary>Asks where to save, writes the file, and opens it when asked.</summary>
         private void Save(string what, string fileName, string filter, Action<string> write, bool open)
         {
             var path = Dialogs.SaveFile(Window.GetWindow(this), "Export " + what, fileName, filter);
@@ -446,6 +498,7 @@ namespace Kudunmap.Views
 
         // ------------------------------------------------------------------ hosts & ports
 
+        /// <summary>Fills the hosts list (filtered).</summary>
         private void FillHosts()
         {
             if (_result == null) return;
@@ -484,6 +537,7 @@ namespace Kudunmap.Views
             _hostList.SelectedItem = select;
         }
 
+        /// <summary>True when the host matches the filter text (address, name, vendor, system or a port).</summary>
         private static bool Matches(HostInfo h, string filter)
         {
             bool Has(string s) => !string.IsNullOrEmpty(s) && s.IndexOf(filter, StringComparison.OrdinalIgnoreCase) >= 0;
@@ -491,6 +545,7 @@ namespace Kudunmap.Views
                    h.Ports.Any(p => Has(p.Number.ToString(CultureInfo.InvariantCulture)) || Has(p.Service) || Has(p.VersionText));
         }
 
+        /// <summary>Shows a host's details: its addresses, system, ports with notes, scripts and route.</summary>
         private void ShowHost(HostInfo h)
         {
             _hostDetail.Children.Clear();
@@ -571,6 +626,7 @@ namespace Kudunmap.Views
                 .Margin(16, 16, 16, 16));
         }
 
+        /// <summary>A script's output in a box.</summary>
         private static FrameworkElement ScriptOutput(ScriptResult s)
         {
             var t = new TextBlock { TextWrapping = TextWrapping.Wrap, FontSize = 11.5 };
@@ -581,6 +637,10 @@ namespace Kudunmap.Views
             return t;
         }
 
+        /// <summary>
+        /// The right-click menu of a host: copy its address or name, open it in the browser, ping it, scan it in more
+        /// detail.
+        /// </summary>
         private ContextMenu HostMenu(HostInfo h)
         {
             var menu = new ContextMenu();
@@ -594,6 +654,7 @@ namespace Kudunmap.Views
             return menu;
         }
 
+        /// <summary>The right-click menu of a port: copy it or its version, open it in the browser.</summary>
         private ContextMenu PortMenu(HostInfo h, PortInfo p)
         {
             var menu = new ContextMenu();
@@ -603,6 +664,7 @@ namespace Kudunmap.Views
             return menu;
         }
 
+        /// <summary>Adds a menu item.</summary>
         private static void Add(ContextMenu menu, string header, Action action)
         {
             var mi = new MenuItem { Header = header };
@@ -610,8 +672,10 @@ namespace Kudunmap.Views
             menu.Items.Add(mi);
         }
 
+        /// <summary>An address and port as "address:port" ([address]:port for IPv6).</summary>
         private static string HostPort(string address, int port) => (address.Contains(":") ? "[" + address + "]" : address) + ":" + port;
 
+        /// <summary>Opens a web port in the browser (http or https).</summary>
         private static void OpenWeb(HostInfo h, PortInfo p)
         {
             var scheme = p.IsHttps ? "https" : "http";
@@ -620,6 +684,7 @@ namespace Kudunmap.Views
             AppInfo.OpenUrl(scheme + "://" + host + port + "/");
         }
 
+        /// <summary>Pings an address in a command window (only plain IP addresses).</summary>
         private static void Ping(string address)
         {
             // Only plain IP addresses are passed to ping.
@@ -628,11 +693,13 @@ namespace Kudunmap.Views
             catch { /* ignore */ }
         }
 
+        /// <summary>A text shown where there's nothing to list.</summary>
         private static FrameworkElement Placeholder(string text) =>
             Ui.Subtle(text, 13).Margin(20, 24, 20, 24);
 
         // ------------------------------------------------------------------ vulnerabilities
 
+        /// <summary>Fills the problems list (by the level chosen).</summary>
         private void FillVulnerabilities()
         {
             _vulnFilters.Children.Clear();
@@ -706,6 +773,7 @@ namespace Kudunmap.Views
             if (_vulnList.Items.Count > 0) _vulnList.SelectedIndex = 0;
         }
 
+        /// <summary>Shows a problem's details: level, score, CVE numbers with links, and the script's output.</summary>
         private void ShowVulnerability(Vulnerability v)
         {
             _vulnDetail.Children.Clear();
@@ -738,6 +806,7 @@ namespace Kudunmap.Views
 
         // ------------------------------------------------------------------ details
 
+        /// <summary>Fills the details tab: the command, times, Nmap's version and summary.</summary>
         private void FillDetails()
         {
             _details.Children.Clear();
@@ -779,8 +848,10 @@ namespace Kudunmap.Views
         }
     }
 
+    /// <summary>A small help for grids.</summary>
     internal static class GridExtensions
     {
+        /// <summary>Gives the grid a line at the bottom (for list headings).</summary>
         public static Grid WithBottomLine(this Grid g)
         {
             var line = Ui.Divider();

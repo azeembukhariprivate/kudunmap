@@ -1,3 +1,4 @@
+// The About window, the one-time notice on scanning responsibly, and the Settings window.
 using System;
 using System.IO;
 using System.Windows;
@@ -8,13 +9,16 @@ using Kudunmap.Core;
 
 namespace Kudunmap.Views
 {
+    /// <summary>The About window and the one-time notice.</summary>
     public static class InfoWindows
     {
+        /// <summary>That Nmap is a separate program, and KUDUNMAP isn't part of the Nmap Project.</summary>
         public const string NotAffiliated =
             "Nmap is a separate program by the Nmap Project (nmap.org), installed by you and not included with KUDUNMAP. " +
             "KUDUNMAP is not affiliated with, sponsored or endorsed by the Nmap Project or Nmap Software LLC. " +
             "\"Nmap\" is their trademark.";
 
+        /// <summary>The rule about what may be scanned.</summary>
         public const string PermissionRule = "Only scan networks and devices you own or have permission to scan.";
 
         /// <summary>The one-time responsible-use notice. Returns false if the window was closed without agreeing.</summary>
@@ -49,6 +53,7 @@ namespace Kudunmap.Views
             return agreed;
         }
 
+        /// <summary>Shows the About window, with the Nmap found.</summary>
         public static void ShowAbout(Window owner, NmapInstall nmap)
         {
             Window window = null;
@@ -123,6 +128,9 @@ namespace Kudunmap.Views
             window.ShowDialog();
         }
 
+        /// <summary>
+        /// Opens a file that came with the app (the licence...), or the page online when it isn't there.
+        /// </summary>
         private static void OpenLocalFile(string name, string fallbackUrl)
         {
             var path = Path.Combine(Path.GetDirectoryName(AppInfo.ExePath) ?? string.Empty, name);
@@ -144,10 +152,14 @@ namespace Kudunmap.Views
 
     public sealed class SettingsWindow : Window
     {
+        /// <summary>Gives the Nmap in use now.</summary>
         private readonly Func<NmapInstall> _currentNmap;
+        /// <summary>Tells the main window the Nmap chosen changed.</summary>
         private readonly Action _nmapChanged;
+        /// <summary>Which Nmap is used.</summary>
         private readonly TextBlock _nmapText = Ui.Text(string.Empty, 12.5, wrap: true);
 
+        /// <summary>Makes the Settings window.</summary>
         public SettingsWindow(Window owner, Func<NmapInstall> currentNmap, Action nmapChanged)
         {
             _currentNmap = currentNmap;
@@ -220,6 +232,7 @@ namespace Kudunmap.Views
             Content = root;
         }
 
+        /// <summary>Shows which Nmap is used.</summary>
         private void UpdateNmapText()
         {
             var nmap = _currentNmap();
@@ -229,6 +242,7 @@ namespace Kudunmap.Views
                 : $"Using Nmap {nmap.Version}: {nmap.Path}" + (string.IsNullOrEmpty(custom) ? " (found automatically)" : " (chosen by you)");
         }
 
+        /// <summary>Lets the person choose nmap.exe themselves.</summary>
         private void ChooseNmap()
         {
             var file = Dialogs.PickFile(this, "Choose nmap.exe", "nmap.exe|nmap.exe");
@@ -246,6 +260,7 @@ namespace Kudunmap.Views
             UpdateNmapText();
         }
 
+        /// <summary>Goes back to finding Nmap by itself.</summary>
         private void ResetNmap()
         {
             Settings.NmapPath = string.Empty;

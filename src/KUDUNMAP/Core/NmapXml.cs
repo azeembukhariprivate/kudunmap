@@ -1,3 +1,5 @@
+// Reads Nmap's XML results file into a ScanResult: the hosts, their ports, services, operating system guesses, scripts
+// and route.
 using System;
 using System.Globalization;
 using System.IO;
@@ -10,16 +12,19 @@ namespace Kudunmap.Core
     /// <summary>Reads Nmap's XML output (-oX). Only the results file is read, never Nmap's own data files.</summary>
     public static class NmapXml
     {
+        /// <summary>Reads a results file.</summary>
         public static ScanResult Load(string path)
         {
             using (var stream = File.OpenRead(path)) return Load(stream);
         }
 
+        /// <summary>Reads results from XML text.</summary>
         public static ScanResult Parse(string xml)
         {
             using (var reader = new StringReader(xml)) return Load(XmlReader.Create(reader, ReaderSettings));
         }
 
+        /// <summary>Reads results from a stream.</summary>
         public static ScanResult Load(Stream stream) => Load(XmlReader.Create(stream, ReaderSettings));
 
         // Nmap writes a DOCTYPE line; ignore it and never fetch anything external.
@@ -30,6 +35,7 @@ namespace Kudunmap.Core
             IgnoreComments = true
         };
 
+        /// <summary>Reads the whole results (no DTDs or outside files are followed).</summary>
         private static ScanResult Load(XmlReader reader)
         {
             XDocument doc;
@@ -72,6 +78,9 @@ namespace Kudunmap.Core
             return result;
         }
 
+        /// <summary>
+        /// One host: its addresses, names, state, ports, operating system guesses, scripts and route.
+        /// </summary>
         private static HostInfo ParseHost(XElement h)
         {
             var host = new HostInfo { State = Attr(h.Element("status"), "state", "unknown") };
@@ -138,6 +147,7 @@ namespace Kudunmap.Core
             return host;
         }
 
+        /// <summary>One script's result: its name and output.</summary>
         private static ScriptResult ParseScript(XElement s) => new ScriptResult
         {
             Id = Attr(s, "id"),
@@ -145,14 +155,18 @@ namespace Kudunmap.Core
             Element = s
         };
 
+        /// <summary>An attribute's value, or fallback when it isn't there.</summary>
         private static string Attr(XElement e, string name, string fallback = "") =>
             (string)e?.Attribute(name) ?? fallback;
 
+        /// <summary>A whole number from text (0 when it isn't one).</summary>
         private static int Int(string s) => int.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out var v) ? v : 0;
 
+        /// <summary>A number with a decimal point from text (0 when it isn't one).</summary>
         private static double Double(string s) =>
             double.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out var v) ? v : 0;
 
+        /// <summary>A time given as seconds since 1970.</summary>
         private static DateTime FromUnix(string s) =>
             long.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out var v) && v > 0
                 ? new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(v).ToLocalTime()

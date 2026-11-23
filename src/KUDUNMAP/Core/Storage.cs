@@ -1,3 +1,4 @@
+// KUDUNMAP's files: the data folder, reading and writing JSON, the scan history, and the person's own saved scans.
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +13,7 @@ namespace Kudunmap.Core
     /// <summary>Where KUDUNMAP keeps its files: %LOCALAPPDATA%\KUDUNMAP, for the current Windows user only.</summary>
     public static class AppPaths
     {
+        /// <summary>The data folder, once worked out (the self-test sets its own).</summary>
         private static string _root;
 
         public static string Root
@@ -29,10 +31,14 @@ namespace Kudunmap.Core
             set => _root = value;
         }
 
+        /// <summary>The folder of past scans.</summary>
         public static string History => Ensure(Path.Combine(Root, "History"));
+        /// <summary>The folder of the person's own saved scans.</summary>
         public static string Presets => Ensure(Path.Combine(Root, "Presets"));
+        /// <summary>The folder for the scan running now.</summary>
         public static string Running => Ensure(Path.Combine(Root, "Running"));
 
+        /// <summary>Makes the folder if it isn't there, and returns it.</summary>
         private static string Ensure(string dir)
         {
             Directory.CreateDirectory(dir);
@@ -50,6 +56,7 @@ namespace Kudunmap.Core
 
     public static class Json
     {
+        /// <summary>Writes a value as JSON (to a new file first, then put in place).</summary>
         public static void Write<T>(string path, T value)
         {
             var serializer = new DataContractJsonSerializer(typeof(T));
@@ -59,6 +66,7 @@ namespace Kudunmap.Core
             File.Move(temp, path);
         }
 
+        /// <summary>Reads a value from JSON, or null when the file is missing or can't be read.</summary>
         public static T Read<T>(string path) where T : class
         {
             try
@@ -90,19 +98,29 @@ namespace Kudunmap.Core
         /// <summary>The options used, so "Scan again" repeats the same scan.</summary>
         [DataMember] public ScanOptions Options { get; set; }
 
+        /// <summary>The past scan's own folder.</summary>
         public string Folder { get; set; }
+        /// <summary>Nmap's results file in it.</summary>
         public string XmlPath => Path.Combine(Folder, "scan.xml");
+        /// <summary>Nmap's output in it.</summary>
         public string OutputPath => Path.Combine(Folder, "output.txt");
 
+        /// <summary>A short line about it: hosts and open ports.</summary>
         public string Summary => Format.Count(HostsUp, "host") + " · " + Format.Count(OpenPorts, "open port") +
                                  (Findings > 0 ? " · " + Format.Count(Findings, "finding") : string.Empty);
 
+        /// <summary>When it ran, like "Today, 09:14".</summary>
         public string WhenText => FriendlyDate(Started);
 
+        /// <summary>How it's shown in lists.</summary>
         public string Display => $"{Title} · {Targets} · {WhenText}";
 
+        /// <summary>How it's shown in lists.</summary>
         public override string ToString() => Display;
 
+        /// <summary>
+        /// A date like "Today, 09:14", "Yesterday, 18:02", "3 May, 10:00" or, in another year, "3 May 2025, 10:00".
+        /// </summary>
         public static string FriendlyDate(DateTime when)
         {
             if (when == DateTime.MinValue) return string.Empty;
@@ -116,6 +134,9 @@ namespace Kudunmap.Core
     /// <summary>Every finished scan is kept in its own folder: scan.xml (Nmap's results), output.txt and info.json.</summary>
     public static class History
     {
+        /// <summary>
+        /// Keeps a finished scan in the history: its options, results file and output (scheduleId for a scheduled one).
+        /// </summary>
         public static HistoryEntry Save(ScanOptions options, ScanResult result, string xmlFile, string output, string scheduleId = null)
         {
             var started = result.Started == DateTime.MinValue ? DateTime.Now : result.Started;
@@ -146,6 +167,7 @@ namespace Kudunmap.Core
             return entry;
         }
 
+        /// <summary>Every past scan, newest first.</summary>
         public static List<HistoryEntry> List()
         {
             var list = new List<HistoryEntry>();
@@ -159,14 +181,17 @@ namespace Kudunmap.Core
             return list.OrderByDescending(e => e.Started).ToList();
         }
 
+        /// <summary>The results of a past scan.</summary>
         public static ScanResult Load(HistoryEntry entry) => NmapXml.Load(entry.XmlPath);
 
+        /// <summary>The output of a past scan.</summary>
         public static string LoadOutput(HistoryEntry entry)
         {
             try { return File.ReadAllText(entry.OutputPath); }
             catch { return string.Empty; }
         }
 
+        /// <summary>Removes a past scan.</summary>
         public static void Delete(HistoryEntry entry)
         {
             // Only ever delete folders inside our own History folder.
@@ -180,6 +205,7 @@ namespace Kudunmap.Core
     [DataContract]
     public sealed class CustomPreset
     {
+        /// <summary>The file it's kept in.</summary>
         [DataMember] public string Name { get; set; } = string.Empty;
         [DataMember] public ScanOptions Options { get; set; }
         public string File { get; set; }
@@ -199,6 +225,7 @@ namespace Kudunmap.Core
     /// <summary>"My presets": saved option sets, one JSON file each.</summary>
     public static class CustomPresets
     {
+        /// <summary>The person's own saved scans.</summary>
         public static List<CustomPreset> List()
         {
             var list = new List<CustomPreset>();
@@ -212,6 +239,7 @@ namespace Kudunmap.Core
             return list.OrderBy(p => p.Name, StringComparer.CurrentCultureIgnoreCase).ToList();
         }
 
+        /// <summary>Saves a scan's options under a name.</summary>
         public static CustomPreset Save(string name, ScanOptions options)
         {
             name = (name ?? string.Empty).Trim();
@@ -222,6 +250,7 @@ namespace Kudunmap.Core
             return preset;
         }
 
+        /// <summary>Removes a saved scan.</summary>
         public static void Delete(CustomPreset preset)
         {
             if (preset?.File != null && File.Exists(preset.File) &&

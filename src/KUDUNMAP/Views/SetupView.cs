@@ -1,3 +1,5 @@
+// The New scan view: ready-made scans, the options, the command it makes with a meaning for each part, warnings, and
+// recent scans.
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -15,45 +17,78 @@ namespace Kudunmap.Views
     /// <summary>The New scan screen: scan types on the left, options, command preview and recent scans on the right.</summary>
     public sealed class SetupView : Grid
     {
+        /// <summary>The main window.</summary>
         private readonly MainWindow _main;
+        /// <summary>The ready-made scans' buttons, by short name.</summary>
         private readonly Dictionary<string, RadioButton> _presetButtons = new Dictionary<string, RadioButton>();
+        /// <summary>The person's own saved scans.</summary>
         private readonly StackPanel _customPanel = new StackPanel();
+        /// <summary>Recent scans.</summary>
         private readonly StackPanel _recentPanel = new StackPanel();
+        /// <summary>The card holding them.</summary>
         private readonly Border _recentCard;
+        /// <summary>True while the controls are being filled (changes then aren't reacted to).</summary>
         private bool _loading;
 
         // Options
         private readonly TextBlock _title = Ui.Heading(string.Empty, 15);
+        /// <summary>The chip saying whether administrator rights are needed.</summary>
         private readonly Border _chipHost = new Border { Margin = new Thickness(10, 0, 0, 0), VerticalAlignment = VerticalAlignment.Center };
+        /// <summary>A line about the scan set up.</summary>
         private readonly TextBlock _summary = Ui.Subtle(string.Empty, 12);
+        /// <summary>What kind of scan.</summary>
         private readonly List<RadioButton> _kind = new List<RadioButton>();
+        /// <summary>The speed.</summary>
         private readonly List<RadioButton> _speed = new List<RadioButton>();
+        /// <summary>What the speed means.</summary>
         private readonly TextBlock _speedHint = Ui.Subtle(string.Empty, 11.5);
+        /// <summary>Which ports.</summary>
         private readonly List<RadioButton> _ports = new List<RadioButton>();
+        /// <summary>The ports typed.</summary>
         private readonly TextBox _customPorts = new TextBox { MinHeight = 32 };
+        /// <summary>A hint about the ports (or what's wrong with them).</summary>
         private readonly TextBlock _portsHint = Ui.Subtle(string.Empty, 11.5);
+        /// <summary>Count every device as online without pinging it first.</summary>
         private readonly CheckBox _skipPing = new CheckBox { Content = "Skip ping (treat every host as online)" };
+        /// <summary>Look up devices' names.</summary>
         private readonly CheckBox _resolve = new CheckBox { Content = "Resolve host names" };
+        /// <summary>Show only open ports.</summary>
         private readonly CheckBox _onlyOpen = new CheckBox { Content = "Show only open ports" };
+        /// <summary>Find out which program and version answers on each port.</summary>
         private readonly CheckBox _versions = new CheckBox { Content = "Detect service versions" };
+        /// <summary>Guess the operating system.</summary>
         private readonly CheckBox _os = new CheckBox { Content = "Detect operating system" };
+        /// <summary>Find the route to each device.</summary>
         private readonly CheckBox _trace = new CheckBox { Content = "Traceroute" };
+        /// <summary>The kinds of scripts, by name.</summary>
         private readonly Dictionary<string, ToggleButton> _scripts = new Dictionary<string, ToggleButton>();
+        /// <summary>Shows the harmful and noisy kinds of scripts.</summary>
         private readonly CheckBox _advanced = new CheckBox { Content = "Advanced" }.Styled("Switch");
+        /// <summary>Where they are.</summary>
         private readonly StackPanel _advancedPanel = new StackPanel();
+        /// <summary>Look up known problems online (sends programs' names and versions to vulners).</summary>
         private readonly CheckBox _vulners = new CheckBox { Content = "Look up known CVEs online (vulners)" }.Styled("Switch");
 
         // Command and status
         private readonly TextBlock _command = new TextBlock { TextWrapping = TextWrapping.Wrap, FontSize = 12.5, LineHeight = 20 };
+        /// <summary>The command's parts with their meanings.</summary>
         private readonly WrapPanel _explain = new WrapPanel { Margin = new Thickness(0, 10, 0, 0) };
+        /// <summary>The title of the "ready" card.</summary>
         private readonly TextBlock _readyTitle = Ui.Text(string.Empty, 14, bold: true);
+        /// <summary>Its text.</summary>
         private readonly TextBlock _readyText = Ui.Subtle(string.Empty, 12);
+        /// <summary>Which Nmap is used.</summary>
         private readonly TextBlock _nmapText = Ui.Subtle(string.Empty, 12, false);
+        /// <summary>Says administrator rights are needed, with a button.</summary>
         private readonly Border _adminBanner;
+        /// <summary>Its text.</summary>
         private readonly TextBlock _adminText = Ui.Text(string.Empty, 12.5, wrap: true);
+        /// <summary>Warns about harmful scripts or a big range.</summary>
         private readonly Border _warnBanner;
+        /// <summary>Its text.</summary>
         private readonly TextBlock _warnText = Ui.Text(string.Empty, 12.5, wrap: true);
 
+        /// <summary>Makes the New scan view.</summary>
         public SetupView(MainWindow main)
         {
             _main = main;
@@ -83,6 +118,7 @@ namespace Kudunmap.Views
 
         // ------------------------------------------------------------------ building
 
+        /// <summary>The list of ready-made scans and the person's own.</summary>
         private UIElement BuildPresetList()
         {
             var list = new StackPanel();
@@ -101,6 +137,7 @@ namespace Kudunmap.Views
             return Ui.Card(scroll, 10);
         }
 
+        /// <summary>A button for a scan.</summary>
         private RadioButton PresetButton(string icon, string title, string description, bool needsAdmin, bool custom)
         {
             var g = Ui.Columns(Ui.Auto, Ui.Star(), Ui.Auto);
@@ -127,6 +164,7 @@ namespace Kudunmap.Views
             return new RadioButton { Content = g, GroupName = "preset" }.Styled("PresetRadio");
         }
 
+        /// <summary>A row of buttons where one is chosen.</summary>
         private static Border Segments(List<RadioButton> into, string group, params string[] labels)
         {
             var panel = new UniformGrid { Rows = 1 };
@@ -145,6 +183,7 @@ namespace Kudunmap.Views
             return border;
         }
 
+        /// <summary>A label with its control and a hint.</summary>
         private static FrameworkElement Field(string label, UIElement content, UIElement hint = null)
         {
             var p = new StackPanel();
@@ -154,6 +193,7 @@ namespace Kudunmap.Views
             return p;
         }
 
+        /// <summary>The options card.</summary>
         private Border BuildOptionsCard()
         {
             var header = new DockPanel { Margin = new Thickness(0, 0, 0, 14), LastChildFill = true };
@@ -204,6 +244,7 @@ namespace Kudunmap.Views
             return Ui.Card(Ui.Column(header, grid));
         }
 
+        /// <summary>A button for a kind of script.</summary>
         private ToggleButton ScriptChip(string category)
         {
             var t = new ToggleButton { Content = category }.Styled("ChipToggle");
@@ -212,6 +253,7 @@ namespace Kudunmap.Views
             return t;
         }
 
+        /// <summary>What a kind of script does.</summary>
         private static string ScriptTip(string category)
         {
             switch (category)
@@ -234,6 +276,7 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>The card showing the command.</summary>
         private Border BuildCommandCard()
         {
             var header = Ui.Columns(Ui.Auto, Ui.Star(), Ui.Auto, Ui.Auto);
@@ -249,6 +292,7 @@ namespace Kudunmap.Views
             return Ui.Card(Ui.Column(header, box.Margin(0, 10, 0, 0), _explain), 16);
         }
 
+        /// <summary>The card saying whether it's ready to scan.</summary>
         private Border BuildReadyCard()
         {
             var g = Ui.Columns(Ui.Auto, Ui.Star(), Ui.Auto);
@@ -258,6 +302,7 @@ namespace Kudunmap.Views
             return Ui.Card(Ui.Column(g, _adminBanner, _warnBanner), 16);
         }
 
+        /// <summary>The card of recent scans.</summary>
         private Border BuildRecentCard()
         {
             var header = Ui.Columns(Ui.Star(), Ui.Auto);
@@ -266,6 +311,7 @@ namespace Kudunmap.Views
             return Ui.Card(Ui.Column(header, _recentPanel.Margin(0, 6, 0, 0)), 16);
         }
 
+        /// <summary>Makes every control update the options when changed.</summary>
         private void HookEvents()
         {
             void Changed(object s, RoutedEventArgs e) => OnChanged();
@@ -285,6 +331,7 @@ namespace Kudunmap.Views
             _advanced.Unchecked += (s, e) => { Settings.ShowAdvancedScripts = false; UpdateAdvancedVisibility(); };
         }
 
+        /// <summary>Shows or hides the harmful kinds of scripts.</summary>
         private void UpdateAdvancedVisibility()
         {
             var anyAdvancedOn = ScanOptions.AdvancedCategories.Any(c => _scripts[c].IsChecked == true);
@@ -330,8 +377,12 @@ namespace Kudunmap.Views
             Refresh();
         }
 
+        /// <summary>Shows the rights chip.</summary>
         private void SetChip(string text, Tone tone) => _chipHost.Child = Ui.Chip(text, tone);
 
+        /// <summary>
+        /// The options changed: the command, the meanings, the chip, the warnings and the ready card follow.
+        /// </summary>
         private void OnChanged()
         {
             if (_loading) return;
@@ -447,9 +498,11 @@ namespace Kudunmap.Views
             _warnBanner.Visibility = warnings.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
         }
 
+        /// <summary>A list of words as "a, b and c".</summary>
         private static string Join(List<string> items) =>
             items.Count == 1 ? items[0] : Lang.T("{0} and {1}", string.Join(", ", items.Take(items.Count - 1)), items.Last());
 
+        /// <summary>What a speed means, for the hint.</summary>
         private static string SpeedHint(int timing)
         {
             switch (timing)
@@ -463,6 +516,7 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>A piece of text in a colour.</summary>
         private static Run Run(string text, string brush, bool bold = false)
         {
             var run = new Run(text) { FontWeight = bold ? FontWeights.SemiBold : FontWeights.Normal };
@@ -472,6 +526,7 @@ namespace Kudunmap.Views
 
         // ------------------------------------------------------------------ my presets and recent scans
 
+        /// <summary>Fills the list of the person's own saved scans.</summary>
         public void RefreshCustomPresets(CustomPreset selected = null)
         {
             _customPanel.Children.Clear();
@@ -503,6 +558,7 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>Saves the scan set up under a name.</summary>
         private void SaveAsPreset()
         {
             var name = Dialogs.Ask(Window.GetWindow(this), "Save as preset",
@@ -517,6 +573,7 @@ namespace Kudunmap.Views
             SetChip("My preset", Tone.Neutral);
         }
 
+        /// <summary>Fills the recent scans.</summary>
         public void RefreshRecent()
         {
             _recentPanel.Children.Clear();

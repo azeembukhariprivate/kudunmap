@@ -1,3 +1,5 @@
+// The choices made for a scan, and turning them into Nmap's command, safely: addresses and ports checked, and a
+// plain-words meaning for each part.
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,15 +8,19 @@ using System.Text.RegularExpressions;
 
 namespace Kudunmap.Core
 {
+    /// <summary>What kind of scan: TCP ports, UDP ports, or only seeing which devices answer.</summary>
     public enum ScanKind { Tcp, Udp, Ping }
 
+    /// <summary>Which ports: Nmap's usual ones, the 100 most common, all of them, or the ones typed.</summary>
     public enum PortMode { Default, Fast, All, Custom }
 
     /// <summary>Everything the user chose on the New scan screen. Saved as JSON for "My presets".</summary>
     [DataContract]
     public sealed class ScanOptions
     {
+        /// <summary>The kinds of Nmap scripts that are safe to run.</summary>
         public static readonly string[] SafeCategories = { "default", "safe", "discovery", "version", "vuln" };
+        /// <summary>The kinds of Nmap scripts that can be harmful or noisy (shown with a warning).</summary>
         public static readonly string[] AdvancedCategories = { "auth", "broadcast", "brute", "dos", "exploit", "external", "fuzzer", "intrusive", "malware" };
 
         [DataMember] public string PresetId { get; set; } = "services";
@@ -34,6 +40,7 @@ namespace Kudunmap.Core
         [DataMember] public List<string> Scripts { get; set; } = new List<string>();
         [DataMember] public bool Vulners { get; set; }
 
+        /// <summary>A copy of these options.</summary>
         public ScanOptions Clone()
         {
             var copy = (ScanOptions)MemberwiseClone();
@@ -41,13 +48,16 @@ namespace Kudunmap.Core
             return copy;
         }
 
+        /// <summary>True when any scripts will run.</summary>
         public bool UsesScripts => (Scripts?.Count ?? 0) > 0 || Vulners;
 
         /// <summary>Version detection is needed by the vuln and vulners scripts, so it is switched on with them.</summary>
         public bool EffectiveVersions => Kind != ScanKind.Ping && (DetectVersions || Vulners || HasScript("vuln"));
 
+        /// <summary>True when this kind of script was chosen.</summary>
         public bool HasScript(string category) => Scripts != null && Scripts.Contains(category, StringComparer.OrdinalIgnoreCase);
 
+        /// <summary>True when a harmful or noisy kind of script was chosen.</summary>
         public bool UsesAdvancedScripts => Scripts != null && Scripts.Any(s => AdvancedCategories.Contains(s, StringComparer.OrdinalIgnoreCase));
 
         /// <summary>The reasons this scan needs administrator rights, empty if it doesn't.</summary>
@@ -60,12 +70,14 @@ namespace Kudunmap.Core
             return reasons;
         }
 
+        /// <summary>True when the scan needs administrator rights.</summary>
         public bool NeedsAdmin => AdminReasons().Count > 0;
     }
 
     /// <summary>One piece of the Nmap command, with a plain-English meaning for the command preview.</summary>
     public sealed class CommandPart
     {
+        /// <summary>A piece of the command with its meaning (internalOnly: only added by KUDUNMAP itself).</summary>
         public CommandPart(string[] args, string meaning, bool internalOnly = false)
         {
             Args = args;
@@ -73,12 +85,15 @@ namespace Kudunmap.Core
             Internal = internalOnly;
         }
 
+        /// <summary>The arguments of this piece.</summary>
         public string[] Args { get; }
+        /// <summary>What it means, in plain words.</summary>
         public string Meaning { get; }
 
         /// <summary>Added by KUDUNMAP for live progress and results. Left out of the copied command.</summary>
         public bool Internal { get; }
 
+        /// <summary>The piece as it would be typed.</summary>
         public string Text => string.Join(" ", Args.Select(CommandBuilder.QuoteForDisplay));
     }
 
@@ -86,8 +101,10 @@ namespace Kudunmap.Core
     {
         // Host names, IPv4/IPv6 addresses, ranges (10.0.0.1-50, 10.0.0-2.*), CIDR (10.0.0.0/24) and IPv6 scopes (fe80::1%eth0).
         private static readonly Regex TargetToken = new Regex(@"^[A-Za-z0-9\[][A-Za-z0-9.\-:/,*\[\]%_]*$", RegexOptions.CultureInvariant);
+        /// <summary>What a list of ports may have in it: numbers, ranges and T:/U: in front.</summary>
         private static readonly Regex PortSpec = new Regex(@"^[0-9TUSPtusp:,\-]+$", RegexOptions.CultureInvariant);
 
+        /// <summary>The addresses typed, as a list (split at spaces, commas and lines).</summary>
         public static List<string> SplitTargets(string text) =>
             (text ?? string.Empty).Split(new[] { ' ', '\t', '\r', '\n', ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
@@ -137,6 +154,7 @@ namespace Kudunmap.Core
             return total;
         }
 
+        /// <summary>How many addresses a part of an IPv4 range covers (like "1-50" or "*").</summary>
         private static long OctetCount(string octet)
         {
             if (octet.Contains("*")) return 256;
@@ -158,8 +176,10 @@ namespace Kudunmap.Core
             return Math.Max(1, count);
         }
 
+        /// <summary>A list of ports without spaces.</summary>
         public static string NormalizePorts(string text) => Regex.Replace(text ?? string.Empty, @"\s+", string.Empty);
 
+        /// <summary>What's wrong with a list of ports, or null when it's fine.</summary>
         public static string ValidatePorts(string text)
         {
             var ports = NormalizePorts(text);
@@ -232,6 +252,7 @@ namespace Kudunmap.Core
             new CommandPart(new[] { "-oX", xmlPath }, "results for KUDUNMAP", true)
         };
 
+        /// <summary>The addresses as Nmap's arguments (or -iL with the file of addresses).</summary>
         public static List<string> TargetArgs(ScanOptions o) =>
             !string.IsNullOrEmpty(o.TargetFile) ? new List<string> { "-iL", o.TargetFile } : SplitTargets(o.Targets);
 
@@ -254,12 +275,14 @@ namespace Kudunmap.Core
             return "nmap " + string.Join(" ", args.Select(QuoteForDisplay));
         }
 
+        /// <summary>An argument as shown in the command preview (quoted when it has spaces).</summary>
         public static string QuoteForDisplay(string arg) =>
             arg.IndexOfAny(new[] { ' ', '\t', '"' }) >= 0 ? QuoteArgument(arg) : arg;
 
         /// <summary>Joins arguments the way Windows programs split them again (CommandLineToArgvW rules).</summary>
         public static string JoinArguments(IEnumerable<string> args) => string.Join(" ", args.Select(QuoteArgument));
 
+        /// <summary>An argument quoted the way Windows programs read them.</summary>
         public static string QuoteArgument(string arg)
         {
             if (string.IsNullOrEmpty(arg)) return "\"\"";

@@ -1,3 +1,5 @@
+// The tests for the parts that don't need Windows: reading results, problems found, commands, checks, progress,
+// comparing, saving, port notes, the map and schedules. Run with "dotnet run".
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,9 +11,12 @@ namespace Kudunmap.Tests
     /// <summary>A tiny test runner: each check prints PASS or FAIL, and the exit code is the number of failures.</summary>
     internal static class Program
     {
+        /// <summary>How many checks failed.</summary>
         private static int _failures;
+        /// <summary>How many checks passed.</summary>
         private static int _passes;
 
+        /// <summary>Runs every test and returns 1 when any check failed.</summary>
         private static int Main()
         {
             Run("Parses hosts and ports", ParsesHostsAndPorts);
@@ -36,6 +41,7 @@ namespace Kudunmap.Tests
             return _failures;
         }
 
+        /// <summary>Runs one test, writing whether it passed.</summary>
         private static void Run(string name, Action test)
         {
             try
@@ -51,23 +57,28 @@ namespace Kudunmap.Tests
             }
         }
 
+        /// <summary>Counts a check, writing what failed.</summary>
         private static void Check(bool condition, string what)
         {
             if (!condition) throw new Exception(what);
         }
 
+        /// <summary>Checks two values are equal, writing both when they aren't.</summary>
         private static void Equal<T>(T expected, T actual, string what)
         {
             if (!EqualityComparer<T>.Default.Equals(expected, actual))
                 throw new Exception($"{what}: expected <{expected}> but got <{actual}>");
         }
 
+        /// <summary>The path of a test file.</summary>
         private static string Fixture(string name) => Path.Combine(AppContext.BaseDirectory, "Fixtures", name);
 
+        /// <summary>The sample results with problems found.</summary>
         private static ScanResult Sample() => NmapXml.Load(Fixture("vuln-scan.xml"));
 
         // ---------------------------------------------------------------------------------------
 
+        /// <summary>Hosts, ports, services and systems are read from the results.</summary>
         private static void ParsesHostsAndPorts()
         {
             var r = Sample();
@@ -96,6 +107,7 @@ namespace Kudunmap.Tests
             Equal(11, r.OpenPortCount, "open ports"); // router 3 + nas 5 + old-server 3 + phone 0
         }
 
+        /// <summary>Problems are found with their CVE numbers and levels.</summary>
         private static void FindsVulnerabilities()
         {
             var v = Sample().Vulnerabilities;
@@ -123,6 +135,7 @@ namespace Kudunmap.Tests
             Check(v.Select(x => x.Severity).SequenceEqual(v.Select(x => x.Severity).OrderBy(s => s)), "sorted by severity");
         }
 
+        /// <summary>Problems are found in scripts that only give text.</summary>
         private static void ReadsTextOnlyVulnOutput()
         {
             const string xml = @"<?xml version=""1.0""?><nmaprun version=""7.80"" args=""nmap"" start=""1"">
@@ -141,6 +154,7 @@ namespace Kudunmap.Tests
             Equal("CVE-2020-1111", v.Single(x => x.ScriptId == "vulners").FirstCve, "vulners text fallback");
         }
 
+        /// <summary>The command a ready-made scan makes (with or without administrator rights).</summary>
         private static string Cmd(string presetId, bool admin, Action<ScanOptions> change = null)
         {
             var o = Presets.CreateOptions(Presets.Find(presetId));
@@ -149,6 +163,7 @@ namespace Kudunmap.Tests
             return CommandBuilder.CopyableCommand(o, admin);
         }
 
+        /// <summary>The commands are right for each scan and option.</summary>
         private static void BuildsCommands()
         {
             Equal("nmap -sT -sV --open -T4 192.168.1.0/24", Cmd("services", false), "services, standard user");
@@ -176,6 +191,7 @@ namespace Kudunmap.Tests
             Equal(@"C:\Temp\x y\scan.xml", args[args.IndexOf("-oX") + 1], "xml path");
         }
 
+        /// <summary>Bad addresses and ports are refused.</summary>
         private static void ValidatesInput()
         {
             foreach (var ok in new[] { "192.168.1.1", "192.168.1.0/24", "10.0.0-2.1-254", "router.lan", "scanme.nmap.org", "fe80::1%eth0", "10.0.0.1 10.0.0.2", "192.168.1.1,2,3" })
@@ -196,6 +212,7 @@ namespace Kudunmap.Tests
             Check(CommandBuilder.ValidatePorts("abc") != null, "letters rejected");
         }
 
+        /// <summary>Arguments are quoted the way Windows programs read them.</summary>
         private static void QuotesArguments()
         {
             Equal("abc", CommandBuilder.QuoteArgument("abc"), "plain");
@@ -205,6 +222,7 @@ namespace Kudunmap.Tests
             Equal("\"\"", CommandBuilder.QuoteArgument(""), "empty");
         }
 
+        /// <summary>Progress is followed from Nmap's output.</summary>
         private static void TracksProgress()
         {
             var t = new ProgressTracker();
@@ -232,6 +250,7 @@ namespace Kudunmap.Tests
             Equal("Find hosts,Scan ports,Detect versions,Vulnerability scripts", string.Join(",", steps.Select(s => s.Name)), "steps");
         }
 
+        /// <summary>Changes between two scans are found.</summary>
         private static void ComparesScans()
         {
             var newer = Sample();
@@ -258,6 +277,7 @@ namespace Kudunmap.Tests
             Check(withSame.Any(c => c.Kind == ChangeKind.Unchanged && c.Address == "192.168.1.50"), "unchanged host listed on request");
         }
 
+        /// <summary>Saved CSV and web pages are safe (no formulas run, no markup).</summary>
         private static void EscapesExports()
         {
             var r = Sample();
@@ -278,6 +298,7 @@ namespace Kudunmap.Tests
             Equal("1 min 46 s", Exporter.Duration(106.21), "duration");
         }
 
+        /// <summary>History and saved scans are kept and read back.</summary>
         private static void SavesHistoryAndPresets()
         {
             var root = Path.Combine(Path.GetTempPath(), "kudunmap-tests-" + Guid.NewGuid().ToString("N"));
@@ -319,6 +340,7 @@ namespace Kudunmap.Tests
             }
         }
 
+        /// <summary>Nmap's errors are explained in plain words.</summary>
         private static void ExplainsErrors()
         {
             Check(NmapRunner.Explain("You requested a scan type which requires root privileges.\nQUITTING!")?.Contains("administrator") == true, "root");
@@ -328,6 +350,7 @@ namespace Kudunmap.Tests
 
         // ---------------------------------------------------------------------------------------
 
+        /// <summary>A made-up host for the tests.</summary>
         private static HostInfo Host(string ip, string name = null, string vendor = null, string os = null, params (int Port, string Service)[] ports)
         {
             var h = new HostInfo { State = "up", Ipv4 = ip, Vendor = vendor };
@@ -337,6 +360,7 @@ namespace Kudunmap.Tests
             return h;
         }
 
+        /// <summary>Open ports get the right plain-words notes and levels.</summary>
         private static void PortNotesInPlainWords()
         {
             PortNote Note(int port, string service = "", string tunnel = "") => PortNotes.For(new PortInfo { Number = port, State = "open", Service = service, Tunnel = tunnel });
@@ -365,6 +389,7 @@ namespace Kudunmap.Tests
             Equal("192.168.1.10", look[0].Host.Address, "with their device");
         }
 
+        /// <summary>The map guesses devices' kinds and places them.</summary>
         private static void NetworkMapGuessesAndPlaces()
         {
             var own = new[] { "192.168.1.20" };
@@ -400,6 +425,7 @@ namespace Kudunmap.Tests
             Equal("Router", router.KindText, "named in plain words");
         }
 
+        /// <summary>Administrator rights are used only when safe (installed for all users).</summary>
         private static void AdminRightsOnlyWhenSafe()
         {
             var roots = new[] { @"C:\Program Files", @"C:\Program Files (x86)" };
@@ -430,6 +456,7 @@ namespace Kudunmap.Tests
             Check(!ScheduledScans.AdminAllowed(exe), "no administrator rights for tasks then");
         }
 
+        /// <summary>Scheduled scans' tasks are made right.</summary>
         private static void ScheduledScansWork()
         {
             var saved = AppPaths.Root;

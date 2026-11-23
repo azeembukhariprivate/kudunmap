@@ -1,3 +1,5 @@
+// KUDUNMAP.exe --scheduled <id>: runs a scheduled scan without a window, keeps it in History, and notifies when
+// something changed since the run before.
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -100,6 +102,7 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>True when a path is in Program Files.</summary>
         private static bool InProgramFiles(string path)
         {
             try
@@ -115,6 +118,9 @@ namespace Kudunmap.Views
             return false;
         }
 
+        /// <summary>
+        /// Ends the run: notes the result on the schedule, notifies about changes or problems, and closes.
+        /// </summary>
         private static void Finish(Application app, ScheduledScan schedule, HistoryEntry entry, string problem, bool failed)
         {
             string alert = null;

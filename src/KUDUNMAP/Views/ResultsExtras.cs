@@ -1,3 +1,4 @@
+// The results view's "Worth a look" tab (open ports in plain words) and the network map.
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -18,16 +19,22 @@ namespace Kudunmap.Views
     /// <summary>The "Worth a look" and "Map" tabs, and the plain-words note under each open port.</summary>
     public sealed partial class ResultsView
     {
+        /// <summary>The "Worth a look" tab's number.</summary>
         private const int LookTab = 4;
+        /// <summary>The map tab's number.</summary>
         private const int MapTab = 5;
+        /// <summary>The count shown on the "Worth a look" tab.</summary>
         private readonly Border _lookChipHost = new Border { Margin = new Thickness(6, 0, 0, 0) };
+        /// <summary>Where the map is drawn (kept for saving it as a picture).</summary>
         private Canvas _mapCanvas;
 
         /// <summary>The devices drawn on the map last (for the self-test).</summary>
         public List<MapDevice> MapDevices { get; private set; } = new List<MapDevice>();
 
+        /// <summary>The text colour for a level.</summary>
         private static string LevelBrush(PortLevel level) => level == PortLevel.Risky ? "BadText" : level == PortLevel.WorthALook ? "WarnText" : "OkText";
 
+        /// <summary>The chip colour for a level.</summary>
         private static Tone LevelTone(PortLevel level) => level == PortLevel.Risky ? Tone.Bad : level == PortLevel.WorthALook ? Tone.Warn : Tone.Ok;
 
         /// <summary>A port's note: its level and what it means.</summary>
@@ -43,6 +50,9 @@ namespace Kudunmap.Views
 
         // ================================================================== worth a look
 
+        /// <summary>
+        /// The "Worth a look" tab: every open port that matters, riskiest first, with what it is and what to do.
+        /// </summary>
         private UIElement BuildLookPanel()
         {
             var panel = new StackPanel { Margin = new Thickness(18, 14, 18, 14) };
@@ -112,6 +122,7 @@ namespace Kudunmap.Views
             return (own, gateways);
         }
 
+        /// <summary>The picture for a kind of device.</summary>
         private static string Glyph(DeviceKind kind)
         {
             // Segoe MDL2 Assets / Segoe Fluent Icons, which come with Windows 10 and 11.
@@ -132,6 +143,9 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>
+        /// The map tab: the router in the middle and the other devices in rings around it, with a button to save it.
+        /// </summary>
         private UIElement BuildMapPanel()
         {
             var root = new Grid();
@@ -167,6 +181,9 @@ namespace Kudunmap.Views
             return root;
         }
 
+        /// <summary>
+        /// A device on the map: its picture, name and a dot for its riskiest port (hub: the router, bigger).
+        /// </summary>
         private FrameworkElement DeviceMark(MapDevice d, bool hub)
         {
             var diameter = hub ? 74.0 : 58.0;

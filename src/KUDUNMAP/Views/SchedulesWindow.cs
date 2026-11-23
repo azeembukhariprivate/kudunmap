@@ -1,3 +1,4 @@
+// The Schedules window: scans that run by themselves, to add, change, run now or remove.
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,17 +15,25 @@ namespace Kudunmap.Views
     /// <summary>Scans that run by themselves (through Windows' Task Scheduler) and tell you when something changed.</summary>
     public sealed class SchedulesWindow : Window
     {
+        /// <summary>The main window.</summary>
         private readonly MainWindow _main;
+        /// <summary>The list of scheduled scans.</summary>
         private readonly ListBox _list = new ListBox().Styled("TableList");
+        /// <summary>How many there are.</summary>
         private readonly TextBlock _count = Ui.Subtle(string.Empty, 12, false);
+        /// <summary>Changes the one chosen.</summary>
         private readonly Button _change;
+        /// <summary>Runs the one chosen now.</summary>
         private readonly Button _runNow;
+        /// <summary>Removes the one chosen.</summary>
         private readonly Button _remove;
+        /// <summary>The widths of the list's columns.</summary>
         private static readonly GridLength[] Widths = { Ui.Px(210), Ui.Px(190), Ui.Star() };
 
         /// <summary>The data folder the tasks pass on (the self-test's own, so its scans don't mix with yours).</summary>
         public static string DataFolder { get; set; }
 
+        /// <summary>Makes the Schedules window.</summary>
         public SchedulesWindow(MainWindow main)
         {
             _main = main;
@@ -85,11 +94,13 @@ namespace Kudunmap.Views
             Fill();
         }
 
+        /// <summary>The scheduled scan chosen.</summary>
         private ScheduledScan Selected => (_list.SelectedItem as ListBoxItem)?.Tag as ScheduledScan;
 
         /// <summary>The scheduled scans shown (for the self-test).</summary>
         public List<ScheduledScan> Shown => _list.Items.OfType<ListBoxItem>().Select(i => (ScheduledScan)i.Tag).ToList();
 
+        /// <summary>Fills the list (choosing the one with this id).</summary>
         public void Fill(string select = null)
         {
             _list.Items.Clear();
@@ -116,6 +127,7 @@ namespace Kudunmap.Views
             UpdateButtons();
         }
 
+        /// <summary>Turns the buttons on or off for what's chosen.</summary>
         private void UpdateButtons()
         {
             var has = Selected != null;
@@ -124,6 +136,7 @@ namespace Kudunmap.Views
             _remove.IsEnabled = has;
         }
 
+        /// <summary>This program's path (for the Windows task).</summary>
         private static string Exe => Process.GetCurrentProcess().MainModule.FileName;
 
         /// <summary>
@@ -163,6 +176,7 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>Adds a scheduled scan of the scan set up now.</summary>
         private void Add()
         {
             var o = _main.Options.Clone();
@@ -192,6 +206,7 @@ namespace Kudunmap.Views
             if (Edit(sc, true)) Fill(sc.Id);
         }
 
+        /// <summary>Changes the name and times of the one chosen.</summary>
         private void ChangeSelected()
         {
             var sc = Selected;
@@ -288,6 +303,7 @@ namespace Kudunmap.Views
             return saved;
         }
 
+        /// <summary>A drop-down list of these items.</summary>
         private static ComboBox Combo(string[] items, int selected)
         {
             var c = new ComboBox { MinHeight = 34 };
@@ -296,6 +312,7 @@ namespace Kudunmap.Views
             return c;
         }
 
+        /// <summary>A label with its control.</summary>
         private static FrameworkElement Field(string label, UIElement content)
         {
             var p = new StackPanel();
@@ -304,6 +321,7 @@ namespace Kudunmap.Views
             return p;
         }
 
+        /// <summary>Starts the one chosen now.</summary>
         private void RunSelected()
         {
             var sc = Selected;
@@ -318,6 +336,7 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>Removes the one chosen and its Windows task, after asking.</summary>
         private void RemoveSelected()
         {
             var sc = Selected;

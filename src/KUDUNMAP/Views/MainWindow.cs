@@ -1,3 +1,5 @@
+// The main window: the toolbar with the address box and scan buttons, the New scan and results views, running a scan,
+// and opening History, Schedules and Settings.
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -17,43 +19,68 @@ namespace Kudunmap.Views
 {
     public sealed class MainWindow : Window
     {
+        /// <summary>What the app was started with.</summary>
         private readonly CommandLine _cmd;
+        /// <summary>Where the New scan, results or "Nmap is missing" view is shown.</summary>
         private readonly Grid _body = new Grid { Margin = new Thickness(16, 0, 16, 16) };
+        /// <summary>The New scan view.</summary>
         private readonly SetupView _setup;
+        /// <summary>The results view.</summary>
         private readonly ResultsView _results;
+        /// <summary>What's shown when Nmap can't be found.</summary>
         private readonly UIElement _missing;
 
         // Toolbar
         private readonly TextBox _target = new TextBox { BorderThickness = new Thickness(0), Background = null, FontSize = 13.5, Padding = new Thickness(0) };
+        /// <summary>A hint under the address box.</summary>
         private readonly TextBlock _targetHint = Ui.Subtle("IP, name, range or network", 11.5, false);
+        /// <summary>Shows the file of addresses, when one was chosen.</summary>
         private readonly Border _fileChip = new Border { Visibility = Visibility.Collapsed };
+        /// <summary>Starts the scan.</summary>
         private readonly Button _scanButton;
+        /// <summary>Stops the scan.</summary>
         private readonly Button _cancelButton;
+        /// <summary>Chooses a file of addresses.</summary>
         private readonly Button _fromFile;
 
         // Status bar
         private readonly TextBlock _status = Ui.Subtle(string.Empty, 12, false);
+        /// <summary>The dot in the status bar (its colour says what's going on).</summary>
         private readonly System.Windows.Shapes.Ellipse _statusDot = Ui.Dot("OffDot");
+        /// <summary>The right part of the status bar.</summary>
         private readonly StackPanel _statusRight = new StackPanel { Orientation = Orientation.Horizontal };
 
         // Running scan
         private NmapRunner _runner;
+        /// <summary>Follows the scan's progress from Nmap's output.</summary>
         private ProgressTracker _tracker;
+        /// <summary>The options of the scan running.</summary>
         private ScanOptions _running;
+        /// <summary>Where Nmap writes its results file.</summary>
         private string _xmlPath;
+        /// <summary>Lines from Nmap waiting to be shown (they come from another thread).</summary>
         private readonly ConcurrentQueue<string> _lines = new ConcurrentQueue<string>();
+        /// <summary>Shows the waiting lines four times a second.</summary>
         private readonly DispatcherTimer _flush = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(250) };
+        /// <summary>When the scan started.</summary>
         private DateTime _scanStarted;
 
+        /// <summary>The Nmap found (null when none).</summary>
         public NmapInstall Nmap { get; private set; }
+        /// <summary>The options chosen on the New scan view.</summary>
         public ScanOptions Options { get; private set; }
+        /// <summary>The person's own saved scan chosen, if any.</summary>
         private CustomPreset _customPreset;
 
+        /// <summary>True while a scan runs.</summary>
         public bool IsScanning => _runner != null;
 
+        /// <summary>The New scan view (for the self-test).</summary>
         internal SetupView Setup => _setup;
+        /// <summary>The results view (for the self-test).</summary>
         internal ResultsView Results => _results;
 
+        /// <summary>Makes the main window.</summary>
         public MainWindow(CommandLine cmd)
         {
             _cmd = cmd ?? new CommandLine();
@@ -111,6 +138,9 @@ namespace Kudunmap.Views
 
         // ================================================================== layout
 
+        /// <summary>
+        /// The toolbar: the address box, the file button, the scan and stop buttons, and the menu buttons.
+        /// </summary>
         private UIElement BuildToolbar()
         {
             var targetGrid = Ui.Columns(Ui.Auto, Ui.Star(), Ui.Auto, Ui.Auto);
@@ -155,6 +185,7 @@ namespace Kudunmap.Views
             return grid;
         }
 
+        /// <summary>The status bar at the bottom.</summary>
         private UIElement BuildStatusBar()
         {
             var g = Ui.Columns(Ui.Auto, Ui.Star(), Ui.Auto);
@@ -165,6 +196,7 @@ namespace Kudunmap.Views
                 .Res(Border.BorderBrushProperty, "BorderBrush").Res(Border.BackgroundProperty, "SurfaceAltBg");
         }
 
+        /// <summary>The view shown when Nmap isn't found: how to get it and where it was looked for.</summary>
         private UIElement BuildMissingView()
         {
             var steps = new StackPanel { Margin = new Thickness(0, 8, 0, 0) };
@@ -203,6 +235,9 @@ namespace Kudunmap.Views
 
         // ================================================================== startup
 
+        /// <summary>
+        /// Once shown: the one-time notice, finding Nmap, the update check, and a scan from the command line.
+        /// </summary>
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             if (!Settings.NoticeAccepted && !SelfTest.Running)
@@ -227,6 +262,7 @@ namespace Kudunmap.Views
             else _target.Focus();
         }
 
+        /// <summary>Looks for Nmap and shows the New scan view, or the "missing" view.</summary>
         public void FindNmap()
         {
             Nmap = NmapLocator.Find(Settings.NmapPath);
@@ -247,6 +283,7 @@ namespace Kudunmap.Views
             _setup.Refresh();
         }
 
+        /// <summary>Lets the person show where nmap.exe is.</summary>
         private void LocateNmap()
         {
             var file = Dialogs.PickFile(this, "Choose nmap.exe", "nmap.exe|nmap.exe");
@@ -263,6 +300,7 @@ namespace Kudunmap.Views
             FindNmap();
         }
 
+        /// <summary>Looks for a new version once (unless switched off) and says so in the status bar.</summary>
         private async void CheckForUpdatesQuietly()
         {
             if (!Settings.CheckForUpdates) return;
@@ -286,6 +324,7 @@ namespace Kudunmap.Views
 
         // ================================================================== navigation
 
+        /// <summary>Shows one of the views.</summary>
         private void Show(UIElement view)
         {
             if (_body.Children.Count == 1 && _body.Children[0] == view) return;
@@ -293,6 +332,7 @@ namespace Kudunmap.Views
             _body.Children.Add(view);
         }
 
+        /// <summary>Goes back to the New scan view.</summary>
         public void ShowSetup()
         {
             if (Nmap == null && !SelfTest.Running)
@@ -305,6 +345,7 @@ namespace Kudunmap.Views
             Show(_setup);
         }
 
+        /// <summary>Turns the address box and buttons on or off (off while scanning).</summary>
         private void SetInputsEnabled(bool enabled)
         {
             _target.IsEnabled = enabled;
@@ -312,12 +353,14 @@ namespace Kudunmap.Views
             _scanButton.IsEnabled = enabled;
         }
 
+        /// <summary>Shows a text in the status bar, with the dot's colour.</summary>
         public void SetStatus(string text, string dot = null)
         {
             _status.Text = text;
             if (dot != null) _statusDot.Res(System.Windows.Shapes.Shape.FillProperty, dot);
         }
 
+        /// <summary>Shows a text at the right of the status bar.</summary>
         private void SetStatusRight(string text)
         {
             _statusRight.Children.Clear();
@@ -326,12 +369,14 @@ namespace Kudunmap.Views
 
         // ================================================================== target
 
+        /// <summary>The addresses typed changed: the options and hint follow.</summary>
         private void OnTargetChanged()
         {
             Options.Targets = _target.Text;
             _setup.Refresh();
         }
 
+        /// <summary>Chooses a file of addresses to scan.</summary>
         private void PickTargetFile()
         {
             var file = Dialogs.PickFile(this, "Choose a list of targets (one per line)", "Text files|*.txt;*.lst;*.csv|All files|*.*");
@@ -341,6 +386,7 @@ namespace Kudunmap.Views
             _setup.Refresh();
         }
 
+        /// <summary>Shows the file of addresses chosen (or hides it).</summary>
         private void UpdateTargetFile()
         {
             var hasFile = !string.IsNullOrEmpty(Options.TargetFile);
@@ -365,6 +411,7 @@ namespace Kudunmap.Views
             _fileChip.Child = Ui.Row(Ui.Chip(Path.GetFileName(Options.TargetFile), Tone.Accent, "IconFile").Tip(Options.TargetFile), clear.Margin(4, 0, 0, 0));
         }
 
+        /// <summary>Puts an address in the box.</summary>
         public void SetTarget(string target)
         {
             Options.TargetFile = null;
@@ -375,6 +422,7 @@ namespace Kudunmap.Views
 
         // ================================================================== presets
 
+        /// <summary>Chooses a ready-made scan.</summary>
         public void SelectPreset(Preset p)
         {
             var targets = Options.Targets;
@@ -387,6 +435,7 @@ namespace Kudunmap.Views
             _setup.LoadOptions(Options, p.Id);
         }
 
+        /// <summary>Chooses one of the person's own saved scans.</summary>
         public void SelectCustomPreset(CustomPreset cp)
         {
             var targets = Options.Targets;
@@ -404,6 +453,7 @@ namespace Kudunmap.Views
             _setup.LoadOptions(Options, null, cp);
         }
 
+        /// <summary>Copies the Nmap command to the clipboard.</summary>
         public void CopyCommand()
         {
             Ui.Copy(CommandBuilder.CopyableCommand(Options, Admin.IsAdmin));
@@ -412,6 +462,9 @@ namespace Kudunmap.Views
 
         // ================================================================== admin
 
+        /// <summary>
+        /// Starts KUDUNMAP again with administrator rights (and the scan, when asked), keeping the choices.
+        /// </summary>
         public void RestartAsAdmin(bool scanNow = false)
         {
             if (IsScanning && !Dialogs.Confirm(this, "A scan is running. Stop it and restart KUDUNMAP as administrator?")) return;
@@ -445,6 +498,7 @@ namespace Kudunmap.Views
 
         // ================================================================== scanning
 
+        /// <summary>Starts the scan: checks the addresses and rights, runs Nmap, and shows its progress.</summary>
         public void StartScan()
         {
             if (IsScanning) return;
@@ -532,6 +586,7 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>Stops the scan.</summary>
         public void CancelScan()
         {
             if (!IsScanning) return;
@@ -540,6 +595,7 @@ namespace Kudunmap.Views
             _runner.Cancel();
         }
 
+        /// <summary>Shows the lines Nmap wrote since last time and updates the progress.</summary>
         private void FlushOutput()
         {
             if (_tracker == null) return;
@@ -556,6 +612,9 @@ namespace Kudunmap.Views
                 SetStatus(Lang.T("Scanning · {0} found so far · started {1}", Format.Count(_tracker.Found.Count, "host"), _scanStarted.ToString("HH:mm")), "LinkText");
         }
 
+        /// <summary>
+        /// Nmap finished: reads the results, keeps them in History and shows them (or says what went wrong).
+        /// </summary>
         private void OnScanExited(int code)
         {
             var runner = _runner;
@@ -613,6 +672,7 @@ namespace Kudunmap.Views
             Notifier.Show(this, Lang.T("{0} finished", Lang.T(options.Title)), summary);
         }
 
+        /// <summary>Puts the scan and stop buttons back after a scan.</summary>
         private void RestoreToolbar()
         {
             _flush.Stop();
@@ -623,12 +683,14 @@ namespace Kudunmap.Views
             _fromFile.IsEnabled = true;
         }
 
+        /// <summary>Removes a file if it's there (quietly).</summary>
         private static void TryDelete(string path)
         {
             try { if (path != null && File.Exists(path)) File.Delete(path); }
             catch { /* ignore */ }
         }
 
+        /// <summary>Runs a scan again with the same options.</summary>
         public void ScanAgain(ScanOptions o)
         {
             Options = o.Clone();
@@ -638,6 +700,7 @@ namespace Kudunmap.Views
             StartScan();
         }
 
+        /// <summary>Scans one device in more detail.</summary>
         public void ScanHost(string address)
         {
             SetTarget(address);
@@ -648,17 +711,20 @@ namespace Kudunmap.Views
 
         // ================================================================== history, compare, settings
 
+        /// <summary>Opens the Schedules window.</summary>
         public void ShowSchedules()
         {
             new SchedulesWindow(this).Show();
         }
 
+        /// <summary>Opens the History window.</summary>
         public void ShowHistory()
         {
             var window = new HistoryWindow(this);
             window.Show();
         }
 
+        /// <summary>Opens the Compare window with this scan as the newer one.</summary>
         public void ShowCompare(HistoryEntry newer)
         {
             var entries = History.List();
@@ -670,6 +736,7 @@ namespace Kudunmap.Views
             new CompareWindow(this, entries, newer).Show();
         }
 
+        /// <summary>Shows a past scan's results.</summary>
         public void OpenHistory(HistoryEntry entry)
         {
             if (IsScanning)
@@ -695,6 +762,7 @@ namespace Kudunmap.Views
             }
         }
 
+        /// <summary>Opens the Settings window.</summary>
         private void ShowSettings()
         {
             new SettingsWindow(this, () => Nmap, FindNmap).ShowDialog();
@@ -702,6 +770,7 @@ namespace Kudunmap.Views
 
         // ================================================================== closing
 
+        /// <summary>Asks before closing while a scan runs, and stops it.</summary>
         private void OnClosing(object sender, CancelEventArgs e)
         {
             if (!IsScanning) return;
@@ -716,12 +785,18 @@ namespace Kudunmap.Views
     }
 
     /// <summary>A minimal ICommand for keyboard shortcuts.</summary>
+    /// <summary>A command that runs an action (for keyboard shortcuts).</summary>
     public sealed class RelayCommand : ICommand
     {
+        /// <summary>What the command does.</summary>
         private readonly Action _action;
+        /// <summary>A command for this action.</summary>
         public RelayCommand(Action action) => _action = action;
+        /// <summary>Never changes (the command can always run).</summary>
         public event EventHandler CanExecuteChanged { add { } remove { } }
+        /// <summary>The command can always run.</summary>
         public bool CanExecute(object parameter) => true;
+        /// <summary>Runs the action.</summary>
         public void Execute(object parameter) => _action();
     }
 }

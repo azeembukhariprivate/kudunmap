@@ -1,3 +1,5 @@
+// The network map: a guess at what each device is (router, PC, phone, printer...), and where it goes in the rings
+// around the router.
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +12,24 @@ namespace Kudunmap.Core
     /// <summary>One device on the map: what it is, where it's drawn, and how its open ports look.</summary>
     public sealed class MapDevice
     {
+        /// <summary>The device.</summary>
         public HostInfo Host { get; set; }
+        /// <summary>What it probably is.</summary>
         public DeviceKind Kind { get; set; }
+        /// <summary>The name shown under it.</summary>
         public string Label { get; set; }
+        /// <summary>Where it is across the map (0 to 1).</summary>
         public double X { get; set; }
+        /// <summary>Where it is down the map (0 to 1).</summary>
         public double Y { get; set; }
+        /// <summary>How many of its open ports are risky.</summary>
         public int Risky { get; set; }
+        /// <summary>How many are worth a look.</summary>
         public int WorthALook { get; set; }
+        /// <summary>How many ports are open.</summary>
         public int Open { get; set; }
 
+        /// <summary>What it probably is, in words.</summary>
         public string KindText => NetworkMap.KindName(Kind);
     }
 
@@ -28,6 +39,7 @@ namespace Kudunmap.Core
     /// </summary>
     public static class NetworkMap
     {
+        /// <summary>The words for a kind of device.</summary>
         public static string KindName(DeviceKind k)
         {
             switch (k)
@@ -47,6 +59,7 @@ namespace Kudunmap.Core
             }
         }
 
+        /// <summary>True when the text has any of these words (upper and lower case the same).</summary>
         private static bool Has(string text, params string[] words) =>
             !string.IsNullOrEmpty(text) && words.Any(w => text.IndexOf(w, StringComparison.OrdinalIgnoreCase) >= 0);
 
@@ -144,6 +157,7 @@ namespace Kudunmap.Core
             return rings;
         }
 
+        /// <summary>A shorter name for the map (the first part of a long host name).</summary>
         private static string ShortName(string name)
         {
             var dot = name.IndexOf('.');

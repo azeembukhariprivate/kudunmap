@@ -1,3 +1,5 @@
+// Where KUDUNMAP is installed and whether that place is protected, which decides whether scheduled scans may run with
+// administrator rights.
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +14,7 @@ namespace Kudunmap.Core
     /// </summary>
     public static class InstallPlace
     {
+        /// <summary>The folders only administrators can change (Program Files and Windows).</summary>
         public static IEnumerable<string> ProtectedRoots() =>
             new[] { Environment.SpecialFolder.ProgramFiles, Environment.SpecialFolder.ProgramFilesX86 }
                 .Select(Environment.GetFolderPath).Where(p => !string.IsNullOrEmpty(p)).Distinct(StringComparer.OrdinalIgnoreCase);

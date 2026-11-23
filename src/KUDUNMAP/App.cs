@@ -1,3 +1,5 @@
+// Where KUDUNMAP starts: the command line decides whether it runs a scheduled scan, the self-test, the install check,
+// removes or limits the schedules, or opens the main window.
 using System;
 using System.Windows;
 using System.Windows.Threading;
@@ -8,12 +10,16 @@ namespace Kudunmap
 {
     public static class Program
     {
+        /// <summary>Starts the app.</summary>
         [STAThread]
         public static int Main() => new App().Run();
     }
 
     public sealed class App : Application
     {
+        /// <summary>
+        /// Reads the command line, sets up the theme and language, and does or opens what was asked for.
+        /// </summary>
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -67,6 +73,9 @@ namespace Kudunmap
             main.Show();
         }
 
+        /// <summary>
+        /// Shows an error that wasn't expected instead of closing the app (the self-test keeps it as a failure).
+        /// </summary>
         private void OnUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             if (SelfTest.Running)

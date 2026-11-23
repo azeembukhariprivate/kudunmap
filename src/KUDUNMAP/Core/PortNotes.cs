@@ -1,3 +1,4 @@
+// Plain-words notes on open ports: what each common port is, and whether it's fine, worth a look or risky.
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,20 +21,25 @@ namespace Kudunmap.Core
     /// <summary>What an open port is, in plain words, and what it could risk.</summary>
     public sealed class PortNote
     {
+        /// <summary>How much it matters: fine, worth a look, or risky.</summary>
         public PortLevel Level { get; set; }
         /// <summary>What it is, like "Remote Desktop".</summary>
         public string What { get; set; }
         /// <summary>What it means for you, in a sentence or two.</summary>
         public string Text { get; set; }
 
+        /// <summary>The level in words.</summary>
         public string LevelText => Level == PortLevel.Risky ? "Risky" : Level == PortLevel.WorthALook ? "Worth a look" : "Fine";
     }
 
     /// <summary>One open port that's worth knowing about, with the device it's on.</summary>
     public sealed class PortFinding
     {
+        /// <summary>The device the port is open on.</summary>
         public HostInfo Host { get; set; }
+        /// <summary>The open port.</summary>
         public PortInfo Port { get; set; }
+        /// <summary>What's said about it.</summary>
         public PortNote Note { get; set; }
     }
 
@@ -43,8 +49,10 @@ namespace Kudunmap.Core
     /// </summary>
     public static class PortNotes
     {
+        /// <summary>A note (short, for the list below).</summary>
         private static PortNote N(PortLevel level, string what, string text) => new PortNote { Level = level, What = what, Text = text };
 
+        /// <summary>The end of the notes on risky ports.</summary>
         private const string CloseIt = " Close it if you don't use it, and never let it be reached from the internet.";
 
         // Numbers for TCP (and both, where the service is the same).

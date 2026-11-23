@@ -1,16 +1,22 @@
+// Compares two scans: new and gone hosts, ports opened and closed, and versions changed.
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Kudunmap.Core
 {
+    /// <summary>What changed.</summary>
     public enum ChangeKind { NewHost, HostGone, PortOpened, PortClosed, VersionChanged, Unchanged }
 
     public sealed class Change
     {
+        /// <summary>What kind of change it is.</summary>
         public ChangeKind Kind { get; set; }
+        /// <summary>The device's address.</summary>
         public string Address { get; set; } = string.Empty;
+        /// <summary>The device's name.</summary>
         public string Name { get; set; } = string.Empty;
+        /// <summary>What changed, in words.</summary>
         public string Details { get; set; } = string.Empty;
 
         public string KindText
@@ -33,6 +39,7 @@ namespace Kudunmap.Core
     /// <summary>Finds what changed between an older and a newer scan.</summary>
     public static class ScanComparer
     {
+        /// <summary>The changes from the older scan to the newer one (the unchanged hosts too, when asked).</summary>
         public static List<Change> Compare(ScanResult older, ScanResult newer, bool includeUnchanged = false)
         {
             var changes = new List<Change>();
@@ -103,16 +110,19 @@ namespace Kudunmap.Core
             return changes;
         }
 
+        /// <summary>A port as words: its number, service and version.</summary>
         private static string Describe(PortInfo p)
         {
             var what = string.IsNullOrEmpty(p.VersionText) ? p.ServiceText : $"{p.ServiceText} ({p.VersionText})";
             return $"{p.Key}  {what}".TrimEnd();
         }
 
+        /// <summary>The product and version, as one text.</summary>
         private static string Short(PortInfo p) => string.Join(" ", new[] { p.Product, p.Version }.Where(s => !string.IsNullOrEmpty(s)));
 
         private sealed class PortKeyComparer : IComparer<string>
         {
+            /// <summary>Sorts ports by number.</summary>
             public int Compare(string x, string y)
             {
                 int Num(string k) => int.TryParse(k.Split('/')[0], out var n) ? n : 0;

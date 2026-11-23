@@ -15,13 +15,18 @@ namespace Kudunmap.Core
     /// </summary>
     public sealed class CommandLine
     {
+        /// <summary>Addresses or names given to scan.</summary>
         public List<string> Targets { get; } = new List<string>();
+        /// <summary>The ready-made scan to use (--preset).</summary>
         public string Preset { get; private set; }
+        /// <summary>Start the scan straight away (--scan).</summary>
         public bool ScanNow { get; private set; }
+        /// <summary>Run the self-test (--self-test).</summary>
         public bool SelfTest { get; private set; }
 
         /// <summary>--install-check: run by the build on a copy installed for all users (Views/InstallCheck.cs).</summary>
         public bool InstallCheck { get; private set; }
+        /// <summary>Open the History window (--history).</summary>
         public bool ShowHistory { get; private set; }
 
         /// <summary>The scheduled scan to run without a window.</summary>
@@ -30,6 +35,7 @@ namespace Kudunmap.Core
         /// <summary>Another data folder (the self-test's own), passed on by its scheduled scans.</summary>
         public string DataFolder { get; private set; }
 
+        /// <summary>Remove the scheduled scans' Windows tasks (--remove-schedules, run by the uninstaller).</summary>
         public bool RemoveSchedules { get; private set; }
 
         /// <summary>--limit-schedules: run after installing, sets up scheduled scans again without administrator rights when needed (never asks).</summary>
@@ -38,8 +44,13 @@ namespace Kudunmap.Core
         /// <summary>Options saved by the copy that restarted as administrator. Only files in KUDUNMAP's own folder are accepted.</summary>
         public string OptionsFile { get; private set; }
 
+        /// <summary>The addresses as one line, for the box on the New scan screen.</summary>
         public string TargetText => string.Join(" ", Targets);
 
+        /// <summary>
+        /// Reads the command line: its switches, and the rest as addresses to scan (all dropped when they aren't valid
+        /// addresses).
+        /// </summary>
         public static CommandLine Parse(string[] args)
         {
             var cmd = new CommandLine();

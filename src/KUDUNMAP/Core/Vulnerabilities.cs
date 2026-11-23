@@ -1,3 +1,5 @@
+// Known problems (vulnerabilities) found by Nmap's scripts: read from their output, with CVE numbers and how serious
+// each one is.
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -7,28 +9,41 @@ using System.Xml.Linq;
 
 namespace Kudunmap.Core
 {
+    /// <summary>How serious a problem is.</summary>
     public enum Severity { Critical, High, Medium, Low, Unrated }
 
     public sealed class Vulnerability
     {
+        /// <summary>How serious it is.</summary>
         public Severity Severity { get; set; } = Severity.Unrated;
+        /// <summary>Its score out of 10 (CVSS), when known.</summary>
         public double? Score { get; set; }
+        /// <summary>Its title.</summary>
         public string Title { get; set; } = string.Empty;
+        /// <summary>The device's address.</summary>
         public string HostAddress { get; set; } = string.Empty;
+        /// <summary>The device's name.</summary>
         public string HostName { get; set; } = string.Empty;
 
         /// <summary>"445/tcp", or empty for findings about the whole host.</summary>
         public string Port { get; set; } = string.Empty;
+        /// <summary>Its CVE numbers.</summary>
         public List<string> Cves { get; } = new List<string>();
+        /// <summary>The script that found it.</summary>
         public string ScriptId { get; set; } = string.Empty;
 
         /// <summary>True for vulners matches: the software version is listed as affected, nothing was tested.</summary>
         public bool MatchedByVersion { get; set; }
+        /// <summary>What the script said about it ("VULNERABLE", "LIKELY VULNERABLE").</summary>
         public string State { get; set; } = string.Empty;
+        /// <summary>The script's whole output.</summary>
         public string Output { get; set; } = string.Empty;
 
+        /// <summary>How serious it is, in words.</summary>
         public string SeverityText => Severity.ToString();
+        /// <summary>Its first CVE number, or empty.</summary>
         public string FirstCve => Cves.FirstOrDefault() ?? string.Empty;
+        /// <summary>The port, or "host" when it's about the device as a whole.</summary>
         public string Where => string.IsNullOrEmpty(Port) ? "host" : Port;
 
         public string Note
@@ -51,16 +66,24 @@ namespace Kudunmap.Core
     /// </summary>
     public static class VulnerabilityFinder
     {
+        /// <summary>A CVE number, like CVE-2024-12345.</summary>
         private static readonly Regex CveRegex = new Regex(@"CVE-\d{4}-\d{4,7}", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+        /// <summary>"Risk factor: High" in script output.</summary>
         private static readonly Regex RiskRegex = new Regex(@"Risk factor:\s*(?<r>[A-Za-z]+)", RegexOptions.IgnoreCase);
+        /// <summary>A CVSS score in script output.</summary>
         private static readonly Regex CvssRegex = new Regex(@"CVSS(?:v[23](?:\.\d)?)?\s*(?:Base Score)?\s*[:=]?\s*(?<s>\d{1,2}(?:\.\d)?)", RegexOptions.IgnoreCase);
+        /// <summary>A "VULNERABLE:" block in a script's text output: its title and state.</summary>
         private static readonly Regex TextBlock = new Regex(
             @"^[ \t]*(?:LIKELY )?VULNERABLE:[ \t]*\r?\n[ \t]*(?<title>[^\r\n]+?)[ \t]*\r?\n[ \t]*State:[ \t]*(?<state>[^\r\n]+)",
             RegexOptions.Multiline | RegexOptions.CultureInvariant);
+        /// <summary>A line of the vulners script: an id, its score and a link.</summary>
         private static readonly Regex VulnersLine = new Regex(
             @"^[ \t]*(?<id>[A-Za-z0-9_:\-\.]+)[ \t]+(?<cvss>\d{1,2}(?:\.\d)?)[ \t]+(?:https?://\S+)?",
             RegexOptions.Multiline | RegexOptions.CultureInvariant);
 
+        /// <summary>
+        /// Every known problem the scripts found, each once (the most serious copy kept), most serious first.
+        /// </summary>
         public static List<Vulnerability> Find(ScanResult result)
         {
             var list = new List<Vulnerability>();
@@ -83,6 +106,7 @@ namespace Kudunmap.Core
                 .ToList();
         }
 
+        /// <summary>How serious a score is (9 and up critical, 7 high, 4 medium, else low).</summary>
         public static Severity FromScore(double score)
         {
             if (score >= 9.0) return Severity.Critical;
@@ -91,6 +115,7 @@ namespace Kudunmap.Core
             return Severity.Low;
         }
 
+        /// <summary>How serious a risk word is ("High", "Medium"...).</summary>
         public static Severity FromRisk(string risk)
         {
             switch ((risk ?? string.Empty).Trim().ToUpperInvariant())
@@ -103,6 +128,7 @@ namespace Kudunmap.Core
             }
         }
 
+        /// <summary>The problems one script found.</summary>
         private static IEnumerable<Vulnerability> FromScript(HostInfo host, PortInfo port, ScriptResult script)
         {
             if (string.Equals(script.Id, "vulners", StringComparison.OrdinalIgnoreCase))
@@ -110,6 +136,7 @@ namespace Kudunmap.Core
             return FromVulnsLibrary(host, port, script);
         }
 
+        /// <summary>A new problem from a script on a device (and port).</summary>
         private static Vulnerability New(HostInfo host, PortInfo port, ScriptResult script) => new Vulnerability
         {
             HostAddress = host.Address,
@@ -121,6 +148,7 @@ namespace Kudunmap.Core
 
         // ----- "vulns" library output (smb-vuln-ms17-010, ssl-dh-params, http-vuln-*, …) -----
 
+        /// <summary>The problems from a script that uses Nmap's vulns library (its tables, else its text).</summary>
         private static List<Vulnerability> FromVulnsLibrary(HostInfo host, PortInfo port, ScriptResult script)
         {
             var found = new List<Vulnerability>();
@@ -172,6 +200,7 @@ namespace Kudunmap.Core
             return found;
         }
 
+        /// <summary>True when a state means the device has the problem.</summary>
         private static bool IsVulnerable(string state) =>
             !string.IsNullOrEmpty(state) &&
             state.IndexOf("VULNERABLE", StringComparison.OrdinalIgnoreCase) >= 0 &&
@@ -186,6 +215,7 @@ namespace Kudunmap.Core
             return next < 0 ? output.Substring(start) : output.Substring(start, next - start);
         }
 
+        /// <summary>Sets how serious a problem is from its text (risk factor or score).</summary>
         private static void Rate(Vulnerability v, string section)
         {
             var risk = FromRisk(RiskRegex.Match(section).Groups["r"].Value);
@@ -194,6 +224,7 @@ namespace Kudunmap.Core
 
         // ----- vulners: CVEs listed for the detected software version -----
 
+        /// <summary>The problems from the vulners script: known problems of the program's version.</summary>
         private static List<Vulnerability> FromVulners(HostInfo host, PortInfo port, ScriptResult script)
         {
             var found = new List<Vulnerability>();
@@ -229,6 +260,7 @@ namespace Kudunmap.Core
             return found;
         }
 
+        /// <summary>A problem from one line of the vulners script.</summary>
         private static Vulnerability VulnersEntry(HostInfo host, PortInfo port, ScriptResult script, string software, string id, double? score, bool exploit)
         {
             var v = New(host, port, script);
@@ -243,9 +275,11 @@ namespace Kudunmap.Core
 
         // ----- helpers -----
 
+        /// <summary>A value from a script's table, by its key.</summary>
         private static string Elem(XElement table, string key) =>
             table.Elements("elem").FirstOrDefault(e => (string)e.Attribute("key") == key)?.Value?.Trim() ?? string.Empty;
 
+        /// <summary>Adds the CVE numbers found in a text.</summary>
         private static void AddCves(Vulnerability v, string text)
         {
             if (string.IsNullOrEmpty(text)) return;
@@ -256,11 +290,13 @@ namespace Kudunmap.Core
             }
         }
 
+        /// <summary>A score from text, or null.</summary>
         private static double? ParseScore(string s) =>
             double.TryParse((s ?? string.Empty).Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out var d) && d >= 0 && d <= 10
                 ? d
                 : (double?)null;
 
+        /// <summary>True when the text is exactly one CVE number.</summary>
         public static bool IsCve(string id) => !string.IsNullOrEmpty(id) && CveRegex.IsMatch(id) && CveRegex.Match(id).Value.Length == id.Length;
     }
 }

@@ -1,3 +1,5 @@
+// KUDUNMAP.exe --install-check: checks after an install for all users that scheduled scans get the right rights, and
+// writes what it found to a log (run by the build on Windows).
 using System;
 using System.IO;
 using System.Linq;
@@ -15,6 +17,7 @@ namespace Kudunmap.Views
     /// </summary>
     public static class InstallCheck
     {
+        /// <summary>Runs the checks and returns 0 when all passed.</summary>
         public static int Run()
         {
             var log = new StringBuilder();

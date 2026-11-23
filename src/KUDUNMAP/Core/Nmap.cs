@@ -1,3 +1,4 @@
+// Finding the user's own Nmap, and running it: the command, its output line by line, stopping it.
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,16 +12,24 @@ namespace Kudunmap.Core
 {
     public sealed class NmapInstall
     {
+        /// <summary>Where nmap.exe is.</summary>
         public string Path { get; set; }
+        /// <summary>Nmap's version, as it says itself.</summary>
         public string Version { get; set; }
+        /// <summary>The folder nmap.exe is in.</summary>
         public string Folder => System.IO.Path.GetDirectoryName(Path);
     }
 
     /// <summary>Finds the nmap.exe the user installed. KUDUNMAP never downloads or installs Nmap itself.</summary>
     public static class NmapLocator
     {
+        /// <summary>The places looked in last time (shown when Nmap isn't found).</summary>
         public static List<string> SearchedPlaces { get; } = new List<string>();
 
+        /// <summary>
+        /// The places nmap.exe may be: the path set in Settings, the Nmap folder in Program Files, and the folders on
+        /// the PATH.
+        /// </summary>
         public static IEnumerable<string> Candidates(string customPath)
         {
             SearchedPlaces.Clear();
@@ -53,6 +62,7 @@ namespace Kudunmap.Core
             }
         }
 
+        /// <summary>The first nmap.exe found that answers with its version, or null.</summary>
         public static NmapInstall Find(string customPath)
         {
             foreach (var path in Candidates(customPath))
@@ -72,6 +82,7 @@ namespace Kudunmap.Core
             return null;
         }
 
+        /// <summary>The same, without holding up the window.</summary>
         public static Task<NmapInstall> FindAsync(string customPath) => Task.Run(() => Find(customPath));
 
         /// <summary>Runs "nmap --version" and returns e.g. "7.95", or null if it isn't Nmap.</summary>
@@ -102,12 +113,18 @@ namespace Kudunmap.Core
     /// <summary>Runs one Nmap scan and reports its text output line by line.</summary>
     public sealed class NmapRunner : IDisposable
     {
+        /// <summary>All the output so far.</summary>
         private readonly StringBuilder _output = new StringBuilder();
+        /// <summary>Guards the output, which is added to from Nmap's output threads.</summary>
         private readonly object _lock = new object();
+        /// <summary>The Nmap process running.</summary>
         private Process _process;
+        /// <summary>True once the person stopped the scan.</summary>
         private bool _cancelled;
 
+        /// <summary>Each line Nmap writes, as it comes.</summary>
         public event Action<string> Line;
+        /// <summary>Nmap finished, with its exit code.</summary>
         public event Action<int> Exited;
 
         public string Output
@@ -115,6 +132,7 @@ namespace Kudunmap.Core
             get { lock (_lock) return _output.ToString(); }
         }
 
+        /// <summary>True when the scan was stopped by the person.</summary>
         public bool Cancelled => _cancelled;
 
         /// <summary>
@@ -136,6 +154,10 @@ namespace Kudunmap.Core
             return list;
         }
 
+        /// <summary>
+        /// Starts Nmap with these arguments (each quoted safely, and Nmap's own data folder added) in the folder given,
+        /// without a window.
+        /// </summary>
         public void Start(string nmapPath, IEnumerable<string> args, string workingFolder)
         {
             var psi = new ProcessStartInfo(nmapPath, CommandBuilder.JoinArguments(WithOwnFiles(nmapPath, args)))
@@ -165,6 +187,7 @@ namespace Kudunmap.Core
             _process.BeginErrorReadLine();
         }
 
+        /// <summary>Keeps a line of output and passes it on.</summary>
         private void OnLine(string line)
         {
             if (line == null) return;
@@ -172,6 +195,7 @@ namespace Kudunmap.Core
             Line?.Invoke(line);
         }
 
+        /// <summary>Stops Nmap.</summary>
         public void Cancel()
         {
             _cancelled = true;
@@ -185,6 +209,7 @@ namespace Kudunmap.Core
             }
         }
 
+        /// <summary>Stops Nmap if it's still running.</summary>
         public void Dispose()
         {
             try { _process?.Dispose(); } catch { }

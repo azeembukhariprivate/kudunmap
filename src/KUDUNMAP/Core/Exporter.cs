@@ -1,3 +1,5 @@
+// Saves scan results for other programs and people: CSV files (hosts and ports, problems found, changes) and a web page
+// report.
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -14,8 +16,10 @@ namespace Kudunmap.Core
     /// </summary>
     public static class Exporter
     {
+        /// <summary>Saves the hosts and ports as a CSV file (UTF-8 with a BOM, so Excel reads it right).</summary>
         public static void SaveCsv(ScanResult r, string path) => File.WriteAllText(path, Csv(r), new UTF8Encoding(true));
 
+        /// <summary>The hosts and ports as CSV text, a row per open port.</summary>
         public static string Csv(ScanResult r)
         {
             var sb = new StringBuilder();
@@ -30,6 +34,7 @@ namespace Kudunmap.Core
             return sb.ToString();
         }
 
+        /// <summary>Saves the known problems (vulnerabilities) found as a CSV file.</summary>
         public static void SaveVulnerabilitiesCsv(ScanResult r, string path)
         {
             var sb = new StringBuilder();
@@ -40,6 +45,7 @@ namespace Kudunmap.Core
             File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
         }
 
+        /// <summary>Saves what changed between two scans as a CSV file.</summary>
         public static void SaveChangesCsv(IEnumerable<Change> changes, string path)
         {
             var sb = new StringBuilder();
@@ -48,12 +54,17 @@ namespace Kudunmap.Core
             File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
         }
 
+        /// <summary>Adds one CSV row.</summary>
         private static void Row(StringBuilder sb, params string[] cells)
         {
             sb.Append(string.Join(",", cells.Select(CsvCell)));
             sb.Append("\r\n");
         }
 
+        /// <summary>
+        /// A value made safe for a CSV cell: quoted when needed, and a leading = + - @ or tab made harmless so a
+        /// spreadsheet doesn't run it.
+        /// </summary>
         public static string CsvCell(string value)
         {
             value = value ?? string.Empty;
@@ -62,9 +73,14 @@ namespace Kudunmap.Core
             return "\"" + value.Replace("\"", "\"\"") + "\"";
         }
 
+        /// <summary>Saves the web page report.</summary>
         public static void SaveHtml(ScanResult r, string title, string path) =>
             File.WriteAllText(path, Html(r, title), new UTF8Encoding(false));
 
+        /// <summary>
+        /// The web page report: the totals, the hosts with their ports and notes, the problems found and the command
+        /// used.
+        /// </summary>
         public static string Html(ScanResult r, string title)
         {
             string E(string s) => WebUtility.HtmlEncode(s ?? string.Empty);
@@ -159,9 +175,11 @@ namespace Kudunmap.Core
         /// <summary>Set by the app at startup so reports show the KUDUNMAP version.</summary>
         public static string AppVersion { get; set; } = string.Empty;
 
+        /// <summary>One of the totals at the top of the report.</summary>
         private static void Stat(StringBuilder sb, string value, string label) =>
             sb.Append("<div><b>").Append(WebUtility.HtmlEncode(value)).Append("</b><span class=\"sub\">").Append(WebUtility.HtmlEncode(label)).Append("</span></div>");
 
+        /// <summary>A time in seconds as "2 min 5 s" and the like.</summary>
         public static string Duration(double seconds)
         {
             if (seconds <= 0) return "–";

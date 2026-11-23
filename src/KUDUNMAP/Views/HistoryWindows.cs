@@ -1,3 +1,5 @@
+// The History window (past scans, to open, compare or remove), the Compare window (what changed between two scans), and
+// the notification when a scan ends.
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -14,14 +16,22 @@ namespace Kudunmap.Views
     /// <summary>All saved scans: open, compare, delete.</summary>
     public sealed class HistoryWindow : Window
     {
+        /// <summary>The main window, which opens scans and comparisons.</summary>
         private readonly MainWindow _main;
+        /// <summary>The list of past scans.</summary>
         private readonly ListBox _list = new ListBox().Styled("TableList");
+        /// <summary>How many scans are kept.</summary>
         private readonly TextBlock _count = Ui.Subtle(string.Empty, 12, false);
+        /// <summary>Opens the scan chosen.</summary>
         private readonly Button _open;
+        /// <summary>Compares the scan chosen with an earlier one.</summary>
         private readonly Button _compare;
+        /// <summary>Removes the scans chosen.</summary>
         private readonly Button _delete;
+        /// <summary>The widths of the list's columns.</summary>
         private static readonly GridLength[] Widths = { Ui.Px(170), Ui.Px(200), Ui.Star(), Ui.Px(260) };
 
+        /// <summary>Makes the History window.</summary>
         public HistoryWindow(MainWindow main)
         {
             _main = main;
@@ -72,8 +82,10 @@ namespace Kudunmap.Views
             Fill();
         }
 
+        /// <summary>The scan chosen in the list.</summary>
         private HistoryEntry Selected => (_list.SelectedItem as ListBoxItem)?.Tag as HistoryEntry;
 
+        /// <summary>Fills the list with every past scan, newest first.</summary>
         private void Fill()
         {
             _list.Items.Clear();
@@ -98,6 +110,7 @@ namespace Kudunmap.Views
             UpdateButtons();
         }
 
+        /// <summary>Turns the buttons on or off for what's chosen.</summary>
         private void UpdateButtons()
         {
             var has = Selected != null;
@@ -106,6 +119,7 @@ namespace Kudunmap.Views
             _compare.IsEnabled = has && _list.Items.Count > 1;
         }
 
+        /// <summary>Opens the scan chosen in the main window.</summary>
         private void OpenSelected()
         {
             var e = Selected;
@@ -113,6 +127,7 @@ namespace Kudunmap.Views
             _main.OpenHistory(e);
         }
 
+        /// <summary>Opens the Compare window for the scan chosen.</summary>
         private void CompareSelected()
         {
             var e = Selected;
@@ -120,6 +135,7 @@ namespace Kudunmap.Views
             _main.ShowCompare(e);
         }
 
+        /// <summary>Removes the scans chosen, after asking.</summary>
         private void DeleteSelected()
         {
             var e = Selected;
@@ -134,18 +150,30 @@ namespace Kudunmap.Views
     /// <summary>Shows what changed between two saved scans.</summary>
     public sealed class CompareWindow : Window
     {
+        /// <summary>The main window.</summary>
         private readonly MainWindow _main;
+        /// <summary>The older scan to compare.</summary>
         private readonly ComboBox _older = new ComboBox();
+        /// <summary>The newer scan to compare.</summary>
         private readonly ComboBox _newer = new ComboBox();
+        /// <summary>A line about the older scan.</summary>
         private readonly TextBlock _olderInfo = Ui.Subtle(string.Empty, 12, false);
+        /// <summary>A line about the newer scan.</summary>
         private readonly TextBlock _newerInfo = Ui.Subtle(string.Empty, 12, false);
+        /// <summary>The counts of each kind of change.</summary>
         private readonly UniformGrid _counts = new UniformGrid { Rows = 1 };
+        /// <summary>The list of changes.</summary>
         private readonly ListBox _list = new ListBox().Styled("TableList");
+        /// <summary>Also list the hosts that didn't change.</summary>
         private readonly CheckBox _showSame = new CheckBox { Content = "Show unchanged hosts" };
+        /// <summary>What's said when nothing changed.</summary>
         private readonly TextBlock _empty = Ui.Subtle(string.Empty, 13);
+        /// <summary>The changes found.</summary>
         private List<Change> _changes = new List<Change>();
+        /// <summary>The widths of the list's columns.</summary>
         private static readonly GridLength[] Widths = { Ui.Px(160), Ui.Px(140), Ui.Px(170), Ui.Star(), Ui.Px(120) };
 
+        /// <summary>Makes the Compare window with these scans to choose from, the newer one chosen.</summary>
         public CompareWindow(MainWindow main, List<HistoryEntry> entries, HistoryEntry newer)
         {
             _main = main;
@@ -214,6 +242,7 @@ namespace Kudunmap.Views
             Loaded += (s, e) => Run();
         }
 
+        /// <summary>Compares the two scans chosen and shows the changes.</summary>
         private void Run()
         {
             var older = _older.SelectedItem as HistoryEntry;
@@ -288,6 +317,7 @@ namespace Kudunmap.Views
             _empty.Visibility = _changes.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
         }
 
+        /// <summary>Saves the changes as a CSV file.</summary>
         private void Export()
         {
             if (_changes.Count == 0) return;
@@ -301,6 +331,7 @@ namespace Kudunmap.Views
     /// <summary>A Windows notification when a scan ends while KUDUNMAP isn't the active window.</summary>
     public static class Notifier
     {
+        /// <summary>Shows the notification (only when it's switched on and the window isn't the active one).</summary>
         public static void Show(Window owner, string title, string text)
         {
             if (!Settings.NotifyWhenDone || owner.IsActive) return;

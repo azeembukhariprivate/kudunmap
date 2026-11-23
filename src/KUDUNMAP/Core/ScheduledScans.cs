@@ -1,3 +1,4 @@
+// Scans that run by themselves: kept as JSON files, each with a Windows Task Scheduler task made from XML.
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Text;
 
 namespace Kudunmap.Core
 {
+    /// <summary>How often a scheduled scan runs.</summary>
     public enum ScanEvery { Hourly, Daily, Weekly }
 
     /// <summary>A scan that runs by itself (through Windows' Task Scheduler) and says when something changed.</summary>
@@ -32,6 +34,7 @@ namespace Kudunmap.Core
         [DataMember] public bool? WithAdmin { get; set; }
         public string File { get; set; }
 
+        /// <summary>The days of the week, for "Every Monday at 09:00".</summary>
         private static readonly string[] DayNames = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 
         public string When
@@ -48,15 +51,18 @@ namespace Kudunmap.Core
             }
         }
 
+        /// <summary>What it scans, in a few words (the file's name when the addresses are in a file).</summary>
         public string Targets => string.IsNullOrEmpty(Options?.TargetFile) ? Options?.Targets?.Trim() ?? string.Empty : Path.GetFileName(Options.TargetFile);
     }
 
     /// <summary>
     /// The scheduled scans: kept as JSON files in KUDUNMAP's folder, each with a Windows task that starts
-    /// "KUDUNMAP.exe --scheduled &lt;id&gt;" with administrator rights (asked for once, when the task is made).
+    /// "KUDUNMAP.exe --scheduled &lt;id&gt;": with administrator rights only when KUDUNMAP is installed for all users
+    /// (Windows asks once, when the task is made), else with the person's own rights.
     /// </summary>
     public static class ScheduledScans
     {
+        /// <summary>The start of every task's name, so KUDUNMAP's own tasks can be found.</summary>
         public const string Prefix = "KUDUNMAP - ";
 
         public static string Folder
@@ -69,6 +75,7 @@ namespace Kudunmap.Core
             }
         }
 
+        /// <summary>Every scheduled scan, from their files.</summary>
         public static List<ScheduledScan> List()
         {
             var list = new List<ScheduledScan>();
@@ -82,20 +89,24 @@ namespace Kudunmap.Core
             return list.OrderBy(s => s.Name, StringComparer.CurrentCultureIgnoreCase).ToList();
         }
 
+        /// <summary>The scheduled scan with this id, or null.</summary>
         public static ScheduledScan Find(string id) => List().FirstOrDefault(s => s.Id == id);
 
+        /// <summary>Saves a scheduled scan's file.</summary>
         public static void Save(ScheduledScan s)
         {
             s.File = Path.Combine(Folder, s.Id + ".json");
             Json.Write(s.File, s);
         }
 
+        /// <summary>Removes a scheduled scan's file.</summary>
         public static void Delete(ScheduledScan s)
         {
             var file = Path.Combine(Folder, s.Id + ".json");
             if (System.IO.File.Exists(file)) System.IO.File.Delete(file);
         }
 
+        /// <summary>The Windows task's name for a scheduled scan.</summary>
         public static string TaskName(ScheduledScan s) =>
             Prefix + AppPaths.SafeFileName(s.Name, 40) + " (" + s.Id.Substring(0, Math.Min(8, s.Id.Length)) + ")";
 
@@ -150,6 +161,7 @@ namespace Kudunmap.Core
                    "</Task>";
         }
 
+        /// <summary>Text made safe to put inside XML.</summary>
         private static string Escape(string text) => SecurityElement.Escape(text ?? string.Empty);
 
         /// <summary>
@@ -237,6 +249,7 @@ namespace Kudunmap.Core
         /// <summary>True when the scan's task is in Task Scheduler.</summary>
         public static bool TaskExists(ScheduledScan s) => SchTasks(false, "/Query", "/TN", TaskName(s)).Code == 0;
 
+        /// <summary>Removes a Windows task; true when it's gone.</summary>
         private static bool DeleteTask(string name)
         {
             if (SchTasks(false, "/Delete", "/TN", name, "/F").Code == 0) return true;
@@ -271,12 +284,17 @@ namespace Kudunmap.Core
             }
         }
 
+        /// <summary>The Windows user's name, as DOMAIN\name.</summary>
         private static string CurrentUser()
         {
             try { return System.Security.Principal.WindowsIdentity.GetCurrent().Name; }
             catch { return Environment.UserDomainName + "\\" + Environment.UserName; }
         }
 
+        /// <summary>
+        /// Runs Windows' schtasks with these arguments (asking for administrator rights when elevate); returns its exit
+        /// code and output.
+        /// </summary>
         private static (int Code, string Output) SchTasks(bool elevate, params string[] args)
         {
             try

@@ -1,3 +1,4 @@
+// The ready-made scans on the New scan screen (quick, ports, full...) and the names of Nmap's speeds.
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,8 +7,11 @@ namespace Kudunmap.Core
 {
     public sealed class Preset
     {
+        /// <summary>Its short name, used on the command line (--preset quick).</summary>
         public string Id { get; set; }
+        /// <summary>Its title on the screen.</summary>
         public string Title { get; set; }
+        /// <summary>What it does, in a sentence.</summary>
         public string Description { get; set; }
 
         /// <summary>A longer sentence shown above the options.</summary>
@@ -16,15 +20,19 @@ namespace Kudunmap.Core
         /// <summary>Name of the icon geometry in Styles.xaml.</summary>
         public string Icon { get; set; }
 
+        /// <summary>Makes its scan options.</summary>
         public Func<ScanOptions> Create { get; set; }
 
+        /// <summary>True when it needs administrator rights.</summary>
         public bool NeedsAdmin => Create().NeedsAdmin;
     }
 
     public static class Presets
     {
+        /// <summary>Nmap's six speeds, slowest first (-T0 to -T5).</summary>
         public static readonly string[] TimingNames = { "Paranoid", "Sneaky", "Polite", "Normal", "Fast", "Insane" };
 
+        /// <summary>What a speed means, in plain words.</summary>
         public static string TimingMeaning(int timing)
         {
             switch (timing)
@@ -38,6 +46,7 @@ namespace Kudunmap.Core
             }
         }
 
+        /// <summary>Every ready-made scan, in the order shown.</summary>
         public static readonly IReadOnlyList<Preset> All = new List<Preset>
         {
             new Preset
@@ -99,9 +108,11 @@ namespace Kudunmap.Core
             }
         };
 
+        /// <summary>The ready-made scan with this short name, or null.</summary>
         public static Preset Find(string id) =>
             All.FirstOrDefault(p => string.Equals(p.Id, id, StringComparison.OrdinalIgnoreCase));
 
+        /// <summary>The scan options of a ready-made scan.</summary>
         public static ScanOptions CreateOptions(Preset preset)
         {
             var o = preset.Create();
